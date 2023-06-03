@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NeedleFoundation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        registerProviderFactories()
         
         let navigationController = UINavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)

@@ -13,8 +13,7 @@ class AuthCoordinator: CoordinatorProtocol {
     var children: [CoordinatorProtocol] = []
     var navigationController: UINavigationController
     
-    // MARK: - ViewModels
-    private let loginViewModel = LoginViewModel()
+    private let componentFactory = ComponentFactory()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,9 +24,11 @@ class AuthCoordinator: CoordinatorProtocol {
     }
     
     func goToLoginScreen() {
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
-        loginViewModel.coordinator = self
-        navigationController.pushViewController(loginViewController, animated: true)
+        let loginComponent = componentFactory.getLoginComponent()
+        loginComponent.loginViewModel.coordinator = self
+        navigationController.pushViewController(
+            loginComponent.loginViewController, animated: true
+        )
     }
     
 }
