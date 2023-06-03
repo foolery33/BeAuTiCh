@@ -15,4 +15,7 @@ final class ComponentFactory {
         return mainComponent.loginComponent
     }
     
+    func getRegisterComponent() -> RegisterComponent {
+        return mainComponent.registerComponent
+    }
 }

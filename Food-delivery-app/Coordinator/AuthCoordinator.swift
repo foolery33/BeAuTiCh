@@ -20,14 +20,24 @@ class AuthCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToLoginScreen()
+        goToRegisterScreen()
     }
     
     func goToLoginScreen() {
         let loginComponent = componentFactory.getLoginComponent()
         loginComponent.loginViewModel.coordinator = self
+        
         navigationController.pushViewController(
             loginComponent.loginViewController, animated: true
+        )
+    }
+    
+    func goToRegisterScreen() {
+        let registerComponent = componentFactory.getRegisterComponent()
+        registerComponent.registerViewModel.coordinator = self
+        
+        navigationController.pushViewController(
+            registerComponent.registerViewController, animated: true
         )
     }
     
