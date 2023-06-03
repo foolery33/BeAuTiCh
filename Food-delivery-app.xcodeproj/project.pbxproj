@@ -22,6 +22,10 @@
 		8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF02A266BB400BCC43B /* MainComponent.swift */; };
 		8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF32A266C0100BCC43B /* LoginComponent.swift */; };
 		8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */; };
+		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
+		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
+		F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */; };
+		F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
+		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
+		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
 				8450B1082A261FE100273956 /* LoginScreen */,
 			);
 			path = Presentation;
@@ -168,6 +177,49 @@
 				90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F132A2B15DB00DBAD36 /* Component */,
+				F3AF7F122A2B15D700DBAD36 /* ViewModel */,
+				F3AF7F112A2B15D000DBAD36 /* ViewController */,
+				F3AF7F1B2A2B190000DBAD36 /* View */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		F3AF7F112A2B15D000DBAD36 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F3AF7F122A2B15D700DBAD36 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3AF7F132A2B15DB00DBAD36 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F3AF7F1B2A2B190000DBAD36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -322,8 +374,12 @@
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
+				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
+				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
+				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
+				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +520,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -492,6 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
