@@ -12,6 +12,32 @@ class RegisterView: UIView {
     
     //- MARK: Private properties
     
+    private enum Metrics {
+        static var welcomeLabelTextSize: CGFloat = 36
+        
+        static var inputFieldsStackSpacing: CGFloat = 20
+        
+        static var buttonsStackSpacing: CGFloat = 15
+        
+        static var registerButtonTextSize: CGFloat = 20
+        static var registerButtonCornerRadius: CGFloat = 25
+        static var registerButtonEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
+        
+        static var goToAuthScreenButtonTextsize: CGFloat = 20
+        
+        static var logoImageSize: CGFloat = 200
+        
+        static var welcomeLabelTopOffset: CGFloat = 35
+        static var welcomeLabelHorizontalInsets: CGFloat = 17
+        static var welcomeLabelHeight: CGFloat = 48
+        
+        static var inputFieldsStackTopOffset: CGFloat = 48
+        static var inputFieldsStackHorizontalInsets: CGFloat = 38
+        
+        static var buttonsStackHorizontalInsets: CGFloat = 46
+        static var buttonsStackBottomInsets: CGFloat = 29
+    }
+    
     private var backgroundImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "FirstBackground")
@@ -32,7 +58,7 @@ class RegisterView: UIView {
         view.text = "Добро пожаловать!"
         view.textColor = .white
         view.textAlignment = .center
-        view.font = UIFont(name: "RedHatDisplay-Black", size: 36)
+        view.font = UIFont(name: "RedHatDisplay-Black", size: Metrics.welcomeLabelTextSize)
         
         return view
     }()
@@ -40,7 +66,7 @@ class RegisterView: UIView {
     private var inputFieldsStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.spacing = 20
+        view.spacing = Metrics.inputFieldsStackSpacing
         
         return view
     }()
@@ -90,7 +116,7 @@ class RegisterView: UIView {
     private var buttonsStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.spacing = 15
+        view.spacing = Metrics.buttonsStackSpacing
         
         return view
     }()
@@ -100,10 +126,10 @@ class RegisterView: UIView {
         view.backgroundColor = .white
         view.setTitle("Зарегистрироваться", for: .normal)
         view.setTitleColor(.textButton, for: .normal)
-        view.titleLabel?.font = UIFont(name: "Raleway-Bold", size: 20)
-        view.layer.cornerRadius = 25
+        view.titleLabel?.font = UIFont(name: "Raleway-Bold", size: Metrics.registerButtonTextSize)
+        view.layer.cornerRadius = Metrics.registerButtonTextSize
         view.layer.masksToBounds = true
-        view.contentEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
+        view.contentEdgeInsets = Metrics.registerButtonEdgeInsets
         
         return view
     }()
@@ -112,7 +138,7 @@ class RegisterView: UIView {
         let view = UIButton()
         view.setTitle("У меня уже есть аккаунт", for: .normal)
         view.setTitleColor(.white, for: .normal)
-        view.titleLabel?.font = UIFont(name: "Raleway-Regular", size: 20)
+        view.titleLabel?.font = UIFont(name: "Raleway-Regular", size: Metrics.goToAuthScreenButtonTextsize)
         
         return view
     }()
@@ -177,23 +203,23 @@ private extension RegisterView {
         logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
-            make.size.equalTo(200)
+            make.size.equalTo(Metrics.logoImageSize)
         }
         
         welcomeLabel.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(35)
-            make.horizontalEdges.equalToSuperview().inset(17)
-            make.height.equalTo(48)
+            make.top.equalTo(logoImageView.snp.bottom).offset(Metrics.welcomeLabelTopOffset)
+            make.horizontalEdges.equalToSuperview().inset(Metrics.welcomeLabelHorizontalInsets)
+            make.height.equalTo(Metrics.welcomeLabelHeight)
         }
         
         inputFieldsStack.snp.makeConstraints { make in
-            make.top.equalTo(welcomeLabel.snp.bottom).offset(40)
-            make.horizontalEdges.equalToSuperview().inset(38)
+            make.top.equalTo(welcomeLabel.snp.bottom).offset(Metrics.inputFieldsStackTopOffset)
+            make.horizontalEdges.equalToSuperview().inset(Metrics.inputFieldsStackHorizontalInsets)
         }
         
         buttonsStack.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(46)
-            make.bottom.equalToSuperview().inset(29)
+            make.horizontalEdges.equalToSuperview().inset(Metrics.buttonsStackHorizontalInsets)
+            make.bottom.equalToSuperview().inset(Metrics.buttonsStackBottomInsets)
         }
     }
     
