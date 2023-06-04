@@ -13,11 +13,11 @@ class RegisterView: UIView {
     //- MARK: Private properties
     
     private enum Metrics {
-        static var welcomeLabelTextSize: CGFloat = 36
+        static var welcomeLabelTextSize: CGFloat = 32
         
-        static var inputFieldsStackSpacing: CGFloat = 20
+        static var inputFieldsStackSpacing: CGFloat = 15
         
-        static var buttonsStackSpacing: CGFloat = 15
+        static var buttonsStackSpacing: CGFloat = 10
         
         static var registerButtonTextSize: CGFloat = 20
         static var registerButtonCornerRadius: CGFloat = 25
@@ -25,13 +25,13 @@ class RegisterView: UIView {
         
         static var goToAuthScreenButtonTextsize: CGFloat = 20
         
-        static var logoImageSize: CGFloat = 200
+        static var logoImageSize: CGFloat = 20 * UIScreen.main.bounds.size.height / 100
         
-        static var welcomeLabelTopOffset: CGFloat = 35
+        static var welcomeLabelTopOffset: CGFloat = 5 * UIScreen.main.bounds.size.height / 100
         static var welcomeLabelHorizontalInsets: CGFloat = 17
         static var welcomeLabelHeight: CGFloat = 48
         
-        static var inputFieldsStackTopOffset: CGFloat = 48
+        static var inputFieldsStackTopOffset: CGFloat = 3 * UIScreen.main.bounds.size.height / 100
         static var inputFieldsStackHorizontalInsets: CGFloat = 38
         
         static var buttonsStackHorizontalInsets: CGFloat = 46
@@ -81,13 +81,6 @@ class RegisterView: UIView {
     private var firstNameTextField: CustomUITextField = {
         var view = CustomUITextField()
         view = view.getCustomAuthTextField(placeholder: "Введите имя*", isSecured: false)
-        
-        return view
-    }()
-    
-    private var patronymicTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Введите отчество", isSecured: false)
         
         return view
     }()
