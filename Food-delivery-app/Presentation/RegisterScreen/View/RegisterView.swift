@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RswiftResources
 import SnapKit
 
 class RegisterView: UIView {
@@ -40,7 +41,7 @@ class RegisterView: UIView {
     
     private var backgroundImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "FirstBackground")
+        view.image = R.image.firstBackground()
         view.contentMode = .scaleAspectFill
         
         return view
@@ -48,17 +49,18 @@ class RegisterView: UIView {
     
     private var logoImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "Logo")
+        view.image = R.image.logo()
         
         return view
     }()
     
     private var welcomeLabel: UILabel = {
         let view = UILabel()
-        view.text = "Добро пожаловать!"
+        view.text = R.string.registerScreen.greeting()
         view.textColor = .white
         view.textAlignment = .center
-        view.font = UIFont(name: "RedHatDisplay-Black", size: Metrics.welcomeLabelTextSize)
+        view.numberOfLines = .max
+        view.font = R.font.redHatDisplayBlack(size: Metrics.welcomeLabelTextSize)
         
         return view
     }()
@@ -73,35 +75,35 @@ class RegisterView: UIView {
     
     private var lastNameTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Введите фамилию*", isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_lastname(), isSecured: false)
         
         return view
     }()
     
     private var firstNameTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Введите имя*", isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_firstname(), isSecured: false)
         
         return view
     }()
     
     private var emailTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Введите email*", isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_email(), isSecured: false)
         
         return view
     }()
     
     private var passwordTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Введите пароль*", isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_password(), isSecured: false)
         
         return view
     }()
     
     private var confirmPasswordTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: "Повторите пароль*", isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_repeat_password(), isSecured: false)
         
         return view
     }()
@@ -117,9 +119,9 @@ class RegisterView: UIView {
     private var registerButton: UIButton = {
         let view = UIButton()
         view.backgroundColor = .white
-        view.setTitle("Зарегистрироваться", for: .normal)
-        view.setTitleColor(.textButton, for: .normal)
-        view.titleLabel?.font = UIFont(name: "Raleway-Bold", size: Metrics.registerButtonTextSize)
+        view.setTitle(R.string.registerScreen.register(), for: .normal)
+        view.setTitleColor(R.color.textButtonColor(), for: .normal)
+        view.titleLabel?.font = R.font.ralewayBold(size: Metrics.registerButtonTextSize)
         view.layer.cornerRadius = Metrics.registerButtonTextSize
         view.layer.masksToBounds = true
         view.contentEdgeInsets = Metrics.registerButtonEdgeInsets
@@ -129,9 +131,9 @@ class RegisterView: UIView {
     
     private var goToAuthScreenButton: UIButton = {
         let view = UIButton()
-        view.setTitle("У меня уже есть аккаунт", for: .normal)
+        view.setTitle(R.string.registerScreen.have_account(), for: .normal)
         view.setTitleColor(.white, for: .normal)
-        view.titleLabel?.font = UIFont(name: "Raleway-Regular", size: Metrics.goToAuthScreenButtonTextsize)
+        view.titleLabel?.font = R.font.ralewayRegular(size: Metrics.goToAuthScreenButtonTextsize)
         
         return view
     }()

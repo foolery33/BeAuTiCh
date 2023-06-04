@@ -39,12 +39,12 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         setupToHideKeyboardOnTapOnView()
-        handler()
+        setHandlers()
     }
 }
 
 private extension RegisterViewController {
-    func handler() {
+    func setHandlers() {
         ui.registerButtonHandler = { [weak self] in
             guard let self = self else { return }
         }

@@ -9,9 +9,18 @@ import UIKit
 
 class CustomUITextField: UITextField {
     
+    //- MARK: Private properties
+    
+    private enum Metrics {
+        static var paddingEdgeInsets = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
+        static var authTextFieldtextSize: CGFloat = 14
+        static var authTextFieldCornerRadius: CGFloat = 20
+    }
+    
+    
     //- MARK: Public properties
     
-    var padding = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
+    var padding = Metrics.paddingEdgeInsets
     
     
     //- MARK: Override methods
@@ -34,16 +43,16 @@ class CustomUITextField: UITextField {
     func getCustomAuthTextField(placeholder: String, isSecured: Bool) -> CustomUITextField {
         
         let view = CustomUITextField()
-        view.textColor = .authTextField
+        view.textColor = R.color.authTextFieldColor()
         view.textAlignment = .left
-        view.font = UIFont(name: "RedHatDisplay-Medium", size: 14)
+        view.font = R.font.redHatDisplayMedium(size: Metrics.authTextFieldtextSize)
         view.background = UIImage(named: "TextFieldBackground")
         
         view.isSecureTextEntry = isSecured
         
-        view.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.authPlaceholderTextField])
+        view.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : R.color.authPlaceholderTextFieldColor() ?? .black])
         
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = Metrics.authTextFieldCornerRadius
         
         return view
     }
