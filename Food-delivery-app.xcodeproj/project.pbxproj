@@ -32,6 +32,7 @@
 		F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */; };
 		F3AF7F2E2A2C549600DBAD36 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F2D2A2C549600DBAD36 /* UIColorExtension.swift */; };
 		F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */; };
+		F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		F3AF7F2D2A2C549600DBAD36 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				F3AF7F2D2A2C549600DBAD36 /* UIColorExtension.swift */,
+				F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */,
 			);
 			path = ViewExtension;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
+				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
 				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 			);
