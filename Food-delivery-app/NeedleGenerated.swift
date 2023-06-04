@@ -16,6 +16,17 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: RegisterComponentDependencyProtocol {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->RegisterComponent
+private func factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider()
+}
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
 
 
@@ -32,6 +43,11 @@ private func factory7d788d11c001389505f7e3b0c44298fc1c149afb(_ component: Needle
 extension MainComponent: Registration {
     public func registerItems() {
 
+
+    }
+}
+extension RegisterComponent: Registration {
+    public func registerItems() {
 
     }
 }
@@ -57,6 +73,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 
 @inline(never) private func register1() {
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif

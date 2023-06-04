@@ -9,7 +9,7 @@ import Foundation
 
 final class ComponentFactory {
     
-    private var mainComponent = MainComponent()
+    private let mainComponent = MainComponent()
     
     func getLoginComponent() -> LoginComponent {
         return mainComponent.loginComponent
