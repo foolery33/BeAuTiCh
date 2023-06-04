@@ -1,20 +1,24 @@
 PODS:
   - NeedleFoundation (0.17.2)
+  - R.swift (7.3.2)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - NeedleFoundation
+  - R.swift
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
     - NeedleFoundation
+    - R.swift
     - SnapKit
 
 SPEC CHECKSUMS:
   NeedleFoundation: 36cfaea9ae9eb527a796f5c1df19296c722666b8
+  R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 73cdc0823b7c08e80fe4fc75ca1eb397030cea4f
+PODFILE CHECKSUM: 2bda9c3f60c172ff73bd8631cc1c8359d3e14ff2
 
 COCOAPODS: 1.12.1

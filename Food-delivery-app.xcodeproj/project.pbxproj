@@ -22,6 +22,18 @@
 		8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF02A266BB400BCC43B /* MainComponent.swift */; };
 		8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF32A266C0100BCC43B /* LoginComponent.swift */; };
 		8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */; };
+		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
+		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
+		F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */; };
+		F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */; };
+		F3AF7F212A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F202A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf */; };
+		F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F222A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf */; };
+		F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F262A2B1F1D00DBAD36 /* Raleway-Regular.ttf */; };
+		F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */; };
+		F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */; };
+		F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */; };
+		F3AF7F3D2A2C7B4400DBAD36 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */; };
+		F3AF7F4D2A2C822B00DBAD36 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +56,19 @@
 		8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
+		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
+		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F3AF7F202A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Black.ttf"; sourceTree = "<group>"; };
+		F3AF7F222A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		F3AF7F262A2B1F1D00DBAD36 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
+		F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		F3AF7F3E2A2C7B4400DBAD36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		F3AF7F432A2C7E6600DBAD36 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +104,11 @@
 		8450B0E62A261D3800273956 /* Food-delivery-app */ = {
 			isa = PBXGroup;
 			children = (
+				F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */,
 				8450B1062A261FCC00273956 /* Presentation */,
 				8450B1012A261E4C00273956 /* Factories */,
 				8450B0FB2A261D8E00273956 /* Coordinator */,
+				F3AF7F1E2A2B1E1E00DBAD36 /* Resources */,
 				8450B0E72A261D3800273956 /* AppDelegate.swift */,
 				8450B0E92A261D3800273956 /* SceneDelegate.swift */,
 				8450B0F02A261D3900273956 /* Assets.xcassets */,
@@ -123,7 +150,9 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
 				8450B1082A261FE100273956 /* LoginScreen */,
+				F3AF7F2A2A2B21DA00DBAD36 /* ViewExtension */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -170,6 +199,94 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F132A2B15DB00DBAD36 /* Component */,
+				F3AF7F122A2B15D700DBAD36 /* ViewModel */,
+				F3AF7F112A2B15D000DBAD36 /* ViewController */,
+				F3AF7F1B2A2B190000DBAD36 /* View */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		F3AF7F112A2B15D000DBAD36 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F3AF7F122A2B15D700DBAD36 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3AF7F132A2B15DB00DBAD36 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F3AF7F1B2A2B190000DBAD36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F1C2A2B191500DBAD36 /* RegisterView.swift */,
+				F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3AF7F1E2A2B1E1E00DBAD36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F332A2C777E00DBAD36 /* Localization */,
+				F3AF7F1F2A2B1E2A00DBAD36 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3AF7F1F2A2B1E2A00DBAD36 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */,
+				F3AF7F262A2B1F1D00DBAD36 /* Raleway-Regular.ttf */,
+				F3AF7F222A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf */,
+				F3AF7F202A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F3AF7F2A2A2B21DA00DBAD36 /* ViewExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */,
+			);
+			path = ViewExtension;
+			sourceTree = "<group>";
+		};
+		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F342A2C779A00DBAD36 /* RegisterScreen */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		F3AF7F342A2C779A00DBAD36 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +304,7 @@
 			buildConfigurationList = 8450B0F82A261D3900273956 /* Build configuration list for PBXNativeTarget "Food-delivery-app" */;
 			buildPhases = (
 				914970DFBB39B111B7F811DB /* [CP] Check Pods Manifest.lock */,
+				F3AF7F492A2C814900DBAD36 /* Run Script */,
 				84D5A7B62A26698F00DC8551 /* Needle */,
 				8450B0E02A261D3800273956 /* Sources */,
 				8450B0E12A261D3800273956 /* Frameworks */,
@@ -224,6 +342,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 8450B0DB2A261D3800273956;
 			productRefGroup = 8450B0E52A261D3800273956 /* Products */;
@@ -240,7 +359,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */,
+				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
+				F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */,
+				F3AF7F212A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf in Resources */,
 				8450B0F42A261D3900273956 /* LaunchScreen.storyboard in Resources */,
+				F3AF7F3D2A2C7B4400DBAD36 /* RegisterScreen.strings in Resources */,
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +430,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F3AF7F492A2C814900DBAD36 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -317,13 +461,20 @@
 				8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */,
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
 				8450B1032A261E5B00273956 /* CoordinatorFactory.swift in Sources */,
+				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
+				F3AF7F4D2A2C822B00DBAD36 /* R.generated.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
+				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
+				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
+				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
+				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
+				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +490,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3AF7F3E2A2C7B4400DBAD36 /* en */,
+				F3AF7F432A2C7E6600DBAD36 /* ru */,
+			);
+			name = RegisterScreen.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -346,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -406,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -464,6 +626,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -492,6 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
