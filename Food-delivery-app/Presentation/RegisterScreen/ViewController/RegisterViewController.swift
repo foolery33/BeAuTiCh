@@ -9,8 +9,13 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    //- MARK: Private properties
+    
     private let viewModel: RegisterViewModel
     private let ui: RegisterView
+    
+    
+    //- MARK: Init
     
     init(viewModel: RegisterViewModel) {
         self.viewModel = viewModel
@@ -22,6 +27,9 @@ class RegisterViewController: UIViewController {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //- MARK: Life cycle
 
     override func loadView() {
         self.view = ui
@@ -30,6 +38,18 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        handler()
     }
+}
 
+private extension RegisterViewController {
+    func handler() {
+        ui.registerButtonHandler = { [weak self] in
+            guard let self = self else { return }
+        }
+        
+        ui.goToAuthButtonHandler = { [weak self] in
+            guard let self = self else { return }
+        }
+    }
 }

@@ -118,6 +118,12 @@ class RegisterView: UIView {
     }()
     
     
+    //- MARK: Public properties
+    
+    var registerButtonHandler: (() -> Void)?
+    var goToAuthButtonHandler: (() -> Void)?
+    
+    
     //- MARK: Init
     
     override init(frame: CGRect) {
@@ -141,6 +147,7 @@ private extension RegisterView {
     func setup() {
         configureUI()
         configureConstraints()
+        configureAction()
     }
     
     func configureUI() {
@@ -188,5 +195,23 @@ private extension RegisterView {
             make.horizontalEdges.equalToSuperview().inset(46)
             make.bottom.equalToSuperview().inset(29)
         }
+    }
+    
+    func configureAction() {
+        registerButton.addTarget(self, action: #selector(registerButtonPressed), for: .touchUpInside)
+        goToAuthScreenButton.addTarget(self, action: #selector(goToAuthScreenButtonPressed), for: .touchUpInside)
+    }
+    
+    
+    //- MARK: Actions
+    
+    @objc
+    func registerButtonPressed() {
+        registerButtonHandler?()
+    }
+    
+    @objc
+    func goToAuthScreenButtonPressed() {
+        goToAuthButtonHandler?()
     }
 }
