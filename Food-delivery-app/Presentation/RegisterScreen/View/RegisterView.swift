@@ -10,6 +10,8 @@ import SnapKit
 
 class RegisterView: UIView {
     
+    //- MARK: Private properties
+    
     private var backgroundImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "FirstBackground")
@@ -116,6 +118,8 @@ class RegisterView: UIView {
     }()
     
     
+    //- MARK: Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -127,7 +131,13 @@ class RegisterView: UIView {
     }
 }
 
+
+//- MARK: Private extension
+
 private extension RegisterView {
+    
+    //- MARK: Setup
+    
     func setup() {
         configureUI()
         configureConstraints()
