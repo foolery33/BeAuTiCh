@@ -1,16 +1,14 @@
 //
-//  RegisterView.swift
+//  LoginView.swift
 //  Food-delivery-app
 //
-//  Created by Елена on 03.06.2023.
+//  Created by Елена on 05.06.2023.
 //
 
 import UIKit
-import RswiftResources
-import SnapKit
 
-class RegisterView: UIView {
-    
+class LoginView: UIView {
+
     //- MARK: Private properties
     
     private enum Metrics {
@@ -20,11 +18,11 @@ class RegisterView: UIView {
         
         static var buttonsStackSpacing: CGFloat = 10
         
-        static var registerButtonTextSize: CGFloat = 20
-        static var registerButtonCornerRadius: CGFloat = 25
-        static var registerButtonEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
+        static var loginButtonTextSize: CGFloat = 20
+        static var loginButtonCornerRadius: CGFloat = 25
+        static var loginButtonEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
         
-        static var goToAuthScreenButtonTextsize: CGFloat = 20
+        static var goToRegisterScreenButtonTextsize: CGFloat = 20
         
         static var logoImageSize: CGFloat = 20 * UIScreen.main.bounds.size.height / 100
         
@@ -56,7 +54,7 @@ class RegisterView: UIView {
     
     private var welcomeLabel: UILabel = {
         let view = UILabel()
-        view.text = R.string.registerScreen.first_greeting()
+        view.text = R.string.loginScreen.repeat_greeting()
         view.textColor = .white
         view.textAlignment = .center
         view.numberOfLines = .max
@@ -73,37 +71,16 @@ class RegisterView: UIView {
         return view
     }()
     
-    private var lastNameTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_lastname(), isSecured: false)
-        
-        return view
-    }()
-    
-    private var firstNameTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_firstname(), isSecured: false)
-        
-        return view
-    }()
-    
     private var emailTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_email(), isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_email(), isSecured: false)
         
         return view
     }()
     
     private var passwordTextField: CustomUITextField = {
         var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_password(), isSecured: false)
-        
-        return view
-    }()
-    
-    private var confirmPasswordTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_repeat_password(), isSecured: false)
+        view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_password(), isSecured: true)
         
         return view
     }()
@@ -116,24 +93,24 @@ class RegisterView: UIView {
         return view
     }()
     
-    private var registerButton: UIButton = {
+    private var loginButton: UIButton = {
         let view = UIButton()
         view.backgroundColor = .white
-        view.setTitle(R.string.registerScreen.register(), for: .normal)
+        view.setTitle(R.string.loginScreen.login(), for: .normal)
         view.setTitleColor(R.color.textButtonColor(), for: .normal)
-        view.titleLabel?.font = R.font.ralewayBold(size: Metrics.registerButtonTextSize)
-        view.layer.cornerRadius = Metrics.registerButtonTextSize
+        view.titleLabel?.font = R.font.ralewayBold(size: Metrics.loginButtonTextSize)
+        view.layer.cornerRadius = Metrics.loginButtonCornerRadius
         view.layer.masksToBounds = true
-        view.contentEdgeInsets = Metrics.registerButtonEdgeInsets
+        view.contentEdgeInsets = Metrics.loginButtonEdgeInsets
         
         return view
     }()
     
-    private var goToAuthScreenButton: UIButton = {
+    private var goToRegisterScreenButton: UIButton = {
         let view = UIButton()
-        view.setTitle(R.string.registerScreen.have_account(), for: .normal)
+        view.setTitle(R.string.loginScreen.have_not_account(), for: .normal)
         view.setTitleColor(.white, for: .normal)
-        view.titleLabel?.font = R.font.ralewayRegular(size: Metrics.goToAuthScreenButtonTextsize)
+        view.titleLabel?.font = R.font.ralewayRegular(size: Metrics.goToRegisterScreenButtonTextsize)
         
         return view
     }()
@@ -141,8 +118,8 @@ class RegisterView: UIView {
     
     //- MARK: Public properties
     
-    var registerButtonHandler: (() -> Void)?
-    var goToAuthButtonHandler: (() -> Void)?
+    var loginButtonHandler: (() -> Void)?
+    var goToRegisterScreenButtonHandler: (() -> Void)?
     
     
     //- MARK: Init
@@ -156,12 +133,18 @@ class RegisterView: UIView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //- MARK: Public methods
+    func changePasswordVisibility() {
+        
+    }
 }
 
 
 //- MARK: Private extension
 
-private extension RegisterView {
+private extension LoginView {
     
     //- MARK: Setup
     
@@ -178,15 +161,11 @@ private extension RegisterView {
         self.addSubview(inputFieldsStack)
         self.addSubview(buttonsStack)
         
-        inputFieldsStack.addArrangedSubview(lastNameTextField)
-        inputFieldsStack.addArrangedSubview(firstNameTextField)
-        inputFieldsStack.addArrangedSubview(passwordTextField)
         inputFieldsStack.addArrangedSubview(emailTextField)
         inputFieldsStack.addArrangedSubview(passwordTextField)
-        inputFieldsStack.addArrangedSubview(confirmPasswordTextField)
         
-        buttonsStack.addArrangedSubview(registerButton)
-        buttonsStack.addArrangedSubview(goToAuthScreenButton)
+        buttonsStack.addArrangedSubview(loginButton)
+        buttonsStack.addArrangedSubview(goToRegisterScreenButton)
     }
     
     func configureConstraints() {
@@ -216,11 +195,15 @@ private extension RegisterView {
             make.horizontalEdges.equalToSuperview().inset(Metrics.buttonsStackHorizontalInsets)
             make.bottom.equalToSuperview().inset(Metrics.buttonsStackBottomInsets)
         }
+        
+        passwordTextField.snp.makeConstraints { make in
+            make.height.equalTo(47)
+        }
     }
     
     func configureAction() {
-        registerButton.addTarget(self, action: #selector(registerButtonPressed), for: .touchUpInside)
-        goToAuthScreenButton.addTarget(self, action: #selector(goToAuthScreenButtonPressed), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(registerButtonPressed), for: .touchUpInside)
+        goToRegisterScreenButton.addTarget(self, action: #selector(goToRegisterScreenButtonPressed), for: .touchUpInside)
     }
     
     
@@ -228,11 +211,11 @@ private extension RegisterView {
     
     @objc
     func registerButtonPressed() {
-        registerButtonHandler?()
+        loginButtonHandler?()
     }
     
     @objc
-    func goToAuthScreenButtonPressed() {
-        goToAuthButtonHandler?()
+    func goToRegisterScreenButtonPressed() {
+        goToRegisterScreenButtonHandler?()
     }
 }

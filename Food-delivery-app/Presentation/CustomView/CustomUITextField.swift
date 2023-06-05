@@ -46,14 +46,37 @@ class CustomUITextField: UITextField {
         view.textColor = R.color.authTextFieldColor()
         view.textAlignment = .left
         view.font = R.font.redHatDisplayMedium(size: Metrics.authTextFieldtextSize)
-        view.background = UIImage(named: "TextFieldBackground")
+        view.background = R.image.textFieldBackground()
         
         view.isSecureTextEntry = isSecured
         
         view.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : R.color.authPlaceholderTextFieldColor() ?? .black])
         
         view.layer.cornerRadius = Metrics.authTextFieldCornerRadius
+        view.layer.masksToBounds = true
+        
+        if isSecured {
+            view.textContentType = .password
+            
+            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 25))
+
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 24))
+            button.setImage(R.image.hidePassword(), for: .normal)
+            button.setImage(R.image.showPassword(), for: .selected)
+
+            paddingView.addSubview(button)
+            
+            view.rightView = paddingView
+            view.rightViewMode = .always
+        
+            button.addTarget(self, action: #selector(showHidePassword(_:)), for: .touchUpInside)
+        }
         
         return view
+    }
+    
+    @objc private func showHidePassword(_ sender: UIButton) {
+        sender.isSelected = sender.isSelected
+        self.isSecureTextEntry = sender.isSelected
     }
 }
