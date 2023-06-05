@@ -20,7 +20,7 @@ class AuthCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToRegisterScreen()
+        goToLoginScreen()
     }
     
     func goToLoginScreen() {

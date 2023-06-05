@@ -56,7 +56,7 @@ class RegisterView: UIView {
     
     private var welcomeLabel: UILabel = {
         let view = UILabel()
-        view.text = R.string.registerScreen.greeting()
+        view.text = R.string.registerScreen.first_greeting()
         view.textColor = .white
         view.textAlignment = .center
         view.numberOfLines = .max

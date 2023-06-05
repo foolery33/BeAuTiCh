@@ -6,7 +6,7 @@
   
 */
 
-"greeting" = "Welcome!";
+"first_greeting" = "Welcome!";
 "input_lastname" = "Enter your last name*";
 "input_firstname" = "Enter a name*";
 "input_email" = "Enter email*";

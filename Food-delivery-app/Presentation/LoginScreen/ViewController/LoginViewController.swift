@@ -10,9 +10,12 @@ import UIKit
 class LoginViewController: UIViewController {
 
     private let viewModel: LoginViewModel
+    private let ui: LoginView
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
+        self.ui = LoginView()
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -20,11 +23,26 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        self.view = ui
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        
+        setupKeyboardDismiss()
+        setHandlers()
     }
-
-
 }
 
+private extension LoginViewController {
+    func setHandlers() {
+        ui.loginButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+        }
+        
+        ui.goToRegisterScreenButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+        }
+    }
+}
