@@ -6,38 +6,39 @@
 //
 
 import UIKit
+import SnapKit
 
 class LoginView: UIView {
 
     //- MARK: Private properties
     
     private enum Metrics {
-        static var welcomeLabelTextSize: CGFloat = 32
+        static let welcomeLabelTextSize: CGFloat = 32
         
-        static var inputFieldsStackSpacing: CGFloat = 15
+        static let inputFieldsStackSpacing: CGFloat = 15
         
-        static var buttonsStackSpacing: CGFloat = 10
+        static let buttonsStackSpacing: CGFloat = 10
         
-        static var loginButtonTextSize: CGFloat = 20
-        static var loginButtonCornerRadius: CGFloat = 25
-        static var loginButtonEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
+        static let loginButtonTextSize: CGFloat = 20
+        static let loginButtonCornerRadius: CGFloat = 25
+        static let loginButtonEdgeInsets = UIEdgeInsets(top: 12, left: 35, bottom: 12, right: 35)
         
-        static var goToRegisterScreenButtonTextsize: CGFloat = 20
+        static let goToRegisterScreenButtonTextsize: CGFloat = 20
         
-        static var logoImageSize: CGFloat = 20 * UIScreen.main.bounds.size.height / 100
+        static let logoImageSize: CGFloat = 20 * UIScreen.main.bounds.size.height / 100
         
-        static var welcomeLabelTopOffset: CGFloat = 5 * UIScreen.main.bounds.size.height / 100
-        static var welcomeLabelHorizontalInsets: CGFloat = 17
-        static var welcomeLabelHeight: CGFloat = 48
+        static let welcomeLabelTopOffset: CGFloat = 5 * UIScreen.main.bounds.size.height / 100
+        static let welcomeLabelHorizontalInsets: CGFloat = 17
+        static let welcomeLabelHeight: CGFloat = 48
         
-        static var inputFieldsStackTopOffset: CGFloat = 3 * UIScreen.main.bounds.size.height / 100
-        static var inputFieldsStackHorizontalInsets: CGFloat = 38
+        static let inputFieldsStackTopOffset: CGFloat = 3 * UIScreen.main.bounds.size.height / 100
+        static let inputFieldsStackHorizontalInsets: CGFloat = 38
         
-        static var buttonsStackHorizontalInsets: CGFloat = 46
-        static var buttonsStackBottomInsets: CGFloat = 29
+        static let buttonsStackHorizontalInsets: CGFloat = 46
+        static let buttonsStackBottomInsets: CGFloat = 29
     }
     
-    private var backgroundImageView: UIImageView = {
+    private lazy var backgroundImageView: UIImageView = {
         let view = UIImageView()
         view.image = R.image.firstBackground()
         view.contentMode = .scaleAspectFill
@@ -45,14 +46,14 @@ class LoginView: UIView {
         return view
     }()
     
-    private var logoImageView: UIImageView = {
+    private lazy var logoImageView: UIImageView = {
         let view = UIImageView()
         view.image = R.image.logo()
         
         return view
     }()
     
-    private var welcomeLabel: UILabel = {
+    private lazy var welcomeLabel: UILabel = {
         let view = UILabel()
         view.text = R.string.loginScreen.repeat_greeting()
         view.textColor = .white
@@ -63,7 +64,7 @@ class LoginView: UIView {
         return view
     }()
     
-    private var inputFieldsStack: UIStackView = {
+    private lazy var inputFieldsStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = Metrics.inputFieldsStackSpacing
@@ -71,21 +72,21 @@ class LoginView: UIView {
         return view
     }()
     
-    private var emailTextField: CustomUITextField = {
+    private lazy var emailTextField: CustomUITextField = {
         var view = CustomUITextField()
         view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_email(), isSecured: false)
         
         return view
     }()
     
-    private var passwordTextField: CustomUITextField = {
+    private lazy var passwordTextField: CustomUITextField = {
         var view = CustomUITextField()
         view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_password(), isSecured: true)
         
         return view
     }()
     
-    private var buttonsStack: UIStackView = {
+    private lazy var buttonsStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = Metrics.buttonsStackSpacing
@@ -93,7 +94,7 @@ class LoginView: UIView {
         return view
     }()
     
-    private var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let view = UIButton()
         view.backgroundColor = .white
         view.setTitle(R.string.loginScreen.login(), for: .normal)
@@ -106,7 +107,7 @@ class LoginView: UIView {
         return view
     }()
     
-    private var goToRegisterScreenButton: UIButton = {
+    private lazy var goToRegisterScreenButton: UIButton = {
         let view = UIButton()
         view.setTitle(R.string.loginScreen.have_not_account(), for: .normal)
         view.setTitleColor(.white, for: .normal)

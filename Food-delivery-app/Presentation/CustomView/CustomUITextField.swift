@@ -12,9 +12,9 @@ class CustomUITextField: UITextField {
     //- MARK: Private properties
     
     private enum Metrics {
-        static var paddingEdgeInsets = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
-        static var authTextFieldtextSize: CGFloat = 14
-        static var authTextFieldCornerRadius: CGFloat = 20
+        static let paddingEdgeInsets = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
+        static let authTextFieldtextSize: CGFloat = 14
+        static let authTextFieldCornerRadius: CGFloat = 20
     }
     
     
