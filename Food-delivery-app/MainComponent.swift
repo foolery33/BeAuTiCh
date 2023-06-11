@@ -10,11 +10,55 @@ import NeedleFoundation
 
 final class MainComponent: BootstrapComponent {
     
+    // MARK: - UseCases
+    
+    var getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase {
+        shared {
+            GetDaysOfWeekForDateUseCase()
+        }
+    }
+    
+    var getWeekdayIndexForDateUseCase: GetWeekdayIndexForDateUseCase {
+        shared {
+            GetWeekdayIndexForDateUseCase()
+        }
+    }
+    
+    var getDayOfWeekByDateUseCase: GetDayOfWeekByDateUseCase {
+        shared {
+            GetDayOfWeekByDateUseCase()
+        }
+    }
+    
+    var getDayOfMonthByDateUseCase: GetDayOfMonthByDateUseCase {
+        shared {
+            GetDayOfMonthByDateUseCase()
+        }
+    }
+    
+    var getDateWithOffsetUseCase: GetDateWithOffsetUseCase {
+        shared {
+            GetDateWithOffsetUseCase()
+        }
+    }
+    
+    var isTodayUseCase: IsTodayUseCase {
+        shared {
+            IsTodayUseCase()
+        }
+    }
+    
     // MARK: - Components
     
     var loginComponent: LoginComponent {
         shared {
             LoginComponent(parent: self)
+        }
+    }
+    
+    var mainScreenComponent: MainScreenComponent {
+        shared {
+            MainScreenComponent(parent: self)
         }
     }
     

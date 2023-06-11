@@ -9,5 +9,6 @@ target 'Food-delivery-app' do
   # Pods for Food-delivery-app
   pod 'NeedleFoundation'
   pod 'SnapKit', '~> 5.6.0'
-
+  pod 'R.swift'
+  
 end

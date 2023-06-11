@@ -15,4 +15,8 @@ final class ComponentFactory {
         return mainComponent.loginComponent
     }
     
+    func getMainScreenComponent() -> MainScreenComponent {
+        return mainComponent.mainScreenComponent
+    }
+    
 }
