@@ -1,28 +1,36 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  Food-delivery-app
 //
-//  Created by Nikita Usov on 30.05.2023.
+//  Created by Елена on 03.06.2023.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
-    private let viewModel: LoginViewModel
-    private let ui: LoginView
+class RegisterViewController: UIViewController {
     
-    init(viewModel: LoginViewModel) {
+    //- MARK: Private properties
+    
+    private let viewModel: RegisterViewModel
+    private let ui: RegisterView
+    
+    
+    //- MARK: Init
+    
+    init(viewModel: RegisterViewModel) {
         self.viewModel = viewModel
-        self.ui = LoginView()
+        self.ui = RegisterView()
         
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    //- MARK: Life cycle
+
     override func loadView() {
         self.view = ui
     }
@@ -35,13 +43,13 @@ class LoginViewController: UIViewController {
     }
 }
 
-private extension LoginViewController {
+private extension RegisterViewController {
     func setHandlers() {
-        ui.loginButtonHandler = { [ weak self ] in
+        ui.registerButtonHandler = { [weak self] in
             guard let self = self else { return }
         }
         
-        ui.goToRegisterScreenButtonHandler = { [ weak self ] in
+        ui.goToAuthButtonHandler = { [weak self] in
             guard let self = self else { return }
         }
     }

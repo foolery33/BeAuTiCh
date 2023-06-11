@@ -1,0 +1,16 @@
+/* 
+  RegisterScreen (English).strings
+  Food-delivery-app
+
+  Created by Елена on 04.06.2023.
+  
+*/
+
+"first_greeting" = "Welcome!";
+"input_lastname" = "Enter your last name*";
+"input_firstname" = "Enter a name*";
+"input_email" = "Enter email*";
+"input_password" = "Enter the password*";
+"input_repeat_password" = "Repeat the password*";
+"register" = "Register";
+"have_account" = "I already have an account";

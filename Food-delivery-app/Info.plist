@@ -9,6 +9,8 @@
 		<string>RedHatDisplay-Medium.ttf</string>
 		<string>RedHatDisplay-Regular.ttf</string>
 		<string>RedHatDisplay-SemiBold.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
