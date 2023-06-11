@@ -174,7 +174,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 4 colors.
+  /// This `_R.color` struct is generated, and contains static references to 11 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -187,28 +187,6 @@ struct _R {
     /// Color `AuthTextFieldColor`.
     var authTextFieldColor: RswiftResources.ColorResource { .init(name: "AuthTextFieldColor", path: [], bundle: bundle) }
 
-    /// Color `TextButtonColor`.
-    var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
-  }
-
-  /// This `_R.image` struct is generated, and contains static references to 5 images.
-  struct image {
-    let bundle: Foundation.Bundle
-
-    /// Image `FirstBackground`.
-    var firstBackground: RswiftResources.ImageResource { .init(name: "FirstBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `HidePassword`.
-    var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `Logo`.
-    var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `ShowPassword`.
-    var showPassword: RswiftResources.ImageResource { .init(name: "ShowPassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `TextFieldBackground`.
-    var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
     /// Color `Black`.
     var black: RswiftResources.ColorResource { .init(name: "Black", path: [], bundle: bundle) }
 
@@ -221,17 +199,20 @@ struct _R {
     /// Color `DarkOrange`.
     var darkOrange: RswiftResources.ColorResource { .init(name: "DarkOrange", path: [], bundle: bundle) }
 
-    /// Color `SoftWhite`.
-    var softWhite: RswiftResources.ColorResource { .init(name: "SoftWhite", path: [], bundle: bundle) }
+    /// Color `TextButtonColor`.
+    var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
 
     /// Color `Vinous`.
     var vinous: RswiftResources.ColorResource { .init(name: "Vinous", path: [], bundle: bundle) }
 
     /// Color `White`.
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
+
+    /// Color `softWhite`.
+    var softWhite: RswiftResources.ColorResource { .init(name: "softWhite", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 13 images.
+  /// This `_R.image` struct is generated, and contains static references to 18 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -244,11 +225,20 @@ struct _R {
     /// Image `Filter`.
     var filter: RswiftResources.ImageResource { .init(name: "Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `FirstBackground`.
+    var firstBackground: RswiftResources.ImageResource { .init(name: "FirstBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `ForwardArrow`.
     var forwardArrow: RswiftResources.ImageResource { .init(name: "ForwardArrow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `HidePassword`.
+    var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `House`.
     var house: RswiftResources.ImageResource { .init(name: "House", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Logo`.
+    var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Person`.
     var person: RswiftResources.ImageResource { .init(name: "Person", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -273,6 +263,12 @@ struct _R {
 
     /// Image `Settings`.
     var settings: RswiftResources.ImageResource { .init(name: "Settings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ShowPassword`.
+    var showPassword: RswiftResources.ImageResource { .init(name: "ShowPassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `TextFieldBackground`.
+    var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
@@ -323,9 +319,15 @@ struct _R {
     }
   }
 
-  /// This `_R.font` struct is generated, and contains static references to 5 fonts.
+  /// This `_R.font` struct is generated, and contains static references to 7 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
+
+    /// Font `Raleway-Bold`.
+    var ralewayBold: RswiftResources.FontResource { .init(name: "Raleway-Bold", bundle: bundle, filename: "Raleway-Bold.ttf") }
+
+    /// Font `Raleway-Regular`.
+    var ralewayRegular: RswiftResources.FontResource { .init(name: "Raleway-Regular", bundle: bundle, filename: "Raleway-Regular.ttf") }
 
     /// Font `RedHatDisplay-Black`.
     var redHatDisplayBlack: RswiftResources.FontResource { .init(name: "RedHatDisplay-Black", bundle: bundle, filename: "RedHatDisplay-Black.ttf") }
@@ -342,13 +344,8 @@ struct _R {
     /// Font `RedHatDisplay-SemiBold`.
     var redHatDisplaySemiBold: RswiftResources.FontResource { .init(name: "RedHatDisplay-SemiBold", bundle: bundle, filename: "RedHatDisplay-SemiBold.ttf") }
 
-    /// Font `Raleway-Bold`.
-    var ralewayBold: RswiftResources.FontResource { .init(name: "Raleway-Bold", bundle: bundle, filename: "Raleway-Bold.ttf") }
-
-    /// Font `Raleway-Regular`.
-    var ralewayRegular: RswiftResources.FontResource { .init(name: "Raleway-Regular", bundle: bundle, filename: "Raleway-Regular.ttf") }
     func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
-      [redHatDisplayBlack, redHatDisplayBold, redHatDisplayMedium, redHatDisplayRegular, redHatDisplaySemiBold].makeIterator()
+      [ralewayBold, ralewayRegular, redHatDisplayBlack, redHatDisplayBold, redHatDisplayMedium, redHatDisplayRegular, redHatDisplaySemiBold].makeIterator()
     }
     func validate() throws {
       for font in self {
@@ -357,9 +354,15 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 5 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 7 resource files.
   struct file {
     let bundle: Foundation.Bundle
+
+    /// Resource file `Raleway-Bold.ttf`.
+    var ralewayBoldTtf: RswiftResources.FileResource { .init(name: "Raleway-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Raleway-Regular.ttf`.
+    var ralewayRegularTtf: RswiftResources.FileResource { .init(name: "Raleway-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `RedHatDisplay-Black.ttf`.
     var redHatDisplayBlackTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-Black", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
@@ -375,11 +378,6 @@ struct _R {
 
     /// Resource file `RedHatDisplay-SemiBold.ttf`.
     var redHatDisplaySemiBoldTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
-    /// Resource file `Raleway-Bold.ttf`.
-    var ralewayBoldTtf: RswiftResources.FileResource { .init(name: "Raleway-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
-    /// Resource file `Raleway-Regular.ttf`.
-
-    var ralewayRegularTtf: RswiftResources.FileResource { .init(name: "Raleway-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 1 storyboards.
