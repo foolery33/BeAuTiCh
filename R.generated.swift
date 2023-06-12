@@ -282,6 +282,9 @@ struct _R {
     /// Image `House`.
     var house: RswiftResources.ImageResource { .init(name: "House", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `LaunchScreen`.
+    var launchScreen: RswiftResources.ImageResource { .init(name: "LaunchScreen", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `Logo`.
     var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -446,7 +449,7 @@ struct _R {
 
       let name = "LaunchScreen"
       func validate() throws {
-
+        if UIKit.UIImage(named: "LaunchScreen", in: bundle, compatibleWith: nil) == nil { throw RswiftResources.ValidationError("[R.swift] Image named 'LaunchScreen' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
       }
     }
   }
