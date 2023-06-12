@@ -9,74 +9,92 @@ import UIKit
 
 class CustomUITextField: UITextField {
     
-    //- MARK: Private properties
+    private let isSecured: Bool
+    private let currentText: String
+    private let placeholderText: String
     
-    private enum Metrics {
-        static let paddingEdgeInsets = UIEdgeInsets(top: 13, left: 9, bottom: 13, right: 9)
-        static let authTextFieldtextSize: CGFloat = 14
-        static let authTextFieldCornerRadius: CGFloat = 20
+    private enum SystemImages {
+        static let eyeSlash = "eye.slash"
+        static let eye = "eye"
+    }
+    
+    private enum Paddings {
+        static let offset = 16.0
+        static let securedTextField = UIEdgeInsets(top: 13.0, left: 9.0, bottom: 13.0, right: 48.0)
+        static let textField = UIEdgeInsets(top: 13.0, left: 9.0, bottom: 13.0, right: 9.0)
+    }
+    
+    private enum Scales {
+        static let fontSize = 14.0
+        static let passwordEyeSize = 22.0
+        static let bottomLineHeight = 2.0
+        static let cornerRadius = 20.0
     }
     
     
-    //- MARK: Public properties
+    init(isSecured: Bool, currentText: String, placeholderText: String) {
+        self.isSecured = isSecured
+        self.currentText = currentText
+        self.placeholderText = placeholderText
+        super.init(frame: .zero)
+        setupTextField()
+    }
     
-    var padding = Metrics.paddingEdgeInsets
-    
-    
-    //- MARK: Override methods
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: padding)
+        return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
-    
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: padding)
+        return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
-    
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: padding)
+        return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
+    }
+    override open func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+        let offset = Paddings.offset
+        let width  = Int(Scales.passwordEyeSize)
+        let height = width
+        let x = Int(Int(bounds.width) - Int(width) - Int(offset))
+        let y = Int(bounds.height / 2 - Scales.passwordEyeSize / 2)
+        let rightViewBounds = CGRect(x: x, y: y, width: width, height: height)
+        return rightViewBounds
     }
     
-    
-    //- MARK: Public methods
-    
-    func getCustomAuthTextField(placeholder: String, isSecured: Bool) -> CustomUITextField {
+    private func setupTextField() {
+        textColor = R.color.authTextFieldColor()
+        autocapitalizationType = .none
+        font = R.font.redHatDisplayMedium(size: Scales.fontSize)
+        background = R.image.textFieldBackground()
         
-        let view = CustomUITextField()
-        view.textColor = R.color.authTextFieldColor()
-        view.textAlignment = .left
-        view.font = R.font.redHatDisplayMedium(size: Metrics.authTextFieldtextSize)
-        view.background = R.image.textFieldBackground()
+        isSecureTextEntry = isSecured
         
-        view.isSecureTextEntry = isSecured
+        attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor : R.color.authPlaceholderTextFieldColor() ?? .black])
         
-        view.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : R.color.authPlaceholderTextFieldColor() ?? .black])
-        
-        view.layer.cornerRadius = Metrics.authTextFieldCornerRadius
-        view.layer.masksToBounds = true
+        layer.cornerRadius = Scales.cornerRadius
+        layer.masksToBounds = true
         
         if isSecured {
-            view.textContentType = .password
-            
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 25))
-
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 24))
-            button.setImage(R.image.hidePassword(), for: .normal)
-            button.setImage(R.image.showPassword(), for: .selected)
-
-            paddingView.addSubview(button)
-            
-            view.rightView = paddingView
-            view.rightViewMode = .always
-        
-            button.addTarget(self, action: #selector(showHidePassword(_:)), for: .touchUpInside)
+            rightView = passwordEye
+            rightViewMode = .always
+            textContentType = .oneTimeCode
         }
-        
-        return view
     }
     
-    @objc private func showHidePassword(_ sender: UIButton) {
-        sender.isSelected = sender.isSelected
-        self.isSecureTextEntry = sender.isSelected
+    // MARK: - PasswordEye setup
+    private lazy var passwordEye: UIButton = {
+        let eye = UIButton(type: .custom)
+        eye.setImage(R.image.hidePassword()!.resizeImage(newWidth: Scales.passwordEyeSize, newHeight: Scales.passwordEyeSize), for: .normal)
+        eye.setImage(R.image.showPassword()!.resizeImage(newWidth: Scales.passwordEyeSize, newHeight: Scales.passwordEyeSize), for: .selected)
+        eye.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        return eye
+    }()
+    @objc
+    func togglePasswordVisibility(_ sender: UIButton) {
+        self.isSecureTextEntry.toggle()
+        sender.isSelected = !sender.isSelected
     }
+    
 }

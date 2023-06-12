@@ -50,6 +50,12 @@ final class MainComponent: BootstrapComponent {
     
     // MARK: - Components
     
+    var startComponent: StartComponent {
+        shared {
+            StartComponent(parent: self)
+        }
+    }
+    
     var loginComponent: LoginComponent {
         shared {
             LoginComponent(parent: self)

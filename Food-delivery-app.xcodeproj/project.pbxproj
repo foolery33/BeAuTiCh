@@ -40,6 +40,16 @@
 		84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */; };
 		84C975D62A333F3500BF489B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D52A333F3500BF489B /* MainViewController.swift */; };
 		84C975D82A3362D900BF489B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D72A3362D900BF489B /* NoteModel.swift */; };
+		84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE12A36D8F3008BF057 /* StartViewController.swift */; };
+		84D5FEE42A36D905008BF057 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE32A36D905008BF057 /* StartView.swift */; };
+		84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE52A36D929008BF057 /* StartViewModel.swift */; };
+		84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE72A36D946008BF057 /* StartComponent.swift */; };
+		84D5FEF52A36E922008BF057 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */; };
+		84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */; };
+		84D5FEF72A36E922008BF057 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEF22A36E922008BF057 /* LoginScreen.strings */; };
+		84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEFD2A36E996008BF057 /* StartScreen.strings */; };
+		84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEFF2A36F776008BF057 /* FilledButton.swift */; };
+		84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FF012A37011A008BF057 /* UIImageExtension.swift */; };
 		84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9374A2A323AC400CC1A36 /* MainPageViewController.swift */; };
 		84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */; };
 		84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */; };
@@ -98,6 +108,19 @@
 		84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateWithOffsetUseCase.swift; sourceTree = "<group>"; };
 		84C975D52A333F3500BF489B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		84C975D72A3362D900BF489B /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		84D5FEE12A36D8F3008BF057 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		84D5FEE32A36D905008BF057 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		84D5FEE52A36D929008BF057 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		84D5FEE72A36D946008BF057 /* StartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartComponent.swift; sourceTree = "<group>"; };
+		84D5FEED2A36E922008BF057 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		84D5FEEF2A36E922008BF057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/RegisterScreen (Russian).strings"; sourceTree = "<group>"; };
+		84D5FEF02A36E922008BF057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		84D5FEF32A36E922008BF057 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		84D5FEF42A36E922008BF057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		84D5FEFC2A36E996008BF057 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StartScreen.strings; sourceTree = "<group>"; };
+		84D5FEFE2A36E999008BF057 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/StartScreen.strings; sourceTree = "<group>"; };
+		84D5FEFF2A36F776008BF057 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
+		84D5FF012A37011A008BF057 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		84D9374A2A323AC400CC1A36 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -185,6 +208,7 @@
 		84283B7E2A2C967700CA911D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84D5FEEA2A36E922008BF057 /* Localization */,
 				84283B7F2A2C967D00CA911D /* Fonts */,
 			);
 			path = Resources;
@@ -282,6 +306,7 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				84D5FEDC2A36D897008BF057 /* StartScreen */,
 				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
 				84283B682A2C7E0E00CA911D /* MainScreen */,
 				8450B1082A261FE100273956 /* LoginScreen */,
@@ -362,6 +387,85 @@
 				84C975D52A333F3500BF489B /* MainViewController.swift */,
 			);
 			path = StaticPart;
+			sourceTree = "<group>";
+		};
+		84D5FEDC2A36D897008BF057 /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEE02A36D8C2008BF057 /* Component */,
+				84D5FEDF2A36D8BB008BF057 /* ViewModel */,
+				84D5FEDE2A36D8B6008BF057 /* ViewController */,
+				84D5FEDD2A36D8B1008BF057 /* View */,
+			);
+			path = StartScreen;
+			sourceTree = "<group>";
+		};
+		84D5FEDD2A36D8B1008BF057 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEE32A36D905008BF057 /* StartView.swift */,
+				84D5FEFF2A36F776008BF057 /* FilledButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84D5FEDE2A36D8B6008BF057 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEE12A36D8F3008BF057 /* StartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84D5FEDF2A36D8BB008BF057 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEE52A36D929008BF057 /* StartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84D5FEE02A36D8C2008BF057 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEE72A36D946008BF057 /* StartComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		84D5FEEA2A36E922008BF057 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEEB2A36E922008BF057 /* RegisterScreen */,
+				84D5FEF12A36E922008BF057 /* LoginScreen */,
+				84D5FEF82A36E93C008BF057 /* StartScreen */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		84D5FEEB2A36E922008BF057 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */,
+				84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */,
+			);
+			path = RegisterScreen;
+			sourceTree = "<group>";
+		};
+		84D5FEF12A36E922008BF057 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEF22A36E922008BF057 /* LoginScreen.strings */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		84D5FEF82A36E93C008BF057 /* StartScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84D5FEFD2A36E996008BF057 /* StartScreen.strings */,
+			);
+			path = StartScreen;
 			sourceTree = "<group>";
 		};
 		84D9D40D2A35DC0200A8D333 /* TabBarController */ = {
@@ -479,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */,
+				84D5FF012A37011A008BF057 /* UIImageExtension.swift */,
 			);
 			path = ViewExtension;
 			sourceTree = "<group>";
@@ -572,16 +677,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */,
 				F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */,
 				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
 				F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */,
+				84D5FEF52A36E922008BF057 /* RegisterScreen.strings in Resources */,
 				F3AF7F212A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf in Resources */,
 				F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */,
 				8450B0F42A261D3900273956 /* LaunchScreen.storyboard in Resources */,
 				F3AF7F3D2A2C7B4400DBAD36 /* RegisterScreen.strings in Resources */,
 				84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */,
 				84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */,
+				84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */,
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
+				84D5FEF72A36E922008BF057 /* LoginScreen.strings in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,6 +790,7 @@
 				8450B1032A261E5B00273956 /* CoordinatorFactory.swift in Sources */,
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
+				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				F3AF7F4D2A2C822B00DBAD36 /* R.generated.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
 				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
@@ -692,13 +802,18 @@
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
 				84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */,
+				84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
 				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
+				84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */,
 				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */,
+				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
 				84283B752A2C810900CA911D /* R.generated.swift in Sources */,
+				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
+				84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
 				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
@@ -725,6 +840,41 @@
 				8450B0F32A261D3900273956 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84D5FEED2A36E922008BF057 /* en */,
+				84D5FEF02A36E922008BF057 /* ru */,
+			);
+			name = RegisterScreen.strings;
+			sourceTree = "<group>";
+		};
+		84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84D5FEEF2A36E922008BF057 /* ru */,
+			);
+			name = "RegisterScreen (Russian).strings";
+			sourceTree = "<group>";
+		};
+		84D5FEF22A36E922008BF057 /* LoginScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84D5FEF32A36E922008BF057 /* en */,
+				84D5FEF42A36E922008BF057 /* ru */,
+			);
+			name = LoginScreen.strings;
+			sourceTree = "<group>";
+		};
+		84D5FEFD2A36E996008BF057 /* StartScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84D5FEFC2A36E996008BF057 /* en */,
+				84D5FEFE2A36E999008BF057 /* ru */,
+			);
+			name = StartScreen.strings;
 			sourceTree = "<group>";
 		};
 		F311EF2F2A2DD83600637151 /* LoginScreen.strings */ = {
@@ -872,7 +1022,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
+				DEVELOPMENT_TEAM = H29F6RLPN8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -904,7 +1054,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
+				DEVELOPMENT_TEAM = H29F6RLPN8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

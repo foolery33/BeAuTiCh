@@ -20,8 +20,12 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-//        goToAuth()
-        goToMain()
+        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
+            goToAuth()
+        }
+        else {
+            goToMain()
+        }
     }
     
     func goToAuth() {
@@ -32,7 +36,6 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func goToMain() {
-        
         let mainCoordinator = coordinatorFactory.createMainTabBarCoordinator(navigationController: navigationController)
         mainCoordinator.parentCoordinator = self
         children.append(mainCoordinator)
