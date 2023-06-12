@@ -73,42 +73,32 @@ class RegisterView: UIView {
         return view
     }()
     
-    private var lastNameTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_lastname(), isSecured: false)
-        
+    private lazy var lastNameTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_lastname())
         return view
     }()
     
-    private var firstNameTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_firstname(), isSecured: false)
-        
+    private lazy var firstNameTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_firstname())
         return view
     }()
     
-    private var emailTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_email(), isSecured: false)
-        
+    private lazy var emailTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_email())
         return view
     }()
     
-    private var passwordTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_password(), isSecured: false)
-        
+    private lazy var passwordTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.registerScreen.input_password())
         return view
     }()
     
-    private var confirmPasswordTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.registerScreen.input_repeat_password(), isSecured: false)
-        
+    private lazy var confirmPasswordTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.registerScreen.input_repeat_password())
         return view
     }()
     
-    private var buttonsStack: UIStackView = {
+    private lazy var buttonsStack: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = Metrics.buttonsStackSpacing
@@ -116,7 +106,7 @@ class RegisterView: UIView {
         return view
     }()
     
-    private var registerButton: UIButton = {
+    private lazy var registerButton: UIButton = {
         let view = UIButton()
         view.backgroundColor = .white
         view.setTitle(R.string.registerScreen.register(), for: .normal)
@@ -129,7 +119,7 @@ class RegisterView: UIView {
         return view
     }()
     
-    private var goToAuthScreenButton: UIButton = {
+    private lazy var goToAuthScreenButton: UIButton = {
         let view = UIButton()
         view.setTitle(R.string.registerScreen.have_account(), for: .normal)
         view.setTitleColor(.white, for: .normal)

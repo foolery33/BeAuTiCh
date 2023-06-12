@@ -11,6 +11,10 @@ final class ComponentFactory {
     
     private let mainComponent = MainComponent()
     
+    func getStartComponent() -> StartComponent {
+        return mainComponent.startComponent
+    }
+    
     func getLoginComponent() -> LoginComponent {
         return mainComponent.loginComponent
     }

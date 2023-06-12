@@ -73,16 +73,12 @@ class LoginView: UIView {
     }()
     
     private lazy var emailTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_email(), isSecured: false)
-        
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.loginScreen.input_email())
         return view
     }()
     
     private lazy var passwordTextField: CustomUITextField = {
-        var view = CustomUITextField()
-        view = view.getCustomAuthTextField(placeholder: R.string.loginScreen.input_password(), isSecured: true)
-        
+        let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.loginScreen.input_password())
         return view
     }()
     
@@ -134,12 +130,7 @@ class LoginView: UIView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    //- MARK: Public methods
-    func changePasswordVisibility() {
-        
-    }
+
 }
 
 

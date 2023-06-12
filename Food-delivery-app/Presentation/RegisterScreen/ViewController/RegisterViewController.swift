@@ -46,11 +46,11 @@ class RegisterViewController: UIViewController {
 private extension RegisterViewController {
     func setHandlers() {
         ui.registerButtonHandler = { [weak self] in
-            guard let self = self else { return }
+            guard self != nil else { return }
         }
         
         ui.goToAuthButtonHandler = { [weak self] in
-            guard let self = self else { return }
+            guard self != nil else { return }
         }
     }
 }

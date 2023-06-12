@@ -56,19 +56,27 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 4 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
     var loginScreen: loginScreen { .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreen: registerScreen { .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+    var registerScreenRussian: registerScreenRussian { .init(source: .init(bundle: bundle, tableName: "RegisterScreen (Russian)", preferredLanguages: preferredLanguages, locale: locale)) }
+    var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
     func loginScreen(preferredLanguages: [String]) -> loginScreen {
       .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func registerScreen(preferredLanguages: [String]) -> registerScreen {
       .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func registerScreenRussian(preferredLanguages: [String]) -> registerScreenRussian {
+      .init(source: .init(bundle: bundle, tableName: "RegisterScreen (Russian)", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func startScreen(preferredLanguages: [String]) -> startScreen {
+      .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
 
 
@@ -80,35 +88,35 @@ struct _R {
       ///
       /// Key: have_not_account
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var have_not_account: RswiftResources.StringResource { .init(key: "have_not_account", tableName: "LoginScreen", source: source, developmentValue: "Register", comment: nil) }
 
       /// en translation: Enter email
       ///
       /// Key: input_email
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_email: RswiftResources.StringResource { .init(key: "input_email", tableName: "LoginScreen", source: source, developmentValue: "Enter email", comment: nil) }
 
       /// en translation: Enter the password
       ///
       /// Key: input_password
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_password: RswiftResources.StringResource { .init(key: "input_password", tableName: "LoginScreen", source: source, developmentValue: "Enter the password", comment: nil) }
 
       /// en translation: Log in
       ///
       /// Key: login
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var login: RswiftResources.StringResource { .init(key: "login", tableName: "LoginScreen", source: source, developmentValue: "Log in", comment: nil) }
 
       /// en translation: Welcome back!
       ///
       /// Key: repeat_greeting
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
@@ -120,57 +128,88 @@ struct _R {
       ///
       /// Key: first_greeting
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var first_greeting: RswiftResources.StringResource { .init(key: "first_greeting", tableName: "RegisterScreen", source: source, developmentValue: "Welcome!", comment: nil) }
 
       /// en translation: I already have an account
       ///
       /// Key: have_account
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var have_account: RswiftResources.StringResource { .init(key: "have_account", tableName: "RegisterScreen", source: source, developmentValue: "I already have an account", comment: nil) }
 
       /// en translation: Enter email*
       ///
       /// Key: input_email
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_email: RswiftResources.StringResource { .init(key: "input_email", tableName: "RegisterScreen", source: source, developmentValue: "Enter email*", comment: nil) }
 
       /// en translation: Enter a name*
       ///
       /// Key: input_firstname
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_firstname: RswiftResources.StringResource { .init(key: "input_firstname", tableName: "RegisterScreen", source: source, developmentValue: "Enter a name*", comment: nil) }
 
       /// en translation: Enter your last name*
       ///
       /// Key: input_lastname
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_lastname: RswiftResources.StringResource { .init(key: "input_lastname", tableName: "RegisterScreen", source: source, developmentValue: "Enter your last name*", comment: nil) }
 
       /// en translation: Enter the password*
       ///
       /// Key: input_password
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_password: RswiftResources.StringResource { .init(key: "input_password", tableName: "RegisterScreen", source: source, developmentValue: "Enter the password*", comment: nil) }
 
       /// en translation: Repeat the password*
       ///
       /// Key: input_repeat_password
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var input_repeat_password: RswiftResources.StringResource { .init(key: "input_repeat_password", tableName: "RegisterScreen", source: source, developmentValue: "Repeat the password*", comment: nil) }
 
       /// en translation: Register
       ///
       /// Key: register
       ///
-      /// Locales: en, ru
+      /// Locales: en, ru, en, ru
       var register: RswiftResources.StringResource { .init(key: "register", tableName: "RegisterScreen", source: source, developmentValue: "Register", comment: nil) }
+    }
+
+    /// This `_R.string.registerScreenRussian` struct is generated, and contains static references to 1 localization keys.
+    struct registerScreenRussian {
+      let source: RswiftResources.StringResource.Source
+
+      /// ru translation: Добро пожаловать!
+      ///
+      /// Key: Greeting
+      ///
+      /// Locales: ru
+      var greeting: RswiftResources.StringResource { .init(key: "Greeting", tableName: "RegisterScreen (Russian)", source: source, developmentValue: nil, comment: nil) }
+    }
+
+    /// This `_R.string.startScreen` struct is generated, and contains static references to 2 localization keys.
+    struct startScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Go for it
+      ///
+      /// Key: go
+      ///
+      /// Locales: en, ru
+      var go: RswiftResources.StringResource { .init(key: "go", tableName: "StartScreen", source: source, developmentValue: "Go for it", comment: nil) }
+
+      /// en translation: Plan your workday with comfort
+      ///
+      /// Key: greeting_phrase
+      ///
+      /// Locales: en, ru
+      var greeting_phrase: RswiftResources.StringResource { .init(key: "greeting_phrase", tableName: "StartScreen", source: source, developmentValue: "Plan your workday with comfort", comment: nil) }
     }
   }
 
@@ -199,6 +238,9 @@ struct _R {
     /// Color `DarkOrange`.
     var darkOrange: RswiftResources.ColorResource { .init(name: "DarkOrange", path: [], bundle: bundle) }
 
+    /// Color `SoftWhite`.
+    var softWhite: RswiftResources.ColorResource { .init(name: "SoftWhite", path: [], bundle: bundle) }
+
     /// Color `TextButtonColor`.
     var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
 
@@ -207,17 +249,17 @@ struct _R {
 
     /// Color `White`.
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
-
-    /// Color `softWhite`.
-    var softWhite: RswiftResources.ColorResource { .init(name: "softWhite", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 19 images.
+  /// This `_R.image` struct is generated, and contains static references to 20 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `BackArrow`.
     var backArrow: RswiftResources.ImageResource { .init(name: "BackArrow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Background1`.
+    var background1: RswiftResources.ImageResource { .init(name: "Background1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Background2`.
     var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -230,6 +272,9 @@ struct _R {
 
     /// Image `ForwardArrow`.
     var forwardArrow: RswiftResources.ImageResource { .init(name: "ForwardArrow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `GreetingImage`.
+    var greetingImage: RswiftResources.ImageResource { .init(name: "GreetingImage", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `HidePassword`.
     var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -270,8 +315,8 @@ struct _R {
     /// Image `ShowPassword`.
     var showPassword: RswiftResources.ImageResource { .init(name: "ShowPassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `TextFieldBackground`.
-    var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `textFieldBackground`.
+    var textFieldBackground: RswiftResources.ImageResource { .init(name: "textFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.

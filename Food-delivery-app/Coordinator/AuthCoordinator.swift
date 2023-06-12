@@ -20,7 +20,22 @@ class AuthCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToLoginScreen()
+        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
+            goToStartScreen()
+            UserDefaults.standard.set(true, forKey: "wasLaunched")
+        }
+        else {
+            goToLoginScreen()
+        }
+    }
+    
+    func goToStartScreen() {
+        let startComponent = componentFactory.getStartComponent()
+        startComponent.startViewModel.coordinator = self
+        
+        navigationController.pushViewController(
+            startComponent.startViewController, animated: true
+        )
     }
     
     func goToLoginScreen() {
