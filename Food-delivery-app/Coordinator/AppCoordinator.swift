@@ -20,12 +20,13 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
-            goToAuth()
-        }
-        else {
-            goToMain()
-        }
+        goToMain()
+//        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
+//            goToAuth()
+//        }
+//        else {
+//            goToMain()
+//        }
     }
     
     func goToAuth() {
@@ -41,5 +42,4 @@ final class AppCoordinator: CoordinatorProtocol {
         children.append(mainCoordinator)
         mainCoordinator.start()
     }
-    
 }

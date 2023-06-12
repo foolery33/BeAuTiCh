@@ -67,10 +67,16 @@ final class MainComponent: BootstrapComponent {
             RegisterComponent(parent: self)
         }
     }
+    
     var mainScreenComponent: MainScreenComponent {
         shared {
             MainScreenComponent(parent: self)
         }
     }
     
+    var profileComponent: ProfileComponent {
+        shared {
+            ProfileComponent(parent: self)
+        }
+    }
 }

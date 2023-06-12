@@ -59,6 +59,7 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
 //
 //        let profileItem = UITabBarItem()
 //        profileItem.image = R.image.person()
+//        profileItem.selectedImage = R.image.selectedHouse()
 //        profileNavigationController.tabBarItem = profileItem
 
         // MARK: - SettingsScreen

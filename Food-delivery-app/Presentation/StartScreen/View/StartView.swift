@@ -33,6 +33,7 @@ final class StartView: UIView {
         myImageView.contentMode = .scaleAspectFill
         return myImageView
     }()
+    
     private func setupBackgroundImage() {
         addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
@@ -46,6 +47,7 @@ final class StartView: UIView {
         myImageView.image = R.image.greetingImage()
         return myImageView
     }()
+    
     private func setupGreetingContentImage() {
         addSubview(greetingContentImage)
         greetingContentImage.snp.makeConstraints { make in
@@ -54,11 +56,13 @@ final class StartView: UIView {
     }
     
     // MARK: - GoButton setup
+    
     private lazy var goButton: FilledButton = {
         let myButton = FilledButton(labelText: R.string.startScreen.go())
         myButton.addTarget(self, action: #selector(onGoButtonTapped), for: .touchUpInside)
         return myButton
     }()
+    
     private func setupGoButton() {
         addSubview(goButton)
         goButton.snp.makeConstraints { make in
@@ -66,6 +70,7 @@ final class StartView: UIView {
             make.horizontalEdges.equalToSuperview().inset(100)
         }
     }
+    
     @objc func onGoButtonTapped() {
         (onLoginButtonTapped ?? {})()
     }

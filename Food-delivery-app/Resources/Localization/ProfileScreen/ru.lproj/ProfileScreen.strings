@@ -1,0 +1,13 @@
+/* 
+  ProfileScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 13.06.2023.
+  
+*/
+
+"log_out" = "Выйти";
+"change_photo" = "Сменить фото";
+"phone" = "Телефон: ";
+"email" = "Email: ";
+"change_password" = "Сменить пароль";

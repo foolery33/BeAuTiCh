@@ -56,6 +56,13 @@
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F311EF2F2A2DD83600637151 /* LoginScreen.strings */; };
+		F34544922A3789FF000CB041 /* ProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34544912A3789FF000CB041 /* ProfileComponent.swift */; };
+		F34544942A378A04000CB041 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34544932A378A04000CB041 /* ProfileViewModel.swift */; };
+		F34544962A378A0E000CB041 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34544952A378A0E000CB041 /* ProfileViewController.swift */; };
+		F34544982A378A1C000CB041 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34544972A378A1C000CB041 /* ProfileView.swift */; };
+		F37686D02A378BFB0006E566 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37686CF2A378BFB0006E566 /* ProfileCoordinator.swift */; };
+		F37686D42A3791630006E566 /* ProfileScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F37686D62A3791630006E566 /* ProfileScreen.strings */; };
+		F37686DA2A37A2440006E566 /* ProfileTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37686D92A37A2440006E566 /* ProfileTabBarController.swift */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
 		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
 		F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */; };
@@ -130,6 +137,14 @@
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F311EF2E2A2DD83600637151 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		F311EF302A2DD83700637151 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		F34544912A3789FF000CB041 /* ProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileComponent.swift; path = ../../../../../../../../ProfileComponent.swift; sourceTree = "<group>"; };
+		F34544932A378A04000CB041 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ../../../../../../../../ProfileViewModel.swift; sourceTree = "<group>"; };
+		F34544952A378A0E000CB041 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../../../../../../../../ProfileViewController.swift; sourceTree = "<group>"; };
+		F34544972A378A1C000CB041 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = ../../../../../../../../ProfileView.swift; sourceTree = "<group>"; };
+		F37686CF2A378BFB0006E566 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		F37686D52A3791630006E566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
+		F37686D72A3791670006E566 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
+		F37686D92A37A2440006E566 /* ProfileTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabBarController.swift; sourceTree = "<group>"; };
 		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
 		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +297,7 @@
 				8450B1042A261FA900273956 /* AuthCoordinator.swift */,
 				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
 				84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */,
+				F37686CF2A378BFB0006E566 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F345448C2A378993000CB041 /* ProfileScreen */,
 				84D5FEDC2A36D897008BF057 /* StartScreen */,
 				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
 				84283B682A2C7E0E00CA911D /* MainScreen */,
@@ -516,6 +533,66 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		F345448C2A378993000CB041 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F37686D82A37A22C0006E566 /* TabBarController */,
+				F345448D2A3789D9000CB041 /* Component */,
+				F34544902A3789F2000CB041 /* ViewModel */,
+				F345448F2A3789E6000CB041 /* ViewController */,
+				F345448E2A3789E1000CB041 /* View */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F345448D2A3789D9000CB041 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F34544912A3789FF000CB041 /* ProfileComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F345448E2A3789E1000CB041 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F34544972A378A1C000CB041 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F345448F2A3789E6000CB041 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F34544952A378A0E000CB041 /* ProfileViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F34544902A3789F2000CB041 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F34544932A378A04000CB041 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F37686D12A37914F0006E566 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F37686D62A3791630006E566 /* ProfileScreen.strings */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F37686D82A37A22C0006E566 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				F37686D92A37A2440006E566 /* ProfileTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +668,7 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F37686D12A37914F0006E566 /* ProfileScreen */,
 				F311EF2A2A2DD81600637151 /* LoginScreen */,
 				F3AF7F342A2C779A00DBAD36 /* RegisterScreen */,
 			);
@@ -691,6 +769,7 @@
 				84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */,
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
 				84D5FEF72A36E922008BF057 /* LoginScreen.strings in Resources */,
+				F37686D42A3791630006E566 /* ProfileScreen.strings in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,6 +868,7 @@
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
 				8450B1032A261E5B00273956 /* CoordinatorFactory.swift in Sources */,
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
+				F34544962A378A0E000CB041 /* ProfileViewController.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
 				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				F3AF7F4D2A2C822B00DBAD36 /* R.generated.swift in Sources */,
@@ -805,9 +885,13 @@
 				84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
+				F34544942A378A04000CB041 /* ProfileViewModel.swift in Sources */,
+				F37686DA2A37A2440006E566 /* ProfileTabBarController.swift in Sources */,
 				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
 				84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */,
+				F34544982A378A1C000CB041 /* ProfileView.swift in Sources */,
 				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
+				F37686D02A378BFB0006E566 /* ProfileCoordinator.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */,
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
@@ -818,6 +902,7 @@
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
 				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
+				F34544922A3789FF000CB041 /* ProfileComponent.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
@@ -884,6 +969,15 @@
 				F311EF302A2DD83700637151 /* ru */,
 			);
 			name = LoginScreen.strings;
+			sourceTree = "<group>";
+		};
+		F37686D62A3791630006E566 /* ProfileScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F37686D52A3791630006E566 /* en */,
+				F37686D72A3791670006E566 /* ru */,
+			);
+			name = ProfileScreen.strings;
 			sourceTree = "<group>";
 		};
 		F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */ = {
@@ -1022,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H29F6RLPN8;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1055,7 +1149,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H29F6RLPN8;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

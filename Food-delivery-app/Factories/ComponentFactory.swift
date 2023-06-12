@@ -22,8 +22,13 @@ final class ComponentFactory {
     func getRegisterComponent() -> RegisterComponent {
         return mainComponent.registerComponent
     }
+    
     func getMainScreenComponent() -> MainScreenComponent {
         return mainComponent.mainScreenComponent
+    }
+    
+    func getProfileScreenComponent() -> ProfileComponent {
+        return mainComponent.profileComponent
     }
     
 }
