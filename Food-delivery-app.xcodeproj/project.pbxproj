@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		30C358F2099F948EFD15E07D /* Pods_Food_delivery_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */; };
+		84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B6D2A2C7E3900CA911D /* MainViewModel.swift */; };
+		84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */; };
+		84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */; };
+		84283B752A2C810900CA911D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B742A2C810900CA911D /* R.generated.swift */; };
+		84283B772A2C86DF00CA911D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B762A2C86DF00CA911D /* MainCoordinator.swift */; };
+		84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B7C2A2C911F00CA911D /* NoteView.swift */; };
+		84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */; };
+		84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */; };
+		84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */; };
+		84283B8B2A2CB43500CA911D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B8A2A2CB43500CA911D /* DateView.swift */; };
+		84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B8D2A2CBB6200CA911D /* DateLineStackView.swift */; };
 		8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B0E72A261D3800273956 /* AppDelegate.swift */; };
 		8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B0E92A261D3800273956 /* SceneDelegate.swift */; };
 		8450B0EC2A261D3800273956 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B0EB2A261D3800273956 /* LoginViewController.swift */; };
@@ -22,6 +33,17 @@
 		8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF02A266BB400BCC43B /* MainComponent.swift */; };
 		8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF32A266C0100BCC43B /* LoginComponent.swift */; };
 		8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */; };
+		84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */; };
+		84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */; };
+		84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */; };
+		84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */; };
+		84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */; };
+		84C975D62A333F3500BF489B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D52A333F3500BF489B /* MainViewController.swift */; };
+		84C975D82A3362D900BF489B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D72A3362D900BF489B /* NoteModel.swift */; };
+		84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9374A2A323AC400CC1A36 /* MainPageViewController.swift */; };
+		84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */; };
+		84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */; };
+		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F311EF2F2A2DD83600637151 /* LoginScreen.strings */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
@@ -40,6 +62,19 @@
 
 /* Begin PBXFileReference section */
 		2916D94060C792408DA7053A /* Pods-Food-delivery-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.release.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.release.xcconfig"; sourceTree = "<group>"; };
+		84283B6D2A2C7E3900CA911D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenComponent.swift; sourceTree = "<group>"; };
+		84283B742A2C810900CA911D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		84283B762A2C86DF00CA911D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		84283B7C2A2C911F00CA911D /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		84283B832A2C96B500CA911D /* RedHatDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Black.ttf"; sourceTree = "<group>"; };
+		84283B842A2C96B500CA911D /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		84283B8A2A2CB43500CA911D /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		84283B8D2A2CBB6200CA911D /* DateLineStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLineStackView.swift; sourceTree = "<group>"; };
 		8450B0E42A261D3800273956 /* Food-delivery-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food-delivery-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8450B0E72A261D3800273956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8450B0E92A261D3800273956 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +91,17 @@
 		8452AEF02A266BB400BCC43B /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
 		8452AEF32A266C0100BCC43B /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDaysOfWeekForDateUseCase.swift; sourceTree = "<group>"; };
+		84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeekdayIndexForDateUseCase.swift; sourceTree = "<group>"; };
+		84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekByDateUseCase.swift; sourceTree = "<group>"; };
+		84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfMonthByDateUseCase.swift; sourceTree = "<group>"; };
+		84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateWithOffsetUseCase.swift; sourceTree = "<group>"; };
+		84C975D52A333F3500BF489B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		84C975D72A3362D900BF489B /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		84D9374A2A323AC400CC1A36 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTodayUseCase.swift; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -88,6 +134,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84283B682A2C7E0E00CA911D /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84D9D40D2A35DC0200A8D333 /* TabBarController */,
+				84848CF92A2E417C00F36586 /* Model */,
+				84283B6C2A2C7E2400CA911D /* View */,
+				84283B6B2A2C7E1F00CA911D /* Component */,
+				84283B6A2A2C7E1A00CA911D /* ViewModel */,
+				84283B692A2C7E1500CA911D /* ViewController */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		84283B692A2C7E1500CA911D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84D9374A2A323AC400CC1A36 /* MainPageViewController.swift */,
+				84C975D42A333F1100BF489B /* StaticPart */,
+				84C975D12A333C9600BF489B /* DynamicPart */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84283B6A2A2C7E1A00CA911D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84283B6D2A2C7E3900CA911D /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84283B6B2A2C7E1F00CA911D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		84283B6C2A2C7E2400CA911D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84283B8C2A2CBB1D00CA911D /* DateLineView */,
+				84283B7C2A2C911F00CA911D /* NoteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84283B7E2A2C967700CA911D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84283B7F2A2C967D00CA911D /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84283B7F2A2C967D00CA911D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */,
+				84283B832A2C96B500CA911D /* RedHatDisplay-Black.ttf */,
+				84283B842A2C96B500CA911D /* RedHatDisplay-Medium.ttf */,
+				84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */,
+				84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		84283B8C2A2CBB1D00CA911D /* DateLineView */ = {
+			isa = PBXGroup;
+			children = (
+				84283B8A2A2CB43500CA911D /* DateView.swift */,
+				84283B8D2A2CBB6200CA911D /* DateLineStackView.swift */,
+			);
+			path = DateLineView;
+			sourceTree = "<group>";
+		};
 		8450B0DB2A261D3800273956 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +218,7 @@
 				8450B0E52A261D3800273956 /* Products */,
 				FE5A7094C33A10F323FFBBE2 /* Pods */,
 				EB24E7CE34D37F7C2243D940 /* Frameworks */,
+				F317B2A02A35FC2100DEE1F1 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,7 +233,7 @@
 		8450B0E62A261D3800273956 /* Food-delivery-app */ = {
 			isa = PBXGroup;
 			children = (
-				F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */,
+				84283B7E2A2C967700CA911D /* Resources */,
 				8450B1062A261FCC00273956 /* Presentation */,
 				8450B1012A261E4C00273956 /* Factories */,
 				8450B0FB2A261D8E00273956 /* Coordinator */,
@@ -120,6 +244,7 @@
 				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
 				8450B0F52A261D3900273956 /* Info.plist */,
 				8452AEF02A266BB400BCC43B /* MainComponent.swift */,
+				84283B742A2C810900CA911D /* R.generated.swift */,
 				8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */,
 			);
 			path = "Food-delivery-app";
@@ -131,6 +256,8 @@
 				8450B0FC2A261D9600273956 /* Protocols */,
 				8450B0FF2A261DBF00273956 /* AppCoordinator.swift */,
 				8450B1042A261FA900273956 /* AuthCoordinator.swift */,
+				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
+				84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -156,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
+				84283B682A2C7E0E00CA911D /* MainScreen */,
 				8450B1082A261FE100273956 /* LoginScreen */,
 				F311EF272A2DD6CE00637151 /* CustomView */,
 				F3AF7F2A2A2B21DA00DBAD36 /* ViewExtension */,
@@ -198,6 +326,52 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		84848CF92A2E417C00F36586 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84848CFC2A2E420100F36586 /* UseCase */,
+				84C975D72A3362D900BF489B /* NoteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84848CFC2A2E420100F36586 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */,
+				84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */,
+				84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */,
+				84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */,
+				84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */,
+				84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		84C975D12A333C9600BF489B /* DynamicPart */ = {
+			isa = PBXGroup;
+			children = (
+				84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */,
+			);
+			path = DynamicPart;
+			sourceTree = "<group>";
+		};
+		84C975D42A333F1100BF489B /* StaticPart */ = {
+			isa = PBXGroup;
+			children = (
+				84C975D52A333F3500BF489B /* MainViewController.swift */,
+			);
+			path = StaticPart;
+			sourceTree = "<group>";
+		};
+		84D9D40D2A35DC0200A8D333 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		EB24E7CE34D37F7C2243D940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +402,14 @@
 				F311EF2F2A2DD83600637151 /* LoginScreen.strings */,
 			);
 			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		F317B2A02A35FC2100DEE1F1 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
@@ -335,7 +517,7 @@
 			buildConfigurationList = 8450B0F82A261D3900273956 /* Build configuration list for PBXNativeTarget "Food-delivery-app" */;
 			buildPhases = (
 				914970DFBB39B111B7F811DB /* [CP] Check Pods Manifest.lock */,
-				F3AF7F492A2C814900DBAD36 /* Run Script */,
+				84283B732A2C807000CA911D /* R.swift */,
 				84D5A7B62A26698F00DC8551 /* Needle */,
 				8450B0E02A261D3800273956 /* Sources */,
 				8450B0E12A261D3800273956 /* Frameworks */,
@@ -397,13 +579,36 @@
 				F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */,
 				8450B0F42A261D3900273956 /* LaunchScreen.storyboard in Resources */,
 				F3AF7F3D2A2C7B4400DBAD36 /* RegisterScreen.strings in Resources */,
+				84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */,
+				84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */,
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
+				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		84283B732A2C807000CA911D /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		84D5A7B62A26698F00DC8551 /* Needle */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -462,26 +667,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3AF7F492A2C814900DBAD36 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -489,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84283B772A2C86DF00CA911D /* MainCoordinator.swift in Sources */,
 				8450B0EC2A261D3800273956 /* LoginViewController.swift in Sources */,
 				8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */,
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
@@ -496,18 +682,36 @@
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
 				F3AF7F4D2A2C822B00DBAD36 /* R.generated.swift in Sources */,
+				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
+				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
+				84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */,
+				84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */,
+				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
+				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
+				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
+				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
+				84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
+				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
+				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
+				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
+				84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */,
+				84283B752A2C810900CA911D /* R.generated.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
 				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
+				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
 				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
 				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				F311EF292A2DD70E00637151 /* LoginView.swift in Sources */,
+				84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */,
+				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
+				84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

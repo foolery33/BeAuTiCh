@@ -1,6 +1,7 @@
 
 
 import NeedleFoundation
+import RswiftResources
 import UIKit
 
 // swiftlint:disable unused_declaration
@@ -16,6 +17,34 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class MainScreenComponentDependencyf7fb8b48e001394384acProvider: MainScreenComponentDependency {
+    var getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase {
+        return mainComponent.getDaysOfWeekForDateUseCase
+    }
+    var getWeekdayIndexForDateUseCase: GetWeekdayIndexForDateUseCase {
+        return mainComponent.getWeekdayIndexForDateUseCase
+    }
+    var getDayOfWeekByDateUseCase: GetDayOfWeekByDateUseCase {
+        return mainComponent.getDayOfWeekByDateUseCase
+    }
+    var getDayOfMonthByDateUseCase: GetDayOfMonthByDateUseCase {
+        return mainComponent.getDayOfMonthByDateUseCase
+    }
+    var getDateWithOffsetUseCase: GetDateWithOffsetUseCase {
+        return mainComponent.getDateWithOffsetUseCase
+    }
+    var isTodayUseCase: IsTodayUseCase {
+        return mainComponent.isTodayUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->MainScreenComponent
+private func factoryd2e546a960c33ef2225f0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MainScreenComponentDependencyf7fb8b48e001394384acProvider(mainComponent: parent1(component) as! MainComponent)
+}
 private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: RegisterComponentDependencyProtocol {
 
 
@@ -46,6 +75,16 @@ extension MainComponent: Registration {
 
     }
 }
+extension MainScreenComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\MainScreenComponentDependency.getDaysOfWeekForDateUseCase] = "getDaysOfWeekForDateUseCase-GetDaysOfWeekForDateUseCase"
+        keyPathToName[\MainScreenComponentDependency.getWeekdayIndexForDateUseCase] = "getWeekdayIndexForDateUseCase-GetWeekdayIndexForDateUseCase"
+        keyPathToName[\MainScreenComponentDependency.getDayOfWeekByDateUseCase] = "getDayOfWeekByDateUseCase-GetDayOfWeekByDateUseCase"
+        keyPathToName[\MainScreenComponentDependency.getDayOfMonthByDateUseCase] = "getDayOfMonthByDateUseCase-GetDayOfMonthByDateUseCase"
+        keyPathToName[\MainScreenComponentDependency.getDateWithOffsetUseCase] = "getDateWithOffsetUseCase-GetDateWithOffsetUseCase"
+        keyPathToName[\MainScreenComponentDependency.isTodayUseCase] = "isTodayUseCase-IsTodayUseCase"
+    }
+}
 extension RegisterComponent: Registration {
     public func registerItems() {
 
@@ -73,6 +112,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 
 @inline(never) private func register1() {
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->MainComponent->MainScreenComponent", factoryd2e546a960c33ef2225f0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }

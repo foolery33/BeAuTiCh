@@ -4,8 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>RedHatDisplay-Bold.ttf</string>
 		<string>RedHatDisplay-Black.ttf</string>
 		<string>RedHatDisplay-Medium.ttf</string>
+		<string>RedHatDisplay-Regular.ttf</string>
+		<string>RedHatDisplay-SemiBold.ttf</string>
 		<string>Raleway-Regular.ttf</string>
 		<string>Raleway-Bold.ttf</string>
 	</array>

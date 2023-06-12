@@ -174,7 +174,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 4 colors.
+  /// This `_R.color` struct is generated, and contains static references to 11 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -187,22 +187,82 @@ struct _R {
     /// Color `AuthTextFieldColor`.
     var authTextFieldColor: RswiftResources.ColorResource { .init(name: "AuthTextFieldColor", path: [], bundle: bundle) }
 
+    /// Color `Black`.
+    var black: RswiftResources.ColorResource { .init(name: "Black", path: [], bundle: bundle) }
+
+    /// Color `BrightRed`.
+    var brightRed: RswiftResources.ColorResource { .init(name: "BrightRed", path: [], bundle: bundle) }
+
+    /// Color `Clear`.
+    var clear: RswiftResources.ColorResource { .init(name: "Clear", path: [], bundle: bundle) }
+
+    /// Color `DarkOrange`.
+    var darkOrange: RswiftResources.ColorResource { .init(name: "DarkOrange", path: [], bundle: bundle) }
+
     /// Color `TextButtonColor`.
     var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
+
+    /// Color `Vinous`.
+    var vinous: RswiftResources.ColorResource { .init(name: "Vinous", path: [], bundle: bundle) }
+
+    /// Color `White`.
+    var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
+
+    /// Color `softWhite`.
+    var softWhite: RswiftResources.ColorResource { .init(name: "softWhite", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 5 images.
+  /// This `_R.image` struct is generated, and contains static references to 18 images.
   struct image {
     let bundle: Foundation.Bundle
+
+    /// Image `BackArrow`.
+    var backArrow: RswiftResources.ImageResource { .init(name: "BackArrow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Background2`.
+    var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Filter`.
+    var filter: RswiftResources.ImageResource { .init(name: "Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `FirstBackground`.
     var firstBackground: RswiftResources.ImageResource { .init(name: "FirstBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `ForwardArrow`.
+    var forwardArrow: RswiftResources.ImageResource { .init(name: "ForwardArrow", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `HidePassword`.
     var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `House`.
+    var house: RswiftResources.ImageResource { .init(name: "House", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `Logo`.
     var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Person`.
+    var person: RswiftResources.ImageResource { .init(name: "Person", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `PlusNote`.
+    var plusNote: RswiftResources.ImageResource { .init(name: "PlusNote", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Search`.
+    var search: RswiftResources.ImageResource { .init(name: "Search", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SelectedHouse`.
+    var selectedHouse: RswiftResources.ImageResource { .init(name: "SelectedHouse", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SelectedProfile`.
+    var selectedProfile: RswiftResources.ImageResource { .init(name: "SelectedProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SelectedSearch`.
+    var selectedSearch: RswiftResources.ImageResource { .init(name: "SelectedSearch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `SelectedSettings`.
+    var selectedSettings: RswiftResources.ImageResource { .init(name: "SelectedSettings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Settings`.
+    var settings: RswiftResources.ImageResource { .init(name: "Settings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `ShowPassword`.
     var showPassword: RswiftResources.ImageResource { .init(name: "ShowPassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -259,7 +319,7 @@ struct _R {
     }
   }
 
-  /// This `_R.font` struct is generated, and contains static references to 4 fonts.
+  /// This `_R.font` struct is generated, and contains static references to 7 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
 
@@ -272,11 +332,20 @@ struct _R {
     /// Font `RedHatDisplay-Black`.
     var redHatDisplayBlack: RswiftResources.FontResource { .init(name: "RedHatDisplay-Black", bundle: bundle, filename: "RedHatDisplay-Black.ttf") }
 
+    /// Font `RedHatDisplay-Bold`.
+    var redHatDisplayBold: RswiftResources.FontResource { .init(name: "RedHatDisplay-Bold", bundle: bundle, filename: "RedHatDisplay-Bold.ttf") }
+
     /// Font `RedHatDisplay-Medium`.
     var redHatDisplayMedium: RswiftResources.FontResource { .init(name: "RedHatDisplay-Medium", bundle: bundle, filename: "RedHatDisplay-Medium.ttf") }
 
+    /// Font `RedHatDisplay-Regular`.
+    var redHatDisplayRegular: RswiftResources.FontResource { .init(name: "RedHatDisplay-Regular", bundle: bundle, filename: "RedHatDisplay-Regular.ttf") }
+
+    /// Font `RedHatDisplay-SemiBold`.
+    var redHatDisplaySemiBold: RswiftResources.FontResource { .init(name: "RedHatDisplay-SemiBold", bundle: bundle, filename: "RedHatDisplay-SemiBold.ttf") }
+
     func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
-      [ralewayBold, ralewayRegular, redHatDisplayBlack, redHatDisplayMedium].makeIterator()
+      [ralewayBold, ralewayRegular, redHatDisplayBlack, redHatDisplayBold, redHatDisplayMedium, redHatDisplayRegular, redHatDisplaySemiBold].makeIterator()
     }
     func validate() throws {
       for font in self {
@@ -285,7 +354,7 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 4 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 7 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
@@ -298,8 +367,17 @@ struct _R {
     /// Resource file `RedHatDisplay-Black.ttf`.
     var redHatDisplayBlackTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-Black", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
 
+    /// Resource file `RedHatDisplay-Bold.ttf`.
+    var redHatDisplayBoldTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
     /// Resource file `RedHatDisplay-Medium.ttf`.
     var redHatDisplayMediumTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-Medium", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `RedHatDisplay-Regular.ttf`.
+    var redHatDisplayRegularTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `RedHatDisplay-SemiBold.ttf`.
+    var redHatDisplaySemiBoldTtf: RswiftResources.FileResource { .init(name: "RedHatDisplay-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 1 storyboards.
