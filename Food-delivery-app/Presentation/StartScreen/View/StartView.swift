@@ -9,11 +9,10 @@ import UIKit
 
 final class StartView: UIView {
 
-    private let viewModel: StartViewModel
+    var onLoginButtonTapped: (() -> ())?
     
-    init(viewModel: StartViewModel) {
-        self.viewModel = viewModel
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupSubviews()
     }
     
@@ -68,7 +67,7 @@ final class StartView: UIView {
         }
     }
     @objc func onGoButtonTapped() {
-        viewModel.goToAuthScreen()
+        (onLoginButtonTapped ?? {})()
     }
 
 }

@@ -9,6 +9,12 @@ import UIKit
 
 class FilledButton: UIButton {
 
+    private enum Metrics {
+        static var buttonTextSize: CGFloat = 20
+        static var buttonCornerRadius: CGFloat = 25
+        static var buttonEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+    }
+    
     private let labelText: String
     
     init(labelText: String) {
@@ -19,12 +25,6 @@ class FilledButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private enum Metrics {
-        static var buttonTextSize: CGFloat = 20
-        static var buttonCornerRadius: CGFloat = 25
-        static var buttonEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
     
     private func setupButton() {

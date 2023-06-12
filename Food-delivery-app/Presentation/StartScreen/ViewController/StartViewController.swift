@@ -10,9 +10,11 @@ import UIKit
 final class StartViewController: UIViewController {
 
     private let viewModel: StartViewModel
+    private let ui: StartView
     
     init(viewModel: StartViewModel) {
         self.viewModel = viewModel
+        ui = StartView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,7 +27,18 @@ final class StartViewController: UIViewController {
     }
     
     override func loadView() {
-        view = StartView(viewModel: viewModel)
+        view = ui
+        handleTouchActions()
     }
 
+}
+
+private extension StartViewController {
+    
+    func handleTouchActions() {
+        ui.onLoginButtonTapped = { [weak self] in
+            self?.viewModel.goToAuthScreen()
+        }
+    }
+    
 }

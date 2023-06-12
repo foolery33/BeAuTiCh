@@ -238,6 +238,9 @@ struct _R {
     /// Color `DarkOrange`.
     var darkOrange: RswiftResources.ColorResource { .init(name: "DarkOrange", path: [], bundle: bundle) }
 
+    /// Color `SoftWhite`.
+    var softWhite: RswiftResources.ColorResource { .init(name: "SoftWhite", path: [], bundle: bundle) }
+
     /// Color `TextButtonColor`.
     var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
 
@@ -246,9 +249,6 @@ struct _R {
 
     /// Color `White`.
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
-
-    /// Color `softWhite`.
-    var softWhite: RswiftResources.ColorResource { .init(name: "softWhite", path: [], bundle: bundle) }
   }
 
   /// This `_R.image` struct is generated, and contains static references to 20 images.
@@ -312,8 +312,8 @@ struct _R {
     /// Image `ShowPassword`.
     var showPassword: RswiftResources.ImageResource { .init(name: "ShowPassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `TextFieldBackground`.
-    var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `textFieldBackground`.
+    var textFieldBackground: RswiftResources.ImageResource { .init(name: "textFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
