@@ -124,7 +124,7 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
-    /// This `_R.string.profileScreen` struct is generated, and contains static references to 5 localization keys.
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 8 localization keys.
     struct profileScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -142,6 +142,20 @@ struct _R {
       /// Locales: en, ru
       var change_photo: RswiftResources.StringResource { .init(key: "change_photo", tableName: "ProfileScreen", source: source, developmentValue: "Change photo", comment: nil) }
 
+      /// en translation: Changing password
+      ///
+      /// Key: changing_password
+      ///
+      /// Locales: en, ru
+      var changing_password: RswiftResources.StringResource { .init(key: "changing_password", tableName: "ProfileScreen", source: source, developmentValue: "Changing password", comment: nil) }
+
+      /// en translation: Close
+      ///
+      /// Key: close
+      ///
+      /// Locales: en, ru
+      var close: RswiftResources.StringResource { .init(key: "close", tableName: "ProfileScreen", source: source, developmentValue: "Close", comment: nil) }
+
       /// en translation: Email: 
       ///
       /// Key: email
@@ -155,6 +169,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var log_out: RswiftResources.StringResource { .init(key: "log_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
+
+      /// en translation: To change the password, you must enter the old and new password
+      ///
+      /// Key: message_alert_change_password
+      ///
+      /// Locales: en, ru
+      var message_alert_change_password: RswiftResources.StringResource { .init(key: "message_alert_change_password", tableName: "ProfileScreen", source: source, developmentValue: "To change the password, you must enter the old and new password", comment: nil) }
 
       /// en translation: Phone: 
       ///

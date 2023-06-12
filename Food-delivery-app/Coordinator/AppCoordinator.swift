@@ -20,13 +20,12 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToMain()
-//        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
-//            goToAuth()
-//        }
-//        else {
-//            goToMain()
-//        }
+        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
+            goToAuth()
+        }
+        else {
+            goToMain()
+        }
     }
     
     func goToAuth() {

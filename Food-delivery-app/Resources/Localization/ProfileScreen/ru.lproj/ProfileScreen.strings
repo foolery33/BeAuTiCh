@@ -11,3 +11,6 @@
 "phone" = "Телефон: ";
 "email" = "Email: ";
 "change_password" = "Сменить пароль";
+"changing_password" = "Cмена пароля";
+"message_alert_change_password" = "Для смены пароля необходимо ввести старый и новый пароль";
+"close" = "Закрыть";

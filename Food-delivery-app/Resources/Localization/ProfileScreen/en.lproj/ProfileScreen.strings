@@ -11,3 +11,6 @@
 "phone" = "Phone: ";
 "email" = "Email: ";
 "change_password" = "Change password";
+"changing_password" = "Changing password";
+"message_alert_change_password" = "To change the password, you must enter the old and new password";
+"close" = "Close";
