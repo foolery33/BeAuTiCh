@@ -111,7 +111,6 @@ private extension SettingsView {
         buttonsStack.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(titleScreenLabel.snp.bottom).offset(20)
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(18)
         }
     }
     

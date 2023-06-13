@@ -40,6 +40,13 @@ final class SettingsViewController: UIViewController {
         
         setHandlers()
     }
+    
+    
+    //MARK: - Private methods
+    
+    private func showSheet() {
+        
+    }
 }
 
 
@@ -47,6 +54,16 @@ final class SettingsViewController: UIViewController {
 
 private extension SettingsViewController {
     func setHandlers() {
+        ui.showServicesViewHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.showSheet()
+        }
         
+        ui.informationSubscriveViewHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.showSheet()
+        }
     }
 }

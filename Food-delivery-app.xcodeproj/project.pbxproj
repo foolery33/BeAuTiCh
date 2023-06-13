@@ -65,6 +65,12 @@
 		F37687032A383A670006E566 /* SettingsBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687022A383A670006E566 /* SettingsBlockView.swift */; };
 		F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687052A383AC30006E566 /* ShowServicesBlockView.swift */; };
 		F376870A2A383F910006E566 /* SettingsScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F376870C2A383F910006E566 /* SettingsScreen.strings */; };
+		F376871E2A38569A0006E566 /* SheetViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376871D2A38569A0006E566 /* SheetViewControllerDelegate.swift */; };
+		F37687232A3857CC0006E566 /* InformationSubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687222A3857CC0006E566 /* InformationSubscribeViewController.swift */; };
+		F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687242A3857E80006E566 /* InformationSubscribeView.swift */; };
+		F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687262A38B28A0006E566 /* YourServicesViewController.swift */; };
+		F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687282A38B2B00006E566 /* YourServicesView.swift */; };
+		F376872C2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
 		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
 		F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */; };
@@ -149,6 +155,13 @@
 		F37687052A383AC30006E566 /* ShowServicesBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowServicesBlockView.swift; sourceTree = "<group>"; };
 		F376870B2A383F910006E566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsScreen.strings; sourceTree = "<group>"; };
 		F376870D2A383F940006E566 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SettingsScreen.strings; sourceTree = "<group>"; };
+		F376871D2A38569A0006E566 /* SheetViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F37687222A3857CC0006E566 /* InformationSubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSubscribeViewController.swift; sourceTree = "<group>"; };
+		F37687242A3857E80006E566 /* InformationSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSubscribeView.swift; sourceTree = "<group>"; };
+		F37687262A38B28A0006E566 /* YourServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourServicesViewController.swift; sourceTree = "<group>"; };
+		F37687282A38B2B00006E566 /* YourServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourServicesView.swift; sourceTree = "<group>"; };
+		F376872D2A38B6C30006E566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
+		F376872F2A38B6C50006E566 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
 		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
 		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		F3AF7F182A2B171800DBAD36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +553,7 @@
 		F37686F12A382FAB0006E566 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F376871F2A3856A00006E566 /* Delegate */,
 				F37686F52A3830420006E566 /* Component */,
 				F37686F42A3830380006E566 /* ViewModel */,
 				F37686F32A382FB80006E566 /* ViewController */,
@@ -553,6 +567,8 @@
 			children = (
 				F37687042A383AA70006E566 /* SettingsBlockView */,
 				F37686F82A3830570006E566 /* SettingsView.swift */,
+				F37687242A3857E80006E566 /* InformationSubscribeView.swift */,
+				F37687282A38B2B00006E566 /* YourServicesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +577,8 @@
 			isa = PBXGroup;
 			children = (
 				F37686FA2A3830600006E566 /* SettingsViewController.swift */,
+				F37687222A3857CC0006E566 /* InformationSubscribeViewController.swift */,
+				F37687262A38B28A0006E566 /* YourServicesViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -595,8 +613,17 @@
 			isa = PBXGroup;
 			children = (
 				F376870C2A383F910006E566 /* SettingsScreen.strings */,
+				F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */,
 			);
 			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		F376871F2A3856A00006E566 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				F376871D2A38569A0006E566 /* SheetViewControllerDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
@@ -764,6 +791,7 @@
 				84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */,
 				F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */,
 				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
+				F376872C2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings in Resources */,
 				F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */,
 				84D5FEF52A36E922008BF057 /* RegisterScreen.strings in Resources */,
 				F3AF7F212A2B1E9700DBAD36 /* RedHatDisplay-Black.ttf in Resources */,
@@ -888,6 +916,7 @@
 				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
+				F376871E2A38569A0006E566 /* SheetViewControllerDelegate.swift in Sources */,
 				84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */,
 				84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
@@ -897,11 +926,14 @@
 				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
 				F37686FF2A3830F30006E566 /* SettingsCoordinator.swift in Sources */,
 				84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */,
+				F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */,
 				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
 				F37686FD2A3830680006E566 /* SettingsViewModel.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				F37686F92A3830570006E566 /* SettingsView.swift in Sources */,
+				F37687232A3857CC0006E566 /* InformationSubscribeViewController.swift in Sources */,
 				84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */,
+				F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */,
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
 				84283B752A2C810900CA911D /* R.generated.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
@@ -909,6 +941,7 @@
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
 				F37687012A383A4E0006E566 /* InformationSubscribeBlockView.swift in Sources */,
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
+				F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */,
 				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
@@ -986,6 +1019,15 @@
 				F376870D2A383F940006E566 /* ru */,
 			);
 			name = SettingsScreen.strings;
+			sourceTree = "<group>";
+		};
+		F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F376872D2A38B6C30006E566 /* en */,
+				F376872F2A38B6C50006E566 /* ru */,
+			);
+			name = InformationSubcscribeSheetScreen.strings;
 			sourceTree = "<group>";
 		};
 		F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */ = {

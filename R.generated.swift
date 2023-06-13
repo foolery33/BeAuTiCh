@@ -56,17 +56,21 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 5 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 6 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
+    var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var loginScreen: loginScreen { .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreen: registerScreen { .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreenRussian: registerScreenRussian { .init(source: .init(bundle: bundle, tableName: "RegisterScreen (Russian)", preferredLanguages: preferredLanguages, locale: locale)) }
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
+    func informationSubcscribeSheetScreen(preferredLanguages: [String]) -> informationSubcscribeSheetScreen {
+      .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
     func loginScreen(preferredLanguages: [String]) -> loginScreen {
       .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
@@ -83,6 +87,32 @@ struct _R {
       .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
 
+
+    /// This `_R.string.informationSubcscribeSheetScreen` struct is generated, and contains static references to 3 localization keys.
+    struct informationSubcscribeSheetScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cancel subscription
+      ///
+      /// Key: cancel_subscription
+      ///
+      /// Locales: en, ru
+      var cancel_subscription: RswiftResources.StringResource { .init(key: "cancel_subscription", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Cancel subscription", comment: nil) }
+
+      /// en translation: The subscription has been issued: 
+      ///
+      /// Key: start_date_subscribe
+      ///
+      /// Locales: en, ru
+      var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been issued: ", comment: nil) }
+
+      /// en translation: Subscription Information
+      ///
+      /// Key: title_screen
+      ///
+      /// Locales: en, ru
+      var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Subscription Information", comment: nil) }
+    }
 
     /// This `_R.string.loginScreen` struct is generated, and contains static references to 5 localization keys.
     struct loginScreen {
