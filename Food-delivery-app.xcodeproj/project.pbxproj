@@ -296,7 +296,6 @@
 				F3AF7F1E2A2B1E1E00DBAD36 /* Resources */,
 				8450B0E72A261D3800273956 /* AppDelegate.swift */,
 				8450B0E92A261D3800273956 /* SceneDelegate.swift */,
-				8450B0F02A261D3900273956 /* Assets.xcassets */,
 				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
 				8450B0F52A261D3900273956 /* Info.plist */,
 				8452AEF02A266BB400BCC43B /* MainComponent.swift */,
@@ -312,8 +311,8 @@
 				8450B0FC2A261D9600273956 /* Protocols */,
 				8450B0FF2A261DBF00273956 /* AppCoordinator.swift */,
 				8450B1042A261FA900273956 /* AuthCoordinator.swift */,
-				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
 				84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */,
+				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
 				F37686FE2A3830F30006E566 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -672,6 +671,7 @@
 		F3AF7F1E2A2B1E1E00DBAD36 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8450B0F02A261D3900273956 /* Assets.xcassets */,
 				F3AF7F332A2C777E00DBAD36 /* Localization */,
 				F3AF7F1F2A2B1E2A00DBAD36 /* Fonts */,
 			);

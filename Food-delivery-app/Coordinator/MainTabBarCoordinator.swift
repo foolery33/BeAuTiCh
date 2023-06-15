@@ -63,29 +63,30 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
 
         // MARK: - SettingsScreen
         
-//        let settingsNavigationController = UINavigationController()
-//        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
-//        settingsCoordinator.parentCoordinator = parentCoordinator
-//        
-//        let settingsItem = UITabBarItem()
-//        settingsItem.image = R.image.settings()
-//        settingsNavigationController.tabBarItem = settingsItem
+        let settingsNavigationController = UINavigationController()
+        settingsNavigationController.setNavigationBarHidden(true, animated: false)
+        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
+        settingsCoordinator.parentCoordinator = parentCoordinator
         
-        viewController.viewControllers = [mainNavigationController]
+        let settingsItem = UITabBarItem()
+        settingsItem.image = R.image.settings()
+        settingsItem.selectedImage = R.image.selectedSettings()
+        settingsNavigationController.tabBarItem = settingsItem
+        
+        viewController.viewControllers = [mainNavigationController, settingsNavigationController]
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         parentCoordinator?.children.append(mainCoordinator)
-//        parentCoordinator?.children.append(compilationCoordinator)
-//        parentCoordinator?.children.append(collectionsCoordinator)
+//        parentCoordinator?.children.append(searchCoordinator)
 //        parentCoordinator?.children.append(profileCoordinator)
+        parentCoordinator?.children.append(settingsCoordinator)
         
         mainCoordinator.start()
-//        compilationCoordinator.start()
-//        collectionsCoordinator.start()
+//        searchCoordinator.start()
 //        profileCoordinator.start()
+        settingsCoordinator.start()
         
     }
-    
 }
