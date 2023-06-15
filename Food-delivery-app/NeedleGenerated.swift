@@ -67,6 +67,17 @@ private class SettingsComponentDependency7fa547a58a11332b68f1Provider: SettingsC
 private func factory86a73304bebb2197a1eee3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return SettingsComponentDependency7fa547a58a11332b68f1Provider()
 }
+private class InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider: InformationSubscribeComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->InformationSubscribeComponent
+private func factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider()
+}
 private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: RegisterComponentDependencyProtocol {
 
 
@@ -117,6 +128,11 @@ extension SettingsComponent: Registration {
 
     }
 }
+extension InformationSubscribeComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension RegisterComponent: Registration {
     public func registerItems() {
 
@@ -147,6 +163,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->MainScreenComponent", factoryd2e546a960c33ef2225f0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->StartComponent", factorydf30084d4812375c9b62e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }

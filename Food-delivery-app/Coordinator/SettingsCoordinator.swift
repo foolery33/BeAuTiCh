@@ -23,10 +23,22 @@ class SettingsCoordinator: CoordinatorProtocol {
         goToSettingsScreen()
     }
     
-    private func goToSettingsScreen() {
+    func goToSettingsScreen() {
         let settingsComponent = componentFactory.getSettingsComponent()
         settingsComponent.settingsViewModel.coordinator = self
         
         navigationController.pushViewController(settingsComponent.settingsViewController, animated: true)
+    }
+    
+    func goToInformationSubcribeScreen(delegate: SheetViewControllerDelegate) {
+        let informationSubscribeComponent = componentFactory.getInformationSubscribeComponent()
+        informationSubscribeComponent.settingsViewModel.coordinator = self
+        informationSubscribeComponent.informationSubscribeController.delegate = delegate
+        
+        navigationController.present(informationSubscribeComponent.informationSubscribeController, animated: true)
+    }
+    
+    func goToServicesScreen(delegate: SheetViewControllerDelegate) {
+        
     }
 }

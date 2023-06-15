@@ -16,7 +16,7 @@ class InformationSubscribeViewController: UIViewController {
     
     //MARK: - Internal properties
     
-    weak var delegate: SheetViewControllerDelegateProtocol?
+    weak var delegate: SheetViewControllerDelegate?
     var viewModel: SettingsViewModel
     
     
@@ -42,13 +42,30 @@ class InformationSubscribeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setHandlers()
     }
     
     
     //MARK: - Private methods
     
-    private func dismiss(imageName: String) {
+    private func dismiss() {
         delegate?.didDismissSheetViewController()
         dismiss(animated: true, completion: nil)
+    }
+}
+
+private extension InformationSubscribeViewController {
+    func setHandlers() {
+        ui.arrowBackButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.dismiss()
+        }
+        
+        ui.cancelSubscriptionButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+        }
     }
 }

@@ -24,10 +24,9 @@ class InformationSubscribeView: UIView {
         return myImageView
     }()
     
-    private lazy var arrowBackImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = R.image.backArrow()
-        view.contentMode = .scaleAspectFit
+    private lazy var arrowBackButton: UIButton = {
+        let view = UIButton()
+        view.setImage(R.image.backArrow(), for: .normal)
         
         return view
     }()
@@ -77,7 +76,7 @@ class InformationSubscribeView: UIView {
     //MARK: - Internal properties
     
     var cancelSubscriptionButtonHandler: (() -> Void)?
-    
+    var arrowBackButtonHandler: (() -> Void)?
     
     //MARK: - Init
     
@@ -107,7 +106,7 @@ private extension InformationSubscribeView {
     
     func configureUI() {
         self.addSubview(backgroundImage)
-        self.addSubview(arrowBackImageView)
+        self.addSubview(arrowBackButton)
         self.addSubview(titleSheetScreen)
         self.addSubview(informationStack)
         self.addSubview(cancelSubscriptionButton)
@@ -120,14 +119,14 @@ private extension InformationSubscribeView {
             make.edges.equalToSuperview()
         }
         
-        arrowBackImageView.snp.makeConstraints { make in
+        arrowBackButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(10)
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).inset(21)
         }
         
         titleSheetScreen.snp.makeConstraints { make in
-            make.centerY.equalTo(arrowBackImageView.snp.centerY)
-            make.leading.equalTo(arrowBackImageView.snp.trailing).offset(14)
+            make.centerY.equalTo(arrowBackButton.snp.centerY)
+            make.leading.equalTo(arrowBackButton.snp.trailing).offset(14)
         }
         
         informationStack.snp.makeConstraints { make in
@@ -142,11 +141,17 @@ private extension InformationSubscribeView {
     }
     
     func configureActions() {
+        arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
         cancelSubscriptionButton.addTarget(self, action: #selector(cancelSubscriptionButtonPressed), for: .touchUpInside)
     }
     
     
     //MARK: - Actions
+    
+    @objc
+    func arrowBackButtonPressed() {
+        arrowBackButtonHandler?()
+    }
     
     @objc
     func cancelSubscriptionButtonPressed() {

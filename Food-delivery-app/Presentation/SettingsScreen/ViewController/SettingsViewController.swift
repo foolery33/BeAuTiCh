@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController, SheetViewControllerDelegate {
     
     //MARK: - Private properties
     
@@ -42,9 +42,9 @@ final class SettingsViewController: UIViewController {
     }
     
     
-    //MARK: - Private methods
+    //MARK: - Public methods
     
-    private func showSheet() {
+    func didDismissSheetViewController() {
         
     }
 }
@@ -57,13 +57,13 @@ private extension SettingsViewController {
         ui.showServicesViewHandler = { [ weak self ] in
             guard let self = self else { return }
             
-            self.showSheet()
+            
         }
         
         ui.informationSubscriveViewHandler = { [ weak self ] in
             guard let self = self else { return }
             
-            self.showSheet()
+            self.viewModel.goToInformationSubcribeScreen(delegate: self)
         }
     }
 }

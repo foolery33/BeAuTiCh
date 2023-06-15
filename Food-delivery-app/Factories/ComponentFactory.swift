@@ -31,4 +31,7 @@ final class ComponentFactory {
         return mainComponent.settingsComponent
     }
     
+    func getInformationSubscribeComponent() -> InformationSubscribeComponent {
+        return mainComponent.informationSubscribeComponent
+    }
 }

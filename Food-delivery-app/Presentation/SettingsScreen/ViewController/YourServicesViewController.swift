@@ -16,7 +16,7 @@ class YourServicesViewController: UIViewController {
     
     //MARK: - Internal properties
     
-    weak var delegate: SheetViewControllerDelegateProtocol?
+    weak var delegate: SheetViewControllerDelegate?
     var viewModel: SettingsViewModel
     
     

@@ -45,6 +45,7 @@ class SettingsView: UIView {
     private lazy var showServicesView: ShowServicesBlockView = {
         let view = ShowServicesBlockView()
         view.setTextLabel(with: R.string.settingsScreen.show_services())
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -52,6 +53,7 @@ class SettingsView: UIView {
     private lazy var informationSubscriveView: InformationSubscribeBlockView = {
         let view = InformationSubscribeBlockView()
         view.setTextLabel(with: R.string.settingsScreen.information_subscribe())
+        view.isUserInteractionEnabled = true
         
         return view
     }()

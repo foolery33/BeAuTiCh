@@ -79,4 +79,10 @@ final class MainComponent: BootstrapComponent {
             SettingsComponent(parent: self)
         }
     }
+    
+    var informationSubscribeComponent: InformationSubscribeComponent {
+        shared {
+            InformationSubscribeComponent(parent: self)
+        }
+    }
 }
