@@ -18,7 +18,7 @@ class InformationSubscribeView: UIView {
     
     private lazy var backgroundImage: UIImageView = {
         let myImageView = UIImageView()
-        myImageView.image = R.image.background1()
+        myImageView.image = R.image.secondBackground()
         myImageView.contentMode = .scaleAspectFill
         
         return myImageView
@@ -26,7 +26,7 @@ class InformationSubscribeView: UIView {
     
     private lazy var arrowBackButton: UIButton = {
         let view = UIButton()
-        view.setImage(R.image.backArrow(), for: .normal)
+        view.setImage(R.image.arrowBackSheet(), for: .normal)
         
         return view
     }()
@@ -65,7 +65,7 @@ class InformationSubscribeView: UIView {
         view.setTitle(R.string.informationSubcscribeSheetScreen.cancel_subscription(), for: .normal)
         view.setTitleColor(R.color.textButtonColor(), for: .normal)
         view.titleLabel?.font = R.font.ralewayBold(size: 20)
-        view.layer.cornerRadius = 39.78
+        view.layer.cornerRadius = 30
         view.layer.masksToBounds = true
         view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
         

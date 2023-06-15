@@ -28,6 +28,7 @@ class SettingsBlockView: UIView {
     private lazy var arrowImage: UIImageView = {
         let view = UIImageView()
         view.image = R.image.arrow()
+        view.contentMode = .scaleAspectFit
         
         return view
     }()
