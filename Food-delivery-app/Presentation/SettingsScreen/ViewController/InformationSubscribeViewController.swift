@@ -53,6 +53,13 @@ class InformationSubscribeViewController: UIViewController {
         delegate?.didDismissSheetViewController()
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    //MARK: - Internal methods
+    
+    func setStartDateSubscribe(_ date: String) {
+        ui.setStartDateSubscribe(date)
+    }
 }
 
 private extension InformationSubscribeViewController {

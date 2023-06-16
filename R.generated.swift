@@ -99,12 +99,12 @@ struct _R {
       /// Locales: en, ru
       var cancel_subscription: RswiftResources.StringResource { .init(key: "cancel_subscription", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Cancel subscription", comment: nil) }
 
-      /// en translation: The subscription has been issued: 
+      /// en translation: The subscription has been   issued: 
       ///
       /// Key: start_date_subscribe
       ///
       /// Locales: en, ru
-      var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been issued: ", comment: nil) }
+      var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been \n issued: ", comment: nil) }
 
       /// en translation: Subscription Information
       ///

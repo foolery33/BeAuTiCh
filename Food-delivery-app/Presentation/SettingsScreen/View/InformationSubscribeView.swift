@@ -89,6 +89,13 @@ class InformationSubscribeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //MARK: - Internal methods
+    
+    func setStartDateSubscribe(_ date: String) {
+        startDateSubscribeLabel.text = R.string.informationSubcscribeSheetScreen.start_date_subscribe() + date
+    }
 }
 
 
