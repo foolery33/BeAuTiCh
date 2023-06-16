@@ -85,4 +85,10 @@ final class MainComponent: BootstrapComponent {
             InformationSubscribeComponent(parent: self)
         }
     }
+    
+    var yourServicesComponent: YourServicesComponent {
+        shared {
+            YourServicesComponent(parent: self)
+        }
+    }
 }

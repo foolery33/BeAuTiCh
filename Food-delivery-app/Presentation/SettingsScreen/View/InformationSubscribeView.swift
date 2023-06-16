@@ -17,11 +17,11 @@ class InformationSubscribeView: UIView {
     }
     
     private lazy var backgroundImage: UIImageView = {
-        let myImageView = UIImageView()
-        myImageView.image = R.image.secondBackground()
-        myImageView.contentMode = .scaleAspectFill
+        let view = UIImageView()
+        view.image = R.image.secondBackground()
+        view.contentMode = .scaleAspectFill
         
-        return myImageView
+        return view
     }()
     
     private lazy var arrowBackButton: UIButton = {

@@ -57,7 +57,7 @@ private extension SettingsViewController {
         ui.showServicesViewHandler = { [ weak self ] in
             guard let self = self else { return }
             
-            
+            self.viewModel.goToServicesScreen(delegate: self)
         }
         
         ui.informationSubscriveViewHandler = { [ weak self ] in

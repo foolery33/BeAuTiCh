@@ -99,12 +99,12 @@ struct _R {
       /// Locales: en, ru
       var cancel_subscription: RswiftResources.StringResource { .init(key: "cancel_subscription", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Cancel subscription", comment: nil) }
 
-      /// en translation: The subscription has been   issued: 
+      /// en translation: The subscription has been issued: 
       ///
       /// Key: start_date_subscribe
       ///
       /// Locales: en, ru
-      var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been \n issued: ", comment: nil) }
+      var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been issued: ", comment: nil) }
 
       /// en translation: Subscription Information
       ///
@@ -311,7 +311,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 24 images.
+  /// This `_R.image` struct is generated, and contains static references to 28 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -351,6 +351,9 @@ struct _R {
     /// Image `LaunchScreen`.
     var launchScreen: RswiftResources.ImageResource { .init(name: "LaunchScreen", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `LeftLines`.
+    var leftLines: RswiftResources.ImageResource { .init(name: "LeftLines", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `Logo`.
     var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -359,6 +362,12 @@ struct _R {
 
     /// Image `PlusNote`.
     var plusNote: RswiftResources.ImageResource { .init(name: "PlusNote", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `PlusService`.
+    var plusService: RswiftResources.ImageResource { .init(name: "PlusService", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `RightLines`.
+    var rightLines: RswiftResources.ImageResource { .init(name: "RightLines", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Search`.
     var search: RswiftResources.ImageResource { .init(name: "Search", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -377,6 +386,9 @@ struct _R {
 
     /// Image `SelectedSettings`.
     var selectedSettings: RswiftResources.ImageResource { .init(name: "SelectedSettings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ServiceTagBackground`.
+    var serviceTagBackground: RswiftResources.ImageResource { .init(name: "ServiceTagBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Settings`.
     var settings: RswiftResources.ImageResource { .init(name: "Settings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

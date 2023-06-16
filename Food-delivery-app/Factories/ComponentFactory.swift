@@ -34,4 +34,8 @@ final class ComponentFactory {
     func getInformationSubscribeComponent() -> InformationSubscribeComponent {
         return mainComponent.informationSubscribeComponent
     }
+    
+    func getYourServicesComponent() -> YourServicesComponent {
+        return mainComponent.yourServicesComponent
+    }
 }

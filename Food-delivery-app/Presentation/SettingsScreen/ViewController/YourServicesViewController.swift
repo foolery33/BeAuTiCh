@@ -42,13 +42,39 @@ class YourServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setHandlers()
+        ui.setServices([
+            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
+            Service(id: "1", name: "bla", price: 12, duration: ""),
+            Service(id: "1", name: "jsdfsdfsdf", price: 12, duration: ""),
+            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
+            Service(id: "1", name: "bla", price: 12, duration: ""),
+            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
+            Service(id: "1", name: "bla", price: 12, duration: ""),
+        ])
     }
     
     
     //MARK: - Private methods
     
-    private func dismiss(imageName: String) {
+    private func dismiss() {
         delegate?.didDismissSheetViewController()
         dismiss(animated: true, completion: nil)
+    }
+}
+
+private extension YourServicesViewController {
+    func setHandlers() {
+        ui.arrowBackButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+            self.dismiss()
+        }
+        
+        ui.plusServiceButtonHandler = { [ weak self ] in
+            guard let self = self else { return }
+            
+        }
     }
 }

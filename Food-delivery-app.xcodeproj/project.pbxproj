@@ -56,6 +56,9 @@
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F311EF2F2A2DD83600637151 /* LoginScreen.strings */; };
+		F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */; };
+		F37434952A3CB8DC00D009BA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434942A3CB8DC00D009BA /* Service.swift */; };
+		F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434962A3CD21900D009BA /* YourServicesComponent.swift */; };
 		F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37686F62A38304E0006E566 /* SettingsComponent.swift */; };
 		F37686F92A3830570006E566 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37686F82A3830570006E566 /* SettingsView.swift */; };
 		F37686FB2A3830600006E566 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37686FA2A3830600006E566 /* SettingsViewController.swift */; };
@@ -146,6 +149,9 @@
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F311EF2E2A2DD83600637151 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		F311EF302A2DD83700637151 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagLabelsView.swift; sourceTree = "<group>"; };
+		F37434942A3CB8DC00D009BA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		F37434962A3CD21900D009BA /* YourServicesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourServicesComponent.swift; sourceTree = "<group>"; };
 		F37686F62A38304E0006E566 /* SettingsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponent.swift; sourceTree = "<group>"; };
 		F37686F82A3830570006E566 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F37686FA2A3830600006E566 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -551,9 +557,26 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		F37434902A3CB7AC00D009BA /* ServiceTagsView */ = {
+			isa = PBXGroup;
+			children = (
+				F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */,
+			);
+			path = ServiceTagsView;
+			sourceTree = "<group>";
+		};
+		F37434932A3CB8D100D009BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37434942A3CB8DC00D009BA /* Service.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F37686F12A382FAB0006E566 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F37434932A3CB8D100D009BA /* Model */,
 				F376871F2A3856A00006E566 /* Delegate */,
 				F37686F52A3830420006E566 /* Component */,
 				F37686F42A3830380006E566 /* ViewModel */,
@@ -566,6 +589,7 @@
 		F37686F22A382FB50006E566 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F37434902A3CB7AC00D009BA /* ServiceTagsView */,
 				F37687042A383AA70006E566 /* SettingsBlockView */,
 				F37686F82A3830570006E566 /* SettingsView.swift */,
 				F37687242A3857E80006E566 /* InformationSubscribeView.swift */,
@@ -597,6 +621,7 @@
 			children = (
 				F37686F62A38304E0006E566 /* SettingsComponent.swift */,
 				F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */,
+				F37434962A3CD21900D009BA /* YourServicesComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -913,6 +938,7 @@
 				84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */,
 				84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */,
 				F37687032A383A670006E566 /* SettingsBlockView.swift in Sources */,
+				F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */,
 				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
@@ -922,6 +948,7 @@
 				F376871E2A38569A0006E566 /* SheetViewControllerDelegate.swift in Sources */,
 				84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */,
 				84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */,
+				F37434952A3CB8DC00D009BA /* Service.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
@@ -939,6 +966,7 @@
 				F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */,
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
 				84283B752A2C810900CA911D /* R.generated.swift in Sources */,
+				F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
 				84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,

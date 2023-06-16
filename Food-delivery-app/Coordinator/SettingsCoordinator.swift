@@ -39,6 +39,10 @@ class SettingsCoordinator: CoordinatorProtocol {
     }
     
     func goToServicesScreen(delegate: SheetViewControllerDelegate) {
+        let yourServicesComponent = componentFactory.getYourServicesComponent()
+        yourServicesComponent.settingViewModel.coordinator = self
+        yourServicesComponent.yourServicesViewController.delegate = delegate
         
+        navigationController.present(yourServicesComponent.yourServicesViewController, animated: true)
     }
 }
