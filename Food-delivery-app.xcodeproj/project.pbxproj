@@ -61,8 +61,7 @@
 		84D5FEE42A36D905008BF057 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE32A36D905008BF057 /* StartView.swift */; };
 		84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE52A36D929008BF057 /* StartViewModel.swift */; };
 		84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE72A36D946008BF057 /* StartComponent.swift */; };
-		84D5FEF52A36E922008BF057 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */; };
-		84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */; };
+		84D5FEF62A36E922008BF057 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84D5FEFD2A36E996008BF057 /* StartScreen.strings */; };
 		84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEFF2A36F776008BF057 /* FilledButton.swift */; };
 		84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FF012A37011A008BF057 /* UIImageExtension.swift */; };
@@ -72,9 +71,9 @@
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
 		84FC6E772A382CD6004775F6 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84FC6E792A382CD6004775F6 /* Errors.strings */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
-		F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F311EF2F2A2DD83600637151 /* LoginScreen.strings */; };
 		F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */; };
-		F35014022A3DBB980095D091 /* RedHatDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */; };
+		F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35014282A3DED4C0095D091 /* RegisterScreen.strings */; };
+		F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F350142C2A3DED550095D091 /* LoginScreen.strings */; };
 		F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */; };
 		F37434952A3CB8DC00D009BA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434942A3CB8DC00D009BA /* Service.swift */; };
 		F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434962A3CD21900D009BA /* YourServicesComponent.swift */; };
@@ -92,7 +91,6 @@
 		F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687242A3857E80006E566 /* InformationSubscribeView.swift */; };
 		F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687262A38B28A0006E566 /* YourServicesViewController.swift */; };
 		F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687282A38B2B00006E566 /* YourServicesView.swift */; };
-		F376872C2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */; };
 		F391D6A52A3AEE9600A092BE /* InformationSubscribeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
 		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
@@ -175,10 +173,12 @@
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		F311EF2E2A2DD83600637151 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
-		F311EF302A2DD83700637151 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Bold.ttf"; path = "../../../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		F35014272A3DED4C0095D091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		F35014292A3DED4F0095D091 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
+		F350142B2A3DED550095D091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginScreen.strings; sourceTree = "<group>"; };
+		F350142D2A3DED580095D091 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginScreen.strings; sourceTree = "<group>"; };
 		F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagLabelsView.swift; sourceTree = "<group>"; };
 		F37434942A3CB8DC00D009BA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F37434962A3CD21900D009BA /* YourServicesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourServicesComponent.swift; sourceTree = "<group>"; };
@@ -208,8 +208,6 @@
 		F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
 		F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		F3AF7F3E2A2C7B4400DBAD36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
-		F3AF7F432A2C7E6600DBAD36 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
 		F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -343,14 +341,6 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
-		844AF4DB2A373F6000B2C9C7 /* SearchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				844AF4E02A373F7F00B2C9C7 /* SearchScreen.strings */,
-			);
-			path = SearchScreen;
-			sourceTree = "<group>";
-		};
 		844AF4E22A37440100B2C9C7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				844AF4E22A37440100B2C9C7 /* Networking */,
-				84283B7E2A2C967700CA911D /* Resources */,
 				8450B1062A261FCC00273956 /* Presentation */,
 				8450B1012A261E4C00273956 /* Factories */,
 				8450B0FB2A261D8E00273956 /* Coordinator */,
@@ -599,35 +588,6 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		84D5FEEA2A36E922008BF057 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				84FC6E742A382CA9004775F6 /* Errors */,
-				844AF4DB2A373F6000B2C9C7 /* SearchScreen */,
-				84D5FEEB2A36E922008BF057 /* RegisterScreen */,
-				84D5FEF12A36E922008BF057 /* LoginScreen */,
-				84D5FEF82A36E93C008BF057 /* StartScreen */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		84D5FEEB2A36E922008BF057 /* RegisterScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */,
-				84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */,
-			);
-			path = RegisterScreen;
-			sourceTree = "<group>";
-		};
-		84D5FEF12A36E922008BF057 /* LoginScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84D5FEF22A36E922008BF057 /* LoginScreen.strings */,
-			);
-			path = LoginScreen;
-			sourceTree = "<group>";
-		};
 		84D5FEF82A36E93C008BF057 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,14 +602,6 @@
 				84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */,
 			);
 			path = TabBarController;
-			sourceTree = "<group>";
-		};
-		84FC6E742A382CA9004775F6 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				84FC6E792A382CD6004775F6 /* Errors.strings */,
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 		EB24E7CE34D37F7C2243D940 /* Frameworks */ = {
@@ -676,20 +628,31 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
-		F311EF2A2A2DD81600637151 /* LoginScreen */ = {
-			isa = PBXGroup;
-			children = (
-				F311EF2F2A2DD83600637151 /* LoginScreen.strings */,
-			);
-			path = LoginScreen;
-			sourceTree = "<group>";
-		};
 		F317B2A02A35FC2100DEE1F1 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */,
+				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
+				844AF4E02A373F7F00B2C9C7 /* SearchScreen.strings */,
+				84FC6E792A382CD6004775F6 /* Errors.strings */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		F35014202A3DED230095D091 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F350142C2A3DED550095D091 /* LoginScreen.strings */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		F35014212A3DED290095D091 /* RegisterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F35014282A3DED4C0095D091 /* RegisterScreen.strings */,
+			);
+			path = RegisterScreen;
 			sourceTree = "<group>";
 		};
 		F37434902A3CB7AC00D009BA /* ServiceTagsView */ = {
@@ -868,20 +831,12 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F35014212A3DED290095D091 /* RegisterScreen */,
+				F35014202A3DED230095D091 /* LoginScreen */,
 				84D5FEF82A36E93C008BF057 /* StartScreen */,
 				F37687072A383F790006E566 /* SettingsScreen */,
-				F311EF2A2A2DD81600637151 /* LoginScreen */,
-				F3AF7F342A2C779A00DBAD36 /* RegisterScreen */,
 			);
 			path = Localization;
-			sourceTree = "<group>";
-		};
-		F3AF7F342A2C779A00DBAD36 /* RegisterScreen */ = {
-			isa = PBXGroup;
-			children = (
-				F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */,
-			);
-			path = RegisterScreen;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -956,13 +911,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */,
-				F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */,
+				84D5FEF62A36E922008BF057 /* (null) in Resources */,
 				844AF4DE2A373F7F00B2C9C7 /* SearchScreen.strings in Resources */,
 				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
+				F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */,
 				84FC6E772A382CD6004775F6 /* Errors.strings in Resources */,
 				F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */,
-				F311EF2D2A2DD83600637151 /* LoginScreen.strings in Resources */,
 				8450B0F42A261D3900273956 /* LaunchScreen.storyboard in Resources */,
 				84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */,
 				84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */,
@@ -970,6 +924,7 @@
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 				F376870A2A383F910006E566 /* SettingsScreen.strings in Resources */,
+				F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */,
 				F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1180,11 +1135,20 @@
 			name = Errors.strings;
 			sourceTree = "<group>";
 		};
-		F311EF2F2A2DD83600637151 /* LoginScreen.strings */ = {
+		F35014282A3DED4C0095D091 /* RegisterScreen.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F311EF2E2A2DD83600637151 /* en */,
-				F311EF302A2DD83700637151 /* ru */,
+				F35014272A3DED4C0095D091 /* en */,
+				F35014292A3DED4F0095D091 /* ru */,
+			);
+			name = RegisterScreen.strings;
+			sourceTree = "<group>";
+		};
+		F350142C2A3DED550095D091 /* LoginScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F350142B2A3DED550095D091 /* en */,
+				F350142D2A3DED580095D091 /* ru */,
 			);
 			name = LoginScreen.strings;
 			sourceTree = "<group>";
@@ -1205,15 +1169,6 @@
 				F376872F2A38B6C50006E566 /* ru */,
 			);
 			name = InformationSubcscribeSheetScreen.strings;
-			sourceTree = "<group>";
-		};
-		F3AF7F3F2A2C7B4400DBAD36 /* RegisterScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F3AF7F3E2A2C7B4400DBAD36 /* en */,
-				F3AF7F432A2C7E6600DBAD36 /* ru */,
-			);
-			name = RegisterScreen.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
