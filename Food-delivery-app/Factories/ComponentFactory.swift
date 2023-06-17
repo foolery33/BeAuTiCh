@@ -42,4 +42,8 @@ final class ComponentFactory {
         return mainComponent.searchComponent
     }
     
+    func getFilterComponent() -> FilterComponent {
+        return mainComponent.filterComponent
+    }
+    
 }

@@ -29,4 +29,10 @@ final class SearchCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(searchComponent.searchViewController, animated: true)
     }
     
+    func goToFilterScreen() {
+        let filterComponent = componentFactory.getFilterComponent()
+        filterComponent.filterViewModel.coordinator = self
+        navigationController.pushViewController(filterComponent.filterViewController, animated: true)
+    }
+    
 }

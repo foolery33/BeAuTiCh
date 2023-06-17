@@ -106,6 +106,11 @@ final class MainComponent: BootstrapComponent {
             SearchComponent(parent: self)
         }
     }
+    var filterComponent: FilterComponent {
+        shared {
+            FilterComponent(parent: self)
+        }
+    }
     
     var settingsComponent: SettingsComponent {
         shared {

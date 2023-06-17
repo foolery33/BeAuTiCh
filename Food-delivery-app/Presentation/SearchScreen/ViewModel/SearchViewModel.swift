@@ -61,4 +61,8 @@ final class SearchViewModel {
         getFilteredAppointmentListUseCase.getFilteredAppointmentList(from: appointmentList, with: filterString)
     }
     
+    func goToFilterScreen() {
+        coordinator?.goToFilterScreen()
+    }
+    
 }

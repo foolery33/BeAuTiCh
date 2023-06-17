@@ -1,0 +1,11 @@
+/* 
+  FilterScreen.strings
+  Food-delivery-app
+
+  Created by Nikita Usov on 17.06.2023.
+  
+*/
+
+"filters" = "Фильтры";
+"choose_services_for_filtration" = "Выбрать услуги для фильтрации";
+"sorting" = "Сортировка";
