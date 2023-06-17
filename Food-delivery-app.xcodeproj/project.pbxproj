@@ -57,11 +57,6 @@
 		84C975D82A3362D900BF489B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D72A3362D900BF489B /* NoteModel.swift */; };
 		84CD8EF32A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EF22A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift */; };
 		84CD8EF52A3DA5C000EA140A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EF42A3DA5C000EA140A /* UIViewExtension.swift */; };
-		84CD8EFC2A3DA89700EA140A /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EFB2A3DA89700EA140A /* FilterViewController.swift */; };
-		84CD8EFE2A3DA8D000EA140A /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EFD2A3DA8D000EA140A /* FilterView.swift */; };
-		84CD8F002A3DA8E400EA140A /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EFF2A3DA8E400EA140A /* FilterViewModel.swift */; };
-		84CD8F022A3DA91000EA140A /* FilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8F012A3DA91000EA140A /* FilterComponent.swift */; };
-		84CD8F062A3DAF2500EA140A /* FilterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84CD8F082A3DAF2500EA140A /* FilterScreen.strings */; };
 		84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE12A36D8F3008BF057 /* StartViewController.swift */; };
 		84D5FEE42A36D905008BF057 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE32A36D905008BF057 /* StartView.swift */; };
 		84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE52A36D929008BF057 /* StartViewModel.swift */; };
@@ -161,12 +156,6 @@
 		84C975D72A3362D900BF489B /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		84CD8EF22A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFilteredAppointmentListUseCase.swift; sourceTree = "<group>"; };
 		84CD8EF42A3DA5C000EA140A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		84CD8EFB2A3DA89700EA140A /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		84CD8EFD2A3DA8D000EA140A /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		84CD8EFF2A3DA8E400EA140A /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
-		84CD8F012A3DA91000EA140A /* FilterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterComponent.swift; sourceTree = "<group>"; };
-		84CD8F072A3DAF2500EA140A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FilterScreen.strings; sourceTree = "<group>"; };
-		84CD8F092A3DAF2700EA140A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FilterScreen.strings; sourceTree = "<group>"; };
 		84D5FEE12A36D8F3008BF057 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		84D5FEE32A36D905008BF057 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		84D5FEE52A36D929008BF057 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
@@ -470,7 +459,6 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				84CD8EF62A3DA86D00EA140A /* FilterScreen */,
 				F37686F12A382FAB0006E566 /* SettingsScreen */,
 				841077712A373DBB002905D2 /* SearchScreen */,
 				84D5FEDC2A36D897008BF057 /* StartScreen */,
@@ -556,57 +544,6 @@
 			path = StaticPart;
 			sourceTree = "<group>";
 		};
-		84CD8EF62A3DA86D00EA140A /* FilterScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8EFA2A3DA88600EA140A /* Component */,
-				84CD8EF92A3DA88000EA140A /* ViewModel */,
-				84CD8EF82A3DA87B00EA140A /* View */,
-				84CD8EF72A3DA87400EA140A /* ViewController */,
-			);
-			path = FilterScreen;
-			sourceTree = "<group>";
-		};
-		84CD8EF72A3DA87400EA140A /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8EFB2A3DA89700EA140A /* FilterViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		84CD8EF82A3DA87B00EA140A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8EFD2A3DA8D000EA140A /* FilterView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		84CD8EF92A3DA88000EA140A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8EFF2A3DA8E400EA140A /* FilterViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		84CD8EFA2A3DA88600EA140A /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8F012A3DA91000EA140A /* FilterComponent.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		84CD8F032A3DAEEB00EA140A /* FilterScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84CD8F082A3DAF2500EA140A /* FilterScreen.strings */,
-			);
-			path = FilterScreen;
-			sourceTree = "<group>";
-		};
 		84D5FEDC2A36D897008BF057 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,36 +586,6 @@
 				84D5FEE72A36D946008BF057 /* StartComponent.swift */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		84D5FEEA2A36E922008BF057 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				84FC6E742A382CA9004775F6 /* Errors */,
-				84CD8F032A3DAEEB00EA140A /* FilterScreen */,
-				844AF4DB2A373F6000B2C9C7 /* SearchScreen */,
-				84D5FEEB2A36E922008BF057 /* RegisterScreen */,
-				84D5FEF12A36E922008BF057 /* LoginScreen */,
-				84D5FEF82A36E93C008BF057 /* StartScreen */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		84D5FEEB2A36E922008BF057 /* RegisterScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */,
-				84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */,
-			);
-			path = RegisterScreen;
-			sourceTree = "<group>";
-		};
-		84D5FEF12A36E922008BF057 /* LoginScreen */ = {
-			isa = PBXGroup;
-			children = (
-				84D5FEF22A36E922008BF057 /* LoginScreen.strings */,
-			);
-			path = LoginScreen;
 			sourceTree = "<group>";
 		};
 		84D5FEF82A36E93C008BF057 /* StartScreen */ = {
@@ -1004,9 +911,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D5FEF62A36E922008BF057 /* RegisterScreen (Russian).strings in Resources */,
-				F3AF7F232A2B1EF400DBAD36 /* RedHatDisplay-Medium.ttf in Resources */,
-				84CD8F062A3DAF2500EA140A /* FilterScreen.strings in Resources */,
+				84D5FEF62A36E922008BF057 /* (null) in Resources */,
 				844AF4DE2A373F7F00B2C9C7 /* SearchScreen.strings in Resources */,
 				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
 				F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */,
@@ -1121,7 +1026,6 @@
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8430538C2A3CD058004B25FE /* TokenManager.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
-				84CD8F022A3DA91000EA140A /* FilterComponent.swift in Sources */,
 				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
@@ -1146,7 +1050,6 @@
 				84D5FEE82A36D946008BF057 /* StartComponent.swift in Sources */,
 				F37434952A3CB8DC00D009BA /* Service.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
-				84CD8F002A3DA8E400EA140A /* FilterViewModel.swift in Sources */,
 				F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
 				F37686FB2A3830600006E566 /* SettingsViewController.swift in Sources */,
@@ -1170,7 +1073,6 @@
 				F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
 				844AF4EC2A37469A00B2C9C7 /* StatusAppointmentModel.swift in Sources */,
-				84CD8EFE2A3DA8D000EA140A /* FilterView.swift in Sources */,
 				84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
 				F37687012A383A4E0006E566 /* InformationSubscribeBlockView.swift in Sources */,
@@ -1182,7 +1084,6 @@
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
-				84CD8EFC2A3DA89700EA140A /* FilterViewController.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
 				8410777D2A373E30002905D2 /* SearchComponent.swift in Sources */,
 				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
@@ -1214,41 +1115,6 @@
 				8450B0F32A261D3900273956 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		84CD8F082A3DAF2500EA140A /* FilterScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84CD8F072A3DAF2500EA140A /* en */,
-				84CD8F092A3DAF2700EA140A /* ru */,
-			);
-			name = FilterScreen.strings;
-			sourceTree = "<group>";
-		};
-		84D5FEEC2A36E922008BF057 /* RegisterScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84D5FEED2A36E922008BF057 /* en */,
-				84D5FEF02A36E922008BF057 /* ru */,
-			);
-			name = RegisterScreen.strings;
-			sourceTree = "<group>";
-		};
-		84D5FEEE2A36E922008BF057 /* RegisterScreen (Russian).strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84D5FEEF2A36E922008BF057 /* ru */,
-			);
-			name = "RegisterScreen (Russian).strings";
-			sourceTree = "<group>";
-		};
-		84D5FEF22A36E922008BF057 /* LoginScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84D5FEF32A36E922008BF057 /* en */,
-				84D5FEF42A36E922008BF057 /* ru */,
-			);
-			name = LoginScreen.strings;
 			sourceTree = "<group>";
 		};
 		84D5FEFD2A36E996008BF057 /* StartScreen.strings */ = {

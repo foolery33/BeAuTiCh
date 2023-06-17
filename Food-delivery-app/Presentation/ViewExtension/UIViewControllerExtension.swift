@@ -16,6 +16,7 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
+    
     @objc
     func dismissKeyboard(sender: AnyObject) {
         view.endEditing(true)
@@ -26,21 +27,6 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default, handler: { _ in
         }))
         present(alert, animated: true, completion: nil)
-    }
-    
-    func setupNavigationBarAppearence() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        let navigationBarTitleAttributes: [NSAttributedString.Key: Any] = [
-            .font: R.font.ralewayBold(size: 30)!,
-            .foregroundColor: R.color.white()!
-        ]
-        if let navBarAppearance = navigationController?.navigationBar.standardAppearance {
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.backgroundColor = R.color.clear()
-            navBarAppearance.titleTextAttributes = navigationBarTitleAttributes
-            navigationController?.navigationBar.standardAppearance = navBarAppearance
-            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        }
     }
 }
 

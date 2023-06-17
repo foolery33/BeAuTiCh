@@ -9,7 +9,6 @@ import UIKit
 
 class SearchView: UIView {
     
-    var onFilterButtonTapped: (() -> ())?
     var onTextFieldValueChange: ((String) -> ())?
     var convertTime: ((String) -> (String))?
     var getFilteredAppointmentList: (([AppointmentModel], String) -> ([AppointmentModel]))?
@@ -53,7 +52,6 @@ class SearchView: UIView {
         let myButton = UIButton(type: .custom)
         myButton.setImage(R.image.filter(), for: .normal)
         myButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        myButton.addTarget(self, action: #selector(goToFilterScreen), for: .touchUpInside)
         return myButton
     }()
     private func setupFilterButton() {
@@ -62,9 +60,6 @@ class SearchView: UIView {
             make.leading.equalToSuperview().inset(21)
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(17)
         }
-    }
-    @objc private func goToFilterScreen() {
-        (onFilterButtonTapped ?? {})()
     }
     
     // MARK: - SearchTextField setup

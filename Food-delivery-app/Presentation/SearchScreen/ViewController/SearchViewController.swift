@@ -31,10 +31,6 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         getAppointmentList()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 
 }
 
@@ -42,9 +38,6 @@ private extension SearchViewController {
     
     func handleViewEvents() {
         
-        ui.onFilterButtonTapped = { [weak self] in
-            self?.viewModel.goToFilterScreen()
-        }
         ui.onTextFieldValueChange = { [weak self] text in
             self?.viewModel.clientName = text
         }
