@@ -1,0 +1,11 @@
+/* 
+  SettingsScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 13.06.2023.
+  
+*/
+
+"title_screen" = "Setup";
+"show_services" = "View my services";
+"information_subscribe" = "Subscription information";
