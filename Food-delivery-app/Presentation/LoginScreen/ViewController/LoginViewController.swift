@@ -38,11 +38,11 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
     func setHandlers() {
         ui.loginButtonHandler = { [ weak self ] in
-            guard let self = self else { return }
+            guard self != nil else { return }
         }
         
         ui.goToRegisterScreenButtonHandler = { [ weak self ] in
-            guard let self = self else { return }
+            guard self != nil else { return }
         }
     }
 }

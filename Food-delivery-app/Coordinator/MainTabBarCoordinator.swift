@@ -35,20 +35,21 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
         mainCoordinator.parentCoordinator = parentCoordinator
         
         let mainItem = UITabBarItem()
-        mainItem.image = R.image.house()
+        mainItem.image = R.image.unselectedHouse()
         mainItem.selectedImage = R.image.selectedHouse()
         mainNavigationController.tabBarItem = mainItem
         
         // MARK: - SearchScreen
         
-//        let searchNavigationController = UINavigationController()
-//        searchNavigationController.setNavigationBarHidden(true, animated: false)
-//        let searchCoordinator = CompilationCoordinator(navigationController: searchNavigationController)
-//        searchCoordinator.parentCoordinator = parentCoordinator
-//
-//        let searchItem = UITabBarItem()
-//        searchItem.image = R.image.search()
-//        compilationNavigationController.tabBarItem = searchItem
+        let searchNavigationController = UINavigationController()
+        searchNavigationController.setNavigationBarHidden(true, animated: false)
+        let searchCoordinator = SearchCoordinator(navigationController: searchNavigationController)
+        searchCoordinator.parentCoordinator = parentCoordinator
+
+        let searchItem = UITabBarItem()
+        searchItem.image = R.image.unselectedSearch()
+        searchItem.selectedImage = R.image.selectedSearch()
+        searchNavigationController.tabBarItem = searchItem
         
         // MARK: - ProfileScreen
         
@@ -58,7 +59,8 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
 //        profileCoordinator.parentCoordinator = parentCoordinator
 //
 //        let profileItem = UITabBarItem()
-//        profileItem.image = R.image.person()
+//        profileItem.image = R.image.unselectedPerson()
+//        profileItem.selectedImage = R.image.selectedPerson()
 //        profileNavigationController.tabBarItem = profileItem
 
         // MARK: - SettingsScreen
@@ -66,23 +68,24 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
 //        let settingsNavigationController = UINavigationController()
 //        let settingsCoordinator = SettingsCoordinator(navigationController: settingsNavigationController)
 //        settingsCoordinator.parentCoordinator = parentCoordinator
-//        
+//
 //        let settingsItem = UITabBarItem()
-//        settingsItem.image = R.image.settings()
+//        settingsItem.image = R.image.unselectedSettings()
+//        settingsItem.selectedImage = R.image.selectedSettings()
 //        settingsNavigationController.tabBarItem = settingsItem
         
-        viewController.viewControllers = [mainNavigationController]
+        viewController.viewControllers = [mainNavigationController, searchNavigationController]
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         parentCoordinator?.children.append(mainCoordinator)
-//        parentCoordinator?.children.append(compilationCoordinator)
+        parentCoordinator?.children.append(searchCoordinator)
 //        parentCoordinator?.children.append(collectionsCoordinator)
 //        parentCoordinator?.children.append(profileCoordinator)
         
         mainCoordinator.start()
-//        compilationCoordinator.start()
+        searchCoordinator.start()
 //        collectionsCoordinator.start()
 //        profileCoordinator.start()
         

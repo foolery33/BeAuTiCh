@@ -48,6 +48,34 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var convertISOToReadableDateAndTimeUseCase: ConvertISOToReadableDateAndTimeUseCase {
+        shared {
+            ConvertISOToReadableDateAndTimeUseCase()
+        }
+    }
+    
+    var getFilteredAppointmentListUseCase: GetFilteredAppointmentListUseCase {
+        shared {
+            GetFilteredAppointmentListUseCase()
+        }
+    }
+    
+    // MARK: - Repositories
+    
+    var tokenManagerRepository: TokenManagerRepository {
+        shared {
+            TokenManagerRepositoryImplementation()
+        }
+    }
+    
+    var appointmentRepository: AppointmentRepository {
+        shared {
+            AppointmentRepositoryImplementation(
+                tokenManagerRepository: TokenManagerRepositoryImplementation()
+            )
+        }
+    }
+    
     // MARK: - Components
     
     var startComponent: StartComponent {
@@ -70,6 +98,11 @@ final class MainComponent: BootstrapComponent {
     var mainScreenComponent: MainScreenComponent {
         shared {
             MainScreenComponent(parent: self)
+        }
+    }
+    var searchComponent: SearchComponent {
+        shared {
+            SearchComponent(parent: self)
         }
     }
     

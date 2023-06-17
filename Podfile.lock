@@ -1,24 +1,32 @@
 PODS:
+  - Alamofire (5.7.1)
+  - KeychainSwift (20.0.0)
   - NeedleFoundation (0.17.2)
   - R.swift (7.3.2)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Alamofire
+  - KeychainSwift (~> 20.0)
   - NeedleFoundation
   - R.swift
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - KeychainSwift
     - NeedleFoundation
     - R.swift
     - SnapKit
 
 SPEC CHECKSUMS:
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   NeedleFoundation: 36cfaea9ae9eb527a796f5c1df19296c722666b8
   R.swift: 0af0d882f49f03711415cb4e5215daa977d8a480
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 76018afc957bbbd2eafbcab7c91c80c400c98ac3
+PODFILE CHECKSUM: 78b79cf5397072c90a644d1d04c8d00cc9ff6d2d
 
 COCOAPODS: 1.12.1
