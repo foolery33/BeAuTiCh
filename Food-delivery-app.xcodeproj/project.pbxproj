@@ -17,16 +17,13 @@
 		84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */; };
 		84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */; };
 		84283B752A2C810900CA911D /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B742A2C810900CA911D /* R.generated.swift */; };
-		84283B772A2C86DF00CA911D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B762A2C86DF00CA911D /* MainCoordinator.swift */; };
 		84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B7C2A2C911F00CA911D /* NoteView.swift */; };
-		84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */; };
 		84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */; };
 		84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */; };
 		84283B8B2A2CB43500CA911D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B8A2A2CB43500CA911D /* DateView.swift */; };
 		84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84283B8D2A2CBB6200CA911D /* DateLineStackView.swift */; };
 		8430538C2A3CD058004B25FE /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430538B2A3CD058004B25FE /* TokenManager.swift */; };
 		843053902A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430538F2A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift */; };
-		844AF4DE2A373F7F00B2C9C7 /* SearchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 844AF4E02A373F7F00B2C9C7 /* SearchScreen.strings */; };
 		844AF4E52A37442600B2C9C7 /* AppointmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844AF4E42A37442600B2C9C7 /* AppointmentRepository.swift */; };
 		844AF4E72A37443300B2C9C7 /* AppointmentRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844AF4E62A37443300B2C9C7 /* AppointmentRepositoryImplementation.swift */; };
 		844AF4EA2A37463900B2C9C7 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844AF4E92A37463900B2C9C7 /* AppointmentModel.swift */; };
@@ -69,7 +66,6 @@
 		84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */; };
 		84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */; };
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
-		84FC6E772A382CD6004775F6 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84FC6E792A382CD6004775F6 /* Errors.strings */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */; };
 		F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35014282A3DED4C0095D091 /* RegisterScreen.strings */; };
@@ -100,6 +96,11 @@
 		F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */; };
 		F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */; };
 		F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */; };
+		F3DAB9002A3E021200E31487 /* SearchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB9022A3E021200E31487 /* SearchScreen.strings */; };
+		F3DAB9042A3E023000E31487 /* Errors.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB9062A3E023000E31487 /* Errors.strings */; };
+		F3DAB9092A3E033200E31487 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9082A3E033200E31487 /* MainCoordinator.swift */; };
+		F3DAB90A2A3E039300E31487 /* InformationSubcscribeSheetScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */; };
+		F3DAB90C2A3E03C600E31487 /* RedHatDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB90B2A3E03C600E31487 /* RedHatDisplay-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,17 +114,13 @@
 		84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenComponent.swift; sourceTree = "<group>"; };
 		84283B742A2C810900CA911D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		84283B762A2C86DF00CA911D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		84283B7C2A2C911F00CA911D /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
 		84283B8A2A2CB43500CA911D /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		84283B8D2A2CBB6200CA911D /* DateLineStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLineStackView.swift; sourceTree = "<group>"; };
 		8430538B2A3CD058004B25FE /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		8430538F2A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertISOToReadableDateAndTimeUseCase.swift; sourceTree = "<group>"; };
-		844AF4DF2A373F7F00B2C9C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchScreen.strings; sourceTree = "<group>"; };
-		844AF4E12A373F8100B2C9C7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchScreen.strings; sourceTree = "<group>"; };
 		844AF4E42A37442600B2C9C7 /* AppointmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRepository.swift; sourceTree = "<group>"; };
 		844AF4E62A37443300B2C9C7 /* AppointmentRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRepositoryImplementation.swift; sourceTree = "<group>"; };
 		844AF4E92A37463900B2C9C7 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
@@ -168,8 +165,6 @@
 		84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTodayUseCase.swift; sourceTree = "<group>"; };
-		84FC6E782A382CD6004775F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
-		84FC6E7A2A382CD7004775F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -209,6 +204,12 @@
 		F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		F3AF7F312A2C6D8100DBAD36 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		F3DAB9012A3E021200E31487 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SearchScreen.strings; sourceTree = "<group>"; };
+		F3DAB9032A3E021400E31487 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchScreen.strings; sourceTree = "<group>"; };
+		F3DAB9052A3E023000E31487 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Errors.strings; sourceTree = "<group>"; };
+		F3DAB9072A3E023200E31487 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
+		F3DAB9082A3E033200E31487 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F3DAB90B2A3E03C600E31487 /* RedHatDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +430,7 @@
 		8450B0FB2A261D8E00273956 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB9082A3E033200E31487 /* MainCoordinator.swift */,
 				8450B0FC2A261D9600273956 /* Protocols */,
 				8450B0FF2A261DBF00273956 /* AppCoordinator.swift */,
 				8450B1042A261FA900273956 /* AuthCoordinator.swift */,
@@ -632,9 +634,6 @@
 			isa = PBXGroup;
 			children = (
 				F3AF7F4C2A2C822B00DBAD36 /* R.generated.swift */,
-				84283B762A2C86DF00CA911D /* MainCoordinator.swift */,
-				844AF4E02A373F7F00B2C9C7 /* SearchScreen.strings */,
-				84FC6E792A382CD6004775F6 /* Errors.strings */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -807,11 +806,11 @@
 		F3AF7F1F2A2B1E2A00DBAD36 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB90B2A3E03C600E31487 /* RedHatDisplay-Black.ttf */,
 				F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */,
 				F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */,
 				84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */,
 				84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */,
-				84283B802A2C969700CA911D /* RedHatDisplay-Bold.ttf */,
 				F3AF7F282A2B1F2400DBAD36 /* Raleway-Bold.ttf */,
 				F3AF7F262A2B1F1D00DBAD36 /* Raleway-Regular.ttf */,
 			);
@@ -831,12 +830,30 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB8FB2A3E01F600E31487 /* SearchScreen */,
+				F3DAB8FA2A3E01F000E31487 /* Errors */,
 				F35014212A3DED290095D091 /* RegisterScreen */,
 				F35014202A3DED230095D091 /* LoginScreen */,
 				84D5FEF82A36E93C008BF057 /* StartScreen */,
 				F37687072A383F790006E566 /* SettingsScreen */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		F3DAB8FA2A3E01F000E31487 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9062A3E023000E31487 /* Errors.strings */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		F3DAB8FB2A3E01F600E31487 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9022A3E021200E31487 /* SearchScreen.strings */,
+			);
+			path = SearchScreen;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -911,18 +928,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DAB90A2A3E039300E31487 /* InformationSubcscribeSheetScreen.strings in Resources */,
 				84D5FEF62A36E922008BF057 /* (null) in Resources */,
-				844AF4DE2A373F7F00B2C9C7 /* SearchScreen.strings in Resources */,
 				F3AF7F292A2B1F2400DBAD36 /* Raleway-Bold.ttf in Resources */,
 				F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */,
-				84FC6E772A382CD6004775F6 /* Errors.strings in Resources */,
 				F3AF7F272A2B1F1D00DBAD36 /* Raleway-Regular.ttf in Resources */,
+				F3DAB9042A3E023000E31487 /* Errors.strings in Resources */,
 				8450B0F42A261D3900273956 /* LaunchScreen.storyboard in Resources */,
-				84283B812A2C969700CA911D /* RedHatDisplay-Bold.ttf in Resources */,
 				84283B852A2C96B500CA911D /* RedHatDisplay-Regular.ttf in Resources */,
 				84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */,
 				8450B0F12A261D3900273956 /* Assets.xcassets in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
+				F3DAB90C2A3E03C600E31487 /* RedHatDisplay-Black.ttf in Resources */,
+				F3DAB9002A3E021200E31487 /* SearchScreen.strings in Resources */,
 				F376870A2A383F910006E566 /* SettingsScreen.strings in Resources */,
 				F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */,
 				F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */,
@@ -1017,7 +1035,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84283B772A2C86DF00CA911D /* MainCoordinator.swift in Sources */,
 				8450B0EC2A261D3800273956 /* LoginViewController.swift in Sources */,
 				8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */,
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
@@ -1089,6 +1106,7 @@
 				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
 				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				841077792A373DFB002905D2 /* SearchViewController.swift in Sources */,
+				F3DAB9092A3E033200E31487 /* MainCoordinator.swift in Sources */,
 				F311EF292A2DD70E00637151 /* LoginView.swift in Sources */,
 				84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */,
 				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
@@ -1100,15 +1118,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		844AF4E02A373F7F00B2C9C7 /* SearchScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				844AF4DF2A373F7F00B2C9C7 /* en */,
-				844AF4E12A373F8100B2C9C7 /* ru */,
-			);
-			name = SearchScreen.strings;
-			sourceTree = "<group>";
-		};
 		8450B0F22A261D3900273956 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1124,15 +1133,6 @@
 				84D5FEFE2A36E999008BF057 /* ru */,
 			);
 			name = StartScreen.strings;
-			sourceTree = "<group>";
-		};
-		84FC6E792A382CD6004775F6 /* Errors.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84FC6E782A382CD6004775F6 /* en */,
-				84FC6E7A2A382CD7004775F6 /* ru */,
-			);
-			name = Errors.strings;
 			sourceTree = "<group>";
 		};
 		F35014282A3DED4C0095D091 /* RegisterScreen.strings */ = {
@@ -1169,6 +1169,24 @@
 				F376872F2A38B6C50006E566 /* ru */,
 			);
 			name = InformationSubcscribeSheetScreen.strings;
+			sourceTree = "<group>";
+		};
+		F3DAB9022A3E021200E31487 /* SearchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DAB9012A3E021200E31487 /* en */,
+				F3DAB9032A3E021400E31487 /* ru */,
+			);
+			name = SearchScreen.strings;
+			sourceTree = "<group>";
+		};
+		F3DAB9062A3E023000E31487 /* Errors.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DAB9052A3E023000E31487 /* en */,
+				F3DAB9072A3E023200E31487 /* ru */,
+			);
+			name = Errors.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1298,7 +1316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H29F6RLPN8;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1331,7 +1349,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H29F6RLPN8;
+				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

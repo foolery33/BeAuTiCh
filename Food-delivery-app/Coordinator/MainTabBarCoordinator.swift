@@ -94,7 +94,7 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
     
     func getSettingsUINavigationController() -> UINavigationController  {
         let settingsItem = UITabBarItem()
-        settingsItem.image = R.image.settings()
+        settingsItem.image = R.image.selectedSettings()
         settingsItem.selectedImage = R.image.selectedSettings()
         
         let settingsNavigationController = UINavigationController()

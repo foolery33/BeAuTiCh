@@ -55,7 +55,7 @@ class LoginView: UIView {
     
     private lazy var welcomeLabel: UILabel = {
         let view = UILabel()
-        view.text = R.string.loginScreen.repeat_greeting()
+        view.text = R.string.loginScreen.input_password()
         view.textColor = .white
         view.textAlignment = .center
         view.numberOfLines = .max

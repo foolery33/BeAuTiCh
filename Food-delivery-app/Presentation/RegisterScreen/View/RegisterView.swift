@@ -60,7 +60,7 @@ class RegisterView: UIView {
         view.textColor = .white
         view.textAlignment = .center
         view.numberOfLines = .max
-        view.font = R.font.redHatDisplayBlack(size: Metrics.welcomeLabelTextSize)
+        view.font = R.font.redHatDisplaySemiBold(size: Metrics.welcomeLabelTextSize)
         
         return view
     }()

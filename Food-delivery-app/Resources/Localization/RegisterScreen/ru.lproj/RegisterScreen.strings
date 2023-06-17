@@ -1,13 +1,16 @@
 /*
-  LoginScreen.strings
+  RegisterScreen (English).strings
   Food-delivery-app
 
-  Created by Елена on 05.06.2023.
+  Created by Елена on 04.06.2023.
 
 */
 
-"repeat_greeting" = "C возвращением!";
-"input_email" = "Введите email";
-"input_password" = "Введите пароль";
-"login" = "Войти";
-"have_not_account" = "Зарегистрироваться";
+"first_greeting" = "Добро пожаловать!";
+"input_lastname" = "Введите фамилию*";
+"input_firstname" = "Введите имя*";
+"input_email" = "Введите email*";
+"input_password" = "Введите пароль*";
+"input_repeat_password" = "Повторите пароль*";
+"register" = "Зарегистрироваться";
+"have_account" = "У меня уже есть аккаунт";

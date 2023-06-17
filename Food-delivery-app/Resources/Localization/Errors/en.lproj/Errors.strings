@@ -1,9 +1,9 @@
-/* 
+/*
   Errors.strings
   Food-delivery-app
 
   Created by Nikita Usov on 13.06.2023.
-  
+
 */
 
 "server_error" = "Some server error occured. Please try again later";
