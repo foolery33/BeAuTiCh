@@ -32,22 +32,21 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
         let settingsNavigationController = getSettingsUINavigationController()
         
         let mainCoordinator = getMainCoordinator(navController: mainNavigationController)
-//        let searchCoordinator = getSearchCoordinator(navController: searchNavigationController)
-//        let searchCoordinator = getProfileCoordinator(navController: profileNavigationController)
+        let searchCoordinator = getSearchCoordinator(navController: searchNavigationController)
         let settingsCoordinator = getSettingsCoordinator(navController: settingsNavigationController)
         
-        viewController.viewControllers = [mainNavigationController, settingsNavigationController]
+        viewController.viewControllers = [mainNavigationController, searchNavigationController, settingsNavigationController, profileNavigationController]
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         parentCoordinator?.children.append(mainCoordinator)
-//        parentCoordinator?.children.append(searchCoordinator)
+        parentCoordinator?.children.append(searchCoordinator)
 //        parentCoordinator?.children.append(profileCoordinator)
         parentCoordinator?.children.append(settingsCoordinator)
         
         mainCoordinator.start()
-//        searchCoordinator.start()
+        searchCoordinator.start()
 //        profileCoordinator.start()
         settingsCoordinator.start()
         
@@ -58,7 +57,7 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
     
     func getMainUINavigationController() -> UINavigationController {
         let mainItem = UITabBarItem()
-        mainItem.image = R.image.house()
+        mainItem.image = R.image.unselectedHouse()
         mainItem.selectedImage = R.image.selectedHouse()
         
         let mainNavigationController = UINavigationController()
@@ -70,7 +69,7 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
     
     func getSearchUINavigationController() -> UINavigationController {
         let searchItem = UITabBarItem()
-        searchItem.image = R.image.search()
+        searchItem.image = R.image.unselectedSearch()
         searchItem.selectedImage = R.image.selectedSearch()
         
         let searchNavigationController = UINavigationController()
@@ -82,8 +81,8 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
     
     func getProfileUINavigationController() -> UINavigationController  {
         let profileItem = UITabBarItem()
-        profileItem.image = R.image.person()
-        profileItem.selectedImage = R.image.selectedProfile()
+        profileItem.image = R.image.unselectedPerson()
+        profileItem.selectedImage = R.image.selectedPerson()
         
         let profileNavigationController = UINavigationController()
         profileNavigationController.setNavigationBarHidden(true, animated: false)
@@ -94,7 +93,7 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
     
     func getSettingsUINavigationController() -> UINavigationController  {
         let settingsItem = UITabBarItem()
-        settingsItem.image = R.image.selectedSettings()
+        settingsItem.image = R.image.unselectedSettings()
         settingsItem.selectedImage = R.image.selectedSettings()
         
         let settingsNavigationController = UINavigationController()
@@ -114,12 +113,12 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
         return mainCoordinator
     }
     
-//    func getSearchCoordinator(navController: UINavigationController) -> SearchCoordinator {
-//        let searchCoordinator = SearchCoordinator(navigationController: navController)
-//        searchCoordinator.parentCoordinator = parentCoordinator
-//
-//        return searchCoordinator
-//    }
+    func getSearchCoordinator(navController: UINavigationController) -> SearchCoordinator {
+        let searchCoordinator = SearchCoordinator(navigationController: navController)
+        searchCoordinator.parentCoordinator = parentCoordinator
+
+        return searchCoordinator
+    }
 //
 //    func getProfileCoordinator(navController: UINavigationController) -> ProfileCoordinator {
 //        let profileCoordinator = ProfileCoordinator(navigationController: navController)

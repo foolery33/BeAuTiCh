@@ -355,7 +355,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 27 images.
+  /// This `_R.image` struct is generated, and contains static references to 28 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -389,9 +389,6 @@ struct _R {
     /// Image `HidePassword`.
     var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `House`.
-    var house: RswiftResources.ImageResource { .init(name: "House", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
     /// Image `LaunchScreen`.
     var launchScreen: RswiftResources.ImageResource { .init(name: "LaunchScreen", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -400,9 +397,6 @@ struct _R {
 
     /// Image `Logo`.
     var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `Person`.
-    var person: RswiftResources.ImageResource { .init(name: "Person", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `PlusNote`.
     var plusNote: RswiftResources.ImageResource { .init(name: "PlusNote", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -413,17 +407,14 @@ struct _R {
     /// Image `RightLines`.
     var rightLines: RswiftResources.ImageResource { .init(name: "RightLines", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `Search`.
-    var search: RswiftResources.ImageResource { .init(name: "Search", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
     /// Image `SecondBackground`.
     var secondBackground: RswiftResources.ImageResource { .init(name: "SecondBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `SelectedHouse`.
     var selectedHouse: RswiftResources.ImageResource { .init(name: "SelectedHouse", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `SelectedProfile`.
-    var selectedProfile: RswiftResources.ImageResource { .init(name: "SelectedProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `SelectedPerson`.
+    var selectedPerson: RswiftResources.ImageResource { .init(name: "SelectedPerson", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `SelectedSearch`.
     var selectedSearch: RswiftResources.ImageResource { .init(name: "SelectedSearch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -439,6 +430,18 @@ struct _R {
 
     /// Image `TextFieldBackground`.
     var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedHouse`.
+    var unselectedHouse: RswiftResources.ImageResource { .init(name: "UnselectedHouse", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedPerson`.
+    var unselectedPerson: RswiftResources.ImageResource { .init(name: "UnselectedPerson", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedSearch`.
+    var unselectedSearch: RswiftResources.ImageResource { .init(name: "UnselectedSearch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedSettings`.
+    var unselectedSettings: RswiftResources.ImageResource { .init(name: "UnselectedSettings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
