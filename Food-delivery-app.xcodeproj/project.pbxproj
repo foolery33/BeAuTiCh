@@ -113,7 +113,7 @@
 		84283B6D2A2C7E3900CA911D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		84283B6F2A2C7E6F00CA911D /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		84283B712A2C7EAC00CA911D /* MainScreenComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenComponent.swift; sourceTree = "<group>"; };
-		84283B742A2C810900CA911D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		84283B742A2C810900CA911D /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = "Food-delivery-app/Generated/R.generated.swift"; sourceTree = SOURCE_ROOT; };
 		84283B7C2A2C911F00CA911D /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		84283B822A2C96B500CA911D /* RedHatDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		84283B882A2C979600CA911D /* RedHatDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -410,19 +410,14 @@
 		8450B0E62A261D3800273956 /* Food-delivery-app */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB90D2A3E055C00E31487 /* Application */,
 				844AF4E22A37440100B2C9C7 /* Networking */,
 				8450B1062A261FCC00273956 /* Presentation */,
 				8450B1012A261E4C00273956 /* Factories */,
 				8450B0FB2A261D8E00273956 /* Coordinator */,
 				F3AF7F1E2A2B1E1E00DBAD36 /* Resources */,
-				8450B0E72A261D3800273956 /* AppDelegate.swift */,
-				8450B0E92A261D3800273956 /* SceneDelegate.swift */,
-				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
-				8450B0F52A261D3900273956 /* Info.plist */,
-				8452AEF02A266BB400BCC43B /* MainComponent.swift */,
-				84283B742A2C810900CA911D /* R.generated.swift */,
-				8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */,
-				8430538B2A3CD058004B25FE /* TokenManager.swift */,
+				F3DAB90E2A3E057E00E31487 /* Managers */,
+				F3DAB90F2A3E05A500E31487 /* Generated */,
 			);
 			path = "Food-delivery-app";
 			sourceTree = "<group>";
@@ -461,6 +456,7 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
 				F37686F12A382FAB0006E566 /* SettingsScreen */,
 				841077712A373DBB002905D2 /* SearchScreen */,
 				84D5FEDC2A36D897008BF057 /* StartScreen */,
@@ -854,6 +850,34 @@
 				F3DAB9022A3E021200E31487 /* SearchScreen.strings */,
 			);
 			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		F3DAB90D2A3E055C00E31487 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8452AEF02A266BB400BCC43B /* MainComponent.swift */,
+				8450B0E72A261D3800273956 /* AppDelegate.swift */,
+				8450B0E92A261D3800273956 /* SceneDelegate.swift */,
+				8450B0F52A261D3900273956 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F3DAB90E2A3E057E00E31487 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8430538B2A3CD058004B25FE /* TokenManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F3DAB90F2A3E05A500E31487 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				84283B742A2C810900CA911D /* R.generated.swift */,
+				8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -1318,7 +1342,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
+				INFOPLIST_FILE = "Food-delivery-app/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -1351,7 +1375,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Food-delivery-app/Info.plist";
+				INFOPLIST_FILE = "Food-delivery-app/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
