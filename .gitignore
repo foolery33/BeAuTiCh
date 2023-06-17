@@ -41,6 +41,9 @@ DerivedData/
 *.mode2v3
 !default.mode2v3
 *.generated.swift
+*.generated
+R.generated.swift
+NeedleGenerated.swift
 *.perspectivev3
 !default.perspectivev3
 
