@@ -101,6 +101,12 @@
 		F3DAB9092A3E033200E31487 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9082A3E033200E31487 /* MainCoordinator.swift */; };
 		F3DAB90A2A3E039300E31487 /* InformationSubcscribeSheetScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F376872E2A38B6C30006E566 /* InformationSubcscribeSheetScreen.strings */; };
 		F3DAB90C2A3E03C600E31487 /* RedHatDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB90B2A3E03C600E31487 /* RedHatDisplay-Black.ttf */; };
+		F3DAB91A2A3E0FA600E31487 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9192A3E0FA600E31487 /* ProfileCoordinator.swift */; };
+		F3DAB91C2A3E102300E31487 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91B2A3E102300E31487 /* ProfileView.swift */; };
+		F3DAB91E2A3E102D00E31487 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91D2A3E102D00E31487 /* ProfileViewController.swift */; };
+		F3DAB9202A3E103400E31487 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91F2A3E103400E31487 /* ProfileViewModel.swift */; };
+		F3DAB9222A3E103D00E31487 /* AccountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9212A3E103D00E31487 /* AccountComponent.swift */; };
+		F3DAB9262A3E151200E31487 /* ProfileScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB9282A3E151200E31487 /* ProfileScreen.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +215,13 @@
 		F3DAB9072A3E023200E31487 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Errors.strings; sourceTree = "<group>"; };
 		F3DAB9082A3E033200E31487 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F3DAB90B2A3E03C600E31487 /* RedHatDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Black.ttf"; sourceTree = "<group>"; };
+		F3DAB9192A3E0FA600E31487 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		F3DAB91B2A3E102300E31487 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F3DAB91D2A3E102D00E31487 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F3DAB91F2A3E103400E31487 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F3DAB9212A3E103D00E31487 /* AccountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountComponent.swift; sourceTree = "<group>"; };
+		F3DAB9272A3E151200E31487 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
+		F3DAB9292A3E151400E31487 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +443,7 @@
 				84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */,
 				F37686FE2A3830F30006E566 /* SettingsCoordinator.swift */,
 				8410776F2A373D8E002905D2 /* SearchCoordinator.swift */,
+				F3DAB9192A3E0FA600E31487 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -456,6 +470,7 @@
 			children = (
 				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
 				F37686F12A382FAB0006E566 /* SettingsScreen */,
+				F3DAB9132A3E0F6000E31487 /* ProfileScreen */,
 				841077712A373DBB002905D2 /* SearchScreen */,
 				84D5FEDC2A36D897008BF057 /* StartScreen */,
 				F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */,
@@ -816,6 +831,7 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB9232A3E150000E31487 /* ProfileScreen */,
 				F3DAB8FB2A3E01F600E31487 /* SearchScreen */,
 				F3DAB8FA2A3E01F000E31487 /* Errors */,
 				F35014212A3DED290095D091 /* RegisterScreen */,
@@ -864,10 +880,61 @@
 		F3DAB90F2A3E05A500E31487 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				845D165F2A3E086200C6CC93 /* R.generated.swift */,
 				8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */,
+				845D165F2A3E086200C6CC93 /* R.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		F3DAB9132A3E0F6000E31487 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9172A3E0F8600E31487 /* Component */,
+				F3DAB9162A3E0F7F00E31487 /* ViewModel */,
+				F3DAB9152A3E0F7200E31487 /* ViewController */,
+				F3DAB9142A3E0F6D00E31487 /* View */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F3DAB9142A3E0F6D00E31487 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB91B2A3E102300E31487 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F3DAB9152A3E0F7200E31487 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB91D2A3E102D00E31487 /* ProfileViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F3DAB9162A3E0F7F00E31487 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB91F2A3E103400E31487 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3DAB9172A3E0F8600E31487 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9212A3E103D00E31487 /* AccountComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F3DAB9232A3E150000E31487 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9282A3E151200E31487 /* ProfileScreen.strings */,
+			);
+			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -954,6 +1021,7 @@
 				84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 				F3DAB90C2A3E03C600E31487 /* RedHatDisplay-Black.ttf in Resources */,
+				F3DAB9262A3E151200E31487 /* ProfileScreen.strings in Resources */,
 				F3DAB9002A3E021200E31487 /* SearchScreen.strings in Resources */,
 				F376870A2A383F910006E566 /* SettingsScreen.strings in Resources */,
 				F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */,
@@ -1001,7 +1069,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which needle; then\n    SOURCEKIT_LOGGING=0 && needle generate Food-delivery-app/NeedleGenerated.swift Food-delivery-app/\nelse\n  echo \"warning: Needle not installed, download from https://github.com/uber/needle using Homebrew\"\nfi\n\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which needle; then\n    SOURCEKIT_LOGGING=0 && needle generate Food-delivery-app/Generated/NeedleGenerated.swift Food-delivery-app/\nelse\n  echo \"warning: Needle not installed, download from https://github.com/uber/needle using Homebrew\"\nfi\n\n";
 		};
 		914970DFBB39B111B7F811DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1052,6 +1120,7 @@
 				8450B0EC2A261D3800273956 /* LoginViewController.swift in Sources */,
 				8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */,
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
+				F3DAB9202A3E103400E31487 /* ProfileViewModel.swift in Sources */,
 				8450B1032A261E5B00273956 /* CoordinatorFactory.swift in Sources */,
 				844AF4F02A37488500B2C9C7 /* CustomRequestInterceptor.swift in Sources */,
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
@@ -1061,6 +1130,7 @@
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
+				F3DAB9222A3E103D00E31487 /* AccountComponent.swift in Sources */,
 				843053902A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift in Sources */,
 				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
 				84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */,
@@ -1071,6 +1141,7 @@
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
+				F3DAB91E2A3E102D00E31487 /* ProfileViewController.swift in Sources */,
 				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
@@ -1083,6 +1154,7 @@
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
+				F3DAB91A2A3E0FA600E31487 /* ProfileCoordinator.swift in Sources */,
 				F37686FB2A3830600006E566 /* SettingsViewController.swift in Sources */,
 				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
 				F37686FF2A3830F30006E566 /* SettingsCoordinator.swift in Sources */,
@@ -1124,6 +1196,7 @@
 				F311EF292A2DD70E00637151 /* LoginView.swift in Sources */,
 				84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */,
 				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
+				F3DAB91C2A3E102300E31487 /* ProfileView.swift in Sources */,
 				84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 			);
@@ -1201,6 +1274,15 @@
 				F3DAB9072A3E023200E31487 /* ru */,
 			);
 			name = Errors.strings;
+			sourceTree = "<group>";
+		};
+		F3DAB9282A3E151200E31487 /* ProfileScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DAB9272A3E151200E31487 /* en */,
+				F3DAB9292A3E151400E31487 /* ru */,
+			);
+			name = ProfileScreen.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -56,7 +56,7 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 7 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 8 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
@@ -64,6 +64,7 @@ struct _R {
     var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
     var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var loginScreen: loginScreen { .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+    var profileScreen: profileScreen { .init(source: .init(bundle: bundle, tableName: "ProfileScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreen: registerScreen { .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var searchScreen: searchScreen { .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
@@ -77,6 +78,9 @@ struct _R {
     }
     func loginScreen(preferredLanguages: [String]) -> loginScreen {
       .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func profileScreen(preferredLanguages: [String]) -> profileScreen {
+      .init(source: .init(bundle: bundle, tableName: "ProfileScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func registerScreen(preferredLanguages: [String]) -> registerScreen {
       .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale))
@@ -196,6 +200,60 @@ struct _R {
       ///
       /// Locales: en, ru
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
+    }
+
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 7 localization keys.
+    struct profileScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Change data
+      ///
+      /// Key: change_data
+      ///
+      /// Locales: en, ru
+      var change_data: RswiftResources.StringResource { .init(key: "change_data", tableName: "ProfileScreen", source: source, developmentValue: "Change data", comment: nil) }
+
+      /// en translation: Change password
+      ///
+      /// Key: change_password
+      ///
+      /// Locales: en, ru
+      var change_password: RswiftResources.StringResource { .init(key: "change_password", tableName: "ProfileScreen", source: source, developmentValue: "Change password", comment: nil) }
+
+      /// en translation: edit photo
+      ///
+      /// Key: change_photo
+      ///
+      /// Locales: en, ru
+      var change_photo: RswiftResources.StringResource { .init(key: "change_photo", tableName: "ProfileScreen", source: source, developmentValue: "edit photo", comment: nil) }
+
+      /// en translation: delete a photo
+      ///
+      /// Key: delete_photo
+      ///
+      /// Locales: en, ru
+      var delete_photo: RswiftResources.StringResource { .init(key: "delete_photo", tableName: "ProfileScreen", source: source, developmentValue: "delete a photo", comment: nil) }
+
+      /// en translation: Email: 
+      ///
+      /// Key: email
+      ///
+      /// Locales: en, ru
+      var email: RswiftResources.StringResource { .init(key: "email", tableName: "ProfileScreen", source: source, developmentValue: "Email: ", comment: nil) }
+
+      /// en translation: Phone: 
+      ///
+      /// Key: phone
+      ///
+      /// Locales: en, ru
+      var phone: RswiftResources.StringResource { .init(key: "phone", tableName: "ProfileScreen", source: source, developmentValue: "Phone: ", comment: nil) }
+
+      /// en translation: Log out
+      ///
+      /// Key: sign_out
+      ///
+      /// Locales: en, ru
+      var sign_out: RswiftResources.StringResource { .init(key: "sign_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
     }
 
     /// This `_R.string.registerScreen` struct is generated, and contains static references to 8 localization keys.
@@ -355,7 +413,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 28 images.
+  /// This `_R.image` struct is generated, and contains static references to 29 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -373,6 +431,9 @@ struct _R {
 
     /// Image `Background2`.
     var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `DefaultAvatar`.
+    var defaultAvatar: RswiftResources.ImageResource { .init(name: "DefaultAvatar", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Filter`.
     var filter: RswiftResources.ImageResource { .init(name: "Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

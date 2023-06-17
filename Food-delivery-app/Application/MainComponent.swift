@@ -124,4 +124,10 @@ final class MainComponent: BootstrapComponent {
             YourServicesComponent(parent: self)
         }
     }
+
+	var accountComponent: AccountComponent {
+		shared {
+			AccountComponent(parent: self)
+		}
+	}
 }
