@@ -1,0 +1,13 @@
+/*
+  LoginScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 05.06.2023.
+
+*/
+
+"repeat_greeting" = "C возвращением!";
+"input_email" = "Введите email";
+"input_password" = "Введите пароль";
+"login" = "Войти";
+"have_not_account" = "Зарегистрироваться";

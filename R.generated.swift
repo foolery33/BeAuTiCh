@@ -70,6 +70,13 @@ struct _R {
 
     func informationSubcscribeSheetScreen(preferredLanguages: [String]) -> informationSubcscribeSheetScreen {
       .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale))
+	}
+
+    var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
+    var searchScreen: searchScreen { .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+
+    func errors(preferredLanguages: [String]) -> errors {
+      .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale))
     }
     func loginScreen(preferredLanguages: [String]) -> loginScreen {
       .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale))
@@ -82,6 +89,8 @@ struct _R {
     }
     func settingsScreen(preferredLanguages: [String]) -> settingsScreen {
       .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale))
+    func searchScreen(preferredLanguages: [String]) -> searchScreen {
+      .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func startScreen(preferredLanguages: [String]) -> startScreen {
       .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale))
@@ -112,6 +121,44 @@ struct _R {
       ///
       /// Locales: en, ru
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Subscription Information", comment: nil) }
+    /// This `_R.string.errors` struct is generated, and contains static references to 5 localization keys.
+    struct errors {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Appointments loading error
+      ///
+      /// Key: appointments_loading_error
+      ///
+      /// Locales: en, ru
+      var appointments_loading_error: RswiftResources.StringResource { .init(key: "appointments_loading_error", tableName: "Errors", source: source, developmentValue: "Appointments loading error", comment: nil) }
+
+      /// en translation: Internal application error. Please contact developer
+      ///
+      /// Key: model_error
+      ///
+      /// Locales: en, ru
+      var model_error: RswiftResources.StringResource { .init(key: "model_error", tableName: "Errors", source: source, developmentValue: "Internal application error. Please contact developer", comment: nil) }
+
+      /// en translation: Ok
+      ///
+      /// Key: ok
+      ///
+      /// Locales: en, ru
+      var ok: RswiftResources.StringResource { .init(key: "ok", tableName: "Errors", source: source, developmentValue: "Ok", comment: nil) }
+
+      /// en translation: Some server error occured. Please try again later
+      ///
+      /// Key: server_error
+      ///
+      /// Locales: en, ru
+      var server_error: RswiftResources.StringResource { .init(key: "server_error", tableName: "Errors", source: source, developmentValue: "Some server error occured. Please try again later", comment: nil) }
+
+      /// en translation: Your authentication token is expired. Please login again
+      ///
+      /// Key: unauthorized
+      ///
+      /// Locales: en, ru
+      var unauthorized: RswiftResources.StringResource { .init(key: "unauthorized", tableName: "Errors", source: source, developmentValue: "Your authentication token is expired. Please login again", comment: nil) }
     }
 
     /// This `_R.string.loginScreen` struct is generated, and contains static references to 5 localization keys.
@@ -122,35 +169,35 @@ struct _R {
       ///
       /// Key: have_not_account
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var have_not_account: RswiftResources.StringResource { .init(key: "have_not_account", tableName: "LoginScreen", source: source, developmentValue: "Register", comment: nil) }
 
       /// en translation: Enter email
       ///
       /// Key: input_email
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_email: RswiftResources.StringResource { .init(key: "input_email", tableName: "LoginScreen", source: source, developmentValue: "Enter email", comment: nil) }
 
       /// en translation: Enter the password
       ///
       /// Key: input_password
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_password: RswiftResources.StringResource { .init(key: "input_password", tableName: "LoginScreen", source: source, developmentValue: "Enter the password", comment: nil) }
 
       /// en translation: Log in
       ///
       /// Key: login
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var login: RswiftResources.StringResource { .init(key: "login", tableName: "LoginScreen", source: source, developmentValue: "Log in", comment: nil) }
 
       /// en translation: Welcome back!
       ///
       /// Key: repeat_greeting
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
@@ -162,56 +209,56 @@ struct _R {
       ///
       /// Key: first_greeting
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var first_greeting: RswiftResources.StringResource { .init(key: "first_greeting", tableName: "RegisterScreen", source: source, developmentValue: "Welcome!", comment: nil) }
 
       /// en translation: I already have an account
       ///
       /// Key: have_account
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var have_account: RswiftResources.StringResource { .init(key: "have_account", tableName: "RegisterScreen", source: source, developmentValue: "I already have an account", comment: nil) }
 
       /// en translation: Enter email*
       ///
       /// Key: input_email
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_email: RswiftResources.StringResource { .init(key: "input_email", tableName: "RegisterScreen", source: source, developmentValue: "Enter email*", comment: nil) }
 
       /// en translation: Enter a name*
       ///
       /// Key: input_firstname
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_firstname: RswiftResources.StringResource { .init(key: "input_firstname", tableName: "RegisterScreen", source: source, developmentValue: "Enter a name*", comment: nil) }
 
       /// en translation: Enter your last name*
       ///
       /// Key: input_lastname
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_lastname: RswiftResources.StringResource { .init(key: "input_lastname", tableName: "RegisterScreen", source: source, developmentValue: "Enter your last name*", comment: nil) }
 
       /// en translation: Enter the password*
       ///
       /// Key: input_password
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_password: RswiftResources.StringResource { .init(key: "input_password", tableName: "RegisterScreen", source: source, developmentValue: "Enter the password*", comment: nil) }
 
       /// en translation: Repeat the password*
       ///
       /// Key: input_repeat_password
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var input_repeat_password: RswiftResources.StringResource { .init(key: "input_repeat_password", tableName: "RegisterScreen", source: source, developmentValue: "Repeat the password*", comment: nil) }
 
       /// en translation: Register
       ///
       /// Key: register
       ///
-      /// Locales: en, ru, en, ru
+      /// Locales: en, ru
       var register: RswiftResources.StringResource { .init(key: "register", tableName: "RegisterScreen", source: source, developmentValue: "Register", comment: nil) }
     }
 
@@ -251,6 +298,16 @@ struct _R {
       ///
       /// Locales: en, ru
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "SettingsScreen", source: source, developmentValue: "Setup", comment: nil) }
+    /// This `_R.string.searchScreen` struct is generated, and contains static references to 1 localization keys.
+    struct searchScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Enter client name
+      ///
+      /// Key: enter_client_name
+      ///
+      /// Locales: en, ru
+      var enter_client_name: RswiftResources.StringResource { .init(key: "enter_client_name", tableName: "SearchScreen", source: source, developmentValue: "Enter client name", comment: nil) }
     }
 
     /// This `_R.string.startScreen` struct is generated, and contains static references to 2 localization keys.
@@ -345,9 +402,6 @@ struct _R {
     /// Image `HidePassword`.
     var hidePassword: RswiftResources.ImageResource { .init(name: "HidePassword", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `House`.
-    var house: RswiftResources.ImageResource { .init(name: "House", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
     /// Image `LaunchScreen`.
     var launchScreen: RswiftResources.ImageResource { .init(name: "LaunchScreen", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -356,9 +410,6 @@ struct _R {
 
     /// Image `Logo`.
     var logo: RswiftResources.ImageResource { .init(name: "Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `Person`.
-    var person: RswiftResources.ImageResource { .init(name: "Person", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `PlusNote`.
     var plusNote: RswiftResources.ImageResource { .init(name: "PlusNote", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -378,8 +429,8 @@ struct _R {
     /// Image `SelectedHouse`.
     var selectedHouse: RswiftResources.ImageResource { .init(name: "SelectedHouse", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `SelectedProfile`.
-    var selectedProfile: RswiftResources.ImageResource { .init(name: "SelectedProfile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `SelectedPerson`.
+    var selectedPerson: RswiftResources.ImageResource { .init(name: "SelectedPerson", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `SelectedSearch`.
     var selectedSearch: RswiftResources.ImageResource { .init(name: "SelectedSearch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -398,6 +449,17 @@ struct _R {
 
     /// Image `TextFieldBackground`.
     var textFieldBackground: RswiftResources.ImageResource { .init(name: "TextFieldBackground", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `UnselectedHouse`.
+    var unselectedHouse: RswiftResources.ImageResource { .init(name: "UnselectedHouse", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedPerson`.
+    var unselectedPerson: RswiftResources.ImageResource { .init(name: "UnselectedPerson", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedSearch`.
+    var unselectedSearch: RswiftResources.ImageResource { .init(name: "UnselectedSearch", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `UnselectedSettings`.
+    var unselectedSettings: RswiftResources.ImageResource { .init(name: "UnselectedSettings", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
