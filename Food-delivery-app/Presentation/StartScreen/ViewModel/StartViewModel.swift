@@ -14,5 +14,4 @@ final class StartViewModel {
     func goToAuthScreen() {
         coordinator?.goToLoginScreen()
     }
-    
 }

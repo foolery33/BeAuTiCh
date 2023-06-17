@@ -27,6 +27,17 @@ final class ComponentFactory {
         return mainComponent.mainScreenComponent
     }
     
+    func getSettingsComponent() -> SettingsComponent {
+        return mainComponent.settingsComponent
+    }
+    
+    func getInformationSubscribeComponent() -> InformationSubscribeComponent {
+        return mainComponent.informationSubscribeComponent
+    }
+    
+    func getYourServicesComponent() -> YourServicesComponent {
+        return mainComponent.yourServicesComponent
+    }
     func getSearchComponent() -> SearchComponent {
         return mainComponent.searchComponent
     }

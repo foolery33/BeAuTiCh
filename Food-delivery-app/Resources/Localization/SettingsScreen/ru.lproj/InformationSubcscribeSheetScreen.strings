@@ -1,0 +1,11 @@
+/* 
+  InformationSubcscribeSheetScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 13.06.2023.
+  
+*/
+
+"title_screen" = "Информация о подписке";
+"start_date_subscribe" = "Подписка была оформлена: ";
+"cancel_subscription" = "Отменить подписку";
