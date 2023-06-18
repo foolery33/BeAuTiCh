@@ -13,3 +13,8 @@
 "email" = "Email: ";
 "change_data" = "Изменить данные";
 "change_password" = "Сменить пароль";
+"title_alert_input_data" = "Введите данные";
+"save" = "Сохранить";
+"cancel" = "Отмена";
+"input_name" = "Введите ваше имя";
+"input_phone" = "Введите ваш номер телефона";

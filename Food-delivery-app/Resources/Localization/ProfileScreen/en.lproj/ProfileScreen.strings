@@ -13,3 +13,8 @@
 "email" = "Email: ";
 "change_data" = "Change data";
 "change_password" = "Change password";
+"title_alert_input_data" = "Input data";
+"save" = "Save";
+"cancel" = "Cancel";
+"input_name" = "Input your name";
+"input_phone" = "Input your phone";

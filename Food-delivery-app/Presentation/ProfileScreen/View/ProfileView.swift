@@ -164,6 +164,20 @@ class ProfileView: UIView {
 		}
 		emailLabel.text = "\(R.string.profileScreen.email()) \(profile.email)"
 	}
+
+	func getFullname() -> String {
+		return nameLabel.text ?? String()
+	}
+
+	func getPhone() -> String? {
+		if let range = phoneLabel.text?.range(of: "\(R.string.profileScreen.phone()) ") {
+			let testString2 = phoneLabel.text?.replacingCharacters(in: range,
+															 with: "")
+			return testString2
+		}
+
+		return nil
+	}
 }
 
 
@@ -265,7 +279,7 @@ private extension ProfileView {
 
 	@objc
 	func changeDataProfileButtonPressed() {
-		changePasswordButtonHandler?()
+		changeDataProfileButtonHandler?()
 	}
 
 	@objc

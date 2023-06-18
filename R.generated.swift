@@ -202,9 +202,16 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
-    /// This `_R.string.profileScreen` struct is generated, and contains static references to 7 localization keys.
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 12 localization keys.
     struct profileScreen {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cancel
+      ///
+      /// Key: cancel
+      ///
+      /// Locales: en, ru
+      var cancel: RswiftResources.StringResource { .init(key: "cancel", tableName: "ProfileScreen", source: source, developmentValue: "Cancel", comment: nil) }
 
       /// en translation: Change data
       ///
@@ -241,6 +248,20 @@ struct _R {
       /// Locales: en, ru
       var email: RswiftResources.StringResource { .init(key: "email", tableName: "ProfileScreen", source: source, developmentValue: "Email: ", comment: nil) }
 
+      /// en translation: Input your name
+      ///
+      /// Key: input_name
+      ///
+      /// Locales: en, ru
+      var input_name: RswiftResources.StringResource { .init(key: "input_name", tableName: "ProfileScreen", source: source, developmentValue: "Input your name", comment: nil) }
+
+      /// en translation: Input your phone
+      ///
+      /// Key: input_phone
+      ///
+      /// Locales: en, ru
+      var input_phone: RswiftResources.StringResource { .init(key: "input_phone", tableName: "ProfileScreen", source: source, developmentValue: "Input your phone", comment: nil) }
+
       /// en translation: Phone: 
       ///
       /// Key: phone
@@ -248,12 +269,26 @@ struct _R {
       /// Locales: en, ru
       var phone: RswiftResources.StringResource { .init(key: "phone", tableName: "ProfileScreen", source: source, developmentValue: "Phone: ", comment: nil) }
 
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "ProfileScreen", source: source, developmentValue: "Save", comment: nil) }
+
       /// en translation: Log out
       ///
       /// Key: sign_out
       ///
       /// Locales: en, ru
       var sign_out: RswiftResources.StringResource { .init(key: "sign_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
+
+      /// en translation: Input data
+      ///
+      /// Key: title_alert_input_data
+      ///
+      /// Locales: en, ru
+      var title_alert_input_data: RswiftResources.StringResource { .init(key: "title_alert_input_data", tableName: "ProfileScreen", source: source, developmentValue: "Input data", comment: nil) }
     }
 
     /// This `_R.string.registerScreen` struct is generated, and contains static references to 8 localization keys.

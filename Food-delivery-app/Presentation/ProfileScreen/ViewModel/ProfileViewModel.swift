@@ -31,4 +31,21 @@ class ProfileViewModel {
 			}
 		}
 	}
+
+	func changeDataProfile(with model: ChangeDataProfileModel) async -> Bool {
+		do {
+			try await profileRepository.changeDataProfile(parameters: model)
+			return true
+
+		} catch (let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+
+			} else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+			return false
+		}
+	}
 }

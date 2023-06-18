@@ -64,10 +64,13 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 	}
 
 	func changeDataProfile(parameters: ChangeDataProfileModel) async throws {
-		let url = baseURL + "api/profile/avatar"
+		let url = baseURL + "api/profile"
+
 		session.request(
 			url,
+			method: .patch,
 			parameters: parameters,
+			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
 		).responseData { response in
 			Task {
@@ -76,7 +79,9 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 
 					switch statusCode {
 					case 200:
-						print(response.value ?? "Empty")
+						print(response.value ?? "Success")
+					case 400:
+						throw AppError.profileError(.modelError)
 					case 401:
 						throw AppError.profileError(.unauthorized)
 					default:
