@@ -10,6 +10,7 @@ import Foundation
 enum AppError: LocalizedError, Identifiable, Equatable {
     
     case appointmentError(AppointmentRepositoryImplementation.AppointmentError)
+	case profileError(ProfileRepositoryImplementation.ProfileError)
     
     var id: String {
         self.errorDescription
@@ -18,6 +19,8 @@ enum AppError: LocalizedError, Identifiable, Equatable {
         switch self {
         case .appointmentError(let error):
             return error.errorDescription
+		case .profileError(let error):
+			return error.errorDescription
         }
     }
     

@@ -119,16 +119,18 @@ private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: R
 private func factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider()
 }
-private class AccountComponentDependency270ea0fd9538c793f68aProvider: AccountComponentDependency {
-
-
-    init() {
-
+private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileComponentDependency {
+    var profileRepository: ProfileRepository {
+        return mainComponent.profileRepository
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
-/// ^->MainComponent->AccountComponent
-private func factory0947187af400d9bcbac6e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return AccountComponentDependency270ea0fd9538c793f68aProvider()
+/// ^->MainComponent->ProfileComponent
+private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
 
@@ -191,9 +193,9 @@ extension RegisterComponent: Registration {
 
     }
 }
-extension AccountComponent: Registration {
+extension ProfileComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\ProfileComponentDependency.profileRepository] = "profileRepository-ProfileRepository"
     }
 }
 extension LoginComponent: Registration {
@@ -225,7 +227,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
-    registerProviderFactory("^->MainComponent->AccountComponent", factory0947187af400d9bcbac6e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif

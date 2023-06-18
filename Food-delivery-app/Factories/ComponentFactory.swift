@@ -43,7 +43,7 @@ final class ComponentFactory {
         return mainComponent.searchComponent
     }
 
-	func getProfileComponent() -> AccountComponent {
+	func getProfileComponent() -> ProfileComponent {
 		return mainComponent.accountComponent
 	}
 }

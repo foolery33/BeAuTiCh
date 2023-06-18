@@ -75,6 +75,13 @@ final class MainComponent: BootstrapComponent {
             )
         }
     }
+
+	var profileRepository: ProfileRepository {
+		shared {
+			ProfileRepositoryImplementation(tokenManagerRepository: TokenManagerRepositoryImplementation()
+			)
+		}
+	}
     
     // MARK: - Components
     
@@ -125,9 +132,9 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-	var accountComponent: AccountComponent {
+	var accountComponent: ProfileComponent {
 		shared {
-			AccountComponent(parent: self)
+			ProfileComponent(parent: self)
 		}
 	}
 }

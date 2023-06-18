@@ -101,7 +101,7 @@ class ProfileView: UIView {
 	private lazy var buttonsStack: UIStackView = {
 		let view = UIStackView()
 		view.axis = .vertical
-		view.spacing = 27
+		view.spacing = 15
 
 		return view
 	}()
@@ -133,7 +133,13 @@ class ProfileView: UIView {
 	}()
 
 
-	// MARK: - Public properties
+	// MARK: - Internal properties
+
+	var signOutButtonHandler: (() -> Void)?
+	var deleteAvatarButtonHandler: (() -> Void)?
+	var changeAvatarButtonHandler: (() -> Void)?
+	var changeDataProfileButtonHandler: (() -> Void)?
+	var changePasswordButtonHandler: (() -> Void)?
 
 
 	// MARK: - Init
@@ -149,7 +155,15 @@ class ProfileView: UIView {
 	}
 
 
-	// MARK: - Public methods
+	// MARK: - Internal methods
+
+	func setDataProfile(profile: ProfileModel) {
+		nameLabel.text = profile.fullName
+		if let phone = profile.phoneNumber {
+			phoneLabel.text = "\(R.string.profileScreen.phone()) \(phone)"
+		}
+		emailLabel.text = "\(R.string.profileScreen.email()) \(profile.email)"
+	}
 }
 
 
@@ -208,12 +222,12 @@ private extension ProfileView {
 		}
 
 		nameLabel.snp.makeConstraints { make in
-			make.top.equalTo(avatarImageView.snp.bottom).offset(15)
-			make.horizontalEdges.equalToSuperview().inset(20)
+			make.top.equalTo(avatarImageView.snp.bottom).offset(30)
+			make.horizontalEdges.equalToSuperview().inset(28)
 		}
 
 		informationStack.snp.makeConstraints { make in
-			make.top.equalTo(nameLabel.snp.bottom).offset(35)
+			make.top.equalTo(nameLabel.snp.bottom).offset(20)
 			make.horizontalEdges.equalToSuperview().inset(28)
 		}
 
@@ -224,6 +238,39 @@ private extension ProfileView {
 	}
 
 	func configureActions() {
-
+		signOutButton.addTarget(self, action: #selector(signOutButtonPressed), for: .touchUpInside)
+		changeAvatarButton.addTarget(self, action: #selector(changeAvatarButtonPressed), for: .touchUpInside)
+		deleteAvatarButton.addTarget(self, action: #selector(deleteAvatarButtonPressed), for: .touchUpInside)
+		changeDataProfileButton.addTarget(self, action: #selector(changeDataProfileButtonPressed), for: .touchUpInside)
+		changePasswordButton.addTarget(self, action: #selector(changePasswordButtonPressed), for: .touchUpInside)
 	}
+
+
+	// MARK: - Actions
+
+	@objc
+	func signOutButtonPressed() {
+		signOutButtonHandler?()
+	}
+
+	@objc
+	func changeAvatarButtonPressed() {
+		changeAvatarButtonHandler?()
+	}
+
+	@objc
+	func deleteAvatarButtonPressed() {
+		deleteAvatarButtonHandler?()
+	}
+
+	@objc
+	func changeDataProfileButtonPressed() {
+		changePasswordButtonHandler?()
+	}
+
+	@objc
+	func changePasswordButtonPressed() {
+		changePasswordButtonHandler?()
+	}
+
 }

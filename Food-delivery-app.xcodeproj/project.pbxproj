@@ -105,8 +105,13 @@
 		F3DAB91C2A3E102300E31487 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91B2A3E102300E31487 /* ProfileView.swift */; };
 		F3DAB91E2A3E102D00E31487 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91D2A3E102D00E31487 /* ProfileViewController.swift */; };
 		F3DAB9202A3E103400E31487 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB91F2A3E103400E31487 /* ProfileViewModel.swift */; };
-		F3DAB9222A3E103D00E31487 /* AccountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9212A3E103D00E31487 /* AccountComponent.swift */; };
+		F3DAB9222A3E103D00E31487 /* ProfileComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9212A3E103D00E31487 /* ProfileComponent.swift */; };
 		F3DAB9262A3E151200E31487 /* ProfileScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3DAB9282A3E151200E31487 /* ProfileScreen.strings */; };
+		F3DAB92D2A3EF21B00E31487 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB92C2A3EF21B00E31487 /* ProfileRepository.swift */; };
+		F3DAB92F2A3EF23100E31487 /* ProfileRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB92E2A3EF23100E31487 /* ProfileRepositoryImplementation.swift */; };
+		F3DAB9312A3EF46D00E31487 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9302A3EF46D00E31487 /* ProfileModel.swift */; };
+		F3DAB9332A3F016C00E31487 /* ChangeDataProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9322A3F016C00E31487 /* ChangeDataProfileModel.swift */; };
+		F3DAB9362A3F0B9200E31487 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAB9352A3F0B9200E31487 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,9 +224,14 @@
 		F3DAB91B2A3E102300E31487 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F3DAB91D2A3E102D00E31487 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F3DAB91F2A3E103400E31487 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		F3DAB9212A3E103D00E31487 /* AccountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountComponent.swift; sourceTree = "<group>"; };
+		F3DAB9212A3E103D00E31487 /* ProfileComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponent.swift; sourceTree = "<group>"; };
 		F3DAB9272A3E151200E31487 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
 		F3DAB9292A3E151400E31487 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ProfileScreen.strings; sourceTree = "<group>"; };
+		F3DAB92C2A3EF21B00E31487 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		F3DAB92E2A3EF23100E31487 /* ProfileRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepositoryImplementation.swift; sourceTree = "<group>"; };
+		F3DAB9302A3EF46D00E31487 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		F3DAB9322A3F016C00E31487 /* ChangeDataProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataProfileModel.swift; sourceTree = "<group>"; };
+		F3DAB9352A3F0B9200E31487 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +367,7 @@
 		844AF4E22A37440100B2C9C7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAB92A2A3EF1EA00E31487 /* Profile */,
 				844AF4E32A37441400B2C9C7 /* Appointment */,
 				844AF4ED2A3747F600B2C9C7 /* AppError.swift */,
 				844AF4EF2A37488500B2C9C7 /* CustomRequestInterceptor.swift */,
@@ -427,6 +438,7 @@
 				8450B1012A261E4C00273956 /* Factories */,
 				8450B0FB2A261D8E00273956 /* Coordinator */,
 				F3AF7F1E2A2B1E1E00DBAD36 /* Resources */,
+				F3DAB9342A3F0B8600E31487 /* Bindings */,
 				F3DAB90E2A3E057E00E31487 /* Managers */,
 				F3DAB90F2A3E05A500E31487 /* Generated */,
 			);
@@ -924,7 +936,7 @@
 		F3DAB9172A3E0F8600E31487 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				F3DAB9212A3E103D00E31487 /* AccountComponent.swift */,
+				F3DAB9212A3E103D00E31487 /* ProfileComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -935,6 +947,33 @@
 				F3DAB9282A3E151200E31487 /* ProfileScreen.strings */,
 			);
 			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		F3DAB92A2A3EF1EA00E31487 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB92B2A3EF1FF00E31487 /* Model */,
+				F3DAB92C2A3EF21B00E31487 /* ProfileRepository.swift */,
+				F3DAB92E2A3EF23100E31487 /* ProfileRepositoryImplementation.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F3DAB92B2A3EF1FF00E31487 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9302A3EF46D00E31487 /* ProfileModel.swift */,
+				F3DAB9322A3F016C00E31487 /* ChangeDataProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3DAB9342A3F0B8600E31487 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAB9352A3F0B9200E31487 /* Observable.swift */,
+			);
+			path = Bindings;
 			sourceTree = "<group>";
 		};
 		FE5A7094C33A10F323FFBBE2 /* Pods */ = {
@@ -1130,7 +1169,7 @@
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
-				F3DAB9222A3E103D00E31487 /* AccountComponent.swift in Sources */,
+				F3DAB9222A3E103D00E31487 /* ProfileComponent.swift in Sources */,
 				843053902A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift in Sources */,
 				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
 				84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */,
@@ -1154,11 +1193,13 @@
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
+				F3DAB92D2A3EF21B00E31487 /* ProfileRepository.swift in Sources */,
 				F3DAB91A2A3E0FA600E31487 /* ProfileCoordinator.swift in Sources */,
 				F37686FB2A3830600006E566 /* SettingsViewController.swift in Sources */,
 				84283B8E2A2CBB6200CA911D /* DateLineStackView.swift in Sources */,
 				F37686FF2A3830F30006E566 /* SettingsCoordinator.swift in Sources */,
 				84D5FF022A37011A008BF057 /* UIImageExtension.swift in Sources */,
+				F3DAB92F2A3EF23100E31487 /* ProfileRepositoryImplementation.swift in Sources */,
 				F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */,
 				84CD8EF32A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift in Sources */,
 				84CD8EF52A3DA5C000EA140A /* UIViewExtension.swift in Sources */,
@@ -1175,8 +1216,10 @@
 				F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
 				844AF4EC2A37469A00B2C9C7 /* StatusAppointmentModel.swift in Sources */,
+				F3DAB9312A3EF46D00E31487 /* ProfileModel.swift in Sources */,
 				84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
+				F3DAB9332A3F016C00E31487 /* ChangeDataProfileModel.swift in Sources */,
 				F37687012A383A4E0006E566 /* InformationSubscribeBlockView.swift in Sources */,
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
 				F391D6A52A3AEE9600A092BE /* InformationSubscribeComponent.swift in Sources */,
@@ -1195,6 +1238,7 @@
 				F3DAB9092A3E033200E31487 /* MainCoordinator.swift in Sources */,
 				F311EF292A2DD70E00637151 /* LoginView.swift in Sources */,
 				84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */,
+				F3DAB9362A3F0B9200E31487 /* Observable.swift in Sources */,
 				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
 				F3DAB91C2A3E102300E31487 /* ProfileView.swift in Sources */,
 				84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */,

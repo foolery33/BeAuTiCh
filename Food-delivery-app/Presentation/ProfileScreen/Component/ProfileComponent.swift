@@ -8,14 +8,16 @@
 import UIKit
 import NeedleFoundation
 
-protocol AccountComponentDependency: Dependency {
-
+protocol ProfileComponentDependency: Dependency {
+	var profileRepository: ProfileRepository { get }
 }
 
-final class AccountComponent: Component<AccountComponentDependency> {
+final class ProfileComponent: Component<ProfileComponentDependency> {
 	var profileViewModel: ProfileViewModel {
 		shared {
-			ProfileViewModel()
+			ProfileViewModel(
+				profileRepository: dependency.profileRepository
+			)
 		}
 	}
 
