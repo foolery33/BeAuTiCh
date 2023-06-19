@@ -34,9 +34,9 @@ class SearchViewController: UIViewController {
 
 }
 
-private extension SearchViewController {
+extension SearchViewController {
     
-    func handleViewEvents() {
+    private func handleViewEvents() {
         
         ui.onTextFieldValueChange = { [weak self] text in
             self?.viewModel.clientName = text

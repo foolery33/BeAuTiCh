@@ -132,6 +132,25 @@ struct _R {
       var unauthorized: RswiftResources.StringResource { .init(key: "unauthorized", tableName: "Errors", source: source, developmentValue: "Your authentication token is expired. Please login again", comment: nil) }
     }
 
+    /// This `_R.string.filterScreen` struct is generated, and contains static references to 10 localization keys.
+    struct filterScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: By date:
+      ///
+      /// Key: by_date
+      ///
+      /// Locales: en, ru
+      var by_date: RswiftResources.StringResource { .init(key: "by_date", tableName: "FilterScreen", source: source, developmentValue: "By date:", comment: nil) }
+
+      /// en translation: By price:
+      ///
+      /// Key: by_price
+      ///
+      /// Locales: en, ru
+      var by_price: RswiftResources.StringResource { .init(key: "by_price", tableName: "FilterScreen", source: source, developmentValue: "By price:", comment: nil) }
+
+      /// en translation: Choose services for filtration
     /// This `_R.string.informationSubcscribeSheetScreen` struct is generated, and contains static references to 3 localization keys.
     struct informationSubcscribeSheetScreen {
       let source: RswiftResources.StringResource.Source
@@ -143,6 +162,21 @@ struct _R {
       /// Locales: en, ru
       var cancel_subscription: RswiftResources.StringResource { .init(key: "cancel_subscription", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Cancel subscription", comment: nil) }
 
+      /// en translation: Enter date
+      ///
+      /// Key: enter_date
+      ///
+      /// Locales: en, ru
+      var enter_date: RswiftResources.StringResource { .init(key: "enter_date", tableName: "FilterScreen", source: source, developmentValue: "Enter date", comment: nil) }
+
+      /// en translation: Enter price
+      ///
+      /// Key: enter_price
+      ///
+      /// Locales: en, ru
+      var enter_price: RswiftResources.StringResource { .init(key: "enter_price", tableName: "FilterScreen", source: source, developmentValue: "Enter price", comment: nil) }
+
+      /// en translation: Filters
       /// en translation: The subscription has been issued: 
       ///
       /// Key: start_date_subscribe
@@ -150,11 +184,34 @@ struct _R {
       /// Locales: en, ru
       var start_date_subscribe: RswiftResources.StringResource { .init(key: "start_date_subscribe", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "The subscription has been issued: ", comment: nil) }
 
+      /// en translation: From:
+      ///
+      /// Key: from
+      ///
+      /// Locales: en, ru
+      var from: RswiftResources.StringResource { .init(key: "from", tableName: "FilterScreen", source: source, developmentValue: "From:", comment: nil) }
+
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "FilterScreen", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Sorting
       /// en translation: Subscription Information
       ///
       /// Key: title_screen
       ///
       /// Locales: en, ru
+      var sorting: RswiftResources.StringResource { .init(key: "sorting", tableName: "FilterScreen", source: source, developmentValue: "Sorting", comment: nil) }
+
+      /// en translation: To:
+      ///
+      /// Key: to
+      ///
+      /// Locales: en, ru
+      var to: RswiftResources.StringResource { .init(key: "to", tableName: "FilterScreen", source: source, developmentValue: "To:", comment: nil) }
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "InformationSubcscribeSheetScreen", source: source, developmentValue: "Subscription Information", comment: nil) }
     }
 
