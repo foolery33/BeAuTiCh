@@ -45,6 +45,8 @@
 		8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */; };
 		845D165E2A3E078B00C6CC93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8450B0F02A261D3900273956 /* Assets.xcassets */; };
 		845D16602A3E086200C6CC93 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D165F2A3E086200C6CC93 /* R.generated.swift */; };
+		845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16612A3E38EC00C6CC93 /* SortingView.swift */; };
+		845D16652A3E461F00C6CC93 /* UpdatePriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */; };
 		84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */; };
 		84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */; };
 		84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */; };
@@ -52,6 +54,7 @@
 		84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */; };
 		84C975D62A333F3500BF489B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D52A333F3500BF489B /* MainViewController.swift */; };
 		84C975D82A3362D900BF489B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D72A3362D900BF489B /* NoteModel.swift */; };
+		84CCE0B32A3F0BDD00A1F715 /* TokenPairModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCE0B22A3F0BDD00A1F715 /* TokenPairModel.swift */; };
 		84CD8EF32A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EF22A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift */; };
 		84CD8EF52A3DA5C000EA140A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD8EF42A3DA5C000EA140A /* UIViewExtension.swift */; };
 		84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5FEE12A36D8F3008BF057 /* StartViewController.swift */; };
@@ -87,6 +90,11 @@
 		F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687242A3857E80006E566 /* InformationSubscribeView.swift */; };
 		F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687262A38B28A0006E566 /* YourServicesViewController.swift */; };
 		F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687282A38B2B00006E566 /* YourServicesView.swift */; };
+		F37E031C2A40969300F029C8 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E031B2A40969300F029C8 /* FilterViewModel.swift */; };
+		F37E031E2A40969B00F029C8 /* FilterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E031D2A40969B00F029C8 /* FilterComponent.swift */; };
+		F37E03202A4096A400F029C8 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E031F2A4096A400F029C8 /* FilterViewController.swift */; };
+		F37E03222A4096B300F029C8 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E03212A4096B300F029C8 /* FilterView.swift */; };
+		F37E03252A40976800F029C8 /* FilterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F37E03232A40976800F029C8 /* FilterScreen.strings */; };
 		F391D6A52A3AEE9600A092BE /* InformationSubscribeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
 		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
@@ -144,6 +152,8 @@
 		8452AEF32A266C0100BCC43B /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		8452AEF52A266C8B00BCC43B /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
 		845D165F2A3E086200C6CC93 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		845D16612A3E38EC00C6CC93 /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
+		845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePriceUseCase.swift; sourceTree = "<group>"; };
 		84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDaysOfWeekForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeekdayIndexForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekByDateUseCase.swift; sourceTree = "<group>"; };
@@ -151,6 +161,7 @@
 		84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateWithOffsetUseCase.swift; sourceTree = "<group>"; };
 		84C975D52A333F3500BF489B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		84C975D72A3362D900BF489B /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		84CCE0B22A3F0BDD00A1F715 /* TokenPairModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPairModel.swift; sourceTree = "<group>"; };
 		84CD8EF22A3D941800EA140A /* GetFilteredAppointmentListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFilteredAppointmentListUseCase.swift; sourceTree = "<group>"; };
 		84CD8EF42A3DA5C000EA140A /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		84D5FEE12A36D8F3008BF057 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +205,12 @@
 		F37687282A38B2B00006E566 /* YourServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourServicesView.swift; sourceTree = "<group>"; };
 		F376872D2A38B6C30006E566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
 		F376872F2A38B6C50006E566 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
+		F37E031B2A40969300F029C8 /* FilterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		F37E031D2A40969B00F029C8 /* FilterComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterComponent.swift; sourceTree = "<group>"; };
+		F37E031F2A4096A400F029C8 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F37E03212A4096B300F029C8 /* FilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		F37E03242A40976800F029C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Food-delivery-app/Resources/Localization/FilterScreen/en.lproj/FilterScreen.strings"; sourceTree = "<group>"; };
+		F37E032A2A4098A700F029C8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "Food-delivery-app/Resources/Localization/FilterScreen/ru.lproj/FilterScreen.strings"; sourceTree = "<group>"; };
 		F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSubscribeComponent.swift; sourceTree = "<group>"; };
 		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
 		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -344,6 +361,7 @@
 		844AF4E22A37440100B2C9C7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				84CCE0AF2A3F0BBF00A1F715 /* Auth */,
 				844AF4E32A37441400B2C9C7 /* Appointment */,
 				844AF4ED2A3747F600B2C9C7 /* AppError.swift */,
 				844AF4EF2A37488500B2C9C7 /* CustomRequestInterceptor.swift */,
@@ -454,6 +472,8 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				84CCE0AA2A3F0B2F00A1F715 /* ServiceSelectionScreen */,
+				84CD8EF62A3DA86D00EA140A /* FilterScreen */,
 				8450B0F22A261D3900273956 /* LaunchScreen.storyboard */,
 				F37686F12A382FAB0006E566 /* SettingsScreen */,
 				841077712A373DBB002905D2 /* SearchScreen */,
@@ -502,6 +522,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		845D16632A3E461300C6CC93 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84848CF92A2E417C00F36586 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +566,114 @@
 				84C975D52A333F3500BF489B /* MainViewController.swift */,
 			);
 			path = StaticPart;
+			sourceTree = "<group>";
+		};
+		84CCE0AA2A3F0B2F00A1F715 /* ServiceSelectionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				84CCE0AD2A3F0B4200A1F715 /* Component */,
+				84CCE0AE2A3F0B4A00A1F715 /* ViewModel */,
+				84CCE0AC2A3F0B3F00A1F715 /* View */,
+				84CCE0AB2A3F0B3800A1F715 /* ViewController */,
+			);
+			path = ServiceSelectionScreen;
+			sourceTree = "<group>";
+		};
+		84CCE0AB2A3F0B3800A1F715 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84CCE0AC2A3F0B3F00A1F715 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84CCE0AD2A3F0B4200A1F715 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		84CCE0AE2A3F0B4A00A1F715 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84CCE0AF2A3F0BBF00A1F715 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				84CCE0B02A3F0BC700A1F715 /* Model */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		84CCE0B02A3F0BC700A1F715 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84CCE0B12A3F0BCD00A1F715 /* DTO */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84CCE0B12A3F0BCD00A1F715 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				84CCE0B22A3F0BDD00A1F715 /* TokenPairModel.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		84CD8EF62A3DA86D00EA140A /* FilterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				845D16632A3E461300C6CC93 /* Model */,
+				84CD8EFA2A3DA88600EA140A /* Component */,
+				84CD8EF92A3DA88000EA140A /* ViewModel */,
+				84CD8EF82A3DA87B00EA140A /* View */,
+				84CD8EF72A3DA87400EA140A /* ViewController */,
+			);
+			path = FilterScreen;
+			sourceTree = "<group>";
+		};
+		84CD8EF72A3DA87400EA140A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F37E031F2A4096A400F029C8 /* FilterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84CD8EF82A3DA87B00EA140A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F37E03212A4096B300F029C8 /* FilterView.swift */,
+				845D16612A3E38EC00C6CC93 /* SortingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84CD8EF92A3DA88000EA140A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F37E031B2A40969300F029C8 /* FilterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84CD8EFA2A3DA88600EA140A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F37E031D2A40969B00F029C8 /* FilterComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		84D5FEDC2A36D897008BF057 /* StartScreen */ = {
@@ -736,6 +872,14 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		F37E03292A40989700F029C8 /* FilterScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F37E03232A40976800F029C8 /* FilterScreen.strings */,
+			);
+			path = FilterScreen;
+			sourceTree = "<group>";
+		};
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,6 +960,7 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F37E03292A40989700F029C8 /* FilterScreen */,
 				F3DAB8FB2A3E01F600E31487 /* SearchScreen */,
 				F3DAB8FA2A3E01F000E31487 /* Errors */,
 				F35014212A3DED290095D091 /* RegisterScreen */,
@@ -942,6 +1087,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37E03252A40976800F029C8 /* FilterScreen.strings in Resources */,
 				845D165E2A3E078B00C6CC93 /* Assets.xcassets in Resources */,
 				F3DAB90A2A3E039300E31487 /* InformationSubcscribeSheetScreen.strings in Resources */,
 				84D5FEF62A36E922008BF057 /* (null) in Resources */,
@@ -1052,10 +1198,12 @@
 				8450B0EC2A261D3800273956 /* LoginViewController.swift in Sources */,
 				8450B0E82A261D3800273956 /* AppDelegate.swift in Sources */,
 				8450B1002A261DBF00273956 /* AppCoordinator.swift in Sources */,
+				F37E03202A4096A400F029C8 /* FilterViewController.swift in Sources */,
 				8450B1032A261E5B00273956 /* CoordinatorFactory.swift in Sources */,
 				844AF4F02A37488500B2C9C7 /* CustomRequestInterceptor.swift in Sources */,
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8430538C2A3CD058004B25FE /* TokenManager.swift in Sources */,
+				84CCE0B32A3F0BDD00A1F715 /* TokenPairModel.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
 				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
@@ -1071,9 +1219,12 @@
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
+				845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */,
 				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
+				F37E03222A4096B300F029C8 /* FilterView.swift in Sources */,
+				F37E031E2A40969B00F029C8 /* FilterComponent.swift in Sources */,
 				F376871E2A38569A0006E566 /* SheetViewControllerDelegate.swift in Sources */,
 				844AF4EA2A37463900B2C9C7 /* AppointmentModel.swift in Sources */,
 				844AF4EE2A3747F600B2C9C7 /* AppError.swift in Sources */,
@@ -1093,6 +1244,7 @@
 				844AF4E52A37442600B2C9C7 /* AppointmentRepository.swift in Sources */,
 				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
 				F37686FD2A3830680006E566 /* SettingsViewModel.swift in Sources */,
+				F37E031C2A40969300F029C8 /* FilterViewModel.swift in Sources */,
 				8450B0FE2A261DA700273956 /* CoordinatorProtocol.swift in Sources */,
 				F37686F92A3830570006E566 /* SettingsView.swift in Sources */,
 				F37687232A3857CC0006E566 /* InformationSubscribeViewController.swift in Sources */,
@@ -1120,6 +1272,7 @@
 				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,
 				F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */,
 				841077792A373DFB002905D2 /* SearchViewController.swift in Sources */,
+				845D16652A3E461F00C6CC93 /* UpdatePriceUseCase.swift in Sources */,
 				F3DAB9092A3E033200E31487 /* MainCoordinator.swift in Sources */,
 				F311EF292A2DD70E00637151 /* LoginView.swift in Sources */,
 				84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */,
@@ -1183,6 +1336,15 @@
 				F376872F2A38B6C50006E566 /* ru */,
 			);
 			name = InformationSubcscribeSheetScreen.strings;
+			sourceTree = "<group>";
+		};
+		F37E03232A40976800F029C8 /* FilterScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F37E03242A40976800F029C8 /* en */,
+				F37E032A2A4098A700F029C8 /* ru */,
+			);
+			name = FilterScreen.strings;
 			sourceTree = "<group>";
 		};
 		F3DAB9022A3E021200E31487 /* SearchScreen.strings */ = {
@@ -1338,7 +1500,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1371,7 +1533,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

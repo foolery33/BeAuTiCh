@@ -38,8 +38,12 @@ final class ComponentFactory {
     func getYourServicesComponent() -> YourServicesComponent {
         return mainComponent.yourServicesComponent
     }
+
     func getSearchComponent() -> SearchComponent {
         return mainComponent.searchComponent
     }
-    
+
+	func getFilterComponent() -> FilterComponent {
+		return mainComponent.filterComponent
+	}
 }
