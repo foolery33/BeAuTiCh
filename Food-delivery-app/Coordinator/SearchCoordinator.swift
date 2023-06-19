@@ -14,9 +14,11 @@ final class SearchCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
     
     private let componentFactory = ComponentFactory()
+    private let searchComponent: SearchComponent
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        searchComponent = componentFactory.getSearchComponent()
     }
     
     func start() {
@@ -24,7 +26,6 @@ final class SearchCoordinator: CoordinatorProtocol {
     }
     
     private func goToSearchScreen() {
-        let searchComponent = componentFactory.getSearchComponent()
         searchComponent.searchViewModel.coordinator = self
         navigationController.pushViewController(searchComponent.searchViewController, animated: true)
     }
@@ -33,6 +34,15 @@ final class SearchCoordinator: CoordinatorProtocol {
         let filterComponent = componentFactory.getFilterComponent()
         filterComponent.filterViewModel.coordinator = self
         navigationController.pushViewController(filterComponent.filterViewController, animated: true)
+    }
+    
+    func goBackToSearchScreen(priceFrom: Int?, priceTo: Int?, dateFrom: String?, dateTo: String?) {
+        searchComponent.searchViewModel.startPrice = priceFrom
+        searchComponent.searchViewModel.endPrice = priceTo
+        searchComponent.searchViewModel.startDate = dateFrom
+        searchComponent.searchViewModel.endDate = dateTo
+        navigationController.popViewController(animated: true)
+        searchComponent.searchViewController.getAppointmentList()
     }
     
 }

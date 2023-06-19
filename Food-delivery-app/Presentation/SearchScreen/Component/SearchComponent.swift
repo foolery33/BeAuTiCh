@@ -24,7 +24,7 @@ final class SearchComponent: Component<SearchComponentDependency> {
         }
     }
     
-    var searchViewController: UIViewController {
+    var searchViewController: SearchViewController {
         return SearchViewController(viewModel: searchViewModel)
     }
 }

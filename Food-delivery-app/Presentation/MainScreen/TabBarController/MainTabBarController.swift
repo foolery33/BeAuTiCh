@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = R.color.white()
         tabBar.isTranslucent = false
         tabBar.itemPositioning = .centered
-        additionalSafeAreaInsets.bottom = 60
+        additionalSafeAreaInsets.bottom = 25 + (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0)
     }
 
 }

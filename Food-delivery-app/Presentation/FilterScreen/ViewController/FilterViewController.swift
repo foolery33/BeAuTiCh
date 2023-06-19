@@ -16,6 +16,7 @@ final class FilterViewController: UIViewController {
         self.viewModel = viewModel
         self.ui = FilterView()
         super.init(nibName: nil, bundle: nil)
+        hidesBottomBarWhenPushed = true
     }
     
     required init?(coder: NSCoder) {
@@ -24,6 +25,8 @@ final class FilterViewController: UIViewController {
     
     override func loadView() {
         view = ui
+        setActionHandlers()
+        ui.setActionHandlers()
         setupNavigationBarAppearence()
         title = R.string.filterScreen.filters()
         navigationItem.leftBarButtonItem = getNavigationLeftItem()
@@ -32,13 +35,25 @@ final class FilterViewController: UIViewController {
 }
 
 private extension FilterViewController {
-    private func getNavigationLeftItem() -> UIBarButtonItem {
+    func getNavigationLeftItem() -> UIBarButtonItem {
         let backItem = UIBarButtonItem(image: R.image.backNavigationArrow(), style: .plain, target: self, action: #selector(goBackToCreateCollectionScreen))
         backItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
         backItem.tintColor = .white
         return backItem
     }
-    @objc private func goBackToCreateCollectionScreen() {
+    @objc func goBackToCreateCollectionScreen() {
         self.viewModel.goBackToSearchScreen()
+    }
+    
+    func setActionHandlers() {
+        ui.onPriceFromTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.updatePriceFrom(text)
+        }
+        ui.onPriceToTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.updatePriceTo(text)
+        }
+        ui.onSaveButtonTapped = { [weak self] in
+            self?.viewModel.onSaveButtonTapped()
+        }
     }
 }

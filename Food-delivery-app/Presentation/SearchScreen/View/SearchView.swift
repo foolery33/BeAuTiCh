@@ -60,7 +60,7 @@ class SearchView: UIView {
         addSubview(filterButton)
         filterButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(21)
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(17)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
         }
     }
     @objc private func goToFilterScreen() {

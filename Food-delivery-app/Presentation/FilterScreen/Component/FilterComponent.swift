@@ -9,13 +9,15 @@ import UIKit
 import NeedleFoundation
 
 protocol FilterComponentDependency: Dependency {
-    
+    var updatePriceUseCase: UpdatePriceUseCase { get }
 }
 
 final class FilterComponent: Component<FilterComponentDependency> {
     var filterViewModel: FilterViewModel {
         shared {
-            FilterViewModel()
+            FilterViewModel(
+                updatePriceUseCase: dependency.updatePriceUseCase
+            )
         }
     }
     

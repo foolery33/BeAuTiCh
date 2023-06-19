@@ -60,6 +60,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var updatePriceUseCase: UpdatePriceUseCase {
+        shared {
+            UpdatePriceUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {

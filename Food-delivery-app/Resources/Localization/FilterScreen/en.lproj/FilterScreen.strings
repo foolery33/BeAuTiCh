@@ -9,3 +9,10 @@
 "filters" = "Filters";
 "choose_services_for_filtration" = "Choose services for filtration";
 "sorting" = "Sorting";
+"by_price" = "By price:";
+"from" = "From:";
+"to" = "To:";
+"by_date" = "By date:";
+"enter_price" = "Enter price";
+"enter_date" = "Enter date";
+"save" = "Save";

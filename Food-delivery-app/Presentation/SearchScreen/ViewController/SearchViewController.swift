@@ -38,9 +38,9 @@ class SearchViewController: UIViewController {
 
 }
 
-private extension SearchViewController {
+extension SearchViewController {
     
-    func handleViewEvents() {
+    private func handleViewEvents() {
         
         ui.onFilterButtonTapped = { [weak self] in
             self?.viewModel.goToFilterScreen()

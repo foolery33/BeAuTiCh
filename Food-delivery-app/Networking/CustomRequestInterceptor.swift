@@ -59,32 +59,33 @@ class CustomRequestInterceptor: RequestInterceptor {
     }
     
     private func refreshToken(completion: @escaping (() -> Void)) {
-//        let body = [
-//            "refresh_token": UserDataManager().fetchRefreshToken()
-//        ]
-//        let headers: HTTPHeaders = [
-//            "Content-Type": "application/json"
-//        ]
-//        let url = "http://fitness.wsmob.xyz:22169/api/auth/token/refresh"
-//        AF.request(url, method: .post, parameters: body, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
-//            if let statusCode = response.response?.statusCode {
-//                print("Refresh Status Code:", statusCode)
-//            }
-//            switch response.result {
-//            case .success(let data):
-//                do {
-//                    let decodedData = try JSONDecoder().decode(AccessTokenModel.self, from: data)
-//                    UserDataManager().saveAccessToken(accessToken: decodedData.accessToken)
-//                    print(UserDataManager().fetchAccessToken())
-//                    completion()
-//                } catch {
-//                    completion()
-//                    return
-//                }
-//            case .failure(_):
-//                completion()
-//                return
-//            }
-//        }
+        let body = [
+            "accessToken": tokenManagerRepository.fetchAccessToken(),
+            "refreshToken": tokenManagerRepository.fetchRefreshToken()
+        ]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        let url = "http://94.250.248.129:10000/api/auth/refresh"
+        AF.request(url, method: .post, parameters: body, encoder: JSONParameterEncoder.default, headers: headers).responseData { response in
+            if let statusCode = response.response?.statusCode {
+                print("Refresh Status Code:", statusCode)
+            }
+            switch response.result {
+            case .success(let data):
+                do {
+                    let decodedData = try JSONDecoder().decode(TokenPairModel.self, from: data)
+                    self.tokenManagerRepository.setAccessToken(decodedData.accessToken)
+                    self.tokenManagerRepository.setRefreshToken(decodedData.refreshToken)
+                    completion()
+                } catch {
+                    completion()
+                    return
+                }
+            case .failure(_):
+                completion()
+                return
+            }
+        }
     }
 }
