@@ -130,4 +130,10 @@ final class MainComponent: BootstrapComponent {
             YourServicesComponent(parent: self)
         }
     }
+
+	var filterComponent: FilterComponent {
+		shared {
+			FilterComponent(parent: self)
+		}
+	}
 }

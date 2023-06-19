@@ -112,7 +112,8 @@ final class FilterView: UIView {
     // MARK: - FilterServiceArrowImage setup
     private lazy var filterServiceArrowImage: UIImageView = {
         let myImageView = UIImageView()
-        myImageView.image = R.image.filterServiceArrow()
+		// TODO: - Изменить картинку
+        myImageView.image = R.image.arrow()
         myImageView.contentMode = .center
         return myImageView
     }()

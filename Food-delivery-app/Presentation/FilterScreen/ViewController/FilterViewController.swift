@@ -36,7 +36,8 @@ final class FilterViewController: UIViewController {
 
 private extension FilterViewController {
     func getNavigationLeftItem() -> UIBarButtonItem {
-        let backItem = UIBarButtonItem(image: R.image.backNavigationArrow(), style: .plain, target: self, action: #selector(goBackToCreateCollectionScreen))
+		// TODO: - Изменить картинку
+        let backItem = UIBarButtonItem(image: R.image.arrowBackSheet(), style: .plain, target: self, action: #selector(goBackToCreateCollectionScreen))
         backItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
         backItem.tintColor = .white
         return backItem
