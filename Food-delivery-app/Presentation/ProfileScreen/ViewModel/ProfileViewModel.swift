@@ -32,9 +32,26 @@ class ProfileViewModel {
 		}
 	}
 
-	func changeDataProfile(with model: ChangeDataProfileModel) async -> Bool {
+	func changeDataProfile(with parameters: ChangeDataProfileModel) async -> Bool {
 		do {
-			try await profileRepository.changeDataProfile(parameters: model)
+			_ = try await profileRepository.changeDataProfile(parameters: parameters)
+			return true
+
+		} catch (let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+
+			} else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+			return false
+		}
+	}
+
+	func changePassword(parameters: ChangePassword) async -> Bool {
+		do {
+			_ = try await profileRepository.changePassword(parameters: parameters)
 			return true
 
 		} catch (let error) {

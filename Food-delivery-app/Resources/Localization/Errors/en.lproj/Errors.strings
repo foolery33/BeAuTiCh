@@ -9,6 +9,8 @@
 "server_error" = "Some server error occured. Please try again later";
 "model_error" = "Internal application error. Please contact developer";
 "unauthorized" = "Your authentication token is expired. Please login again";
+"not_correct_old_password" = "The old password entered is incorrect";
 
 "ok" = "Ok";
 "appointments_loading_error" = "Appointments loading error";
+"password_changed_error" = "Password change error";

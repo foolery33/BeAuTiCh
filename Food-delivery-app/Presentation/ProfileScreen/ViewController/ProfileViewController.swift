@@ -45,8 +45,9 @@ class ProfileViewController: UIViewController {
 	// MARK: - Private methods
 
 	private func showAlertChangeData() {
-		let alertController = UIAlertController(title: R.string.profileScreen.title_alert_input_data(), message: nil, preferredStyle: .alert)
-
+		let alertController = UIAlertController(title: R.string.profileScreen.title_alert_input_data(),
+												message: nil,
+												preferredStyle: .alert)
 		let profile = ChangeDataProfileModel(fullName: ui.getFullname(), phoneNumber: ui.getPhone())
 
 		alertController.addTextField { fullnameTextField in
@@ -59,16 +60,48 @@ class ProfileViewController: UIViewController {
 			phoneTextField.text = profile.phoneNumber
 		}
 
+		let actionCancel = UIAlertAction(title: R.string.profileScreen.cancel(), style: .cancel)
 		let actionSave = UIAlertAction(title: R.string.profileScreen.save(), style: .default) { [ weak self ] action in
 
-			self?.changeDataProfile(with: ChangeDataProfileModel(fullName: alertController.textFields?[0].text ?? String(), phoneNumber: alertController.textFields?[1].text))
+			self?.changeDataProfile(with: ChangeDataProfileModel(fullName: alertController.textFields?[0].text ?? String(),
+																 phoneNumber: alertController.textFields?[1].text))
 		}
-		let actionCancel = UIAlertAction(title: R.string.profileScreen.cancel(), style: .cancel)
 
 		alertController.addAction(actionSave)
 		alertController.addAction(actionCancel)
 
 		alertController.view.tintColor = R.color.accentColor()
+
+		self.present(alertController, animated: true)
+	}
+
+	private func showAlertChangePassword() {
+		let alertController = UIAlertController(title: R.string.profileScreen.title_alert_change_password(),
+												message: R.string.profileScreen.message_alert_change_password(),
+												preferredStyle: .alert)
+
+		alertController.addTextField { oldPasswordTextField in
+			oldPasswordTextField.placeholder = R.string.profileScreen.input_old_password()
+			oldPasswordTextField.isSecureTextEntry = true
+		}
+
+		alertController.addTextField { newPasswordTextField in
+			newPasswordTextField.placeholder = R.string.profileScreen.input_new_password()
+			newPasswordTextField.isSecureTextEntry = true
+		}
+
+		let actionCancel = UIAlertAction(title: R.string.profileScreen.cancel(), style: .cancel)
+		let actionSave = UIAlertAction(title: R.string.profileScreen.save(), style: .default) { [ weak self ] action in
+
+			self?.changePassword(parameters: ChangePassword(
+				oldPassword: alertController.textFields?[0].text ?? String(),
+				newPassword: alertController.textFields?[1].text ?? String()))
+		}
+
+		alertController.addAction(actionSave)
+		alertController.addAction(actionCancel)
+
+		alertController.view.tintColor = R.color.vinous()
 
 		self.present(alertController, animated: true)
 	}
@@ -79,7 +112,7 @@ class ProfileViewController: UIViewController {
 
 		alertController.addAction(action)
 
-		alertController.view.tintColor = R.color.accentColor()
+		alertController.view.tintColor = R.color.vinous()
 
 		self.present(alertController, animated: true)
 	}
@@ -107,6 +140,8 @@ private extension ProfileViewController {
 
 		ui.changePasswordButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
+
+			self.showAlertChangePassword()
 		}
 	}
 
@@ -119,9 +154,13 @@ private extension ProfileViewController {
 			}
 		}
 
-		viewModel.errorMessage.subscribe { errorMessage in
-			print(errorMessage)
-			//showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)
+		viewModel.errorMessage.subscribe { [ weak self ] errorMessage in
+			guard let self = self else { return }
+
+			DispatchQueue.main.async {
+				self.showAlert(title: R.string.errors.password_changed_error(),
+							   message: errorMessage)
+			}
 		}
 	}
 }
@@ -133,10 +172,18 @@ private extension ProfileViewController {
 		}
 	}
 
-	func changeDataProfile(with model: ChangeDataProfileModel) {
+	func changeDataProfile(with parameters: ChangeDataProfileModel) {
 		Task {
-			if await viewModel.changeDataProfile(with: model) {
+			if await viewModel.changeDataProfile(with: parameters) {
 				fetchDataProfile()
+			}
+		}
+	}
+
+	func changePassword(parameters: ChangePassword) {
+		Task {
+			if await viewModel.changePassword(parameters: parameters) {
+				self.showAlert(title: R.string.profileScreen.susscess_change_password(), message: nil)
 			}
 		}
 	}

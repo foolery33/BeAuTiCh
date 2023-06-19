@@ -96,7 +96,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 5 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 7 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -114,12 +114,26 @@ struct _R {
       /// Locales: en, ru
       var model_error: RswiftResources.StringResource { .init(key: "model_error", tableName: "Errors", source: source, developmentValue: "Internal application error. Please contact developer", comment: nil) }
 
+      /// en translation: The old password entered is incorrect
+      ///
+      /// Key: not_correct_old_password
+      ///
+      /// Locales: en, ru
+      var not_correct_old_password: RswiftResources.StringResource { .init(key: "not_correct_old_password", tableName: "Errors", source: source, developmentValue: "The old password entered is incorrect", comment: nil) }
+
       /// en translation: Ok
       ///
       /// Key: ok
       ///
       /// Locales: en, ru
       var ok: RswiftResources.StringResource { .init(key: "ok", tableName: "Errors", source: source, developmentValue: "Ok", comment: nil) }
+
+      /// en translation: Password change error
+      ///
+      /// Key: password_changed_error
+      ///
+      /// Locales: en, ru
+      var password_changed_error: RswiftResources.StringResource { .init(key: "password_changed_error", tableName: "Errors", source: source, developmentValue: "Password change error", comment: nil) }
 
       /// en translation: Some server error occured. Please try again later
       ///
@@ -202,7 +216,7 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
-    /// This `_R.string.profileScreen` struct is generated, and contains static references to 12 localization keys.
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 17 localization keys.
     struct profileScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -255,12 +269,33 @@ struct _R {
       /// Locales: en, ru
       var input_name: RswiftResources.StringResource { .init(key: "input_name", tableName: "ProfileScreen", source: source, developmentValue: "Input your name", comment: nil) }
 
+      /// en translation: Enter the new password
+      ///
+      /// Key: input_new_password
+      ///
+      /// Locales: en, ru
+      var input_new_password: RswiftResources.StringResource { .init(key: "input_new_password", tableName: "ProfileScreen", source: source, developmentValue: "Enter the new password", comment: nil) }
+
+      /// en translation: Enter the old password
+      ///
+      /// Key: input_old_password
+      ///
+      /// Locales: en, ru
+      var input_old_password: RswiftResources.StringResource { .init(key: "input_old_password", tableName: "ProfileScreen", source: source, developmentValue: "Enter the old password", comment: nil) }
+
       /// en translation: Input your phone
       ///
       /// Key: input_phone
       ///
       /// Locales: en, ru
       var input_phone: RswiftResources.StringResource { .init(key: "input_phone", tableName: "ProfileScreen", source: source, developmentValue: "Input your phone", comment: nil) }
+
+      /// en translation: To change the password, you must enter the old and new password
+      ///
+      /// Key: message_alert_change_password
+      ///
+      /// Locales: en, ru
+      var message_alert_change_password: RswiftResources.StringResource { .init(key: "message_alert_change_password", tableName: "ProfileScreen", source: source, developmentValue: "To change the password, you must enter the old and new password", comment: nil) }
 
       /// en translation: Phone: 
       ///
@@ -282,6 +317,20 @@ struct _R {
       ///
       /// Locales: en, ru
       var sign_out: RswiftResources.StringResource { .init(key: "sign_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
+
+      /// en translation: Password change was successful
+      ///
+      /// Key: susscess_change_password
+      ///
+      /// Locales: en, ru
+      var susscess_change_password: RswiftResources.StringResource { .init(key: "susscess_change_password", tableName: "ProfileScreen", source: source, developmentValue: "Password change was successful", comment: nil) }
+
+      /// en translation: Changing the password
+      ///
+      /// Key: title_alert_change_password
+      ///
+      /// Locales: en, ru
+      var title_alert_change_password: RswiftResources.StringResource { .init(key: "title_alert_change_password", tableName: "ProfileScreen", source: source, developmentValue: "Changing the password", comment: nil) }
 
       /// en translation: Input data
       ///

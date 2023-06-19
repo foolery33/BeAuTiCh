@@ -18,3 +18,8 @@
 "cancel" = "Cancel";
 "input_name" = "Input your name";
 "input_phone" = "Input your phone";
+"title_alert_change_password" = "Changing the password";
+"message_alert_change_password" = "To change the password, you must enter the old and new password";
+"input_old_password" = "Enter the old password";
+"input_new_password" = "Enter the new password";
+"susscess_change_password" = "Password change was successful";

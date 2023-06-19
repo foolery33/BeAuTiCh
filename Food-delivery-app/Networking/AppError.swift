@@ -8,7 +8,6 @@
 import Foundation
 
 enum AppError: LocalizedError, Identifiable, Equatable {
-    
     case appointmentError(AppointmentRepositoryImplementation.AppointmentError)
 	case profileError(ProfileRepositoryImplementation.ProfileError)
     

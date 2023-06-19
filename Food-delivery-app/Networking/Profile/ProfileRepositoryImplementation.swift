@@ -24,6 +24,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		case unauthorized
 		case serverError
 		case modelError
+		case notCorrectOldPassword
 
 		var id: String {
 			self.errorDescription
@@ -37,6 +38,8 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 				return R.string.errors.server_error()
 			case .modelError:
 				return R.string.errors.model_error()
+			case .notCorrectOldPassword:
+				return R.string.errors.not_correct_old_password()
 			}
 		}
 	}
@@ -63,31 +66,54 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		}
 	}
 
-	func changeDataProfile(parameters: ChangeDataProfileModel) async throws {
+	func changeDataProfile(parameters: ChangeDataProfileModel) async throws -> String {
 		let url = baseURL + "api/profile"
-
-		session.request(
+		let dataTask = session.request(
 			url,
 			method: .patch,
 			parameters: parameters,
-			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
-		).responseData { response in
-			Task {
-				do {
-					let statusCode = response.response?.statusCode
+		).serializingDecodable(String.self)
+		do {
+			return try await dataTask.value
+		} catch {
+			let requestStatusCode = await dataTask.response.response?.statusCode
 
-					switch statusCode {
-					case 200:
-						print(response.value ?? "Success")
-					case 400:
-						throw AppError.profileError(.modelError)
-					case 401:
-						throw AppError.profileError(.unauthorized)
-					default:
-						throw AppError.profileError(.serverError)
-					}
-				}
+			switch requestStatusCode {
+			case 200:
+				throw AppError.profileError(.modelError)
+			case 401:
+				throw AppError.profileError(.unauthorized)
+			default:
+				throw AppError.profileError(.serverError)
+			}
+		}
+	}
+
+	func changePassword(parameters: ChangePassword) async throws -> String {
+		let url = baseURL + "api/profile/password"
+
+		let dataTask = session.request(
+			url,
+			method: .put,
+			parameters: parameters,
+			interceptor: interceptor
+		).serializingDecodable(String.self)
+		do {
+			return try await dataTask.value
+		} catch {
+			let requestStatusCode = await dataTask.response.response?.statusCode
+
+			switch requestStatusCode {
+			case 200:
+				throw AppError.profileError(.modelError)
+			case 400:
+				try await print(dataTask.value)
+				throw AppError.profileError(.notCorrectOldPassword)
+			case 401:
+				throw AppError.profileError(.unauthorized)
+			default:
+				throw AppError.profileError(.serverError)
 			}
 		}
 	}

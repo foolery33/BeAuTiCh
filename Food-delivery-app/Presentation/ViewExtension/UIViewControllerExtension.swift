@@ -24,9 +24,20 @@ extension UIViewController {
     
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default, handler: { _ in
-        }))
-        present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default))
+
+		alert.view.tintColor = R.color.vinous()
+
+        present(alert, animated: true)
     }
+
+	func showAlert(title: String, message: String?) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default))
+
+		alert.view.tintColor = R.color.vinous()
+
+		present(alert, animated: true)
+	}
 }
 
