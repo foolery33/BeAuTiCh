@@ -65,4 +65,18 @@ class ProfileViewModel {
 			return false
 		}
 	}
+
+	func getAvatar() async {
+		do {
+			_ = try await profileRepository.getAvatarProfile()
+
+		} catch (let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+
+			} else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+		}
+	}
 }

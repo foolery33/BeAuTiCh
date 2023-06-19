@@ -39,6 +39,7 @@ class ProfileViewController: UIViewController {
 		setHandlers()
 		setBindListener()
 		fetchDataProfile()
+		getAvatar()
     }
 
 
@@ -185,6 +186,12 @@ private extension ProfileViewController {
 			if await viewModel.changePassword(parameters: parameters) {
 				self.showAlert(title: R.string.profileScreen.susscess_change_password(), message: nil)
 			}
+		}
+	}
+
+	func getAvatar() {
+		Task {
+			await viewModel.getAvatar()
 		}
 	}
 }

@@ -118,8 +118,43 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		}
 	}
 	
-	func getAvatarProfile() async throws -> UIImageView {
-		return await UIImageView()
+	func getAvatarProfile() async throws -> UIImage {
+		let url = baseURL + "api/profile/avatar"
+
+		let dataTask = session.request(
+			url,
+			interceptor: interceptor
+		).serializingDecodable(String.self)
+		do {
+			if let urlImage = URL(string: url) {
+				return try await downloadImageFromURL(url: urlImage)
+			}
+		} catch {
+			let requestStatusCode = await dataTask.response.response?.statusCode
+
+			switch requestStatusCode {
+			case 200:
+				throw AppError.profileError(.modelError)
+			case 401:
+				throw AppError.profileError(.unauthorized)
+			default:
+				throw AppError.profileError(.serverError)
+			}
+		}
+
+		return UIImage()
+	}
+
+	func downloadImageFromURL(url: URL) async throws -> UIImage {
+		return try await withCheckedThrowingContinuation { continuation in
+			AF.download(url).responseData { response in
+				if let data = response.value, let image = UIImage(data: data) {
+					continuation.resume(returning: image)
+				} else {
+					continuation.resume(throwing: response.error ?? NSError(domain: "", code: 0, userInfo: nil))
+				}
+			}
+		}
 	}
 
 	func changeAvatarProfile() async throws {

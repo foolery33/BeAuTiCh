@@ -11,7 +11,7 @@ protocol ProfileRepository {
 	func getDataProfile() async throws -> ProfileModel
 	func changeDataProfile(parameters: ChangeDataProfileModel) async throws -> String
 	func changePassword(parameters: ChangePassword) async throws -> String
-	func getAvatarProfile() async throws -> UIImageView
+	func getAvatarProfile() async throws -> UIImage
 	func changeAvatarProfile() async throws
 	func deleteAvatarProfile() async throws
 }
