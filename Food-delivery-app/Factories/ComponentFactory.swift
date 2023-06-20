@@ -58,4 +58,12 @@ final class ComponentFactory {
 	func getDetailsAppointment() -> DetailsAppointmentComponent {
 		return mainComponent.detailsAppointment
 	}
+
+	func getAddAppointmentComponent() -> AddAppointmentComponent {
+		return mainComponent.addAppointmentComponent
+	}
+
+	func getEditAppointmentComponent() -> EditAppointmentComponent {
+		return mainComponent.editAppointmentComponent
+	}
 }

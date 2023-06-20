@@ -54,7 +54,7 @@ final class SearchCoordinator: CoordinatorProtocol {
     
     func showServiceSelectionScreenSheet(selectedServiceIds: [UUID]) {
         let serviceSelectionComponent = componentFactory.getServiceSelectionComponent()
-        serviceSelectionComponent.serviceSelectionViewModel.coordinator = self
+        serviceSelectionComponent.serviceSelectionViewModel.searchCoordinator = self
         serviceSelectionComponent.serviceSelectionViewModel.selectedServiceIds = selectedServiceIds
         navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
     }

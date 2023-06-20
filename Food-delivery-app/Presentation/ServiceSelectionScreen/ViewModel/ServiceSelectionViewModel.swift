@@ -9,7 +9,9 @@ import Foundation
 
 final class ServiceSelectionViewModel {
     
-    weak var coordinator: SearchCoordinator?
+    weak var searchCoordinator: SearchCoordinator?
+	weak var mainCoordinator: MainCoordinator?
+
     private let servicesRepository: ServicesRepository
     
     var servicesList: [ServiceModel] = []
@@ -45,7 +47,7 @@ final class ServiceSelectionViewModel {
     }
     
     func onServiceSelectionSheetDismissed() {
-        coordinator?.setSelectedServices(selectedServiceIds)
+        searchCoordinator?.setSelectedServices(selectedServiceIds)
     }
     
 }

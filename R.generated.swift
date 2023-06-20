@@ -56,12 +56,14 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 11 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 13 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
+    var addAppointmentScreen: addAppointmentScreen { .init(source: .init(bundle: bundle, tableName: "AddAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var detailsAppointmentScreen: detailsAppointmentScreen { .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+    var editAppointmentScreen: editAppointmentScreen { .init(source: .init(bundle: bundle, tableName: "EditAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
     var filterScreen: filterScreen { .init(source: .init(bundle: bundle, tableName: "FilterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
@@ -73,8 +75,14 @@ struct _R {
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
+    func addAppointmentScreen(preferredLanguages: [String]) -> addAppointmentScreen {
+      .init(source: .init(bundle: bundle, tableName: "AddAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
     func detailsAppointmentScreen(preferredLanguages: [String]) -> detailsAppointmentScreen {
       .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func editAppointmentScreen(preferredLanguages: [String]) -> editAppointmentScreen {
+      .init(source: .init(bundle: bundle, tableName: "EditAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func errors(preferredLanguages: [String]) -> errors {
       .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale))
@@ -107,6 +115,74 @@ struct _R {
       .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
 
+
+    /// This `_R.string.addAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    struct addAppointmentScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Input client's name
+      ///
+      /// Key: input_client_name
+      ///
+      /// Locales: en, ru
+      var input_client_name: RswiftResources.StringResource { .init(key: "input_client_name", tableName: "AddAppointmentScreen", source: source, developmentValue: "Input client's name", comment: nil) }
+
+      /// en translation: Input name*
+      ///
+      /// Key: input_client_name_placeholder
+      ///
+      /// Locales: en, ru
+      var input_client_name_placeholder: RswiftResources.StringResource { .init(key: "input_client_name_placeholder", tableName: "AddAppointmentScreen", source: source, developmentValue: "Input name*", comment: nil) }
+
+      /// en translation: Select the date and time of recording
+      ///
+      /// Key: input_date
+      ///
+      /// Locales: en, ru
+      var input_date: RswiftResources.StringResource { .init(key: "input_date", tableName: "AddAppointmentScreen", source: source, developmentValue: "Select the date and time of recording", comment: nil) }
+
+      /// en translation: Select date
+      ///
+      /// Key: input_date_placeholder
+      ///
+      /// Locales: en, ru
+      var input_date_placeholder: RswiftResources.StringResource { .init(key: "input_date_placeholder", tableName: "AddAppointmentScreen", source: source, developmentValue: "Select date", comment: nil) }
+
+      /// en translation: Input client's phone
+      ///
+      /// Key: input_phone
+      ///
+      /// Locales: en, ru
+      var input_phone: RswiftResources.StringResource { .init(key: "input_phone", tableName: "AddAppointmentScreen", source: source, developmentValue: "Input client's phone", comment: nil) }
+
+      /// en translation: Input phone
+      ///
+      /// Key: input_phone_placeholder
+      ///
+      /// Locales: en, ru
+      var input_phone_placeholder: RswiftResources.StringResource { .init(key: "input_phone_placeholder", tableName: "AddAppointmentScreen", source: source, developmentValue: "Input phone", comment: nil) }
+
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "AddAppointmentScreen", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Select services
+      ///
+      /// Key: shoose_services
+      ///
+      /// Locales: en, ru
+      var shoose_services: RswiftResources.StringResource { .init(key: "shoose_services", tableName: "AddAppointmentScreen", source: source, developmentValue: "Select services", comment: nil) }
+
+      /// en translation: Add appointment
+      ///
+      /// Key: title_screen
+      ///
+      /// Locales: en, ru
+      var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "AddAppointmentScreen", source: source, developmentValue: "Add appointment", comment: nil) }
+    }
 
     /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
     struct detailsAppointmentScreen {
@@ -174,6 +250,74 @@ struct _R {
       ///
       /// Locales: en, ru
       var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
+    }
+
+    /// This `_R.string.editAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    struct editAppointmentScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Input client's name
+      ///
+      /// Key: input_client_name
+      ///
+      /// Locales: en, ru
+      var input_client_name: RswiftResources.StringResource { .init(key: "input_client_name", tableName: "EditAppointmentScreen", source: source, developmentValue: "Input client's name", comment: nil) }
+
+      /// en translation: Input name*
+      ///
+      /// Key: input_client_name_placeholder
+      ///
+      /// Locales: en, ru
+      var input_client_name_placeholder: RswiftResources.StringResource { .init(key: "input_client_name_placeholder", tableName: "EditAppointmentScreen", source: source, developmentValue: "Input name*", comment: nil) }
+
+      /// en translation: Select the date and time of recording
+      ///
+      /// Key: input_date
+      ///
+      /// Locales: en, ru
+      var input_date: RswiftResources.StringResource { .init(key: "input_date", tableName: "EditAppointmentScreen", source: source, developmentValue: "Select the date and time of recording", comment: nil) }
+
+      /// en translation: Select date
+      ///
+      /// Key: input_date_placeholder
+      ///
+      /// Locales: en, ru
+      var input_date_placeholder: RswiftResources.StringResource { .init(key: "input_date_placeholder", tableName: "EditAppointmentScreen", source: source, developmentValue: "Select date", comment: nil) }
+
+      /// en translation: Input client's phone
+      ///
+      /// Key: input_phone
+      ///
+      /// Locales: en, ru
+      var input_phone: RswiftResources.StringResource { .init(key: "input_phone", tableName: "EditAppointmentScreen", source: source, developmentValue: "Input client's phone", comment: nil) }
+
+      /// en translation: Input phone
+      ///
+      /// Key: input_phone_placeholder
+      ///
+      /// Locales: en, ru
+      var input_phone_placeholder: RswiftResources.StringResource { .init(key: "input_phone_placeholder", tableName: "EditAppointmentScreen", source: source, developmentValue: "Input phone", comment: nil) }
+
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "EditAppointmentScreen", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Select services
+      ///
+      /// Key: shoose_services
+      ///
+      /// Locales: en, ru
+      var shoose_services: RswiftResources.StringResource { .init(key: "shoose_services", tableName: "EditAppointmentScreen", source: source, developmentValue: "Select services", comment: nil) }
+
+      /// en translation: Edit appointment
+      ///
+      /// Key: title_screen
+      ///
+      /// Locales: en, ru
+      var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
     /// This `_R.string.errors` struct is generated, and contains static references to 24 localization keys.
@@ -807,7 +951,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 29 images.
+  /// This `_R.image` struct is generated, and contains static references to 30 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -825,6 +969,9 @@ struct _R {
 
     /// Image `Background2`.
     var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `DateField`.
+    var dateField: RswiftResources.ImageResource { .init(name: "DateField", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `DefaultAvatar`.
     var defaultAvatar: RswiftResources.ImageResource { .init(name: "DefaultAvatar", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
