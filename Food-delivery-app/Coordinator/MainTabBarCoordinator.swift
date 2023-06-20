@@ -33,21 +33,22 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
         
         let mainCoordinator = getMainCoordinator(navController: mainNavigationController)
         let searchCoordinator = getSearchCoordinator(navController: searchNavigationController)
+		let profileCoordinator = getProfileCoordinator(navController: profileNavigationController)
         let settingsCoordinator = getSettingsCoordinator(navController: settingsNavigationController)
         
-        viewController.viewControllers = [mainNavigationController, searchNavigationController, settingsNavigationController, profileNavigationController]
+        viewController.viewControllers = [mainNavigationController, searchNavigationController, profileNavigationController, settingsNavigationController]
         
         navigationController.pushViewController(viewController, animated: true)
         navigationController.setNavigationBarHidden(true, animated: false)
         
         parentCoordinator?.children.append(mainCoordinator)
         parentCoordinator?.children.append(searchCoordinator)
-//        parentCoordinator?.children.append(profileCoordinator)
+        parentCoordinator?.children.append(profileCoordinator)
         parentCoordinator?.children.append(settingsCoordinator)
         
         mainCoordinator.start()
         searchCoordinator.start()
-//        profileCoordinator.start()
+        profileCoordinator.start()
         settingsCoordinator.start()
         
     }
@@ -119,13 +120,13 @@ final class MainTabBarCoordinator: CoordinatorProtocol {
 
         return searchCoordinator
     }
-//
-//    func getProfileCoordinator(navController: UINavigationController) -> ProfileCoordinator {
-//        let profileCoordinator = ProfileCoordinator(navigationController: navController)
-//        profileCoordinator.parentCoordinator = parentCoordinator
-//
-//        return profileCoordinator
-//    }
+
+    func getProfileCoordinator(navController: UINavigationController) -> ProfileCoordinator {
+        let profileCoordinator = ProfileCoordinator(navigationController: navController)
+        profileCoordinator.parentCoordinator = parentCoordinator
+
+        return profileCoordinator
+    }
     
     func getSettingsCoordinator(navController: UINavigationController) -> SettingsCoordinator {
         let settingsCoordinator = SettingsCoordinator(navigationController: navController)

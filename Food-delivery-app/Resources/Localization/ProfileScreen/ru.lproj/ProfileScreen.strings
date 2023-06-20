@@ -1,0 +1,26 @@
+/* 
+  ProfileScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 17.06.2023.
+  
+*/
+
+"sign_out" = "Выйти";
+"delete_photo" = "удалить фото";
+"change_photo" = "изменить фото";
+"phone" = "Телефон: ";
+"email" = "Email: ";
+"change_data" = "Изменить данные";
+"change_password" = "Сменить пароль";
+"title_alert_input_data" = "Введите данные";
+"save" = "Сохранить";
+"cancel" = "Отмена";
+"input_name" = "Введите ваше имя";
+"input_phone" = "Введите ваш номер телефона";
+"title_alert_change_password" = "Cмена пароля";
+"message_alert_change_password" = "Для смены пароля необходимо ввести старый и новый пароль";
+"input_old_password" = "Введите старый пароль";
+"input_new_password" = "Введите новый пароль";
+"susscess_change_password" = "Смена пароля произошла успешно";
+"success_deleted_avatar" = "Фотография профиля успешно удалена";

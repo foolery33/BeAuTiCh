@@ -50,4 +50,8 @@ final class ComponentFactory {
     func getServiceSelectionComponent() -> ServiceSelectionComponent {
         return mainComponent.serviceSelectionComponent
     }
+
+	func getProfileComponent() -> ProfileComponent {
+		return mainComponent.profileComponent
+	}
 }
