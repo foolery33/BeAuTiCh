@@ -230,12 +230,12 @@ private extension ProfileView {
 		}
 
 		changeAvatarButton.snp.makeConstraints { make in
-			make.trailing.equalToSuperview().inset(6)
+			make.trailing.equalToSuperview().inset(10)
 			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
 		}
 
 		deleteAvatarButton.snp.makeConstraints { make in
-			make.leading.equalToSuperview().inset(6)
+			make.leading.equalToSuperview().inset(10)
 			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
 		}
 
