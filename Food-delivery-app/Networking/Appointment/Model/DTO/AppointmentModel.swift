@@ -11,6 +11,7 @@ struct AppointmentModel: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
+		case clientPhone = "clientPhone"
         case clientName = "clientName"
         case services = "services"
         case price = "price"
@@ -19,10 +20,11 @@ struct AppointmentModel: Decodable {
         case status = "status"
     }
     
-    init(id: UUID, clientName: String, services: [ServiceShortModel], price: Double, startDateTime: String, endDateTime: String, status: StatusAppointmentModel) {
+	init(id: UUID, clientName: String, services: [ServiceShortModel], price: Double, clientPhone: String, startDateTime: String, endDateTime: String, status: StatusAppointmentModel) {
         self.id = id
         self.clientName = clientName
         self.services = services
+		self.clientPhone = clientPhone
         self.price = price
         self.startDateTime = startDateTime
         self.endDateTime = endDateTime
@@ -32,6 +34,7 @@ struct AppointmentModel: Decodable {
     var id: UUID
     var clientName: String
     var services: [ServiceShortModel]
+	var clientPhone: String?
     var price: Double
     var startDateTime: String
     var endDateTime: String

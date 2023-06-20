@@ -56,11 +56,12 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 10 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 11 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
+    var detailsAppointmentScreen: detailsAppointmentScreen { .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
     var filterScreen: filterScreen { .init(source: .init(bundle: bundle, tableName: "FilterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
@@ -72,6 +73,9 @@ struct _R {
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
+    func detailsAppointmentScreen(preferredLanguages: [String]) -> detailsAppointmentScreen {
+      .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
     func errors(preferredLanguages: [String]) -> errors {
       .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale))
     }
@@ -103,6 +107,74 @@ struct _R {
       .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
 
+
+    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    struct detailsAppointmentScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cancel appointment
+      ///
+      /// Key: cancel_appointment
+      ///
+      /// Locales: en, ru
+      var cancel_appointment: RswiftResources.StringResource { .init(key: "cancel_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Cancel appointment", comment: nil) }
+
+      /// en translation: Appointment cancelled
+      ///
+      /// Key: cancelled_status
+      ///
+      /// Locales: en, ru
+      var cancelled_status: RswiftResources.StringResource { .init(key: "cancelled_status", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment cancelled", comment: nil) }
+
+      /// en translation: Change data
+      ///
+      /// Key: change_data
+      ///
+      /// Locales: en, ru
+      var change_data: RswiftResources.StringResource { .init(key: "change_data", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Change data", comment: nil) }
+
+      /// en translation: Client accepted
+      ///
+      /// Key: client_accepted
+      ///
+      /// Locales: en, ru
+      var client_accepted: RswiftResources.StringResource { .init(key: "client_accepted", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Client accepted", comment: nil) }
+
+      /// en translation: Appointment completed
+      ///
+      /// Key: completed_status
+      ///
+      /// Locales: en, ru
+      var completed_status: RswiftResources.StringResource { .init(key: "completed_status", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment completed", comment: nil) }
+
+      /// en translation: End of appointment:
+      ///
+      /// Key: end_time_appointment
+      ///
+      /// Locales: en, ru
+      var end_time_appointment: RswiftResources.StringResource { .init(key: "end_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "End of appointment:", comment: nil) }
+
+      /// en translation: Phone:
+      ///
+      /// Key: phone
+      ///
+      /// Locales: en, ru
+      var phone: RswiftResources.StringResource { .init(key: "phone", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Phone:", comment: nil) }
+
+      /// en translation: Services
+      ///
+      /// Key: services
+      ///
+      /// Locales: en, ru
+      var services: RswiftResources.StringResource { .init(key: "services", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Services", comment: nil) }
+
+      /// en translation: Appointment time: 
+      ///
+      /// Key: start_time_appointment
+      ///
+      /// Locales: en, ru
+      var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
+    }
 
     /// This `_R.string.errors` struct is generated, and contains static references to 10 localization keys.
     struct errors {

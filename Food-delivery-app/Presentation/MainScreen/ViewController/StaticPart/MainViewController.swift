@@ -10,7 +10,6 @@ import UIKit
 class MainViewController: UIViewController {
 
     private let viewModel: MainViewModel
-    private var notes: [NoteView] = []
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -112,7 +111,6 @@ class MainViewController: UIViewController {
             make.horizontalEdges.equalToSuperview().inset(17)
         }
     }
-
 }
 
 // MARK: - DateLineDelegate

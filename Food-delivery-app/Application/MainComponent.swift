@@ -184,4 +184,10 @@ final class MainComponent: BootstrapComponent {
 			ProfileComponent(parent: self)
 		}
 	}
+
+	var detailsAppointment: DetailsAppointmentComponent {
+		shared {
+			DetailsAppointmentComponent(parent: self)
+		}
+	}
 }

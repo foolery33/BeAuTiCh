@@ -9,10 +9,12 @@ import UIKit
 
 final class ScheduleViewController: UIViewController {
 
+	private let viewModel: MainViewModel
     private let serviceNotes: [NoteModel]
     private var notes: [NoteView] = []
     
-    init(serviceNotes: [NoteModel]) {
+    init(serviceNotes: [NoteModel], viewModel: MainViewModel) {
+		self.viewModel = viewModel
         self.serviceNotes = serviceNotes
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
@@ -114,12 +116,17 @@ private extension ScheduleViewController {
         newNote.snp.makeConstraints { make in
             make.width.equalTo(UIScreen.main.bounds.width / 2 - 27 - 14)
         }
+
+		newNote.viewPressedHandler = { [ weak self ] in
+			guard let self = self else { return }
+
+			self.viewModel.goToDetailsMainScreen()
+		}
     }
     
     func createEmptyView() -> UIView {
         let myView = UIView()
         return myView
     }
-    
 }
 
