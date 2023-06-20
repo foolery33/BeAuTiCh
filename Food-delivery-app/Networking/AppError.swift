@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppError: LocalizedError, Identifiable, Equatable {
+enum AppError: LocalizedError, Identifiable {
     case appointmentError(AppointmentRepositoryImplementation.AppointmentError)
 	case profileError(ProfileRepositoryImplementation.ProfileError)
     

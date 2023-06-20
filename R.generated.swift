@@ -96,7 +96,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 7 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 8 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -134,6 +134,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var password_changed_error: RswiftResources.StringResource { .init(key: "password_changed_error", tableName: "Errors", source: source, developmentValue: "Password change error", comment: nil) }
+
+      /// en translation: Profile picture not found
+      ///
+      /// Key: photo_not_found
+      ///
+      /// Locales: en, ru
+      var photo_not_found: RswiftResources.StringResource { .init(key: "photo_not_found", tableName: "Errors", source: source, developmentValue: "Profile picture not found", comment: nil) }
 
       /// en translation: Some server error occured. Please try again later
       ///

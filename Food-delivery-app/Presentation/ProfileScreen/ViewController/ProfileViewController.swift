@@ -123,14 +123,20 @@ private extension ProfileViewController {
 	func setHandlers() {
 		ui.signOutButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
+
+			self.logout()
 		}
 
 		ui.changeAvatarButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
+
+			self.changeAvatar()
 		}
 
 		ui.deleteAvatarButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
+
+			self.deleteAvatar()
 		}
 
 		ui.changeDataProfileButtonHandler = { [ weak self ] in
@@ -192,6 +198,25 @@ private extension ProfileViewController {
 	func getAvatar() {
 		Task {
 			await viewModel.getAvatar()
+		}
+	}
+
+	func changeAvatar() {
+		Task {
+			let imageData = Data()
+			await viewModel.changeAvatar(imageData: imageData)
+		}
+	}
+
+	func deleteAvatar() {
+		Task {
+			await viewModel.deleteAvatar()
+		}
+	}
+
+	func logout() {
+		Task {
+			await viewModel.logout()
 		}
 	}
 }

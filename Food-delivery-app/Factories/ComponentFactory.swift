@@ -44,6 +44,6 @@ final class ComponentFactory {
     }
 
 	func getProfileComponent() -> ProfileComponent {
-		return mainComponent.accountComponent
+		return mainComponent.profileComponent
 	}
 }

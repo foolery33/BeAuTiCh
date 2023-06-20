@@ -88,6 +88,7 @@
 		F37687272A38B28A0006E566 /* YourServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687262A38B28A0006E566 /* YourServicesViewController.swift */; };
 		F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37687282A38B2B00006E566 /* YourServicesView.swift */; };
 		F37E032E2A40B02300F029C8 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E032D2A40B02300F029C8 /* ChangePassword.swift */; };
+		F37E033B2A41831600F029C8 /* ConvertPhotoToDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E033A2A41831600F029C8 /* ConvertPhotoToDataUseCase.swift */; };
 		F391D6A52A3AEE9600A092BE /* InformationSubscribeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */; };
 		F3AF7F152A2B163F00DBAD36 /* RegisterComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */; };
 		F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */; };
@@ -207,6 +208,7 @@
 		F376872D2A38B6C30006E566 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
 		F376872F2A38B6C50006E566 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InformationSubcscribeSheetScreen.strings; sourceTree = "<group>"; };
 		F37E032D2A40B02300F029C8 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		F37E033A2A41831600F029C8 /* ConvertPhotoToDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertPhotoToDataUseCase.swift; sourceTree = "<group>"; };
 		F391D6A42A3AEE9600A092BE /* InformationSubscribeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSubscribeComponent.swift; sourceTree = "<group>"; };
 		F3AF7F142A2B163F00DBAD36 /* RegisterComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterComponent.swift; sourceTree = "<group>"; };
 		F3AF7F162A2B16C100DBAD36 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -782,6 +784,22 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		F37E03382A4182EE00F029C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37E03392A4182F500F029C8 /* UseCase */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F37E03392A4182F500F029C8 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				F37E033A2A41831600F029C8 /* ConvertPhotoToDataUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -920,6 +938,7 @@
 		F3DAB9132A3E0F6000E31487 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F37E03382A4182EE00F029C8 /* Model */,
 				F3DAB9172A3E0F8600E31487 /* Component */,
 				F3DAB9162A3E0F7F00E31487 /* ViewModel */,
 				F3DAB9152A3E0F7200E31487 /* ViewController */,
@@ -1212,6 +1231,7 @@
 				F37434952A3CB8DC00D009BA /* Service.swift in Sources */,
 				8450B1052A261FA900273956 /* AuthCoordinator.swift in Sources */,
 				F37687062A383AC30006E566 /* ShowServicesBlockView.swift in Sources */,
+				F37E033B2A41831600F029C8 /* ConvertPhotoToDataUseCase.swift in Sources */,
 				84283B7D2A2C911F00CA911D /* NoteView.swift in Sources */,
 				F3DAB92D2A3EF21B00E31487 /* ProfileRepository.swift in Sources */,
 				F3DAB91A2A3E0FA600E31487 /* ProfileCoordinator.swift in Sources */,

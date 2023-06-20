@@ -59,6 +59,12 @@ final class MainComponent: BootstrapComponent {
             GetFilteredAppointmentListUseCase()
         }
     }
+
+	var getDataPhoto: ConvertPhotoToDataUseCase {
+		shared {
+			ConvertPhotoToDataUseCase()
+		}
+	}
     
     // MARK: - Repositories
     
@@ -78,7 +84,8 @@ final class MainComponent: BootstrapComponent {
 
 	var profileRepository: ProfileRepository {
 		shared {
-			ProfileRepositoryImplementation(tokenManagerRepository: TokenManagerRepositoryImplementation()
+			ProfileRepositoryImplementation(
+				tokenManagerRepository: TokenManagerRepositoryImplementation()
 			)
 		}
 	}
@@ -132,7 +139,7 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-	var accountComponent: ProfileComponent {
+	var profileComponent: ProfileComponent {
 		shared {
 			ProfileComponent(parent: self)
 		}

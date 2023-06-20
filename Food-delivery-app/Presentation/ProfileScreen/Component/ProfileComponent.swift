@@ -10,13 +10,15 @@ import NeedleFoundation
 
 protocol ProfileComponentDependency: Dependency {
 	var profileRepository: ProfileRepository { get }
+	var convertPhotoToDataUseCase: ConvertPhotoToDataUseCase { get }
 }
 
 final class ProfileComponent: Component<ProfileComponentDependency> {
 	var profileViewModel: ProfileViewModel {
 		shared {
 			ProfileViewModel(
-				profileRepository: dependency.profileRepository
+				profileRepository: dependency.profileRepository,
+				convertPhotoToDataUseCase: dependency.convertPhotoToDataUseCase
 			)
 		}
 	}
