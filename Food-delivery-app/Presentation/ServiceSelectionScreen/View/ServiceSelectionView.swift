@@ -1,15 +1,14 @@
 //
-//  YourServicesView.swift
+//  ServiceSelectionView.swift
 //  Food-delivery-app
 //
-//  Created by Елена on 13.06.2023.
+//  Created by Nikita Usov on 19.06.2023.
 //
 
 import UIKit
-import SnapKit
 
-class YourServicesView: UIView {
-    
+class ServiceSelectionView: UIView {
+
     //MARK: - Private properties
     
     private enum Metrics {
@@ -33,17 +32,10 @@ class YourServicesView: UIView {
     
     private lazy var titleSheetScreen: UILabel = {
         let view = UILabel()
-        view.text = R.string.informationSubcscribeSheetScreen.title_screen()
+        view.text = R.string.serviceSelectionScreen.choose_service()
         view.textColor = R.color.white()
         view.textAlignment = .center
         view.font = R.font.ralewayBold(size: 20)
-        
-        return view
-    }()
-    
-    private lazy var plusButton: UIButton = {
-        let view = UIButton()
-        view.setImage(R.image.plusService(), for: .normal)
         
         return view
     }()
@@ -53,8 +45,8 @@ class YourServicesView: UIView {
     
     //MARK: - Internal properties
     
-    var plusServiceButtonHandler: (() -> Void)?
     var arrowBackButtonHandler: (() -> Void)?
+    var onServiceTapped: ((UUID) -> ())?
     
     
     //MARK: - Init
@@ -75,12 +67,16 @@ class YourServicesView: UIView {
     func setServices(_ services: [ServiceModel]) {
         serviceTags.services = services
     }
+    
+    func setSelectedServiceIds(_ services: [UUID]?) {
+        serviceTags.selectedServiceTagIds = services
+    }
 }
 
 
 //MARK: - Private extensions
 
-private extension YourServicesView {
+private extension ServiceSelectionView {
     
     //MARK: - Setup
     
@@ -94,7 +90,6 @@ private extension YourServicesView {
         self.addSubview(backgroundImage)
         self.addSubview(arrowBackButton)
         self.addSubview(titleSheetScreen)
-        self.addSubview(plusButton)
         self.addSubview(serviceTags)
     }
     
@@ -113,12 +108,6 @@ private extension YourServicesView {
             make.leading.equalTo(arrowBackButton.snp.trailing).offset(14)
         }
         
-        plusButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(10)
-            make.centerY.equalTo(titleSheetScreen.snp.centerY)
-            make.leading.greaterThanOrEqualTo(titleSheetScreen.snp.trailing).offset(14)
-        }
-        
         serviceTags.snp.makeConstraints { make in
             make.top.equalTo(titleSheetScreen.snp.bottom).offset(20)
             make.horizontalEdges.equalToSuperview().inset(20)
@@ -127,7 +116,9 @@ private extension YourServicesView {
     
     func configureActions() {
         arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
-        plusButton.addTarget(self, action: #selector(plusServiceButtonPressed), for: .touchUpInside)
+        serviceTags.onServiceTagTapped = { [weak self] id in
+            (self?.onServiceTapped ?? { _ in })(id)
+        }
     }
     
     
@@ -137,9 +128,5 @@ private extension YourServicesView {
     func arrowBackButtonPressed() {
         arrowBackButtonHandler?()
     }
-    
-    @objc
-    func plusServiceButtonPressed() {
-        plusServiceButtonHandler?()
-    }
+
 }

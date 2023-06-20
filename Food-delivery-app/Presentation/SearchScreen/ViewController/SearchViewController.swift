@@ -31,6 +31,12 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         getAppointmentList()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        getAppointmentList()
+    }
 
 }
 
@@ -47,6 +53,9 @@ extension SearchViewController {
         ui.getFilteredAppointmentList = { [weak self] appointmentList, filterString in
             self?.viewModel.getFilteredAppointmentList(from: appointmentList, with: filterString) ?? []
         }
+        ui.onFilterButtonTapped = { [weak self] in
+            self?.viewModel.goToFilterScreen()
+        }
         
     }
     
@@ -55,7 +64,7 @@ extension SearchViewController {
             if await viewModel.getAppointmentList() {
                 print(viewModel.appointmentList)
                 ui.appointmentList = viewModel.appointmentList
-                ui.setupNotes()
+                ui.updateAppointmentsStackView(currentAppointments: viewModel.appointmentList)
             }
             else {
                 showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)

@@ -14,7 +14,16 @@ final class FilterView: UIView {
     var onDateFromTextFieldValueChanged: ((String) -> ())?
     var onDateToTextFieldValueChanged: ((String) -> ())?
     
+    var onChooseFilterServicesStackViewTapped: (() -> ())?
     var onSaveButtonTapped: (() -> ())?
+    
+    var convertDateToDdMmYyyy: ((Date) -> (String))?
+    var convertISODateStringToDdMmYyyy: ((String) -> (String))?
+    
+    var priceFrom: Int?
+    var priceTo: Int?
+    var dateFrom: String?
+    var dateTo: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,6 +93,8 @@ final class FilterView: UIView {
         let myStackView = UIStackView()
         myStackView.axis = .horizontal
         myStackView.spacing = 20
+        myStackView.isUserInteractionEnabled = true
+        myStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pressServiceFilterSelection)))
         return myStackView
     }()
     private func setupChooseFilterServicesStackView() {
@@ -94,6 +105,9 @@ final class FilterView: UIView {
             make.leading.equalToSuperview().inset(21)
             make.top.equalToSuperview().inset(21)
         }
+    }
+    @objc private func pressServiceFilterSelection() {
+        (onChooseFilterServicesStackViewTapped ?? {})()
     }
     
     // MARK: - ChooseFilterServicesLabel setup
@@ -178,6 +192,9 @@ extension FilterView {
         priceSortingView.onToTextFieldValueChanged = { [weak self] text in
             (self?.onPriceToTextFieldValueChanged ?? { _ in })(text)
         }
+        priceSortingView.fromTextFieldText = priceFrom == nil ? "" : String(priceFrom!)
+        priceSortingView.toTextFieldText = priceTo == nil ? "" : String(priceTo!)
+        priceSortingView.setTextToTextFields()
         
         dateSortingView.onFromTextFieldValueChanged = { [weak self] text in
             (self?.onDateFromTextFieldValueChanged ?? { _ in })(text)
@@ -185,5 +202,11 @@ extension FilterView {
         dateSortingView.onToTextFieldValueChanged = { [weak self] text in
             (self?.onDateToTextFieldValueChanged ?? { _ in })(text)
         }
+        dateSortingView.convertDateToDdMmYyyy = { [weak self] date in
+            (self?.convertDateToDdMmYyyy ?? { _ in return "" })(date)
+        }
+        dateSortingView.fromTextFieldText = dateFrom == nil ? "" : (convertISODateStringToDdMmYyyy ?? { _ in return "" })( String(dateFrom!))
+        dateSortingView.toTextFieldText = dateTo == nil ? "" : (convertISODateStringToDdMmYyyy ?? { _ in return "" })( String(dateTo!))
+        dateSortingView.setTextToTextFields()
     }
 }

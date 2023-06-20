@@ -19,6 +19,11 @@ final class SortingView: UIView {
     var onFromTextFieldValueChanged: ((String) -> ())?
     var onToTextFieldValueChanged: ((String) -> ())?
     
+    var fromTextFieldText: String?
+    var toTextFieldText: String?
+    
+    var convertDateToDdMmYyyy: ((Date) -> (String))?
+    
     init(headerText: String, sortingCriteria: SortingCriteria) {
         self.headerText = headerText
         self.sortingCriteria = sortingCriteria
@@ -101,7 +106,7 @@ final class SortingView: UIView {
     
     // MARK: - FromTextField setup
     private lazy var fromTextField: CustomUITextField = {
-        let myTextField = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.filterScreen.enter_price(), isSmallVersion: true)
+        let myTextField = CustomUITextField(isSecured: false, currentText: fromTextFieldText ?? "", placeholderText: R.string.filterScreen.enter_price(), isSmallVersion: true)
         return myTextField
     }()
     private func setupFromTextField() {
@@ -138,7 +143,7 @@ final class SortingView: UIView {
     
     // MARK: - ToTextField setup
     private lazy var toTextField: CustomUITextField = {
-        let myTextField = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.filterScreen.enter_price(), isSmallVersion: true)
+        let myTextField = CustomUITextField(isSecured: false, currentText: toTextFieldText ?? "", placeholderText: R.string.filterScreen.enter_price(), isSmallVersion: true)
         return myTextField
     }()
     private func setupToTextField() {
@@ -169,9 +174,16 @@ final class SortingView: UIView {
             fromTextField.addTarget(self, action: #selector(onFromPriceValueChanged(_:)), for: .editingChanged)
             toTextField.addTarget(self, action: #selector(onToPriceValueChanged(_:)), for: .editingChanged)
         case .date:
+            fromTextField.addTarget(self, action: #selector(onFromDateValueChanged(_:)), for: .editingChanged)
+            toTextField.addTarget(self, action: #selector(onToDateValueChanged(_:)), for: .editingChanged)
             setDatePickerOnFromDate()
             setDatePickerOnToDate()
         }
+    }
+    
+    func setTextToTextFields() {
+        fromTextField.text = fromTextFieldText ?? ""
+        toTextField.text = toTextFieldText ?? ""
     }
 
 }
@@ -208,8 +220,12 @@ private extension SortingView {
         fromTextField.inputView = fromDatePicker
     }
     @objc func onFromDateDoneButtonPressed() {
-        fromTextField.text = "\(fromDatePicker.date)"
+        fromTextField.text = (convertDateToDdMmYyyy ?? { _ in return "" })(fromDatePicker.date)
+        (onFromTextFieldValueChanged ?? { _ in })("\(fromDatePicker.date)")
         endEditing(true)
+    }
+    @objc private func onFromDateValueChanged(_ textField: UITextField) {
+        (onFromTextFieldValueChanged ?? { _ in })(textField.text ?? "")
     }
     
     func setDatePickerOnToDate() {
@@ -223,7 +239,11 @@ private extension SortingView {
         toTextField.inputView = toDatePicker
     }
     @objc func onToDateDoneButtonPressed() {
-        toTextField.text = "\(toDatePicker.date)"
+        toTextField.text = (convertDateToDdMmYyyy ?? { _ in return "" })(toDatePicker.date)
+        (onToTextFieldValueChanged ?? { _ in })("\(toDatePicker.date)")
         endEditing(true)
+    }
+    @objc private func onToDateValueChanged(_ textField: UITextField) {
+        (onToTextFieldValueChanged ?? { _ in })(textField.text ?? "")
     }
 }

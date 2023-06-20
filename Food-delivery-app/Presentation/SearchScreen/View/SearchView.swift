@@ -12,6 +12,7 @@ class SearchView: UIView {
     var onTextFieldValueChange: ((String) -> ())?
     var convertTime: ((String) -> (String))?
     var getFilteredAppointmentList: (([AppointmentModel], String) -> ([AppointmentModel]))?
+    var onFilterButtonTapped: (() -> ())?
     var appointmentList: [AppointmentModel]?
     
     var notes: [NoteView] = []
@@ -52,6 +53,7 @@ class SearchView: UIView {
         let myButton = UIButton(type: .custom)
         myButton.setImage(R.image.filter(), for: .normal)
         myButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        myButton.addTarget(self, action: #selector(pressFilterButoon), for: .touchUpInside)
         return myButton
     }()
     private func setupFilterButton() {
@@ -60,6 +62,9 @@ class SearchView: UIView {
             make.leading.equalToSuperview().inset(21)
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
         }
+    }
+    @objc private func pressFilterButoon() {
+        (onFilterButtonTapped ?? {})()
     }
     
     // MARK: - SearchTextField setup
@@ -151,7 +156,7 @@ extension SearchView {
         for serviceNote in appointmentList ?? [] {
             createNote(
                 customerName: serviceNote.clientName,
-                serviceName: [serviceNote.clientName],
+                serviceName: serviceNote.services.map { $0.name },
                 time: (convertTime ?? { _ in return "" })(serviceNote.startDateTime),
                 cost: Int(serviceNote.price)
             )
@@ -180,23 +185,35 @@ extension SearchView {
         return myView
     }
     
-    private func updateAppointmentsStackView(currentAppointments: [AppointmentModel]) {
-        DispatchQueue.main.async { [weak self] in
-            for subview in self?.leftStackView.arrangedSubviews ?? [] {
-                subview.removeFromSuperview()
-            }
-            for subview in self?.rightStackView.arrangedSubviews ?? [] {
-                subview.removeFromSuperview()
-            }
-            // Удаление существующих записей
-            self?.notes = []
-            // Добавление в список отфильтрованных записей
-            for appointment in currentAppointments {
-                self?.createNote(customerName: appointment.clientName, serviceName: [appointment.clientName], time: appointment.startDateTime, cost: Int(appointment.price))
-            }
-            self?.leftStackView.addArrangedSubview(self?.createEmptyView() ?? UIView())
-            self?.rightStackView.addArrangedSubview(self?.createEmptyView() ?? UIView())
+    func updateAppointmentsStackView(currentAppointments: [AppointmentModel]) {
+        print(currentAppointments.count)
+        print(leftStackView)
+//        print(leftStackView.arrangedSubviews.count)
+//        print(rightStackView.arrangedSubviews.count)
+//        print(notes)
+//
+        for subview in leftStackView.arrangedSubviews  {
+            subview.removeFromSuperview()
         }
+        for subview in rightStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        // Удаление существующих записей
+        notes = []
+        // Добавление в список отфильтрованных записей
+        for appointment in currentAppointments {
+            createNote(
+                customerName: appointment.clientName,
+                serviceName: appointment.services.map { $0.name },
+                time: (convertTime ?? { _ in return "" })(appointment.startDateTime),
+                cost: Int(appointment.price)
+            )
+        }
+        leftStackView.addArrangedSubview(createEmptyView())
+        rightStackView.addArrangedSubview(createEmptyView())
+        
+//        print(leftStackView.arrangedSubviews.count)
+//        print(rightStackView.arrangedSubviews.count)
     }
     
 }

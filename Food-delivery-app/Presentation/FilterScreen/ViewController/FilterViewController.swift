@@ -53,8 +53,27 @@ private extension FilterViewController {
         ui.onPriceToTextFieldValueChanged = { [weak self] text in
             self?.viewModel.updatePriceTo(text)
         }
+        ui.onDateFromTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.updateDateFrom(text)
+        }
+        ui.onDateToTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.updateDateTo(text)
+        }
+        ui.onChooseFilterServicesStackViewTapped = { [weak self] in
+            self?.viewModel.showServiceSelectionScreenSheet()
+        }
         ui.onSaveButtonTapped = { [weak self] in
             self?.viewModel.onSaveButtonTapped()
         }
+        ui.convertDateToDdMmYyyy = { [weak self] date in
+            return self?.viewModel.convertDateToDdMmYyyy(date) ?? ""
+        }
+        ui.convertISODateStringToDdMmYyyy = { [weak self] date in
+            return self?.viewModel.convertISODateStringToDdMmYyyy(date) ?? ""
+        }
+        ui.priceFrom = viewModel.priceFrom
+        ui.priceTo = viewModel.priceTo
+        ui.dateFrom = viewModel.dateFrom
+        ui.dateTo = viewModel.dateTo
     }
 }

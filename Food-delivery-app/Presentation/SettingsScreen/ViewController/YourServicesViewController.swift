@@ -45,13 +45,13 @@ class YourServicesViewController: UIViewController {
         
         setHandlers()
         ui.setServices([
-            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
-            Service(id: "1", name: "bla", price: 12, duration: ""),
-            Service(id: "1", name: "jsdfsdfsdf", price: 12, duration: ""),
-            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
-            Service(id: "1", name: "bla", price: 12, duration: ""),
-            Service(id: "1", name: "Blablabla", price: 12, duration: ""),
-            Service(id: "1", name: "bla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "jsdfsdfsdf", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
+            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
         ])
     }
     
