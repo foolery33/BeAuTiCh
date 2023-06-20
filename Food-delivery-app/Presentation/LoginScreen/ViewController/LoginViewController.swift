@@ -37,12 +37,28 @@ class LoginViewController: UIViewController {
 
 private extension LoginViewController {
     func setHandlers() {
-        ui.loginButtonHandler = { [ weak self ] in
-            guard self != nil else { return }
+        ui.loginButtonHandler = { [weak self] in
+            self?.ui.setupActivityIndicator()
+            Task {
+                if await self?.viewModel.login() ?? false {
+                    self?.viewModel.goToMainScreen()
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.login_error(), message: self?.viewModel.error ?? "")
+                }
+                self?.ui.stopActivityIndicator()
+            }
         }
         
-        ui.goToRegisterScreenButtonHandler = { [ weak self ] in
-            guard self != nil else { return }
+        ui.goToRegisterScreenButtonHandler = { [weak self] in
+            self?.viewModel.goToRegisterScreen()
+        }
+        
+        ui.onEmailTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.email = text
+        }
+        ui.onPasswordTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.password = text
         }
     }
 }

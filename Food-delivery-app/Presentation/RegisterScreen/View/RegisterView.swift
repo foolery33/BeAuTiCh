@@ -47,6 +47,17 @@ class RegisterView: UIView {
         return view
     }()
     
+    private lazy var scrollView: UIScrollView = {
+        let myScrollView = UIScrollView()
+        myScrollView.showsVerticalScrollIndicator = false
+        return myScrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let myView = UIView()
+        return myView
+    }()
+    
     private var logoImageView: UIImageView = {
         let view = UIImageView()
         view.image = R.image.logo()
@@ -69,34 +80,71 @@ class RegisterView: UIView {
         let view = UIStackView()
         view.axis = .vertical
         view.spacing = Metrics.inputFieldsStackSpacing
-        
         return view
     }()
     
     private lazy var lastNameTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_lastname())
+        view.addTarget(self, action: #selector(onLastNameDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onLastNameDidChange(_ textField: UITextField) {
+        onLastNameTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var firstNameTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_firstname())
+        view.addTarget(self, action: #selector(onFirstNameDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onFirstNameDidChange(_ textField: UITextField) {
+        onFirstNameTextFieldValueChanged?(textField.text ?? "")
+    }
+    
+    private lazy var patronymicTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_patronymic())
+        view.addTarget(self, action: #selector(onPatronymicDidChange(_:)), for: .editingChanged)
+        return view
+    }()
+    @objc private func onPatronymicDidChange(_ textField: UITextField) {
+        onPatronymicTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var emailTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_email())
+        view.addTarget(self, action: #selector(onEmailDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onEmailDidChange(_ textField: UITextField) {
+        onEmailTextFieldValueChanged?(textField.text ?? "")
+    }
+    
+    private lazy var phoneNumberTextField: CustomUITextField = {
+        let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.registerScreen.input_phone_number())
+        view.addTarget(self, action: #selector(onPhoneNumberDidChange(_:)), for: .editingChanged)
+        return view
+    }()
+    @objc private func onPhoneNumberDidChange(_ textField: UITextField) {
+        onPhoneNumberTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var passwordTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.registerScreen.input_password())
+        view.addTarget(self, action: #selector(onPasswordDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onPasswordDidChange(_ textField: UITextField) {
+        onPasswordTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var confirmPasswordTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.registerScreen.input_repeat_password())
+        view.addTarget(self, action: #selector(onConfirmPasswordDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onConfirmPasswordDidChange(_ textField: UITextField) {
+        onConfirmPasswordTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var buttonsStack: UIStackView = {
         let view = UIStackView()
@@ -133,6 +181,13 @@ class RegisterView: UIView {
     
     var registerButtonHandler: (() -> Void)?
     var goToAuthButtonHandler: (() -> Void)?
+    var onLastNameTextFieldValueChanged: ((String) -> ())?
+    var onFirstNameTextFieldValueChanged: ((String) -> ())?
+    var onPatronymicTextFieldValueChanged: ((String) -> ())?
+    var onEmailTextFieldValueChanged: ((String) -> ())?
+    var onPhoneNumberTextFieldValueChanged: ((String) -> ())?
+    var onPasswordTextFieldValueChanged: ((String) -> ())?
+    var onConfirmPasswordTextFieldValueChanged: ((String) -> ())?
     
     
     //- MARK: Init
@@ -163,15 +218,21 @@ private extension RegisterView {
     
     func configureUI() {
         self.addSubview(backgroundImageView)
-        self.addSubview(logoImageView)
-        self.addSubview(welcomeLabel)
-        self.addSubview(inputFieldsStack)
-        self.addSubview(buttonsStack)
+        self.addSubview(scrollView)
+        
+        scrollView.addSubview(contentView)
+        
+        contentView.addSubview(logoImageView)
+        contentView.addSubview(welcomeLabel)
+        contentView.addSubview(inputFieldsStack)
+        contentView.addSubview(buttonsStack)
         
         inputFieldsStack.addArrangedSubview(lastNameTextField)
         inputFieldsStack.addArrangedSubview(firstNameTextField)
+        inputFieldsStack.addArrangedSubview(patronymicTextField)
         inputFieldsStack.addArrangedSubview(passwordTextField)
         inputFieldsStack.addArrangedSubview(emailTextField)
+        inputFieldsStack.addArrangedSubview(phoneNumberTextField)
         inputFieldsStack.addArrangedSubview(passwordTextField)
         inputFieldsStack.addArrangedSubview(confirmPasswordTextField)
         
@@ -183,6 +244,17 @@ private extension RegisterView {
         backgroundImageView.snp.makeConstraints { make in
             make.verticalEdges.equalTo(self.safeAreaLayoutGuide.snp.verticalEdges)
             make.horizontalEdges.equalToSuperview()
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().priority(.low)
         }
         
         logoImageView.snp.makeConstraints { make in
@@ -204,6 +276,7 @@ private extension RegisterView {
         
         buttonsStack.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(Metrics.buttonsStackHorizontalInsets)
+            make.top.greaterThanOrEqualTo(inputFieldsStack.snp.bottom).offset(16)
             make.bottom.equalToSuperview().inset(Metrics.buttonsStackBottomInsets)
         }
     }

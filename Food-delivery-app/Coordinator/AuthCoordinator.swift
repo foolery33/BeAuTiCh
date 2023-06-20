@@ -56,4 +56,11 @@ final class AuthCoordinator: CoordinatorProtocol {
         )
     }
     
+    func goToMainScreen() {
+        if let appCoordinator = parentCoordinator as? AppCoordinator {
+            appCoordinator.goToMain()
+            parentCoordinator?.childDidFinish(self)
+        }
+    }
+    
 }
