@@ -11,6 +11,7 @@
 "unauthorized" = "Your authentication token is expired. Please login again";
 "forbidden_access" = "You've got no rights to perform this operation";
 "invalid_credentials" = "Either your e-mail or password are incorrect";
+"conflicting_credentials" = "User with such e-mail already exists";
 "unexpected_error" = "Some unexpected error occured. Please contact developer";
 
 "register_error" = "Register error";

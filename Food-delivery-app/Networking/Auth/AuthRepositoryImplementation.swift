@@ -62,7 +62,7 @@ final class AuthRepositoryImplementation: AuthRepository {
             case 200:
                 throw AppError.authError(.modelError)
             case 400:
-                throw AppError.authError(.invalidCredentials)
+                throw AppError.authError(.conflictingCredentials)
             case 500:
                 throw AppError.authError(.serverError)
             default:
@@ -74,6 +74,7 @@ final class AuthRepositoryImplementation: AuthRepository {
     enum AuthError: LocalizedError, Identifiable {
         case unauthorized
         case invalidCredentials
+        case conflictingCredentials
         case serverError
         case modelError
         case unexpectedError
@@ -86,6 +87,8 @@ final class AuthRepositoryImplementation: AuthRepository {
                 return R.string.errors.unauthorized()
             case .invalidCredentials:
                 return R.string.errors.invalid_credentials()
+            case .conflictingCredentials:
+                return R.string.errors.conflicting_credentials()
             case .serverError:
                 return R.string.errors.server_error()
             case .modelError:
