@@ -74,13 +74,21 @@ class LoginView: UIView {
     
     private lazy var emailTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: false, currentText: "", placeholderText: R.string.loginScreen.input_email())
+        view.addTarget(self, action: #selector(onEmailDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onEmailDidChange(_ textField: UITextField) {
+        onEmailTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var passwordTextField: CustomUITextField = {
         let view = CustomUITextField(isSecured: true, currentText: "", placeholderText: R.string.loginScreen.input_password())
+        view.addTarget(self, action: #selector(onPasswordDidChange(_:)), for: .editingChanged)
         return view
     }()
+    @objc private func onPasswordDidChange(_ textField: UITextField) {
+        onPasswordTextFieldValueChanged?(textField.text ?? "")
+    }
     
     private lazy var buttonsStack: UIStackView = {
         let view = UIStackView()
@@ -117,6 +125,8 @@ class LoginView: UIView {
     
     var loginButtonHandler: (() -> Void)?
     var goToRegisterScreenButtonHandler: (() -> Void)?
+    var onEmailTextFieldValueChanged: ((String) -> ())?
+    var onPasswordTextFieldValueChanged: ((String) -> ())?
     
     
     //- MARK: Init

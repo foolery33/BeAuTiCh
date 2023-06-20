@@ -90,6 +90,69 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var emptyValidationUseCase: EmptyValidationUseCase {
+        shared {
+            EmptyValidationUseCase()
+        }
+    }
+    
+    var emailValidationUseCase: EmailValidationUseCase {
+        shared {
+            EmailValidationUseCase()
+        }
+    }
+    
+    var getLoginValidationErrorUseCase: GetLoginValidationErrorUseCase {
+        shared {
+            GetLoginValidationErrorUseCase(
+                emptyValidationUseCase: emptyValidationUseCase,
+                emailValidationUseCase: emailValidationUseCase
+            )
+        }
+    }
+    
+    var saveTokensUseCase: SaveTokensUseCase {
+        shared {
+            SaveTokensUseCase(tokenManagerRepository: tokenManagerRepository)
+        }
+    }
+    
+    var phoneNumberValidationUseCase: PhoneNumberValidationUseCase {
+        shared {
+            PhoneNumberValidationUseCase()
+        }
+    }
+    
+    var makeFullNameUseCase: MakeFullNameUseCase {
+        shared {
+            MakeFullNameUseCase()
+        }
+    }
+    
+    var getRegisterValidationErrorUseCase: GetRegisterValidationErrorUseCase {
+        shared {
+            GetRegisterValidationErrorUseCase(
+                emptyValidationUseCase: emptyValidationUseCase,
+                emailValidationUseCase: emailValidationUseCase,
+                phoneNumberValidationUseCase: phoneNumberValidationUseCase,
+                passwordsEqualityValidationUseCase: passwordsEqualityValidationUseCase,
+                passwordValidationUseCase: passwordValidationUseCase
+            )
+        }
+    }
+    
+    var passwordsEqualityValidationUseCase: PasswordsEqualityValidationUseCase {
+        shared {
+            PasswordsEqualityValidationUseCase()
+        }
+    }
+    
+    var passwordValidationUseCase: PasswordValidationUseCase {
+        shared {
+            PasswordValidationUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {
@@ -117,6 +180,12 @@ final class MainComponent: BootstrapComponent {
 			)
 		}
 	}
+    
+    var authRepository: AuthRepository {
+        shared {
+            AuthRepositoryImplementation()
+        }
+    }
     
     // MARK: - Components
     

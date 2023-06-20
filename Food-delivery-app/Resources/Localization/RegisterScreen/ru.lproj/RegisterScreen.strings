@@ -9,7 +9,9 @@
 "first_greeting" = "Добро пожаловать!";
 "input_lastname" = "Введите фамилию*";
 "input_firstname" = "Введите имя*";
+"input_patronymic" = "Введите отчество";
 "input_email" = "Введите email*";
+"input_phone_number" = "Введите номер телефона";
 "input_password" = "Введите пароль*";
 "input_repeat_password" = "Повторите пароль*";
 "register" = "Зарегистрироваться";

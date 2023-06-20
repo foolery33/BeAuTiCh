@@ -46,11 +46,41 @@ class RegisterViewController: UIViewController {
 private extension RegisterViewController {
     func setHandlers() {
         ui.registerButtonHandler = { [weak self] in
-            guard self != nil else { return }
+            self?.ui.setupActivityIndicator()
+            Task {
+                if await self?.viewModel.register() ?? false {
+                    self?.viewModel.goToMainScreen()
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.register_error(), message: self?.viewModel.error ?? "")
+                }
+                self?.ui.stopActivityIndicator()
+            }
+        }
+        ui.goToAuthButtonHandler = { [weak self] in
+            self?.viewModel.goBackToLoginScreen()
         }
         
-        ui.goToAuthButtonHandler = { [weak self] in
-            guard self != nil else { return }
+        ui.onLastNameTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.lastName = text
+        }
+        ui.onFirstNameTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.firstName = text
+        }
+        ui.onPatronymicTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.patronymic = text
+        }
+        ui.onEmailTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.email = text
+        }
+        ui.onPhoneNumberTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.phoneNumber = text
+        }
+        ui.onPasswordTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.password = text
+        }
+        ui.onConfirmPasswordTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.confirmPassword = text
         }
     }
 }
