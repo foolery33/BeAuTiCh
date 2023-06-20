@@ -10,6 +10,21 @@
 "model_error" = "Internal application error. Please contact developer";
 "unauthorized" = "Your authentication token is expired. Please login again";
 "forbidden_access" = "You've got no rights to perform this operation";
+"invalid_credentials" = "Either your e-mail or password are incorrect";
+"conflicting_credentials" = "User with such e-mail already exists";
+"unexpected_error" = "Some unexpected error occured. Please contact developer";
+
+"register_error" = "Register error";
+"login_error" = "Login error";
+"invalid_email" = "Your email does not conform to default email pattern";
+"empty_email" = "Please enter e-mail to continue";
+"empty_password" = "Please enter password to continue";
+"empty_confirm_password" = "Please confirm password to continue";
+"empty_first_name" = "Please enter first name to continue";
+"empty_last_name" = "Please enter last name to continue";
+"invalid_password" = "Password should contain at least one uppercase, one lowercase letter and one digit. The password should be at least 6 characters long";
+"different_passwords" = "You've provided different passwords. Please make sure they are equal";
+"invalid_phone_number" = "Invalid phone number format";
 
 "ok" = "Ok";
 "appointments_loading_error" = "Appointments loading error";

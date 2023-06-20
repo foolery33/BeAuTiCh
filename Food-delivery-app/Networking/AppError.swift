@@ -11,6 +11,7 @@ enum AppError: LocalizedError, Identifiable, Equatable {
     
     case appointmentError(AppointmentRepositoryImplementation.AppointmentError)
     case servicesError(ServicesRepositoryImplementation.ServicesError)
+    case authError(AuthRepositoryImplementation.AuthError)
     
     var id: String {
         self.errorDescription
@@ -20,6 +21,8 @@ enum AppError: LocalizedError, Identifiable, Equatable {
         case .appointmentError(let error):
             return error.errorDescription
         case .servicesError(let error):
+            return error.errorDescription
+        case .authError(let error):
             return error.errorDescription
         }
     }

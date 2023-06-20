@@ -100,7 +100,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 7 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 20 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -111,12 +111,89 @@ struct _R {
       /// Locales: en, ru
       var appointments_loading_error: RswiftResources.StringResource { .init(key: "appointments_loading_error", tableName: "Errors", source: source, developmentValue: "Appointments loading error", comment: nil) }
 
+      /// en translation: You've provided different passwords. Please make sure they are equal
+      ///
+      /// Key: different_passwords
+      ///
+      /// Locales: en, ru
+      var different_passwords: RswiftResources.StringResource { .init(key: "different_passwords", tableName: "Errors", source: source, developmentValue: "You've provided different passwords. Please make sure they are equal", comment: nil) }
+
+      /// en translation: Please confirm password to continue
+      ///
+      /// Key: empty_confirm_password
+      ///
+      /// Locales: en, ru
+      var empty_confirm_password: RswiftResources.StringResource { .init(key: "empty_confirm_password", tableName: "Errors", source: source, developmentValue: "Please confirm password to continue", comment: nil) }
+
+      /// en translation: Please enter e-mail to continue
+      ///
+      /// Key: empty_email
+      ///
+      /// Locales: en, ru
+      var empty_email: RswiftResources.StringResource { .init(key: "empty_email", tableName: "Errors", source: source, developmentValue: "Please enter e-mail to continue", comment: nil) }
+
+      /// en translation: Please enter first name to continue
+      ///
+      /// Key: empty_first_name
+      ///
+      /// Locales: en, ru
+      var empty_first_name: RswiftResources.StringResource { .init(key: "empty_first_name", tableName: "Errors", source: source, developmentValue: "Please enter first name to continue", comment: nil) }
+
+      /// en translation: Please enter last name to continue
+      ///
+      /// Key: empty_last_name
+      ///
+      /// Locales: en, ru
+      var empty_last_name: RswiftResources.StringResource { .init(key: "empty_last_name", tableName: "Errors", source: source, developmentValue: "Please enter last name to continue", comment: nil) }
+
+      /// en translation: Please enter password to continue
+      ///
+      /// Key: empty_password
+      ///
+      /// Locales: en, ru
+      var empty_password: RswiftResources.StringResource { .init(key: "empty_password", tableName: "Errors", source: source, developmentValue: "Please enter password to continue", comment: nil) }
+
       /// en translation: You've got no rights to perform this operation
       ///
       /// Key: forbidden_access
       ///
       /// Locales: en, ru
       var forbidden_access: RswiftResources.StringResource { .init(key: "forbidden_access", tableName: "Errors", source: source, developmentValue: "You've got no rights to perform this operation", comment: nil) }
+
+      /// en translation: Either your e-mail or password are incorrect
+      ///
+      /// Key: invalid_credentials
+      ///
+      /// Locales: en, ru
+      var invalid_credentials: RswiftResources.StringResource { .init(key: "invalid_credentials", tableName: "Errors", source: source, developmentValue: "Either your e-mail or password are incorrect", comment: nil) }
+
+      /// en translation: Your email does not conform to default email pattern
+      ///
+      /// Key: invalid_email
+      ///
+      /// Locales: en, ru
+      var invalid_email: RswiftResources.StringResource { .init(key: "invalid_email", tableName: "Errors", source: source, developmentValue: "Your email does not conform to default email pattern", comment: nil) }
+
+      /// en translation: Password should contain at least one uppercase, one lowercase letter and one digit. The password should be at least 6 characters long
+      ///
+      /// Key: invalid_password
+      ///
+      /// Locales: en, ru
+      var invalid_password: RswiftResources.StringResource { .init(key: "invalid_password", tableName: "Errors", source: source, developmentValue: "Password should contain at least one uppercase, one lowercase letter and one digit. The password should be at least 6 characters long", comment: nil) }
+
+      /// en translation: Invalid phone number format
+      ///
+      /// Key: invalid_phone_number
+      ///
+      /// Locales: en, ru
+      var invalid_phone_number: RswiftResources.StringResource { .init(key: "invalid_phone_number", tableName: "Errors", source: source, developmentValue: "Invalid phone number format", comment: nil) }
+
+      /// en translation: Login error
+      ///
+      /// Key: login_error
+      ///
+      /// Locales: en, ru
+      var login_error: RswiftResources.StringResource { .init(key: "login_error", tableName: "Errors", source: source, developmentValue: "Login error", comment: nil) }
 
       /// en translation: Internal application error. Please contact developer
       ///
@@ -131,6 +208,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var ok: RswiftResources.StringResource { .init(key: "ok", tableName: "Errors", source: source, developmentValue: "Ok", comment: nil) }
+
+      /// en translation: Register error
+      ///
+      /// Key: register_error
+      ///
+      /// Locales: en, ru
+      var register_error: RswiftResources.StringResource { .init(key: "register_error", tableName: "Errors", source: source, developmentValue: "Register error", comment: nil) }
 
       /// en translation: Some server error occured. Please try again later
       ///
@@ -152,6 +236,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var unauthorized: RswiftResources.StringResource { .init(key: "unauthorized", tableName: "Errors", source: source, developmentValue: "Your authentication token is expired. Please login again", comment: nil) }
+
+      /// en translation: Some unexpected error occured. Please contact developer
+      ///
+      /// Key: unexpected_error
+      ///
+      /// Locales: en, ru
+      var unexpected_error: RswiftResources.StringResource { .init(key: "unexpected_error", tableName: "Errors", source: source, developmentValue: "Some unexpected error occured. Please contact developer", comment: nil) }
     }
 
     /// This `_R.string.filterScreen` struct is generated, and contains static references to 10 localization keys.
@@ -295,7 +386,7 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
-    /// This `_R.string.registerScreen` struct is generated, and contains static references to 8 localization keys.
+    /// This `_R.string.registerScreen` struct is generated, and contains static references to 10 localization keys.
     struct registerScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -320,12 +411,12 @@ struct _R {
       /// Locales: en, ru
       var input_email: RswiftResources.StringResource { .init(key: "input_email", tableName: "RegisterScreen", source: source, developmentValue: "Enter email*", comment: nil) }
 
-      /// en translation: Enter a name*
+      /// en translation: Enter your name*
       ///
       /// Key: input_firstname
       ///
       /// Locales: en, ru
-      var input_firstname: RswiftResources.StringResource { .init(key: "input_firstname", tableName: "RegisterScreen", source: source, developmentValue: "Enter a name*", comment: nil) }
+      var input_firstname: RswiftResources.StringResource { .init(key: "input_firstname", tableName: "RegisterScreen", source: source, developmentValue: "Enter your name*", comment: nil) }
 
       /// en translation: Enter your last name*
       ///
@@ -340,6 +431,20 @@ struct _R {
       ///
       /// Locales: en, ru
       var input_password: RswiftResources.StringResource { .init(key: "input_password", tableName: "RegisterScreen", source: source, developmentValue: "Enter the password*", comment: nil) }
+
+      /// en translation: Enter your patronymic
+      ///
+      /// Key: input_patronymic
+      ///
+      /// Locales: en, ru
+      var input_patronymic: RswiftResources.StringResource { .init(key: "input_patronymic", tableName: "RegisterScreen", source: source, developmentValue: "Enter your patronymic", comment: nil) }
+
+      /// en translation: Enter your phone number
+      ///
+      /// Key: input_phone_number
+      ///
+      /// Locales: en, ru
+      var input_phone_number: RswiftResources.StringResource { .init(key: "input_phone_number", tableName: "RegisterScreen", source: source, developmentValue: "Enter your phone number", comment: nil) }
 
       /// en translation: Repeat the password*
       ///

@@ -9,14 +9,20 @@ import UIKit
 import NeedleFoundation
 
 protocol LoginComponentDependency: Dependency {
-    
+    var authRepository: AuthRepository { get }
+    var getLoginValidationErrorUseCase: GetLoginValidationErrorUseCase { get }
+    var saveTokensUseCase: SaveTokensUseCase { get }
 }
 
 final class LoginComponent: Component<LoginComponentDependency> {
     
     var loginViewModel: LoginViewModel {
         shared {
-            LoginViewModel()
+            LoginViewModel(
+                authRepository: dependency.authRepository,
+                getLoginValidationErrorUseCase: dependency.getLoginValidationErrorUseCase,
+                saveTokensUseCase: dependency.saveTokensUseCase
+            )
         }
     }
     
