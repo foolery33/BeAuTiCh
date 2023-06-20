@@ -19,7 +19,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 	init(tokenManagerRepository: TokenManagerRepository) {
 		self.tokenManagerRepository = tokenManagerRepository
 		session = .default
-		interceptor = CustomRequestInterceptor(tokenManagerRepository: tokenManagerRepository)
+		interceptor = CustomRequestInterceptor()
 	}
 	
 	enum ProfileError: LocalizedError, Identifiable {

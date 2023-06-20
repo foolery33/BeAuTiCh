@@ -56,7 +56,7 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 9 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 10 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
@@ -104,7 +104,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 7 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 10 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -164,12 +164,12 @@ struct _R {
       /// Locales: en, ru
       var server_error: RswiftResources.StringResource { .init(key: "server_error", tableName: "Errors", source: source, developmentValue: "Some server error occured. Please try again later", comment: nil) }
 
-      /// en translation: Services loading error
+      /// en translation: Error loading services
       ///
       /// Key: services_loading_error
       ///
       /// Locales: en, ru
-      var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Services loading error", comment: nil) }
+      var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Error loading services", comment: nil) }
 
       /// en translation: Your authentication token is expired. Please login again
       ///
