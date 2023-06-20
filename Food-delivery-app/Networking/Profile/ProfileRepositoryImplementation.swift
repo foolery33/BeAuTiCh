@@ -150,7 +150,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		let url = baseURL + "api/profile/avatar"
 		
 		let dataTask = session.upload(multipartFormData: { multipartFormData in
-			multipartFormData.append(imageData, withName: "fileset", fileName: "file.png", mimeType: "image/png")
+			multipartFormData.append(imageData, withName: "file", fileName: "file.png", mimeType: "image/png")
 			
 		}, to: url,interceptor: interceptor).serializingString()
 		do {

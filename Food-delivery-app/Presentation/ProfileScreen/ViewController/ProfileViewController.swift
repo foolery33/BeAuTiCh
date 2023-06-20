@@ -230,21 +230,29 @@ private extension ProfileViewController {
 		}
 	}
 
-	func changeAvatar(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+	func changeAvatar(imageUrl: URL) {
 		Task {
-			await viewModel.changeAvatar(didFinishPickingMediaWithInfo: info)
+			await viewModel.changeAvatar(imageUrl: imageUrl)
 		}
 	}
 
 	func deleteAvatar() {
 		Task {
-			await viewModel.deleteAvatar()
+			if await viewModel.deleteAvatar() {
+				showAlert(title: R.string.profileScreen.success_deleted_avatar(), message: nil)
+
+				DispatchQueue.main.async {
+					self.ui.setAvatar(avatar: R.image.defaultAvatar() ?? UIImage())
+				}
+			}
 		}
 	}
 
 	func logout() {
 		Task {
-			await viewModel.logout()
+			if await viewModel.logout() {
+				viewModel.goToAuthScreen()
+			}
 		}
 	}
 }
@@ -256,7 +264,21 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		picker.dismiss(animated: true, completion: nil)
 
-		changeAvatar(didFinishPickingMediaWithInfo: info[.imageURL] as! [UIImagePickerController.InfoKey : Any])
+		if let imageURl = info[.imageURL] as? URL {
+			changeAvatar(imageUrl: imageURl)
+		}
+
+		if let pickedImage = info[.originalImage] as? UIImage {
+			if let imageData = pickedImage.pngData(),
+			   let imageURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("image.png") {
+				do  {
+					try? imageData.write(to: imageURL)
+					print("Фотография успешно сохранена: \(imageURL)")
+
+					changeAvatar(imageUrl: imageURL)
+				}
+			}
+		}
 	}
 
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

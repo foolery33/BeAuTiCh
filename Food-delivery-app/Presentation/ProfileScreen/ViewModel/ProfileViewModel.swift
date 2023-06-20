@@ -108,10 +108,10 @@ class ProfileViewModel {
 		return R.image.defaultAvatar() ?? UIImage()
 	}
 
-	func changeAvatar(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) async {
+	func changeAvatar(imageUrl: URL) async {
 		do {
-			let data = convertPhotoToDataUseCase.getDataPhoto(didFinishPickingMediaWithInfo: info)
-			_ = try await profileRepository.changeAvatar(imageData: data)
+			guard let fileData = readFileDataFromFileURL(fileURL: imageUrl) else { return }
+			_ = try await profileRepository.changeAvatar(imageData: fileData)
 
 		} catch (let error) {
 			if let appError = error as? AppError {
@@ -123,9 +123,10 @@ class ProfileViewModel {
 		}
 	}
 
-	func deleteAvatar() async {
+	func deleteAvatar() async -> Bool {
 		do {
 			_ = try await profileRepository.deleteAvatar()
+			return true
 
 		} catch (let error) {
 			if let appError = error as? AppError {
@@ -135,9 +136,21 @@ class ProfileViewModel {
 				self.errorMessage.updateModel(with: error.localizedDescription)
 			}
 		}
+
+		return false
 	}
 
-	func getDataOfPhoto() {
-		
+	func goToAuthScreen() {
+		coordinator?.goToAuthScreen()
+	}
+
+	private func readFileDataFromFileURL(fileURL: URL) -> Data? {
+		do {
+			let fileData = try Data(contentsOf: fileURL)
+			return fileData
+		} catch {
+			print("Ошибка чтения файла: \(error.localizedDescription)")
+			return nil
+		}
 	}
 }

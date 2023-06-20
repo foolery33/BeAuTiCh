@@ -223,7 +223,7 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
-    /// This `_R.string.profileScreen` struct is generated, and contains static references to 17 localization keys.
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 18 localization keys.
     struct profileScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -324,6 +324,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var sign_out: RswiftResources.StringResource { .init(key: "sign_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
+
+      /// en translation: Profile photo successfully deleted
+      ///
+      /// Key: success_deleted_avatar
+      ///
+      /// Locales: en, ru
+      var success_deleted_avatar: RswiftResources.StringResource { .init(key: "success_deleted_avatar", tableName: "ProfileScreen", source: source, developmentValue: "Profile photo successfully deleted", comment: nil) }
 
       /// en translation: Password change was successful
       ///

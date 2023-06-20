@@ -23,3 +23,4 @@
 "input_old_password" = "Enter the old password";
 "input_new_password" = "Enter the new password";
 "susscess_change_password" = "Password change was successful";
+"success_deleted_avatar" = "Profile photo successfully deleted";

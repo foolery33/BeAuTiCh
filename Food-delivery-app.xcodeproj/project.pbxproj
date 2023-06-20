@@ -1499,6 +1499,8 @@
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Application/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Необходимо предоставить доступ к камере";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Необходимо предоставить доступ к галерее";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -1510,7 +1512,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = beutich;
+				PRODUCT_BUNDLE_IDENTIFIER = beautich;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1532,6 +1534,8 @@
 				DEVELOPMENT_TEAM = 8F9BJF9KQ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-delivery-app/Application/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Необходимо предоставить доступ к камере";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Необходимо предоставить доступ к галерее";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -1543,7 +1547,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = beutich;
+				PRODUCT_BUNDLE_IDENTIFIER = beautich;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

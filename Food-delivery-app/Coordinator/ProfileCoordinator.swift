@@ -22,6 +22,15 @@ class ProfileCoordinator: CoordinatorProtocol {
 		goToProfileScreen()
 	}
 
+	func goToAuthScreen() {
+		var appc = parentCoordinator as? AppCoordinator
+
+		// TODO: очистить необходимые данные
+
+		appc?.goToAuth()
+		appc?.childDidFinish(self)
+	}
+
 	private func goToProfileScreen() {
 		let profileComponent = componentFactory.getProfileComponent()
 		profileComponent.profileViewModel.coordinator = self
