@@ -20,7 +20,7 @@ final class MainCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-		goToAddAppointmentScreen()
+		goToEditAppointmentScreen()
     }
     
     private func goToMainScreen() {
@@ -42,6 +42,13 @@ final class MainCoordinator: CoordinatorProtocol {
 		addAppointmentComponent.addAppointmentViewModel.coordinator = self
 
 		navigationController.pushViewController(addAppointmentComponent.addAppointmentViewController, animated: true)
+	}
+
+	func goToEditAppointmentScreen() {
+		let editAppointmentComponent = componentFactory.getEditAppointmentComponent()
+		editAppointmentComponent.editAppointmentViewModel.coordinator = self
+
+		navigationController.pushViewController(editAppointmentComponent.editAppointmentViewController, animated: true)
 	}
 
 	func goBack() {

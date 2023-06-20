@@ -1,14 +1,13 @@
 //
-//  AddAppointment.swift
+//  EditAppointmentView.swift
 //  Food-delivery-app
 //
-//  Created by Елена on 20.06.2023.
+//  Created by Елена on 21.06.2023.
 //
 
 import UIKit
-import SnapKit
 
-class AddAppointmentView: UIView {
+class EditAppointmentView: UIView {
 
 	// MARK: - Private properties
 	private lazy var backgroundImage: UIImageView = {
@@ -28,7 +27,7 @@ class AddAppointmentView: UIView {
 
 	private lazy var titleScreen: UILabel = {
 		let view = UILabel()
-		view.text = R.string.addAppointmentScreen.title_screen()
+		view.text = R.string.editAppointmentScreen.title_screen()
 		view.textColor = R.color.white()
 		view.textAlignment = .center
 		view.numberOfLines = .max
@@ -39,7 +38,7 @@ class AddAppointmentView: UIView {
 
 	private lazy var inputClientNameLabel: UILabel = {
 		let view = UILabel()
-		view.text = R.string.addAppointmentScreen.input_client_name()
+		view.text = R.string.editAppointmentScreen.input_client_name()
 		view.textColor = R.color.white()
 		view.textAlignment = .left
 		view.font = R.font.redHatDisplayMedium(size: 18)
@@ -48,14 +47,14 @@ class AddAppointmentView: UIView {
 	}()
 
 	private lazy var inputClientNameTextField: CustomUITextField = {
-		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.addAppointmentScreen.input_client_name_placeholder())
+		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.editAppointmentScreen.input_client_name_placeholder())
 
 		return view
 	}()
 
 	private lazy var inputDateTimeAppointmentLabel: UILabel = {
 		let view = UILabel()
-		view.text = R.string.addAppointmentScreen.input_date()
+		view.text = R.string.editAppointmentScreen.input_date()
 		view.textColor = R.color.white()
 		view.textAlignment = .left
 		view.font = R.font.redHatDisplayMedium(size: 18)
@@ -64,7 +63,7 @@ class AddAppointmentView: UIView {
 	}()
 
 	private lazy var dateTimeAppointmentTextField: CustomUITextField = {
-		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.addAppointmentScreen.input_date_placeholder(), isDate: true)
+		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.editAppointmentScreen.input_date_placeholder(), isDate: true)
 
 		return view
 	}()
@@ -79,7 +78,7 @@ class AddAppointmentView: UIView {
 
 	private lazy var inputClientPhoneLabel: UILabel = {
 		let view = UILabel()
-		view.text = R.string.addAppointmentScreen.input_phone()
+		view.text = R.string.editAppointmentScreen.input_phone()
 		view.textColor = R.color.white()
 		view.textAlignment = .left
 		view.font = R.font.redHatDisplayMedium(size: 18)
@@ -88,7 +87,7 @@ class AddAppointmentView: UIView {
 	}()
 
 	private lazy var inputClientPhoneTextField: CustomUITextField = {
-		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.addAppointmentScreen.input_phone_placeholder())
+		let view = CustomUITextField(isSecured: false, currentText: String(), placeholderText: R.string.editAppointmentScreen.input_phone_placeholder())
 
 		return view
 	}()
@@ -96,7 +95,7 @@ class AddAppointmentView: UIView {
 	private lazy var goToShooseServicesButton: UIButton = {
 		let view = UIButton()
 		view.backgroundColor = .white
-		view.setTitle(R.string.addAppointmentScreen.shoose_services(), for: .normal)
+		view.setTitle(R.string.editAppointmentScreen.shoose_services(), for: .normal)
 		view.setTitleColor(R.color.vinous(), for: .normal)
 		view.titleLabel?.textAlignment = .center
 		view.titleLabel?.numberOfLines = .max
@@ -111,7 +110,7 @@ class AddAppointmentView: UIView {
 	private lazy var saveButton: UIButton = {
 		let view = UIButton()
 		view.backgroundColor = .white
-		view.setTitle(R.string.addAppointmentScreen.save(), for: .normal)
+		view.setTitle(R.string.editAppointmentScreen.save(), for: .normal)
 		view.setTitleColor(R.color.textButtonColor(), for: .normal)
 		view.titleLabel?.font = R.font.ralewayBold(size: 20)
 		view.layer.cornerRadius = 30
@@ -122,7 +121,7 @@ class AddAppointmentView: UIView {
 	}()
 
 	// MARK: - Internal properties
-	var convertDateToDdMmYyyy: ((Date) -> (String))?
+	var convertDateToDdMmYyyyHhMm: ((Date) -> (String))?
 	var arrowBackButtonHandler: (() -> Void)?
 	var goToShooseServicesButtonHandler: (() -> Void)?
 	var saveButtonHandler: (() -> Void)?
@@ -133,9 +132,22 @@ class AddAppointmentView: UIView {
 
 		setup()
 	}
-	
+
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	// MARK: - Internal methods
+	func setTextField(model: AppointmentModel){
+		inputClientNameTextField.text = model.clientName
+		inputClientPhoneTextField.text = model.clientPhone
+
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+		if let date = dateFormatter.date(from: model.startDateTime) {
+			dateTimeAppointmentPicker.date = date
+			onFromDateDoneButtonPressed()
+		}
 	}
 
 	// MARK: - Private methods
@@ -145,7 +157,7 @@ class AddAppointmentView: UIView {
 
 		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(onFromDateDoneButtonPressed))
 		doneButton.tintColor = R.color.vinous()
-		
+
 		toolbar.setItems([doneButton], animated: true)
 
 		dateTimeAppointmentTextField.inputAccessoryView = toolbar
@@ -154,7 +166,7 @@ class AddAppointmentView: UIView {
 }
 
 // MARK: - Setup extension
-private extension AddAppointmentView {
+private extension EditAppointmentView {
 	func setup() {
 		configureUI()
 		configureConstraints()
@@ -243,9 +255,10 @@ private extension AddAppointmentView {
 }
 
 // MARK: - Actions
-private extension AddAppointmentView {
+private extension EditAppointmentView {
 	@objc func onFromDateDoneButtonPressed() {
-		dateTimeAppointmentTextField.text = (convertDateToDdMmYyyy ?? { _ in return "" })(dateTimeAppointmentPicker.date)
+		//TODO: решить проблему. Почему-то не отлавливается кложура convertDateToDdMmYyyyHhMm
+		dateTimeAppointmentTextField.text = (convertDateToDdMmYyyyHhMm ?? { _ in return "" })(dateTimeAppointmentPicker.date)
 		({ _ in })("\(dateTimeAppointmentPicker.date)")
 		endEditing(true)
 	}

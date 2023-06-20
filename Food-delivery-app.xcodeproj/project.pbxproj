@@ -104,6 +104,11 @@
 		F327134F2A41FC03005B8AC9 /* AddAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327134E2A41FC03005B8AC9 /* AddAppointmentView.swift */; };
 		F32713532A41FEE8005B8AC9 /* AddAppointmentScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32713552A41FEE8005B8AC9 /* AddAppointmentScreen.strings */; };
 		F32713592A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713582A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift */; };
+		F32713612A421958005B8AC9 /* EditAppointmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713602A421958005B8AC9 /* EditAppointmentComponent.swift */; };
+		F32713632A42195F005B8AC9 /* EditAppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713622A42195F005B8AC9 /* EditAppointmentViewModel.swift */; };
+		F32713652A421967005B8AC9 /* EditAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713642A421967005B8AC9 /* EditAppointmentView.swift */; };
+		F32713672A421979005B8AC9 /* EditAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713662A421979005B8AC9 /* EditAppointmentViewController.swift */; };
+		F327136D2A421F56005B8AC9 /* EditAppointmentScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F327136F2A421F56005B8AC9 /* EditAppointmentScreen.strings */; };
 		F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */; };
 		F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35014282A3DED4C0095D091 /* RegisterScreen.strings */; };
 		F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F350142C2A3DED550095D091 /* LoginScreen.strings */; };
@@ -267,6 +272,12 @@
 		F32713542A41FEE8005B8AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AddAppointmentScreen.strings; sourceTree = "<group>"; };
 		F32713562A41FEE9005B8AC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AddAppointmentScreen.strings; sourceTree = "<group>"; };
 		F32713582A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDateToDdMmYyyyHhMmSsUseCase.swift; sourceTree = "<group>"; };
+		F32713602A421958005B8AC9 /* EditAppointmentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointmentComponent.swift; sourceTree = "<group>"; };
+		F32713622A42195F005B8AC9 /* EditAppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointmentViewModel.swift; sourceTree = "<group>"; };
+		F32713642A421967005B8AC9 /* EditAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointmentView.swift; sourceTree = "<group>"; };
+		F32713662A421979005B8AC9 /* EditAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointmentViewController.swift; sourceTree = "<group>"; };
+		F327136E2A421F56005B8AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EditAppointmentScreen.strings; sourceTree = "<group>"; };
+		F32713702A421F5C005B8AC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EditAppointmentScreen.strings; sourceTree = "<group>"; };
 		F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Bold.ttf"; path = "../../../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F35014272A3DED4C0095D091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
@@ -586,6 +597,7 @@
 		8450B1062A261FCC00273956 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F327135A2A421894005B8AC9 /* EditAppointmentScreen */,
 				F32713432A41FBA6005B8AC9 /* AddAppointmentScreen */,
 				F35DBFA62A41C9F000B350F0 /* DetailsAppointmentScreen */,
 				84590D142A40AC9E006BB403 /* ServiceSelectionScreen */,
@@ -1032,6 +1044,57 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F327135A2A421894005B8AC9 /* EditAppointmentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F327135E2A42191B005B8AC9 /* Component */,
+				F327135D2A421916005B8AC9 /* ViewModel */,
+				F32713682A421EE3005B8AC9 /* ViewController */,
+				F32713692A421EEE005B8AC9 /* View */,
+			);
+			path = EditAppointmentScreen;
+			sourceTree = "<group>";
+		};
+		F327135D2A421916005B8AC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F32713622A42195F005B8AC9 /* EditAppointmentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F327135E2A42191B005B8AC9 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F32713602A421958005B8AC9 /* EditAppointmentComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		F32713682A421EE3005B8AC9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F32713662A421979005B8AC9 /* EditAppointmentViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F32713692A421EEE005B8AC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F32713642A421967005B8AC9 /* EditAppointmentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F327136A2A421F3C005B8AC9 /* EditAppointmentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F327136F2A421F56005B8AC9 /* EditAppointmentScreen.strings */,
+			);
+			path = EditAppointmentScreen;
+			sourceTree = "<group>";
+		};
 		F35014202A3DED230095D091 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1372,7 @@
 		F3AF7F332A2C777E00DBAD36 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F327136A2A421F3C005B8AC9 /* EditAppointmentScreen */,
 				F32713502A41FE7D005B8AC9 /* AddAppointmentScreen */,
 				F35DBFB52A41CE4300B350F0 /* DetailsAppointmentScreen */,
 				84590D2A2A40B6B2006BB403 /* ServiceSelectionScreen */,
@@ -1533,6 +1597,7 @@
 				84D5FEFB2A36E996008BF057 /* StartScreen.strings in Resources */,
 				84283B892A2C979600CA911D /* RedHatDisplay-SemiBold.ttf in Resources */,
 				F3DAB90C2A3E03C600E31487 /* RedHatDisplay-Black.ttf in Resources */,
+				F327136D2A421F56005B8AC9 /* EditAppointmentScreen.strings in Resources */,
 				F35DBFB82A41CE5300B350F0 /* DetailsAppointmentScreen.strings in Resources */,
 				F3DAB9262A3E151200E31487 /* ProfileScreen.strings in Resources */,
 				F3DAB9002A3E021200E31487 /* SearchScreen.strings in Resources */,
@@ -1649,6 +1714,7 @@
 				84B76A592A41A9A900ED7415 /* EmptyValidationUseCase.swift in Sources */,
 				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				F327134B2A41FBF2005B8AC9 /* AddAppointmentViewModel.swift in Sources */,
+				F32713672A421979005B8AC9 /* EditAppointmentViewController.swift in Sources */,
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				F32713412A41E4ED005B8AC9 /* ServiceTagsView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
@@ -1656,6 +1722,7 @@
 				84B76A6D2A41F87B00ED7415 /* ActivityIndicator.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
 				F3DAB9222A3E103D00E31487 /* ProfileComponent.swift in Sources */,
+				F32713652A421967005B8AC9 /* EditAppointmentView.swift in Sources */,
 				843053902A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift in Sources */,
 				84B76A652A41C1BF00ED7415 /* PasswordValidationUseCase.swift in Sources */,
 				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
@@ -1672,6 +1739,7 @@
 				84B76A632A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
 				F35DBFB22A41CA4100B350F0 /* DetailsAppointmentComponent.swift in Sources */,
+				F32713612A421958005B8AC9 /* EditAppointmentComponent.swift in Sources */,
 				848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
 				845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */,
@@ -1726,6 +1794,7 @@
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
 				F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */,
 				84B76A552A41A40C00ED7415 /* AuthRepositoryImplementation.swift in Sources */,
+				F32713632A42195F005B8AC9 /* EditAppointmentViewModel.swift in Sources */,
 				84590D1C2A40ACDD006BB403 /* ServiceSelectionView.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
 				844AF4EC2A37469A00B2C9C7 /* StatusAppointmentModel.swift in Sources */,
@@ -1802,6 +1871,15 @@
 				F32713562A41FEE9005B8AC9 /* ru */,
 			);
 			name = AddAppointmentScreen.strings;
+			sourceTree = "<group>";
+		};
+		F327136F2A421F56005B8AC9 /* EditAppointmentScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F327136E2A421F56005B8AC9 /* en */,
+				F32713702A421F5C005B8AC9 /* ru */,
+			);
+			name = EditAppointmentScreen.strings;
 			sourceTree = "<group>";
 		};
 		F35014282A3DED4C0095D091 /* RegisterScreen.strings */ = {

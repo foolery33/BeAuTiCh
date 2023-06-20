@@ -154,6 +154,19 @@ private class FilterComponentDependencye4de2e473c135cffe41bProvider: FilterCompo
 private func factory6347d5e031963ee794f40ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return FilterComponentDependencye4de2e473c135cffe41bProvider(mainComponent: parent1(component) as! MainComponent)
 }
+private class EditAppointmentComponentDependencyd81d334ea80f0b03a059Provider: EditAppointmentComponentDependency {
+    var convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase {
+        return mainComponent.convertDateToDdMmYyyyHhMmSsUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->EditAppointmentComponent
+private func factory47f0d97746204a98bae80ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return EditAppointmentComponentDependencyd81d334ea80f0b03a059Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: RegisterComponentDependencyProtocol {
     var authRepository: AuthRepository {
         return mainComponent.authRepository
@@ -287,6 +300,11 @@ extension FilterComponent: Registration {
         keyPathToName[\FilterComponentDependency.convertISODateStringToDdMmYyyyUseCase] = "convertISODateStringToDdMmYyyyUseCase-ConvertISODateStringToDdMmYyyyUseCase"
     }
 }
+extension EditAppointmentComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\EditAppointmentComponentDependency.convertDateToDdMmYyyyHhMmSsUseCase] = "convertDateToDdMmYyyyHhMmSsUseCase-ConvertDateToDdMmYyyyHhMmSsUseCase"
+    }
+}
 extension RegisterComponent: Registration {
     public func registerItems() {
         keyPathToName[\RegisterComponentDependencyProtocol.authRepository] = "authRepository-AuthRepository"
@@ -339,10 +357,10 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->EditAppointmentComponent", factory47f0d97746204a98bae80ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d790ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AddAppointmentComponent", factoryc2319cbfa45f5603b7590ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
 }
 #endif
