@@ -1,0 +1,17 @@
+/* 
+  AddAppointmentScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 20.06.2023.
+  
+*/
+
+"title_screen" = "Добавить запись";
+"input_client_name_placeholder" = "Введите имя клиента";
+"input_client_name" = "Введите имя*";
+"input_date_placeholder" = "Выберите дату и время записи";
+"input_date" = "Выберите дату";
+"input_phone_placeholder" = "Введите номер телефона клиента:";
+"input_phone" = "Введите номер";
+"shoose_services" = "Выбрать услуги";
+"save" = "Сохранить";

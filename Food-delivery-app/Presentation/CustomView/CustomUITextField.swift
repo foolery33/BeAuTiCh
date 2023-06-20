@@ -10,6 +10,7 @@ import UIKit
 class CustomUITextField: UITextField {
     
     private let isSecured: Bool
+	private let isDate: Bool?
     private let currentText: String
     private let placeholderText: String
     private let isSmallVersion: Bool?
@@ -35,12 +36,15 @@ class CustomUITextField: UITextField {
     }
     
     
-    init(isSecured: Bool, currentText: String, placeholderText: String, isSmallVersion: Bool? = false) {
+	init(isSecured: Bool, currentText: String, placeholderText: String, isSmallVersion: Bool? = false, isDate: Bool? = false) {
         self.isSecured = isSecured
         self.currentText = currentText
         self.placeholderText = placeholderText
         self.isSmallVersion = isSmallVersion
+		self.isDate = isDate
+
         super.init(frame: .zero)
+
         setupTextField()
     }
     
@@ -54,18 +58,21 @@ class CustomUITextField: UITextField {
         }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
+
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isSmallVersion ?? false {
             return bounds.inset(by: self.isSecured ? Paddings.smallSecuredTextField : Paddings.smallTextField)
         }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
+
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         if isSmallVersion ?? false {
             return bounds.inset(by: self.isSecured ? Paddings.smallSecuredTextField : Paddings.smallTextField)
         }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
+
     override open func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         let offset = Paddings.offset
         let width  = Int(Scales.passwordEyeSize)
@@ -94,6 +101,12 @@ class CustomUITextField: UITextField {
             rightViewMode = .always
             textContentType = .oneTimeCode
         }
+
+		if isDate ?? false {
+			rightView = dateButton
+			rightViewMode = .always
+			textContentType = .oneTimeCode
+		}
     }
     
     // MARK: - PasswordEye setup
@@ -104,10 +117,19 @@ class CustomUITextField: UITextField {
         eye.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
         return eye
     }()
+
     @objc
     func togglePasswordVisibility(_ sender: UIButton) {
         self.isSecureTextEntry.toggle()
         sender.isSelected = !sender.isSelected
     }
-    
+
+	// MARK: - DateImage setup
+	private lazy var dateButton: UIButton = {
+		let date = UIButton(type: .custom)
+		date.setImage(R.image.dateField()!.resizeImage(newWidth: Scales.passwordEyeSize, newHeight: Scales.passwordEyeSize), for: .normal)
+		date.isUserInteractionEnabled = false
+
+		return date
+	}()
 }
