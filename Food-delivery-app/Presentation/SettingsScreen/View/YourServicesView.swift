@@ -72,7 +72,7 @@ class YourServicesView: UIView {
     
     //MARK: - Internal methods
     
-    func setServices(_ services: [Service]) {
+    func setServices(_ services: [ServiceModel]) {
         serviceTags.services = services
     }
 }

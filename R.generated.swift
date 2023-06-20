@@ -56,22 +56,27 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 8 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 9 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
     var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
+    var filterScreen: filterScreen { .init(source: .init(bundle: bundle, tableName: "FilterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var loginScreen: loginScreen { .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var profileScreen: profileScreen { .init(source: .init(bundle: bundle, tableName: "ProfileScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreen: registerScreen { .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var searchScreen: searchScreen { .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+    var serviceSelectionScreen: serviceSelectionScreen { .init(source: .init(bundle: bundle, tableName: "ServiceSelectionScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
     func errors(preferredLanguages: [String]) -> errors {
       .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func filterScreen(preferredLanguages: [String]) -> filterScreen {
+      .init(source: .init(bundle: bundle, tableName: "FilterScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func informationSubcscribeSheetScreen(preferredLanguages: [String]) -> informationSubcscribeSheetScreen {
       .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale))
@@ -88,6 +93,9 @@ struct _R {
     func searchScreen(preferredLanguages: [String]) -> searchScreen {
       .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
+    func serviceSelectionScreen(preferredLanguages: [String]) -> serviceSelectionScreen {
+      .init(source: .init(bundle: bundle, tableName: "ServiceSelectionScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
     func settingsScreen(preferredLanguages: [String]) -> settingsScreen {
       .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
@@ -96,7 +104,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 8 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 7 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -106,6 +114,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var appointments_loading_error: RswiftResources.StringResource { .init(key: "appointments_loading_error", tableName: "Errors", source: source, developmentValue: "Appointments loading error", comment: nil) }
+
+      /// en translation: You've got no rights to perform this operation
+      ///
+      /// Key: forbidden_access
+      ///
+      /// Locales: en, ru
+      var forbidden_access: RswiftResources.StringResource { .init(key: "forbidden_access", tableName: "Errors", source: source, developmentValue: "You've got no rights to perform this operation", comment: nil) }
 
       /// en translation: Internal application error. Please contact developer
       ///
@@ -149,12 +164,94 @@ struct _R {
       /// Locales: en, ru
       var server_error: RswiftResources.StringResource { .init(key: "server_error", tableName: "Errors", source: source, developmentValue: "Some server error occured. Please try again later", comment: nil) }
 
+      /// en translation: Services loading error
+      ///
+      /// Key: services_loading_error
+      ///
+      /// Locales: en, ru
+      var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Services loading error", comment: nil) }
+
       /// en translation: Your authentication token is expired. Please login again
       ///
       /// Key: unauthorized
       ///
       /// Locales: en, ru
       var unauthorized: RswiftResources.StringResource { .init(key: "unauthorized", tableName: "Errors", source: source, developmentValue: "Your authentication token is expired. Please login again", comment: nil) }
+    }
+
+    /// This `_R.string.filterScreen` struct is generated, and contains static references to 10 localization keys.
+    struct filterScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: By date:
+      ///
+      /// Key: by_date
+      ///
+      /// Locales: en, ru
+      var by_date: RswiftResources.StringResource { .init(key: "by_date", tableName: "FilterScreen", source: source, developmentValue: "By date:", comment: nil) }
+
+      /// en translation: By price:
+      ///
+      /// Key: by_price
+      ///
+      /// Locales: en, ru
+      var by_price: RswiftResources.StringResource { .init(key: "by_price", tableName: "FilterScreen", source: source, developmentValue: "By price:", comment: nil) }
+
+      /// en translation: Choose services for filtration
+      ///
+      /// Key: choose_services_for_filtration
+      ///
+      /// Locales: en, ru
+      var choose_services_for_filtration: RswiftResources.StringResource { .init(key: "choose_services_for_filtration", tableName: "FilterScreen", source: source, developmentValue: "Choose services for filtration", comment: nil) }
+
+      /// en translation: Enter date
+      ///
+      /// Key: enter_date
+      ///
+      /// Locales: en, ru
+      var enter_date: RswiftResources.StringResource { .init(key: "enter_date", tableName: "FilterScreen", source: source, developmentValue: "Enter date", comment: nil) }
+
+      /// en translation: Enter price
+      ///
+      /// Key: enter_price
+      ///
+      /// Locales: en, ru
+      var enter_price: RswiftResources.StringResource { .init(key: "enter_price", tableName: "FilterScreen", source: source, developmentValue: "Enter price", comment: nil) }
+
+      /// en translation: Filters
+      ///
+      /// Key: filters
+      ///
+      /// Locales: en, ru
+      var filters: RswiftResources.StringResource { .init(key: "filters", tableName: "FilterScreen", source: source, developmentValue: "Filters", comment: nil) }
+
+      /// en translation: From:
+      ///
+      /// Key: from
+      ///
+      /// Locales: en, ru
+      var from: RswiftResources.StringResource { .init(key: "from", tableName: "FilterScreen", source: source, developmentValue: "From:", comment: nil) }
+
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "FilterScreen", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Sorting
+      ///
+      /// Key: sorting
+      ///
+      /// Locales: en, ru
+      var sorting: RswiftResources.StringResource { .init(key: "sorting", tableName: "FilterScreen", source: source, developmentValue: "Sorting", comment: nil) }
+
+      /// en translation: To:
+      ///
+      /// Key: to
+      ///
+      /// Locales: en, ru
+      var to: RswiftResources.StringResource { .init(key: "to", tableName: "FilterScreen", source: source, developmentValue: "To:", comment: nil) }
     }
 
     /// This `_R.string.informationSubcscribeSheetScreen` struct is generated, and contains static references to 3 localization keys.
@@ -427,6 +524,18 @@ struct _R {
       var enter_client_name: RswiftResources.StringResource { .init(key: "enter_client_name", tableName: "SearchScreen", source: source, developmentValue: "Enter client name", comment: nil) }
     }
 
+    /// This `_R.string.serviceSelectionScreen` struct is generated, and contains static references to 1 localization keys.
+    struct serviceSelectionScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Choose service
+      ///
+      /// Key: choose_service
+      ///
+      /// Locales: en, ru
+      var choose_service: RswiftResources.StringResource { .init(key: "choose_service", tableName: "ServiceSelectionScreen", source: source, developmentValue: "Choose service", comment: nil) }
+    }
+
     /// This `_R.string.settingsScreen` struct is generated, and contains static references to 3 localization keys.
     struct settingsScreen {
       let source: RswiftResources.StringResource.Source
@@ -473,7 +582,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 11 colors.
+  /// This `_R.color` struct is generated, and contains static references to 12 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -503,6 +612,9 @@ struct _R {
 
     /// Color `TextButtonColor`.
     var textButtonColor: RswiftResources.ColorResource { .init(name: "TextButtonColor", path: [], bundle: bundle) }
+
+    /// Color `TransparentWhite`.
+    var transparentWhite: RswiftResources.ColorResource { .init(name: "TransparentWhite", path: [], bundle: bundle) }
 
     /// Color `Vinous`.
     var vinous: RswiftResources.ColorResource { .init(name: "Vinous", path: [], bundle: bundle) }

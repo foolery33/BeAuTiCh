@@ -66,6 +66,30 @@ final class MainComponent: BootstrapComponent {
 		}
 	}
     
+    var updatePriceUseCase: UpdatePriceUseCase {
+        shared {
+            UpdatePriceUseCase()
+        }
+    }
+    
+    var convertDateToISOUseCase: ConvertDateToISOUseCase {
+        shared {
+            ConvertDateToISOUseCase()
+        }
+    }
+    
+    var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase {
+        shared {
+            ConvertDateToDdMmYyyyUseCase()
+        }
+    }
+    
+    var convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase {
+        shared {
+            ConvertISODateStringToDdMmYyyyUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {
@@ -76,9 +100,13 @@ final class MainComponent: BootstrapComponent {
     
     var appointmentRepository: AppointmentRepository {
         shared {
-            AppointmentRepositoryImplementation(
-                tokenManagerRepository: TokenManagerRepositoryImplementation()
-            )
+            AppointmentRepositoryImplementation()
+        }
+    }
+    
+    var servicesRepository: ServicesRepository {
+        shared {
+            ServicesRepositoryImplementation()
         }
     }
 
@@ -136,6 +164,18 @@ final class MainComponent: BootstrapComponent {
     var yourServicesComponent: YourServicesComponent {
         shared {
             YourServicesComponent(parent: self)
+        }
+    }
+
+	var filterComponent: FilterComponent {
+		shared {
+			FilterComponent(parent: self)
+		}
+	}
+    
+    var serviceSelectionComponent: ServiceSelectionComponent {
+        shared {
+            ServiceSelectionComponent(parent: self)
         }
     }
 

@@ -9,20 +9,16 @@ import Alamofire
 
 final class AppointmentRepositoryImplementation: AppointmentRepository {
 
-    private let tokenManagerRepository: TokenManagerRepository
     private let baseURL = "http://94.250.248.129:10000/"
-    private let interceptor: CustomRequestInterceptor
-    
-    init(tokenManagerRepository: TokenManagerRepository) {
-        self.tokenManagerRepository = tokenManagerRepository
-        interceptor = CustomRequestInterceptor(tokenManagerRepository: tokenManagerRepository)
-    }
+    private let interceptor = CustomRequestInterceptor()
     
     func getFilteredAppointments(parameters: FilteredAppointmentsParametersModel) async throws -> [AppointmentModel] {
         let url = baseURL + "api/appointments/filters"
+        //print(parameters)
         let dataTask = AF.request(
             url,
             parameters: parameters,
+            encoder: URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets)),
             interceptor: interceptor
         ).serializingDecodable([AppointmentModel].self)
         do {

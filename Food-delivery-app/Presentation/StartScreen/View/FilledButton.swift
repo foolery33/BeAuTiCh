@@ -8,7 +8,7 @@
 import UIKit
 
 class FilledButton: UIButton {
-
+    
     private enum Metrics {
         static var buttonTextSize: CGFloat = 20
         static var buttonCornerRadius: CGFloat = 25
@@ -29,7 +29,7 @@ class FilledButton: UIButton {
     
     private func setupButton() {
         backgroundColor = .white
-        setTitle(R.string.loginScreen.login(), for: .normal)
+        setTitle(labelText, for: .normal)
         setTitleColor(R.color.textButtonColor(), for: .normal)
         titleLabel?.font = R.font.ralewayBold(size: Metrics.buttonTextSize)
         layer.cornerRadius = Metrics.buttonCornerRadius

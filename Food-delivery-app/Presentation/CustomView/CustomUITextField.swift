@@ -12,6 +12,7 @@ class CustomUITextField: UITextField {
     private let isSecured: Bool
     private let currentText: String
     private let placeholderText: String
+    private let isSmallVersion: Bool?
     
     private enum SystemImages {
         static let eyeSlash = "eye.slash"
@@ -22,6 +23,8 @@ class CustomUITextField: UITextField {
         static let offset = 16.0
         static let securedTextField = UIEdgeInsets(top: 13.0, left: 9.0, bottom: 13.0, right: 48.0)
         static let textField = UIEdgeInsets(top: 13.0, left: 9.0, bottom: 13.0, right: 9.0)
+        static let smallSecuredTextField = UIEdgeInsets(top: 6.0, left: 9.0, bottom: 6.0, right: 48.0)
+        static let smallTextField = UIEdgeInsets(top: 6.0, left: 9.0, bottom: 6.0, right: 9.0)
     }
     
     private enum Scales {
@@ -32,10 +35,11 @@ class CustomUITextField: UITextField {
     }
     
     
-    init(isSecured: Bool, currentText: String, placeholderText: String) {
+    init(isSecured: Bool, currentText: String, placeholderText: String, isSmallVersion: Bool? = false) {
         self.isSecured = isSecured
         self.currentText = currentText
         self.placeholderText = placeholderText
+        self.isSmallVersion = isSmallVersion
         super.init(frame: .zero)
         setupTextField()
     }
@@ -45,12 +49,21 @@ class CustomUITextField: UITextField {
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        if isSmallVersion ?? false {
+            return bounds.inset(by: self.isSecured ? Paddings.smallSecuredTextField : Paddings.smallTextField)
+        }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        if isSmallVersion ?? false {
+            return bounds.inset(by: self.isSecured ? Paddings.smallSecuredTextField : Paddings.smallTextField)
+        }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        if isSmallVersion ?? false {
+            return bounds.inset(by: self.isSecured ? Paddings.smallSecuredTextField : Paddings.smallTextField)
+        }
         return bounds.inset(by: self.isSecured ? Paddings.securedTextField : Paddings.textField)
     }
     override open func rightViewRect(forBounds bounds: CGRect) -> CGRect {

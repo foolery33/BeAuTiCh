@@ -75,6 +75,19 @@ private class SearchComponentDependency1207f6d8cbd8351560b4Provider: SearchCompo
 private func factory2746832551408832f06d0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return SearchComponentDependency1207f6d8cbd8351560b4Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class ServiceSelectionComponentDependency5628e884730da5d9efb6Provider: ServiceSelectionComponentDependency {
+    var servicesRepository: ServicesRepository {
+        return mainComponent.servicesRepository
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->ServiceSelectionComponent
+private func factory7199151049f30c7d4fa40ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ServiceSelectionComponentDependency5628e884730da5d9efb6Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class YourServicesComponentDependencyd4e3d4cc6d212e056730Provider: YourServicesComponentDependency {
 
 
@@ -107,6 +120,28 @@ private class InformationSubscribeComponentDependencyc4c58976cf5886a11075Provide
 /// ^->MainComponent->InformationSubscribeComponent
 private func factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider()
+}
+private class FilterComponentDependencye4de2e473c135cffe41bProvider: FilterComponentDependency {
+    var updatePriceUseCase: UpdatePriceUseCase {
+        return mainComponent.updatePriceUseCase
+    }
+    var convertDateToISOUseCase: ConvertDateToISOUseCase {
+        return mainComponent.convertDateToISOUseCase
+    }
+    var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase {
+        return mainComponent.convertDateToDdMmYyyyUseCase
+    }
+    var convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase {
+        return mainComponent.convertISODateStringToDdMmYyyyUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->FilterComponent
+private func factory6347d5e031963ee794f40ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return FilterComponentDependencye4de2e473c135cffe41bProvider(mainComponent: parent1(component) as! MainComponent)
 }
 private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: RegisterComponentDependencyProtocol {
 
@@ -176,6 +211,11 @@ extension SearchComponent: Registration {
         keyPathToName[\SearchComponentDependency.getFilteredAppointmentListUseCase] = "getFilteredAppointmentListUseCase-GetFilteredAppointmentListUseCase"
     }
 }
+extension ServiceSelectionComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\ServiceSelectionComponentDependency.servicesRepository] = "servicesRepository-ServicesRepository"
+    }
+}
 extension YourServicesComponent: Registration {
     public func registerItems() {
 
@@ -189,6 +229,14 @@ extension SettingsComponent: Registration {
 extension InformationSubscribeComponent: Registration {
     public func registerItems() {
 
+    }
+}
+extension FilterComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\FilterComponentDependency.updatePriceUseCase] = "updatePriceUseCase-UpdatePriceUseCase"
+        keyPathToName[\FilterComponentDependency.convertDateToISOUseCase] = "convertDateToISOUseCase-ConvertDateToISOUseCase"
+        keyPathToName[\FilterComponentDependency.convertDateToDdMmYyyyUseCase] = "convertDateToDdMmYyyyUseCase-ConvertDateToDdMmYyyyUseCase"
+        keyPathToName[\FilterComponentDependency.convertISODateStringToDdMmYyyyUseCase] = "convertISODateStringToDdMmYyyyUseCase-ConvertISODateStringToDdMmYyyyUseCase"
     }
 }
 extension RegisterComponent: Registration {
@@ -227,9 +275,11 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->MainScreenComponent", factoryd2e546a960c33ef2225f0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->StartComponent", factorydf30084d4812375c9b62e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SearchComponent", factory2746832551408832f06d0ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->ServiceSelectionComponent", factory7199151049f30c7d4fa40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb10e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)

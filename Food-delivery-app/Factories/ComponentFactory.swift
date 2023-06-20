@@ -43,6 +43,14 @@ final class ComponentFactory {
         return mainComponent.searchComponent
     }
 
+	func getFilterComponent() -> FilterComponent {
+		return mainComponent.filterComponent
+	}
+    
+    func getServiceSelectionComponent() -> ServiceSelectionComponent {
+        return mainComponent.serviceSelectionComponent
+    }
+
 	func getProfileComponent() -> ProfileComponent {
 		return mainComponent.profileComponent
 	}

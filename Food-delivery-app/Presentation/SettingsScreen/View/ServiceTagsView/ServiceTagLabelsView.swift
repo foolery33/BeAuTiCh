@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class ServiceTagLabelsView: UIView {
-    //- MARK: Public properties
     
     private enum Metrics {
         static let tagHeight: CGFloat = 30
@@ -18,13 +17,18 @@ class ServiceTagLabelsView: UIView {
         static let tagSpacingY: CGFloat = 8
     }
     
-    var services: [Service] = [] {
+    //- MARK: Public properties
+    
+    var services: [ServiceModel] = [] {
         didSet {
             addTagLabels()
         }
     }
     
     var intrinsicHeight: CGFloat = 0
+    
+    var selectedServiceTagIds: [UUID]?
+    var onServiceTagTapped: ((UUID) -> ())?
     
     
     //- MARK: Inits
@@ -65,6 +69,7 @@ class ServiceTagLabelsView: UIView {
             let leftLines = UIImageView(image: R.image.leftLines())
             
             newLabel.textColor = R.color.vinous()
+            newLabel.font = R.font.redHatDisplaySemiBold(size: 12)
             newLabel.textAlignment = .center
             newLabel.backgroundColor = R.color.white()
             newLabel.layer.masksToBounds = true
@@ -91,8 +96,26 @@ class ServiceTagLabelsView: UIView {
             label.text = tag.name
             label.frame.size.width = label.intrinsicContentSize.width + Metrics.tagPadding
             label.frame.size.height = Metrics.tagHeight
+            
+            label.isUserInteractionEnabled = true
+            let gestureRecognizer = ServiceTapGesture(target: self, action: #selector(serviceTagPressed(_:)))
+            gestureRecognizer.serviceId = tag.id
+            label.addGestureRecognizer(gestureRecognizer)
+            if selectedServiceTagIds?.contains(tag.id) ?? false {
+                label.backgroundColor = R.color.transparentWhite()
+            }
         }
         
+    }
+    
+    @objc private func serviceTagPressed(_ serviceTag: ServiceTapGesture) {
+        (onServiceTagTapped ?? { _ in })(serviceTag.serviceId)
+        if serviceTag.view?.backgroundColor == R.color.white()! {
+            serviceTag.view?.backgroundColor = R.color.transparentWhite()
+        }
+        else {
+            serviceTag.view?.backgroundColor = R.color.white()
+        }
     }
     
     func displayTagLabels() {
@@ -120,4 +143,8 @@ class ServiceTagLabelsView: UIView {
         intrinsicHeight = currentOriginY + Metrics.tagHeight
         invalidateIntrinsicContentSize()
     }
+}
+
+final class ServiceTapGesture: UITapGestureRecognizer {
+    var serviceId = UUID()
 }
