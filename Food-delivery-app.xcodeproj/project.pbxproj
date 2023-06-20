@@ -62,6 +62,20 @@
 		84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */; };
 		84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */; };
 		84848D042A2E492F00F36586 /* GetDateWithOffsetUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */; };
+		84B76A4E2A41A29F00ED7415 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A4D2A41A29F00ED7415 /* AuthRepository.swift */; };
+		84B76A512A41A30200ED7415 /* LoginCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A502A41A30200ED7415 /* LoginCredentialsModel.swift */; };
+		84B76A532A41A3AE00ED7415 /* RegisterCredentialsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A522A41A3AE00ED7415 /* RegisterCredentialsModel.swift */; };
+		84B76A552A41A40C00ED7415 /* AuthRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A542A41A40C00ED7415 /* AuthRepositoryImplementation.swift */; };
+		84B76A592A41A9A900ED7415 /* EmptyValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A582A41A9A900ED7415 /* EmptyValidationUseCase.swift */; };
+		84B76A5B2A41A9CA00ED7415 /* EmailValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A5A2A41A9CA00ED7415 /* EmailValidationUseCase.swift */; };
+		84B76A5D2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A5C2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift */; };
+		84B76A5F2A41AD9700ED7415 /* SaveTokensUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A5E2A41AD9700ED7415 /* SaveTokensUseCase.swift */; };
+		84B76A632A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A622A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift */; };
+		84B76A652A41C1BF00ED7415 /* PasswordValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A642A41C1BF00ED7415 /* PasswordValidationUseCase.swift */; };
+		84B76A672A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A662A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift */; };
+		84B76A692A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A682A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift */; };
+		84B76A6B2A41EEBB00ED7415 /* MakeFullNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6A2A41EEBB00ED7415 /* MakeFullNameUseCase.swift */; };
+		84B76A6D2A41F87B00ED7415 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B76A6C2A41F87B00ED7415 /* ActivityIndicator.swift */; };
 		84C27A182A4168B200FC462A /* ConvertDateToISOUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C27A172A4168B200FC462A /* ConvertDateToISOUseCase.swift */; };
 		84C27A1A2A4176D800FC462A /* ConvertDateToDdMmYyyyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C27A192A4176D800FC462A /* ConvertDateToDdMmYyyyUseCase.swift */; };
 		84C975D62A333F3500BF489B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C975D52A333F3500BF489B /* MainViewController.swift */; };
@@ -181,6 +195,20 @@
 		84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekByDateUseCase.swift; sourceTree = "<group>"; };
 		84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfMonthByDateUseCase.swift; sourceTree = "<group>"; };
 		84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDateWithOffsetUseCase.swift; sourceTree = "<group>"; };
+		84B76A4D2A41A29F00ED7415 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		84B76A502A41A30200ED7415 /* LoginCredentialsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentialsModel.swift; sourceTree = "<group>"; };
+		84B76A522A41A3AE00ED7415 /* RegisterCredentialsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCredentialsModel.swift; sourceTree = "<group>"; };
+		84B76A542A41A40C00ED7415 /* AuthRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryImplementation.swift; sourceTree = "<group>"; };
+		84B76A582A41A9A900ED7415 /* EmptyValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyValidationUseCase.swift; sourceTree = "<group>"; };
+		84B76A5A2A41A9CA00ED7415 /* EmailValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationUseCase.swift; sourceTree = "<group>"; };
+		84B76A5C2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoginValidationErrorUseCase.swift; sourceTree = "<group>"; };
+		84B76A5E2A41AD9700ED7415 /* SaveTokensUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTokensUseCase.swift; sourceTree = "<group>"; };
+		84B76A622A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEqualityValidationUseCase.swift; sourceTree = "<group>"; };
+		84B76A642A41C1BF00ED7415 /* PasswordValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationUseCase.swift; sourceTree = "<group>"; };
+		84B76A662A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegisterValidationErrorUseCase.swift; sourceTree = "<group>"; };
+		84B76A682A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidationUseCase.swift; sourceTree = "<group>"; };
+		84B76A6A2A41EEBB00ED7415 /* MakeFullNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeFullNameUseCase.swift; sourceTree = "<group>"; };
+		84B76A6C2A41F87B00ED7415 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		84C27A172A4168B200FC462A /* ConvertDateToISOUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDateToISOUseCase.swift; sourceTree = "<group>"; };
 		84C27A192A4176D800FC462A /* ConvertDateToDdMmYyyyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDateToDdMmYyyyUseCase.swift; sourceTree = "<group>"; };
 		84C975D52A333F3500BF489B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -514,6 +542,7 @@
 		8450B1082A261FE100273956 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				84B76A562A41A97800ED7415 /* Model */,
 				8452AEF22A266BF800BCC43B /* Component */,
 				8450B10A2A2620A500273956 /* ViewModel */,
 				8450B1092A261FF200273956 /* ViewController */,
@@ -657,6 +686,54 @@
 			path = UseCase;
 			sourceTree = "<group>";
 		};
+		84B76A4F2A41A2F600ED7415 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A502A41A30200ED7415 /* LoginCredentialsModel.swift */,
+				84B76A522A41A3AE00ED7415 /* RegisterCredentialsModel.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		84B76A562A41A97800ED7415 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A572A41A97C00ED7415 /* UseCase */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84B76A572A41A97C00ED7415 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A582A41A9A900ED7415 /* EmptyValidationUseCase.swift */,
+				84B76A5A2A41A9CA00ED7415 /* EmailValidationUseCase.swift */,
+				84B76A5C2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift */,
+				84B76A5E2A41AD9700ED7415 /* SaveTokensUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		84B76A602A41B04000ED7415 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A612A41B04400ED7415 /* UseCase */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84B76A612A41B04400ED7415 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				84B76A622A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift */,
+				84B76A642A41C1BF00ED7415 /* PasswordValidationUseCase.swift */,
+				84B76A662A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift */,
+				84B76A682A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift */,
+				84B76A6A2A41EEBB00ED7415 /* MakeFullNameUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		84C975D12A333C9600BF489B /* DynamicPart */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,6 +754,8 @@
 			isa = PBXGroup;
 			children = (
 				84CCE0B02A3F0BC700A1F715 /* Model */,
+				84B76A4D2A41A29F00ED7415 /* AuthRepository.swift */,
+				84B76A542A41A40C00ED7415 /* AuthRepositoryImplementation.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -684,6 +763,7 @@
 		84CCE0B02A3F0BC700A1F715 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84B76A4F2A41A2F600ED7415 /* Parameters */,
 				84CCE0B12A3F0BCD00A1F715 /* DTO */,
 			);
 			path = Model;
@@ -822,6 +902,7 @@
 			isa = PBXGroup;
 			children = (
 				F3AF7F2F2A2C555E00DBAD36 /* CustomUITextField.swift */,
+				84B76A6C2A41F87B00ED7415 /* ActivityIndicator.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -940,6 +1021,7 @@
 		F3AF7F0F2A2B156600DBAD36 /* RegisterScreen */ = {
 			isa = PBXGroup;
 			children = (
+				84B76A602A41B04000ED7415 /* Model */,
 				F3AF7F132A2B15DB00DBAD36 /* Component */,
 				F3AF7F122A2B15D700DBAD36 /* ViewModel */,
 				F3AF7F112A2B15D000DBAD36 /* ViewController */,
@@ -1265,19 +1347,26 @@
 				84CCE0B32A3F0BDD00A1F715 /* TokenPairModel.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
 				84C27A182A4168B200FC462A /* ConvertDateToISOUseCase.swift in Sources */,
+				84B76A592A41A9A900ED7415 /* EmptyValidationUseCase.swift in Sources */,
 				84D5FEE62A36D929008BF057 /* StartViewModel.swift in Sources */,
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
+				84B76A672A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift in Sources */,
+				84B76A6D2A41F87B00ED7415 /* ActivityIndicator.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
 				843053902A3CE71A004B25FE /* ConvertISOToReadableDateAndTimeUseCase.swift in Sources */,
+				84B76A652A41C1BF00ED7415 /* PasswordValidationUseCase.swift in Sources */,
 				84283B722A2C7EAD00CA911D /* MainScreenComponent.swift in Sources */,
 				84D9374B2A323AC400CC1A36 /* MainPageViewController.swift in Sources */,
 				84590D322A40DF56006BB403 /* ServiceShortModel.swift in Sources */,
 				84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */,
 				F37687032A383A670006E566 /* SettingsBlockView.swift in Sources */,
+				84B76A692A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift in Sources */,
+				84B76A5D2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift in Sources */,
 				F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */,
 				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
+				84B76A632A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
 				848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
@@ -1308,6 +1397,7 @@
 				844AF4E52A37442600B2C9C7 /* AppointmentRepository.swift in Sources */,
 				84590D1E2A40AD06006BB403 /* ServiceSelectionViewModel.swift in Sources */,
 				84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */,
+				84B76A6B2A41EEBB00ED7415 /* MakeFullNameUseCase.swift in Sources */,
 				84C27A1A2A4176D800FC462A /* ConvertDateToDdMmYyyyUseCase.swift in Sources */,
 				F37686FD2A3830680006E566 /* SettingsViewModel.swift in Sources */,
 				F37E031C2A40969300F029C8 /* FilterViewModel.swift in Sources */,
@@ -1321,19 +1411,24 @@
 				F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */,
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
 				F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */,
+				84B76A552A41A40C00ED7415 /* AuthRepositoryImplementation.swift in Sources */,
 				84590D1C2A40ACDD006BB403 /* ServiceSelectionView.swift in Sources */,
 				84D5FEE22A36D8F3008BF057 /* StartViewController.swift in Sources */,
 				844AF4EC2A37469A00B2C9C7 /* StatusAppointmentModel.swift in Sources */,
 				84D5FF002A36F776008BF057 /* FilledButton.swift in Sources */,
 				8452AEF62A266C8B00BCC43B /* NeedleGenerated.swift in Sources */,
 				F37687012A383A4E0006E566 /* InformationSubscribeBlockView.swift in Sources */,
+				84B76A5B2A41A9CA00ED7415 /* EmailValidationUseCase.swift in Sources */,
 				F3AF7F192A2B171800DBAD36 /* RegisterViewController.swift in Sources */,
 				F391D6A52A3AEE9600A092BE /* InformationSubscribeComponent.swift in Sources */,
 				F37687292A38B2B00006E566 /* YourServicesView.swift in Sources */,
 				F3AF7F172A2B16C100DBAD36 /* RegisterViewModel.swift in Sources */,
 				8410777B2A373E19002905D2 /* SearchViewModel.swift in Sources */,
+				84B76A512A41A30200ED7415 /* LoginCredentialsModel.swift in Sources */,
+				84B76A4E2A41A29F00ED7415 /* AuthRepository.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
+				84B76A5F2A41AD9700ED7415 /* SaveTokensUseCase.swift in Sources */,
 				845D16602A3E086200C6CC93 /* R.generated.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
@@ -1348,6 +1443,7 @@
 				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
 				84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
+				84B76A532A41A3AE00ED7415 /* RegisterCredentialsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

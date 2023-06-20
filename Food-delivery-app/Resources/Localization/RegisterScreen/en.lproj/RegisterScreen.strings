@@ -8,8 +8,10 @@
 
 "first_greeting" = "Welcome!";
 "input_lastname" = "Enter your last name*";
-"input_firstname" = "Enter a name*";
+"input_firstname" = "Enter your name*";
+"input_patronymic" = "Enter your patronymic";
 "input_email" = "Enter email*";
+"input_phone_number" = "Enter your phone number";
 "input_password" = "Enter the password*";
 "input_repeat_password" = "Repeat the password*";
 "register" = "Register";
