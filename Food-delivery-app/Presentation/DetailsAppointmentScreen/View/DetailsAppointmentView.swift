@@ -201,7 +201,10 @@ class DetailsAppointmentView: UIView {
 		//serviceTags.services = model.services
 		startTimeAppointmentLabel.text = model.startDateTime
 		endTimeAppointmentLabel.text = model.endDateTime
-		//TODO: добавить проверку на наличие номера телефона клиента и вызов метода setPhoneView
+
+		if let phone = model.clientPhone{
+			addPhoneView(phone: phone)
+		}
 
 		switch model.status {
 		case .new:
@@ -220,6 +223,8 @@ class DetailsAppointmentView: UIView {
 	private func addPhoneView(phone: String) {
 		informationTitleStack.addArrangedSubview(phoneTitleLabel)
 		informationAppointmentStack.addArrangedSubview(phoneLabel)
+
+		phoneLabel.text = phone
 	}
 
 	private func addButtonsForStatusAppointment() {
