@@ -87,28 +87,35 @@ final class MainViewModel {
     func getDaysOfWeekForDate(_ date: Date) -> [Date] {
         getDaysOfWeekForDateUseCase.getDaysOfWeek(for: date)
     }
+
     func getWeekdayIndexForDate(_ date: Date) -> Int {
         getWeekdayIndexForDateUseCase.getWeekdayIndex(for: date)
     }
+
     func getDayOfWeekByDate(_ date: Date, lettersCount: Int? = nil) -> String {
         getDayOfWeekByDateUseCase.getDayOfWeek(by: date, lettersCount: lettersCount)
     }
+
     func getDayOfMonthByDate(_ date: Date) -> Int {
         getDayOfMonthByDateUseCase.getDayOfMonthByDate(date: date)
     }
+
     func getDateWithOffset(from date: Date, byDays: Int) -> Date {
         getDateWithOffsetUseCase.getDateWithOffset(from: date, byDays: byDays)
     }
+
     func onLeftArrowButtonClicked() {
         weekDates = getDaysOfWeekForDate(
             getDateWithOffset(from: weekDates[0], byDays: -1)
         )
     }
+
     func onRightArrowButtonClicked() {
         weekDates = getDaysOfWeekForDate(
             getDateWithOffset(from: weekDates[weekDates.count - 1], byDays: 1)
         )
     }
+
     func isToday(_ date: Date) -> Bool {
         isTodayUseCase.isToday(date)
     }
@@ -116,5 +123,8 @@ final class MainViewModel {
     var weekDates: [Date] = []
     var currentDayIndex: Int = 0
     var selectedDayIndex: Int = 0
-    
+
+	func goToDetailsMainScreen() {
+		coordinator?.goToDetailsAppointmentScreen(model: AppointmentModel(id: UUID(), clientName: "Burava", services: [ServiceShortModel(id: UUID(), name: "Bubu"), ServiceShortModel(id: UUID(), name: "Babababababababa"), ServiceShortModel(id: UUID(), name: "Asdasdasd")], price: 340, clientPhone: "1242131", startDateTime: "23.02.2023 15:00", endDateTime: "23.02.2023 20:00", status: .new))
+	}
 }

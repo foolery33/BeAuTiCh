@@ -75,6 +75,17 @@ private class SearchComponentDependency1207f6d8cbd8351560b4Provider: SearchCompo
 private func factory2746832551408832f06d0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return SearchComponentDependency1207f6d8cbd8351560b4Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider: DetailsAppointmentComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->DetailsAppointmentComponent
+private func factoryfbaf57f0de8177160dcee3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider()
+}
 private class ServiceSelectionComponentDependency5628e884730da5d9efb6Provider: ServiceSelectionComponentDependency {
     var servicesRepository: ServicesRepository {
         return mainComponent.servicesRepository
@@ -165,6 +176,22 @@ private class RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider: R
 private func factory49735e63dbc2c5fc6d790ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return RegisterComponentDependencyProtocol69bbe0c4d51768ae4d23Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileComponentDependency {
+    var profileRepository: ProfileRepository {
+        return mainComponent.profileRepository
+    }
+    var convertPhotoToDataUseCase: ConvertPhotoToDataUseCase {
+        return mainComponent.convertPhotoToDataUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->ProfileComponent
+private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
     var authRepository: AuthRepository {
         return mainComponent.authRepository
@@ -214,6 +241,11 @@ extension SearchComponent: Registration {
         keyPathToName[\SearchComponentDependency.getFilteredAppointmentListUseCase] = "getFilteredAppointmentListUseCase-GetFilteredAppointmentListUseCase"
     }
 }
+extension DetailsAppointmentComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension ServiceSelectionComponent: Registration {
     public func registerItems() {
         keyPathToName[\ServiceSelectionComponentDependency.servicesRepository] = "servicesRepository-ServicesRepository"
@@ -250,6 +282,12 @@ extension RegisterComponent: Registration {
         keyPathToName[\RegisterComponentDependencyProtocol.makeFullNameUseCase] = "makeFullNameUseCase-MakeFullNameUseCase"
     }
 }
+extension ProfileComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\ProfileComponentDependency.profileRepository] = "profileRepository-ProfileRepository"
+        keyPathToName[\ProfileComponentDependency.convertPhotoToDataUseCase] = "convertPhotoToDataUseCase-ConvertPhotoToDataUseCase"
+    }
+}
 extension LoginComponent: Registration {
     public func registerItems() {
         keyPathToName[\LoginComponentDependency.authRepository] = "authRepository-AuthRepository"
@@ -277,13 +315,15 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->MainScreenComponent", factoryd2e546a960c33ef2225f0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->StartComponent", factorydf30084d4812375c9b62e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SearchComponent", factory2746832551408832f06d0ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->DetailsAppointmentComponent", factoryfbaf57f0de8177160dcee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->ServiceSelectionComponent", factory7199151049f30c7d4fa40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb10e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d790ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif
 

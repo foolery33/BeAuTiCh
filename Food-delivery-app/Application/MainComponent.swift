@@ -59,6 +59,12 @@ final class MainComponent: BootstrapComponent {
             GetFilteredAppointmentListUseCase()
         }
     }
+
+	var convertPhotoToDataUseCase: ConvertPhotoToDataUseCase {
+		shared {
+			ConvertPhotoToDataUseCase()
+		}
+	}
     
     var updatePriceUseCase: UpdatePriceUseCase {
         shared {
@@ -166,6 +172,14 @@ final class MainComponent: BootstrapComponent {
             ServicesRepositoryImplementation()
         }
     }
+
+	var profileRepository: ProfileRepository {
+		shared {
+			ProfileRepositoryImplementation(
+				tokenManagerRepository: TokenManagerRepositoryImplementation()
+			)
+		}
+	}
     
     var authRepository: AuthRepository {
         shared {
@@ -233,4 +247,16 @@ final class MainComponent: BootstrapComponent {
             ServiceSelectionComponent(parent: self)
         }
     }
+
+	var profileComponent: ProfileComponent {
+		shared {
+			ProfileComponent(parent: self)
+		}
+	}
+
+	var detailsAppointment: DetailsAppointmentComponent {
+		shared {
+			DetailsAppointmentComponent(parent: self)
+		}
+	}
 }

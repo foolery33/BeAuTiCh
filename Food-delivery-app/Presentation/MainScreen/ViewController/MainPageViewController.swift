@@ -38,7 +38,7 @@ class MainPageViewController: UIPageViewController {
     }()
     
     private func getScheduleViewController(weekdayIndex: Int) -> ScheduleViewController {
-        return ScheduleViewController(serviceNotes: viewModel.weekServiceNotes[weekdayIndex])
+        return ScheduleViewController(serviceNotes: viewModel.weekServiceNotes[weekdayIndex], viewModel: viewModel)
     }
     
     override func viewDidLoad()
@@ -48,7 +48,12 @@ class MainPageViewController: UIPageViewController {
         self.delegate = self
         
         setViewControllers([pages[viewModel.currentDayIndex]], direction: .forward, animated: true, completion: nil)
+		setHandlers()
     }
+
+	private func setHandlers() {
+		
+	}
     
 }
 

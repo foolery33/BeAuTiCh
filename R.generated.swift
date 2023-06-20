@@ -56,21 +56,26 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 9 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 11 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
     let locale: Locale?
+    var detailsAppointmentScreen: detailsAppointmentScreen { .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var errors: errors { .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale)) }
     var filterScreen: filterScreen { .init(source: .init(bundle: bundle, tableName: "FilterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var informationSubcscribeSheetScreen: informationSubcscribeSheetScreen { .init(source: .init(bundle: bundle, tableName: "InformationSubcscribeSheetScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var loginScreen: loginScreen { .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale)) }
+    var profileScreen: profileScreen { .init(source: .init(bundle: bundle, tableName: "ProfileScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var registerScreen: registerScreen { .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var searchScreen: searchScreen { .init(source: .init(bundle: bundle, tableName: "SearchScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var serviceSelectionScreen: serviceSelectionScreen { .init(source: .init(bundle: bundle, tableName: "ServiceSelectionScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var settingsScreen: settingsScreen { .init(source: .init(bundle: bundle, tableName: "SettingsScreen", preferredLanguages: preferredLanguages, locale: locale)) }
     var startScreen: startScreen { .init(source: .init(bundle: bundle, tableName: "StartScreen", preferredLanguages: preferredLanguages, locale: locale)) }
 
+    func detailsAppointmentScreen(preferredLanguages: [String]) -> detailsAppointmentScreen {
+      .init(source: .init(bundle: bundle, tableName: "DetailsAppointmentScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
     func errors(preferredLanguages: [String]) -> errors {
       .init(source: .init(bundle: bundle, tableName: "Errors", preferredLanguages: preferredLanguages, locale: locale))
     }
@@ -82,6 +87,9 @@ struct _R {
     }
     func loginScreen(preferredLanguages: [String]) -> loginScreen {
       .init(source: .init(bundle: bundle, tableName: "LoginScreen", preferredLanguages: preferredLanguages, locale: locale))
+    }
+    func profileScreen(preferredLanguages: [String]) -> profileScreen {
+      .init(source: .init(bundle: bundle, tableName: "ProfileScreen", preferredLanguages: preferredLanguages, locale: locale))
     }
     func registerScreen(preferredLanguages: [String]) -> registerScreen {
       .init(source: .init(bundle: bundle, tableName: "RegisterScreen", preferredLanguages: preferredLanguages, locale: locale))
@@ -100,7 +108,75 @@ struct _R {
     }
 
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 20 localization keys.
+    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    struct detailsAppointmentScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cancel appointment
+      ///
+      /// Key: cancel_appointment
+      ///
+      /// Locales: en, ru
+      var cancel_appointment: RswiftResources.StringResource { .init(key: "cancel_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Cancel appointment", comment: nil) }
+
+      /// en translation: Appointment cancelled
+      ///
+      /// Key: cancelled_status
+      ///
+      /// Locales: en, ru
+      var cancelled_status: RswiftResources.StringResource { .init(key: "cancelled_status", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment cancelled", comment: nil) }
+
+      /// en translation: Change data
+      ///
+      /// Key: change_data
+      ///
+      /// Locales: en, ru
+      var change_data: RswiftResources.StringResource { .init(key: "change_data", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Change data", comment: nil) }
+
+      /// en translation: Client accepted
+      ///
+      /// Key: client_accepted
+      ///
+      /// Locales: en, ru
+      var client_accepted: RswiftResources.StringResource { .init(key: "client_accepted", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Client accepted", comment: nil) }
+
+      /// en translation: Appointment completed
+      ///
+      /// Key: completed_status
+      ///
+      /// Locales: en, ru
+      var completed_status: RswiftResources.StringResource { .init(key: "completed_status", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment completed", comment: nil) }
+
+      /// en translation: End of appointment:
+      ///
+      /// Key: end_time_appointment
+      ///
+      /// Locales: en, ru
+      var end_time_appointment: RswiftResources.StringResource { .init(key: "end_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "End of appointment:", comment: nil) }
+
+      /// en translation: Phone:
+      ///
+      /// Key: phone
+      ///
+      /// Locales: en, ru
+      var phone: RswiftResources.StringResource { .init(key: "phone", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Phone:", comment: nil) }
+
+      /// en translation: Services
+      ///
+      /// Key: services
+      ///
+      /// Locales: en, ru
+      var services: RswiftResources.StringResource { .init(key: "services", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Services", comment: nil) }
+
+      /// en translation: Appointment time: 
+      ///
+      /// Key: start_time_appointment
+      ///
+      /// Locales: en, ru
+      var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
+    }
+
+    /// This `_R.string.errors` struct is generated, and contains static references to 10 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -202,6 +278,13 @@ struct _R {
       /// Locales: en, ru
       var model_error: RswiftResources.StringResource { .init(key: "model_error", tableName: "Errors", source: source, developmentValue: "Internal application error. Please contact developer", comment: nil) }
 
+      /// en translation: The old password entered is incorrect
+      ///
+      /// Key: not_correct_old_password
+      ///
+      /// Locales: en, ru
+      var not_correct_old_password: RswiftResources.StringResource { .init(key: "not_correct_old_password", tableName: "Errors", source: source, developmentValue: "The old password entered is incorrect", comment: nil) }
+
       /// en translation: Ok
       ///
       /// Key: ok
@@ -209,6 +292,19 @@ struct _R {
       /// Locales: en, ru
       var ok: RswiftResources.StringResource { .init(key: "ok", tableName: "Errors", source: source, developmentValue: "Ok", comment: nil) }
 
+      /// en translation: Password change error
+      ///
+      /// Key: password_changed_error
+      ///
+      /// Locales: en, ru
+      var password_changed_error: RswiftResources.StringResource { .init(key: "password_changed_error", tableName: "Errors", source: source, developmentValue: "Password change error", comment: nil) }
+
+      /// en translation: Profile picture not found
+      ///
+      /// Key: photo_not_found
+      ///
+      /// Locales: en, ru
+      var photo_not_found: RswiftResources.StringResource { .init(key: "photo_not_found", tableName: "Errors", source: source, developmentValue: "Profile picture not found", comment: nil) }
       /// en translation: Register error
       ///
       /// Key: register_error
@@ -223,12 +319,12 @@ struct _R {
       /// Locales: en, ru
       var server_error: RswiftResources.StringResource { .init(key: "server_error", tableName: "Errors", source: source, developmentValue: "Some server error occured. Please try again later", comment: nil) }
 
-      /// en translation: Services loading error
+      /// en translation: Error loading services
       ///
       /// Key: services_loading_error
       ///
       /// Locales: en, ru
-      var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Services loading error", comment: nil) }
+      var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Error loading services", comment: nil) }
 
       /// en translation: Your authentication token is expired. Please login again
       ///
@@ -386,6 +482,138 @@ struct _R {
       var repeat_greeting: RswiftResources.StringResource { .init(key: "repeat_greeting", tableName: "LoginScreen", source: source, developmentValue: "Welcome back!", comment: nil) }
     }
 
+    /// This `_R.string.profileScreen` struct is generated, and contains static references to 18 localization keys.
+    struct profileScreen {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Cancel
+      ///
+      /// Key: cancel
+      ///
+      /// Locales: en, ru
+      var cancel: RswiftResources.StringResource { .init(key: "cancel", tableName: "ProfileScreen", source: source, developmentValue: "Cancel", comment: nil) }
+
+      /// en translation: Change data
+      ///
+      /// Key: change_data
+      ///
+      /// Locales: en, ru
+      var change_data: RswiftResources.StringResource { .init(key: "change_data", tableName: "ProfileScreen", source: source, developmentValue: "Change data", comment: nil) }
+
+      /// en translation: Change password
+      ///
+      /// Key: change_password
+      ///
+      /// Locales: en, ru
+      var change_password: RswiftResources.StringResource { .init(key: "change_password", tableName: "ProfileScreen", source: source, developmentValue: "Change password", comment: nil) }
+
+      /// en translation: edit photo
+      ///
+      /// Key: change_photo
+      ///
+      /// Locales: en, ru
+      var change_photo: RswiftResources.StringResource { .init(key: "change_photo", tableName: "ProfileScreen", source: source, developmentValue: "edit photo", comment: nil) }
+
+      /// en translation: delete a photo
+      ///
+      /// Key: delete_photo
+      ///
+      /// Locales: en, ru
+      var delete_photo: RswiftResources.StringResource { .init(key: "delete_photo", tableName: "ProfileScreen", source: source, developmentValue: "delete a photo", comment: nil) }
+
+      /// en translation: Email: 
+      ///
+      /// Key: email
+      ///
+      /// Locales: en, ru
+      var email: RswiftResources.StringResource { .init(key: "email", tableName: "ProfileScreen", source: source, developmentValue: "Email: ", comment: nil) }
+
+      /// en translation: Input your name
+      ///
+      /// Key: input_name
+      ///
+      /// Locales: en, ru
+      var input_name: RswiftResources.StringResource { .init(key: "input_name", tableName: "ProfileScreen", source: source, developmentValue: "Input your name", comment: nil) }
+
+      /// en translation: Enter the new password
+      ///
+      /// Key: input_new_password
+      ///
+      /// Locales: en, ru
+      var input_new_password: RswiftResources.StringResource { .init(key: "input_new_password", tableName: "ProfileScreen", source: source, developmentValue: "Enter the new password", comment: nil) }
+
+      /// en translation: Enter the old password
+      ///
+      /// Key: input_old_password
+      ///
+      /// Locales: en, ru
+      var input_old_password: RswiftResources.StringResource { .init(key: "input_old_password", tableName: "ProfileScreen", source: source, developmentValue: "Enter the old password", comment: nil) }
+
+      /// en translation: Input your phone
+      ///
+      /// Key: input_phone
+      ///
+      /// Locales: en, ru
+      var input_phone: RswiftResources.StringResource { .init(key: "input_phone", tableName: "ProfileScreen", source: source, developmentValue: "Input your phone", comment: nil) }
+
+      /// en translation: To change the password, you must enter the old and new password
+      ///
+      /// Key: message_alert_change_password
+      ///
+      /// Locales: en, ru
+      var message_alert_change_password: RswiftResources.StringResource { .init(key: "message_alert_change_password", tableName: "ProfileScreen", source: source, developmentValue: "To change the password, you must enter the old and new password", comment: nil) }
+
+      /// en translation: Phone: 
+      ///
+      /// Key: phone
+      ///
+      /// Locales: en, ru
+      var phone: RswiftResources.StringResource { .init(key: "phone", tableName: "ProfileScreen", source: source, developmentValue: "Phone: ", comment: nil) }
+
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en, ru
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "ProfileScreen", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Log out
+      ///
+      /// Key: sign_out
+      ///
+      /// Locales: en, ru
+      var sign_out: RswiftResources.StringResource { .init(key: "sign_out", tableName: "ProfileScreen", source: source, developmentValue: "Log out", comment: nil) }
+
+      /// en translation: Profile photo successfully deleted
+      ///
+      /// Key: success_deleted_avatar
+      ///
+      /// Locales: en, ru
+      var success_deleted_avatar: RswiftResources.StringResource { .init(key: "success_deleted_avatar", tableName: "ProfileScreen", source: source, developmentValue: "Profile photo successfully deleted", comment: nil) }
+
+      /// en translation: Password change was successful
+      ///
+      /// Key: susscess_change_password
+      ///
+      /// Locales: en, ru
+      var susscess_change_password: RswiftResources.StringResource { .init(key: "susscess_change_password", tableName: "ProfileScreen", source: source, developmentValue: "Password change was successful", comment: nil) }
+
+      /// en translation: Changing the password
+      ///
+      /// Key: title_alert_change_password
+      ///
+      /// Locales: en, ru
+      var title_alert_change_password: RswiftResources.StringResource { .init(key: "title_alert_change_password", tableName: "ProfileScreen", source: source, developmentValue: "Changing the password", comment: nil) }
+
+      /// en translation: Input data
+      ///
+      /// Key: title_alert_input_data
+      ///
+      /// Locales: en, ru
+      var title_alert_input_data: RswiftResources.StringResource { .init(key: "title_alert_input_data", tableName: "ProfileScreen", source: source, developmentValue: "Input data", comment: nil) }
+    }
+
+    /// This `_R.string.registerScreen` struct is generated, and contains static references to 8 localization keys.
     /// This `_R.string.registerScreen` struct is generated, and contains static references to 10 localization keys.
     struct registerScreen {
       let source: RswiftResources.StringResource.Source
@@ -572,7 +800,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 28 images.
+  /// This `_R.image` struct is generated, and contains static references to 29 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -590,6 +818,9 @@ struct _R {
 
     /// Image `Background2`.
     var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `DefaultAvatar`.
+    var defaultAvatar: RswiftResources.ImageResource { .init(name: "DefaultAvatar", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Filter`.
     var filter: RswiftResources.ImageResource { .init(name: "Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

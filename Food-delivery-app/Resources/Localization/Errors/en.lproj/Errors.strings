@@ -27,5 +27,9 @@
 "invalid_phone_number" = "Invalid phone number format";
 
 "ok" = "Ok";
+"services_loading_error" = "Error loading services";
+"password_changed_error" = "Password change error";
+"not_correct_old_password" = "The old password entered is incorrect";
+"photo_not_found" = "Profile picture not found";
 "appointments_loading_error" = "Appointments loading error";
-"services_loading_error" = "Services loading error";
+"ok" = "Ok";
