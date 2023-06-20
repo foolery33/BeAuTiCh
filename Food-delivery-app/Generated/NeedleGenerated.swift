@@ -131,6 +131,9 @@ private class FilterComponentDependencye4de2e473c135cffe41bProvider: FilterCompo
     var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase {
         return mainComponent.convertDateToDdMmYyyyUseCase
     }
+    var convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase {
+        return mainComponent.convertISODateStringToDdMmYyyyUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -217,6 +220,7 @@ extension FilterComponent: Registration {
         keyPathToName[\FilterComponentDependency.updatePriceUseCase] = "updatePriceUseCase-UpdatePriceUseCase"
         keyPathToName[\FilterComponentDependency.convertDateToISOUseCase] = "convertDateToISOUseCase-ConvertDateToISOUseCase"
         keyPathToName[\FilterComponentDependency.convertDateToDdMmYyyyUseCase] = "convertDateToDdMmYyyyUseCase-ConvertDateToDdMmYyyyUseCase"
+        keyPathToName[\FilterComponentDependency.convertISODateStringToDdMmYyyyUseCase] = "convertISODateStringToDdMmYyyyUseCase-ConvertISODateStringToDdMmYyyyUseCase"
     }
 }
 extension RegisterComponent: Registration {

@@ -18,6 +18,7 @@ final class FilterView: UIView {
     var onSaveButtonTapped: (() -> ())?
     
     var convertDateToDdMmYyyy: ((Date) -> (String))?
+    var convertISODateStringToDdMmYyyy: ((String) -> (String))?
     
     var priceFrom: Int?
     var priceTo: Int?
@@ -204,8 +205,8 @@ extension FilterView {
         dateSortingView.convertDateToDdMmYyyy = { [weak self] date in
             (self?.convertDateToDdMmYyyy ?? { _ in return "" })(date)
         }
-        dateSortingView.fromTextFieldText = dateFrom == nil ? "" : String(dateFrom!)
-        dateSortingView.toTextFieldText = dateTo == nil ? "" : String(dateTo!)
+        dateSortingView.fromTextFieldText = dateFrom == nil ? "" : (convertISODateStringToDdMmYyyy ?? { _ in return "" })( String(dateFrom!))
+        dateSortingView.toTextFieldText = dateTo == nil ? "" : (convertISODateStringToDdMmYyyy ?? { _ in return "" })( String(dateTo!))
         dateSortingView.setTextToTextFields()
     }
 }

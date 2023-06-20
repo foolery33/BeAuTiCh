@@ -220,10 +220,8 @@ private extension SortingView {
         fromTextField.inputView = fromDatePicker
     }
     @objc func onFromDateDoneButtonPressed() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        fromTextField.text = dateFormatter.string(from: fromDatePicker.date)
-        (onFromTextFieldValueChanged ?? { _ in })("\((convertDateToDdMmYyyy ?? { _ in return "" })(fromDatePicker.date))")
+        fromTextField.text = (convertDateToDdMmYyyy ?? { _ in return "" })(fromDatePicker.date)
+        (onFromTextFieldValueChanged ?? { _ in })("\(fromDatePicker.date)")
         endEditing(true)
     }
     @objc private func onFromDateValueChanged(_ textField: UITextField) {
@@ -241,10 +239,8 @@ private extension SortingView {
         toTextField.inputView = toDatePicker
     }
     @objc func onToDateDoneButtonPressed() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        toTextField.text = dateFormatter.string(from: toDatePicker.date)
-        (onToTextFieldValueChanged ?? { _ in })("\((convertDateToDdMmYyyy ?? { _ in return "" })(toDatePicker.date))")
+        toTextField.text = (convertDateToDdMmYyyy ?? { _ in return "" })(toDatePicker.date)
+        (onToTextFieldValueChanged ?? { _ in })("\(toDatePicker.date)")
         endEditing(true)
     }
     @objc private func onToDateValueChanged(_ textField: UITextField) {

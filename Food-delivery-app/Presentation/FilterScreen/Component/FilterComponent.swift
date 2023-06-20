@@ -12,6 +12,7 @@ protocol FilterComponentDependency: Dependency {
     var updatePriceUseCase: UpdatePriceUseCase { get }
     var convertDateToISOUseCase: ConvertDateToISOUseCase { get }
     var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase { get }
+    var convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase { get }
 }
 
 final class FilterComponent: Component<FilterComponentDependency> {
@@ -20,7 +21,8 @@ final class FilterComponent: Component<FilterComponentDependency> {
             FilterViewModel(
                 updatePriceUseCase: dependency.updatePriceUseCase,
                 convertDateToISOUseCase: dependency.convertDateToISOUseCase,
-                convertDateToDdMmYyyyUseCase: dependency.convertDateToDdMmYyyyUseCase
+                convertDateToDdMmYyyyUseCase: dependency.convertDateToDdMmYyyyUseCase,
+                convertISODateStringToDdMmYyyyUseCase: dependency.convertISODateStringToDdMmYyyyUseCase
             )
         }
     }

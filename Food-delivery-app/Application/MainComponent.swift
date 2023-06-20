@@ -78,6 +78,12 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase {
+        shared {
+            ConvertISODateStringToDdMmYyyyUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {

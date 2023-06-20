@@ -68,6 +68,9 @@ private extension FilterViewController {
         ui.convertDateToDdMmYyyy = { [weak self] date in
             return self?.viewModel.convertDateToDdMmYyyy(date) ?? ""
         }
+        ui.convertISODateStringToDdMmYyyy = { [weak self] date in
+            return self?.viewModel.convertISODateStringToDdMmYyyy(date) ?? ""
+        }
         ui.priceFrom = viewModel.priceFrom
         ui.priceTo = viewModel.priceTo
         ui.dateFrom = viewModel.dateFrom

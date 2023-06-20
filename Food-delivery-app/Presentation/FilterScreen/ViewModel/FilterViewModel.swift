@@ -14,11 +14,13 @@ final class FilterViewModel {
     private let updatePriceUseCase: UpdatePriceUseCase
     private let convertDateToISOUseCase: ConvertDateToISOUseCase
     private let convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase
+    private let convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase
     
-    init(updatePriceUseCase: UpdatePriceUseCase, convertDateToISOUseCase: ConvertDateToISOUseCase, convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase) {
+    init(updatePriceUseCase: UpdatePriceUseCase, convertDateToISOUseCase: ConvertDateToISOUseCase, convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase, convertISODateStringToDdMmYyyyUseCase: ConvertISODateStringToDdMmYyyyUseCase) {
         self.updatePriceUseCase = updatePriceUseCase
         self.convertDateToISOUseCase = convertDateToISOUseCase
         self.convertDateToDdMmYyyyUseCase = convertDateToDdMmYyyyUseCase
+        self.convertISODateStringToDdMmYyyyUseCase = convertISODateStringToDdMmYyyyUseCase
     }
     
     var priceFrom: Int?
@@ -68,6 +70,10 @@ final class FilterViewModel {
     
     func convertDateToDdMmYyyy(_ date: Date) -> String {
         return convertDateToDdMmYyyyUseCase.convert(date)
+    }
+    
+    func convertISODateStringToDdMmYyyy(_ dateString: String) -> String {
+        return convertISODateStringToDdMmYyyyUseCase.convert(dateString) ?? ""
     }
     
 }

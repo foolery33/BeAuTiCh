@@ -56,6 +56,7 @@
 		845D16602A3E086200C6CC93 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D165F2A3E086200C6CC93 /* R.generated.swift */; };
 		845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16612A3E38EC00C6CC93 /* SortingView.swift */; };
 		845D16652A3E461F00C6CC93 /* UpdatePriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */; };
+		848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */; };
 		84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */; };
 		84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */; };
 		84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */; };
@@ -174,6 +175,7 @@
 		845D165F2A3E086200C6CC93 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		845D16612A3E38EC00C6CC93 /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
 		845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePriceUseCase.swift; sourceTree = "<group>"; };
+		848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertISODateStringToDdMmYyyyUseCase.swift; sourceTree = "<group>"; };
 		84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDaysOfWeekForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeekdayIndexForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFF2A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDayOfWeekByDateUseCase.swift; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 				845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */,
 				84C27A172A4168B200FC462A /* ConvertDateToISOUseCase.swift */,
 				84C27A192A4176D800FC462A /* ConvertDateToDdMmYyyyUseCase.swift */,
+				848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1276,6 +1279,7 @@
 				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
+				848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */,
 				8452AEF42A266C0100BCC43B /* LoginComponent.swift in Sources */,
 				845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */,
 				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
