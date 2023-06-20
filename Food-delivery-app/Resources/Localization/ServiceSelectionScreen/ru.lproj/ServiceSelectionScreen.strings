@@ -1,0 +1,9 @@
+/* 
+  ServiceSelectionScreen.strings
+  Food-delivery-app
+
+  Created by Nikita Usov on 19.06.2023.
+  
+*/
+
+"choose_service" = "Выбрать услугу";

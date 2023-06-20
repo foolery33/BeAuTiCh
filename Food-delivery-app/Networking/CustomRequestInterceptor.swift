@@ -14,11 +14,7 @@ class CustomRequestInterceptor: RequestInterceptor {
     private let retryLimit = 2
     private let retryDelay: TimeInterval = 1
     
-    private let tokenManagerRepository: TokenManagerRepository
-    
-    init(tokenManagerRepository: TokenManagerRepository) {
-        self.tokenManagerRepository = tokenManagerRepository
-    }
+    private let tokenManagerRepository: TokenManagerRepository = TokenManagerRepositoryImplementation()
     
     func adapt(_ urlRequest: URLRequest,
                for session: Session,

@@ -66,6 +66,18 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var convertDateToISOUseCase: ConvertDateToISOUseCase {
+        shared {
+            ConvertDateToISOUseCase()
+        }
+    }
+    
+    var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase {
+        shared {
+            ConvertDateToDdMmYyyyUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {
@@ -76,9 +88,13 @@ final class MainComponent: BootstrapComponent {
     
     var appointmentRepository: AppointmentRepository {
         shared {
-            AppointmentRepositoryImplementation(
-                tokenManagerRepository: TokenManagerRepositoryImplementation()
-            )
+            AppointmentRepositoryImplementation()
+        }
+    }
+    
+    var servicesRepository: ServicesRepository {
+        shared {
+            ServicesRepositoryImplementation()
         }
     }
     
@@ -136,4 +152,10 @@ final class MainComponent: BootstrapComponent {
 			FilterComponent(parent: self)
 		}
 	}
+    
+    var serviceSelectionComponent: ServiceSelectionComponent {
+        shared {
+            ServiceSelectionComponent(parent: self)
+        }
+    }
 }

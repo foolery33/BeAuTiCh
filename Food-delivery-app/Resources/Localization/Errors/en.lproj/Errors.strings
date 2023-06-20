@@ -9,6 +9,8 @@
 "server_error" = "Some server error occured. Please try again later";
 "model_error" = "Internal application error. Please contact developer";
 "unauthorized" = "Your authentication token is expired. Please login again";
+"forbidden_access" = "You've got no rights to perform this operation";
 
 "ok" = "Ok";
 "appointments_loading_error" = "Appointments loading error";
+"services_loading_error" = "Services loading error";

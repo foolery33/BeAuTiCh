@@ -29,7 +29,7 @@ final class SearchViewModel {
     var startDate: String?
     var endDate: String?
     var page: Int?
-    var servicesId: [String] = []
+    var servicesId: [UUID] = []
     
     func getAppointmentList() async -> Bool {
         let parameters = FilteredAppointmentsParametersModel(
@@ -37,8 +37,9 @@ final class SearchViewModel {
             endPrice: endPrice,
             startDate: startDate,
             endDate: endDate,
-            servicesId: servicesId
+            servicesId: servicesId.map { $0.uuidString }
         )
+        print(parameters)
         do {
             self.appointmentList = try await appointmentRepository.getFilteredAppointments(parameters: parameters)
             return true
@@ -59,6 +60,10 @@ final class SearchViewModel {
     
     func getFilteredAppointmentList(from appointmentList: [AppointmentModel], with filterString: String) -> [AppointmentModel] {
         getFilteredAppointmentListUseCase.getFilteredAppointmentList(from: appointmentList, with: filterString)
+    }
+    
+    func goToFilterScreen() {
+        coordinator?.goToFilterScreen(priceFrom: startPrice, priceTo: endPrice, dateFrom: startDate, dateTo: endDate, selectedServiceIds: servicesId)
     }
     
 }

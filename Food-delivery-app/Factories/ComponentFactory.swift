@@ -46,4 +46,8 @@ final class ComponentFactory {
 	func getFilterComponent() -> FilterComponent {
 		return mainComponent.filterComponent
 	}
+    
+    func getServiceSelectionComponent() -> ServiceSelectionComponent {
+        return mainComponent.serviceSelectionComponent
+    }
 }

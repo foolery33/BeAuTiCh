@@ -10,18 +10,22 @@ import NeedleFoundation
 
 protocol FilterComponentDependency: Dependency {
     var updatePriceUseCase: UpdatePriceUseCase { get }
+    var convertDateToISOUseCase: ConvertDateToISOUseCase { get }
+    var convertDateToDdMmYyyyUseCase: ConvertDateToDdMmYyyyUseCase { get }
 }
 
 final class FilterComponent: Component<FilterComponentDependency> {
     var filterViewModel: FilterViewModel {
         shared {
             FilterViewModel(
-                updatePriceUseCase: dependency.updatePriceUseCase
+                updatePriceUseCase: dependency.updatePriceUseCase,
+                convertDateToISOUseCase: dependency.convertDateToISOUseCase,
+                convertDateToDdMmYyyyUseCase: dependency.convertDateToDdMmYyyyUseCase
             )
         }
     }
     
-    var filterViewController: UIViewController {
+    var filterViewController: FilterViewController {
         return FilterViewController(viewModel: filterViewModel)
     }
 }
