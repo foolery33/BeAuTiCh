@@ -123,6 +123,19 @@ class ProfileViewModel {
 		}
 	}
 
+	func setAvatar(imageData: Data, completion: @escaping (Bool) -> Void) {
+		profileRepository.uploadPhoto(imageData: imageData) { [weak self] result in
+			switch result {
+			case .success:
+				print("Successfully uploaded avatar")
+				completion(true)
+			case .failure(let error):
+				self?.errorMessage.updateModel(with: error.errorDescription)
+				completion(false)
+			}
+		}
+	}
+
 	func deleteAvatar() async -> Bool {
 		do {
 			_ = try await profileRepository.deleteAvatar()

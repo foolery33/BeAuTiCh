@@ -14,6 +14,16 @@ class ProfileViewController: UIViewController {
 	private let ui: ProfileView
 	private let viewModel: ProfileViewModel
 
+	lazy var imagePicker: UIImagePickerController = {
+		let vc = UIImagePickerController()
+		vc.delegate = self
+		vc.allowsEditing = true
+		return vc
+	}()
+	@objc private func showImagePicker() {
+		self.showAlertWithChoice()
+	}
+
 	// MARK: - Init
 
 	init(viewModel: ProfileViewModel) {
@@ -33,14 +43,14 @@ class ProfileViewController: UIViewController {
 		self.view = ui
 	}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		setHandlers()
 		setBindListener()
 		fetchDataProfile()
 		getAvatar()
-    }
+	}
 
 
 	// MARK: - Private methods
@@ -159,7 +169,7 @@ private extension ProfileViewController {
 		ui.changeAvatarButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
 
-			self.showAlertChoosePhoto()
+			self.showAlertWithChoice()
 		}
 
 		ui.deleteAvatarButtonHandler = { [ weak self ] in
@@ -262,26 +272,46 @@ private extension ProfileViewController {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-		picker.dismiss(animated: true, completion: nil)
-
-		if let imageURl = info[.imageURL] as? URL {
-			changeAvatar(imageUrl: imageURl)
+		guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+			return
 		}
 
-		if let pickedImage = info[.originalImage] as? UIImage {
-			if let imageData = pickedImage.pngData(),
-			   let imageURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("image.png") {
-				do  {
-					try? imageData.write(to: imageURL)
-					print("Фотография успешно сохранена: \(imageURL)")
-
-					changeAvatar(imageUrl: imageURL)
-				}
+		if let imageData = image.jpegData(compressionQuality: 0.3) {
+			if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+				self.setAvatar(imageData: imageData, image: image)
 			}
 		}
+		picker.dismiss(animated: true, completion: nil)
+	}
+
+
+	func showAlertWithChoice() {
+		let alert = UIAlertController(title: "Choose", message: nil, preferredStyle: .alert)
+
+		alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+			self.imagePicker.sourceType = .camera
+			self.present(self.imagePicker, animated: true)
+		}))
+
+		alert.addAction(UIAlertAction(title: "Photo", style: .default, handler: { _ in
+			self.imagePicker.sourceType = .photoLibrary
+			self.present(self.imagePicker, animated: true)
+		}))
+
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+		present(alert, animated: true)
 	}
 
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		picker.dismiss(animated: true, completion: nil)
+	}
+
+	func setAvatar(imageData: Data, image: UIImage) {
+		viewModel.setAvatar(imageData: imageData) { success in
+			if success {
+				self.ui.setAvatar(avatar: image)
+			}
+		}
 	}
 }

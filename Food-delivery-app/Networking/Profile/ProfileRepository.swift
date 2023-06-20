@@ -15,4 +15,5 @@ protocol ProfileRepository {
 	func changeAvatar(imageData: Data) async throws -> String
 	func deleteAvatar() async throws -> String
 	func logout() async throws -> String
+	func uploadPhoto(imageData: Data, completion: @escaping (Result<Bool, AppError>) -> Void)
 }

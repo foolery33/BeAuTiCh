@@ -141,7 +141,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 			case 404:
 				throw AppError.profileError(.photoNotFound)
 			default:
-				throw AppError.profileError(.modelError)
+				throw AppError.profileError(.serverError)
 			}
 		}
 	}
@@ -150,9 +150,9 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		let url = baseURL + "api/profile/avatar"
 		
 		let dataTask = session.upload(multipartFormData: { multipartFormData in
-			multipartFormData.append(imageData, withName: "file", fileName: "file.png", mimeType: "image/png")
+			multipartFormData.append(imageData, withName: "file", fileName: "file.jpeg", mimeType: "image/jpeg")
 			
-		}, to: url,interceptor: interceptor).serializingString()
+		}, to: url, method: .post, interceptor: interceptor).serializingString()
 		do {
 			return try await dataTask.value
 		} catch {
@@ -167,6 +167,95 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 			default:
 				throw AppError.profileError(.serverError)
 				
+			}
+		}
+	}
+
+	func uploadPhoto(imageData: Data, completion: @escaping (Result<Bool, AppError>) -> Void) {
+		let url = baseURL + "api/profile/avatar"
+		let headers: HTTPHeaders = [
+			"Authorization": "Bearer \(TokenManagerRepositoryImplementation().fetchAccessToken()!)",
+			"Content-type": "multipart/form-data"
+				]
+
+		print(headers)
+
+		session.upload(multipartFormData: { multipartFormData in
+			multipartFormData.append(imageData, withName: "file", fileName: "file.jpg", mimeType: "image/jpg")
+		}, to: url, headers: headers).validate().responseData { response in
+			switch response.result {
+			case .success:
+				completion(.success(true))
+			case .failure(let error):
+				if let requestStatusCode = response.response?.statusCode {
+					switch requestStatusCode {
+					case 400:
+						completion(.failure(.profileError(.modelError)))
+					case 401:
+						completion(.failure(.profileError(.unauthorized)))
+					default:
+						completion(.failure(.profileError(.serverError)))
+					}
+				}
+
+				if let error = error as? AFError {
+							switch error {
+							case .createUploadableFailed(let error):
+								debugPrint("Create Uploadable Failed, description: \(error.localizedDescription)")
+							case .createURLRequestFailed(let error):
+								debugPrint("Create URL Request Failed, description: \(error.localizedDescription)")
+							case .downloadedFileMoveFailed(let error, let source, let destination):
+								debugPrint("Downloaded File Move Failed, description: \(error.localizedDescription)")
+								debugPrint("Source: \(source), Destination: \(destination)")
+							case .explicitlyCancelled:
+								debugPrint("Explicitly Cancelled - \(error.localizedDescription)")
+							case .invalidURL(let url):
+								debugPrint("Invalid URL: \(url) - \(error.localizedDescription)")
+							case .multipartEncodingFailed(let reason):
+								debugPrint("Multipart encoding failed, description: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							case .parameterEncodingFailed(let reason):
+								debugPrint("Parameter encoding failed, description: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							case .parameterEncoderFailed(let reason):
+								debugPrint("Parameter Encoder Failed, description: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							case .requestAdaptationFailed(let error):
+								debugPrint("Request Adaptation Failed, description: \(error.localizedDescription)")
+							case .requestRetryFailed(let retryError, let originalError):
+								debugPrint("Request Retry Failed")
+								debugPrint("Original error description: \(originalError.localizedDescription)")
+								debugPrint("Retry error description: \(retryError.localizedDescription)")
+							case .responseValidationFailed(let reason):
+								debugPrint("Response validation failed, description: \(error.localizedDescription)")
+								switch reason {
+								case .dataFileNil, .dataFileReadFailed:
+									debugPrint("Downloaded file could not be read")
+								case .missingContentType(let acceptableContentTypes):
+									debugPrint("Content Type Missing: \(acceptableContentTypes)")
+								case .unacceptableContentType(let acceptableContentTypes, let responseContentType):
+									debugPrint("Response content type: \(responseContentType) was unacceptable: \(acceptableContentTypes)")
+								case .unacceptableStatusCode(let code):
+									debugPrint("Response status code was unacceptable: \(code)")
+								default: break
+								}
+							case .responseSerializationFailed(let reason):
+								debugPrint("Response serialization failed: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							case .serverTrustEvaluationFailed(let reason):
+								debugPrint("Server Trust Evaluation Failed, description: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							case .sessionDeinitialized:
+								debugPrint("Session Deinitialized, description: \(error.localizedDescription)")
+							case .sessionInvalidated(let error):
+								debugPrint("Session Invalidated, description: \(error?.localizedDescription ?? "")")
+							case .sessionTaskFailed(let error):
+								debugPrint("Session Task Failed, description: \(error.localizedDescription)")
+							case .urlRequestValidationFailed(let reason):
+								debugPrint("Url Request Validation Failed, description: \(error.localizedDescription)")
+								debugPrint("Failure Reason: \(reason)")
+							}
+						}
 			}
 		}
 	}
