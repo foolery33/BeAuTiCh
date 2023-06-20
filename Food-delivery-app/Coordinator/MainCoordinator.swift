@@ -43,4 +43,16 @@ final class MainCoordinator: CoordinatorProtocol {
 
 		navigationController.pushViewController(addAppointmentComponent.addAppointmentViewController, animated: true)
 	}
+
+	func goBack() {
+		navigationController.popViewController(animated: true)
+	}
+
+	func goToServiceSelectionScreen(selectedServiceIds: [UUID]) {
+		let serviceSelectionComponent = componentFactory.getServiceSelectionComponent()
+		serviceSelectionComponent.serviceSelectionViewModel.mainCoordinator = self
+		serviceSelectionComponent.serviceSelectionViewModel.selectedServiceIds = selectedServiceIds
+
+		navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
+	}
 }

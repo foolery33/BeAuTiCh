@@ -42,15 +42,20 @@ private extension AddAppointmentViewController {
 
 		ui.arrowBackButtonHandler = { [weak self] in
 			guard let self = self else { return }
-			
+
+			self.viewModel.goBack()
 		}
 
 		ui.goToShooseServicesButtonHandler = { [weak self] in
 			guard let self = self else { return }
+
+			self.viewModel.goToServiceSelectionScreen()
 		}
 
 		ui.saveButtonHandler = { [weak self] in
 			guard let self = self else { return }
+
+			self.viewModel.saveNewAppointment()
 		}
 	}
 }

@@ -249,14 +249,14 @@ private extension AddAppointmentView {
 	}
 
 	@objc func arrowBackButtonPressed() {
-
+		arrowBackButtonHandler?()
 	}
 
 	@objc func goToShooseServicesButtonPressed() {
-
+		goToShooseServicesButtonHandler?()
 	}
 
 	@objc func saveButtonPressed() {
-
+		saveButtonHandler?()
 	}
 }
