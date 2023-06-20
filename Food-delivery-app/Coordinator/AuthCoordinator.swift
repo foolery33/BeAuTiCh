@@ -43,7 +43,7 @@ final class AuthCoordinator: CoordinatorProtocol {
         loginComponent.loginViewModel.coordinator = self
         
         navigationController.pushViewController(
-            loginComponent.loginViewController, animated: true
+            loginComponent.loginViewController, animated: false
         )
     }
     

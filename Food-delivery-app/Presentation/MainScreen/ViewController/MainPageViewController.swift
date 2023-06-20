@@ -12,7 +12,11 @@ class MainPageViewController: UIPageViewController {
     private let viewModel: MainViewModel
     var onSwipeAction: (() -> ())?
     
-    private var currentIndex: Int = 0
+    private var currentIndex: Int = 0 {
+        didSet {
+            print(currentIndex)
+        }
+    }
     private var nextIndex: Int = 0
     
     init(viewModel: MainViewModel) {
