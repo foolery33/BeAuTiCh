@@ -172,7 +172,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 	}
 
 	func deleteAvatar() async throws -> String {
-		let url = baseURL + "api/profile/password"
+		let url = baseURL + "api/profile/avatar"
 
 		let dataTask = session.request(
 			url,

@@ -87,10 +87,14 @@ class ProfileViewModel {
 		}
 	}
 
-	func getAvatar() async -> UIImageView {
+	func getAvatar() async -> UIImage {
 		do {
 			let data = try await profileRepository.getAvatar()
-			return await UIImageView(image: UIImage(data: data))
+			if let image = UIImage(data: data) {
+				return image
+			} else {
+				return R.image.defaultAvatar() ?? UIImage()
+			}
 
 		} catch (let error) {
 			if let appError = error as? AppError {
@@ -101,12 +105,13 @@ class ProfileViewModel {
 			}
 		}
 
-		return await UIImageView()
+		return R.image.defaultAvatar() ?? UIImage()
 	}
 
-	func changeAvatar(imageData: Data) async {
+	func changeAvatar(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) async {
 		do {
-			_ = try await profileRepository.changeAvatar(imageData: imageData)
+			let data = convertPhotoToDataUseCase.getDataPhoto(didFinishPickingMediaWithInfo: info)
+			_ = try await profileRepository.changeAvatar(imageData: data)
 
 		} catch (let error) {
 			if let appError = error as? AppError {
@@ -130,5 +135,9 @@ class ProfileViewModel {
 				self.errorMessage.updateModel(with: error.localizedDescription)
 			}
 		}
+	}
+
+	func getDataOfPhoto() {
+		
 	}
 }

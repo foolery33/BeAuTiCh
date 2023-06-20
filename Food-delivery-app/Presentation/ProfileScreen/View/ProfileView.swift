@@ -178,6 +178,10 @@ class ProfileView: UIView {
 
 		return nil
 	}
+
+	func setAvatar(avatar: UIImage) {
+		avatarImageView.image = avatar
+	}
 }
 
 
@@ -200,12 +204,11 @@ private extension ProfileView {
 		self.addSubview(nameLabel)
 		self.addSubview(informationStack)
 		self.addSubview(buttonsStack)
+		self.addSubview(changeAvatarButton)
+		self.addSubview(deleteAvatarButton)
 
 		informationStack.addArrangedSubview(phoneLabel)
 		informationStack.addArrangedSubview(emailLabel)
-
-		avatarImageView.addSubview(changeAvatarButton)
-		avatarImageView.addSubview(deleteAvatarButton)
 
 		buttonsStack.addArrangedSubview(changeDataProfileButton)
 		buttonsStack.addArrangedSubview(changePasswordButton)
@@ -223,16 +226,17 @@ private extension ProfileView {
 
 		avatarImageView.snp.makeConstraints { make in
 			make.top.horizontalEdges.equalToSuperview()
+			make.height.equalTo(193)
 		}
 
 		changeAvatarButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(6)
-			make.bottom.equalToSuperview().offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
 		}
 
 		deleteAvatarButton.snp.makeConstraints { make in
 			make.leading.equalToSuperview().inset(6)
-			make.bottom.equalToSuperview().offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
 		}
 
 		nameLabel.snp.makeConstraints { make in

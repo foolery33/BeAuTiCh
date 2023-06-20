@@ -107,6 +107,35 @@ class ProfileViewController: UIViewController {
 		self.present(alertController, animated: true)
 	}
 
+	private func showAlertChoosePhoto() {
+		let alertController = UIAlertController(title: "Выберите источник фотографии", message: nil, preferredStyle: .alert)
+		let actionChooseCamera = UIAlertAction(title: "Камера", style: .default) { _ in
+			let imagePicker = UIImagePickerController()
+			imagePicker.delegate = self
+			imagePicker.sourceType = .camera
+			imagePicker.allowsEditing = true
+
+			imagePicker.showsCameraControls = true
+
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		let actionChooseGalery = UIAlertAction(title: "Галерея", style: .default) { _ in
+			let imagePicker = UIImagePickerController()
+			imagePicker.delegate = self
+			imagePicker.allowsEditing = true
+
+			self.present(imagePicker, animated: true, completion: nil)
+		}
+		let actionCancel = UIAlertAction(title: "Закрыть", style: .cancel, handler: nil)
+
+		alertController.addAction(actionChooseGalery)
+		alertController.addAction(actionChooseCamera)
+		alertController.addAction(actionCancel)
+
+
+		self.present(alertController, animated: true, completion: nil)
+	}
+
 	private func showError(_ error: String) {
 		let alertController = UIAlertController(title: "Внимание!", message: error, preferredStyle: .alert)
 		let action = UIAlertAction(title: "Закрыть", style: .cancel)
@@ -130,7 +159,7 @@ private extension ProfileViewController {
 		ui.changeAvatarButtonHandler = { [ weak self ] in
 			guard let self = self else { return }
 
-			self.changeAvatar()
+			self.showAlertChoosePhoto()
 		}
 
 		ui.deleteAvatarButtonHandler = { [ weak self ] in
@@ -197,14 +226,13 @@ private extension ProfileViewController {
 
 	func getAvatar() {
 		Task {
-			await viewModel.getAvatar()
+			ui.setAvatar(avatar: await viewModel.getAvatar())
 		}
 	}
 
-	func changeAvatar() {
+	func changeAvatar(didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		Task {
-			let imageData = Data()
-			await viewModel.changeAvatar(imageData: imageData)
+			await viewModel.changeAvatar(didFinishPickingMediaWithInfo: info)
 		}
 	}
 
@@ -218,5 +246,20 @@ private extension ProfileViewController {
 		Task {
 			await viewModel.logout()
 		}
+	}
+}
+
+//- MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+		picker.dismiss(animated: true, completion: nil)
+
+		changeAvatar(didFinishPickingMediaWithInfo: info[.imageURL] as! [UIImagePickerController.InfoKey : Any])
+	}
+
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		picker.dismiss(animated: true, completion: nil)
 	}
 }
