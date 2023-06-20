@@ -123,6 +123,9 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
     var profileRepository: ProfileRepository {
         return mainComponent.profileRepository
     }
+    var convertPhotoToDataUseCase: ConvertPhotoToDataUseCase {
+        return mainComponent.convertPhotoToDataUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -196,6 +199,7 @@ extension RegisterComponent: Registration {
 extension ProfileComponent: Registration {
     public func registerItems() {
         keyPathToName[\ProfileComponentDependency.profileRepository] = "profileRepository-ProfileRepository"
+        keyPathToName[\ProfileComponentDependency.convertPhotoToDataUseCase] = "convertPhotoToDataUseCase-ConvertPhotoToDataUseCase"
     }
 }
 extension LoginComponent: Registration {

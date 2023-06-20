@@ -60,7 +60,7 @@ final class MainComponent: BootstrapComponent {
         }
     }
 
-	var getDataPhoto: ConvertPhotoToDataUseCase {
+	var convertPhotoToDataUseCase: ConvertPhotoToDataUseCase {
 		shared {
 			ConvertPhotoToDataUseCase()
 		}

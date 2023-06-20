@@ -16,7 +16,7 @@ final class ConvertPhotoToDataUseCase {
 		}
 
 		if let pickedImage = info[.originalImage] as? UIImage {
-			if let imageData = pickedImage.jpegData(compressionQuality: 0.8),
+			if let imageData = pickedImage.pngData(),
 			   let imageUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("image.png") {
 				do  {
 					try? imageData.write(to: imageUrl)
