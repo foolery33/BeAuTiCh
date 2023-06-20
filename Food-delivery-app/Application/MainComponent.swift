@@ -89,6 +89,12 @@ final class MainComponent: BootstrapComponent {
             ConvertISODateStringToDdMmYyyyUseCase()
         }
     }
+
+	var convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase {
+		shared {
+			ConvertDateToDdMmYyyyHhMmSsUseCase()
+		}
+	}
     
     // MARK: - Repositories
     
@@ -188,6 +194,12 @@ final class MainComponent: BootstrapComponent {
 	var detailsAppointment: DetailsAppointmentComponent {
 		shared {
 			DetailsAppointmentComponent(parent: self)
+		}
+	}
+
+	var addAppointmentComponent: AddAppointmentComponent {
+		shared {
+			AddAppointmentComponent(parent: self)
 		}
 	}
 }

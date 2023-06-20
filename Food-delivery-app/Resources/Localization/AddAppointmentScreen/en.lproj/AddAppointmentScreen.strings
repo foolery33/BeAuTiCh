@@ -1,0 +1,17 @@
+/* 
+  AddAppointmentScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 20.06.2023.
+  
+*/
+
+"title_screen" = "Add appointment";
+"input_client_name" = "Input client's name";
+"input_client_name_placeholder" = "Input name*";
+"input_date" = "Select the date and time of recording";
+"input_date_placeholder" = "Select date";
+"input_phone" = "Input client's phone";
+"input_phone_placeholder" = "Input phone";
+"shoose_services" = "Select services";
+"save" = "Save";

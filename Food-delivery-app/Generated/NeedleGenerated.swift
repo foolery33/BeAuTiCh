@@ -181,6 +181,19 @@ private class ProfileComponentDependency919001f509df49c9c523Provider: ProfileCom
 private func factory85f38151f9d92062292c0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return ProfileComponentDependency919001f509df49c9c523Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class AddAppointmentComponentDependencyae4377318630ce797794Provider: AddAppointmentComponentDependency {
+    var convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase {
+        return mainComponent.convertDateToDdMmYyyyHhMmSsUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
+    }
+}
+/// ^->MainComponent->AddAppointmentComponent
+private func factoryc2319cbfa45f5603b7590ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return AddAppointmentComponentDependencyae4377318630ce797794Provider(mainComponent: parent1(component) as! MainComponent)
+}
 private class LoginComponentDependency09f1bea0f04d764af082Provider: LoginComponentDependency {
 
 
@@ -266,6 +279,11 @@ extension ProfileComponent: Registration {
         keyPathToName[\ProfileComponentDependency.convertPhotoToDataUseCase] = "convertPhotoToDataUseCase-ConvertPhotoToDataUseCase"
     }
 }
+extension AddAppointmentComponent: Registration {
+    public func registerItems() {
+        keyPathToName[\AddAppointmentComponentDependency.convertDateToDdMmYyyyHhMmSsUseCase] = "convertDateToDdMmYyyyHhMmSsUseCase-ConvertDateToDdMmYyyyHhMmSsUseCase"
+    }
+}
 extension LoginComponent: Registration {
     public func registerItems() {
 
@@ -299,6 +317,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d79e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->AddAppointmentComponent", factoryc2319cbfa45f5603b7590ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
 }
 #endif
