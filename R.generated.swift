@@ -176,7 +176,7 @@ struct _R {
       var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 10 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 24 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -186,6 +186,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var appointments_loading_error: RswiftResources.StringResource { .init(key: "appointments_loading_error", tableName: "Errors", source: source, developmentValue: "Appointments loading error", comment: nil) }
+
+      /// en translation: User with such e-mail already exists
+      ///
+      /// Key: conflicting_credentials
+      ///
+      /// Locales: en, ru
+      var conflicting_credentials: RswiftResources.StringResource { .init(key: "conflicting_credentials", tableName: "Errors", source: source, developmentValue: "User with such e-mail already exists", comment: nil) }
 
       /// en translation: You've provided different passwords. Please make sure they are equal
       ///
@@ -305,6 +312,7 @@ struct _R {
       ///
       /// Locales: en, ru
       var photo_not_found: RswiftResources.StringResource { .init(key: "photo_not_found", tableName: "Errors", source: source, developmentValue: "Profile picture not found", comment: nil) }
+
       /// en translation: Register error
       ///
       /// Key: register_error
@@ -613,7 +621,6 @@ struct _R {
       var title_alert_input_data: RswiftResources.StringResource { .init(key: "title_alert_input_data", tableName: "ProfileScreen", source: source, developmentValue: "Input data", comment: nil) }
     }
 
-    /// This `_R.string.registerScreen` struct is generated, and contains static references to 8 localization keys.
     /// This `_R.string.registerScreen` struct is generated, and contains static references to 10 localization keys.
     struct registerScreen {
       let source: RswiftResources.StringResource.Source
