@@ -23,16 +23,19 @@ class NoteView: UIView {
         super.init(frame: .zero)
         setupNoteView()
     }
-    
-    enum Metrics {
-        static let a = 12
-    }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+	var viewPressedHandler: (() -> Void)?
+
+	private enum Metrics {
+		static let a = 12
+	}
     
     private func setupNoteView() {
+		isUserInteractionEnabled = true
         backgroundColor = R.color.softWhite()
         layer.cornerRadius = 23
         layer.masksToBounds = true
@@ -131,5 +134,13 @@ class NoteView: UIView {
     private func setupCostLabel() {
         timeAndCostStackView.addArrangedSubview(costLabel)
     }
-    
+
+	func configureActions() {
+		self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewTapped)))
+	}
+
+	@objc
+	private func viewTapped() {
+		viewPressedHandler?()
+	}
 }
