@@ -96,6 +96,7 @@ class YourServicesViewController: UIViewController {
 			toolbar.sizeToFit()
 
 			let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.onFromDateDoneButtonPressed))
+			doneButton.tintColor = R.color.vinous()
  			toolbar.setItems([doneButton], animated: true)
 
 			durationTextField.inputAccessoryView = toolbar
