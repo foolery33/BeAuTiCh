@@ -271,4 +271,10 @@ final class MainComponent: BootstrapComponent {
 			AddAppointmentComponent(parent: self)
 		}
 	}
+	
+	var editAppointmentComponent: EditAppointmentComponent {
+		shared {
+			EditAppointmentComponent(parent: self)
+		}
+	}
 }

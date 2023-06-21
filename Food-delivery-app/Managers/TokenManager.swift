@@ -25,8 +25,7 @@ final class TokenManagerRepositoryImplementation: TokenManagerRepository {
     }
     
     func fetchAccessToken() -> String? {
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImM2NWUxYTAyLTA2ZWQtNDI3MS05MjczLWY0ZDhmOTljYjUyZCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IldvcmtlciIsIm5iZiI6MTY4NzI2MDAzOSwiZXhwIjoxNjg3MjYxMjM5LCJpc3MiOiJKd3RJc3N1ZXIiLCJhdWQiOiJKd3RDbGllbnQifQ.Xb8DgZNWCtfvyHCspIVSx_IDCoNfDI0G13q-LYf4Y2I"
-//        KeychainSwift().get(KeyNames.accessToken)
+        KeychainSwift().get(KeyNames.accessToken)
     }
     
     func fetchRefreshToken() -> String? {
