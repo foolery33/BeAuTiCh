@@ -588,8 +588,8 @@
 		8450B0FB2A261D8E00273956 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				F3DAB9082A3E033200E31487 /* MainCoordinator.swift */,
 				8450B0FC2A261D9600273956 /* Protocols */,
+				F3DAB9082A3E033200E31487 /* MainCoordinator.swift */,
 				8450B0FF2A261DBF00273956 /* AppCoordinator.swift */,
 				8450B1042A261FA900273956 /* AuthCoordinator.swift */,
 				84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */,
