@@ -15,4 +15,8 @@ final class SettingsViewModel {
     func goToServicesScreen(delegate: SheetViewControllerDelegate) {
         coordinator?.goToServicesScreen(delegate: delegate)
     }
+
+	func isThereSubscription() -> Bool {
+		return true
+	}
 }

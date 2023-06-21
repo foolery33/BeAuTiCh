@@ -37,12 +37,14 @@ class InformationSubscribeViewController: UIViewController {
     //MARK: - Life cycle
     
     override func loadView() {
+		checkingForSubscriptionAvailability()
+
         self.view = ui
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setHandlers()
     }
     
@@ -75,4 +77,10 @@ private extension InformationSubscribeViewController {
             
         }
     }
+}
+
+private extension InformationSubscribeViewController {
+	func checkingForSubscriptionAvailability() {
+		viewModel.isThereSubscription() ? ui.setupScreen() : ui.setupPlug()
+	}
 }

@@ -342,7 +342,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d790ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->AddAppointmentComponent", factoryc2319cbfa45f5603b7590ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f7e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->LoginComponent", factory7d788d11c001389505f70ae93e637f014511a119)
 }
 #endif
 
