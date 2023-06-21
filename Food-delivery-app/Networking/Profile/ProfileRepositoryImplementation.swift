@@ -9,7 +9,6 @@ import Alamofire
 import UIKit
 
 final class ProfileRepositoryImplementation: ProfileRepository {
-	
 	// MARK: - Private properties
 	private let tokenManagerRepository: TokenManagerRepository
 	private let baseURL = "http://94.250.248.129:10000/"
@@ -123,7 +122,6 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		let url = baseURL + "api/profile/avatar"
 		let dataTask = AF.request(
 			url,
-			method: .post,
 			interceptor: interceptor).serializingData()
 		do {
 			return try await dataTask.value

@@ -108,21 +108,6 @@ class ProfileViewModel {
 		return R.image.defaultAvatar() ?? UIImage()
 	}
 
-	func changeAvatar(imageUrl: URL) async {
-		do {
-			guard let fileData = readFileDataFromFileURL(fileURL: imageUrl) else { return }
-			_ = try await profileRepository.changeAvatar(imageData: fileData)
-
-		} catch (let error) {
-			if let appError = error as? AppError {
-				self.errorMessage.updateModel(with: appError.errorDescription)
-
-			} else {
-				self.errorMessage.updateModel(with: error.localizedDescription)
-			}
-		}
-	}
-
 	func setAvatar(imageData: Data, completion: @escaping (Bool) -> Void) {
 		profileRepository.uploadPhoto(imageData: imageData) { [weak self] result in
 			switch result {

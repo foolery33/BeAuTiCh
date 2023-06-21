@@ -252,14 +252,6 @@ private extension ProfileViewController {
 		}
 	}
 
-	func changeAvatar(imageUrl: URL) {
-		self.ui.setupActivityIndicator()
-		Task {
-			await viewModel.changeAvatar(imageUrl: imageUrl)
-			self.ui.stopActivityIndicator()
-		}
-	}
-
 	func deleteAvatar() {
 		self.ui.setupActivityIndicator()
 		Task {
