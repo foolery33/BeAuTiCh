@@ -1,5 +1,5 @@
 //
-//  ServiceTagsView.swift
+//  ServiceTagsAppointmentView.swift
 //  Food-delivery-app
 //
 //  Created by Елена on 20.06.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ServiceTagsView: UIView {
+class ServiceTagsAppointmentView: UIView {
 
 	private enum Metrics {
 		static let tagHeight: CGFloat = 30
@@ -68,10 +68,12 @@ class ServiceTagsView: UIView {
 			newLabel.textColor = R.color.white()
 			newLabel.font = R.font.redHatDisplaySemiBold(size: 12)
 			newLabel.textAlignment = .center
-			newLabel.layer.masksToBounds = true
-			newLabel.layer.cornerRadius = 7
 			newLabel.layer.borderColor = R.color.white()?.cgColor
 			newLabel.layer.borderWidth = 0.3
+			newLabel.layer.masksToBounds = true
+			newLabel.layer.cornerRadius = 7
+
+			self.addSubview(newLabel)
 		}
 
 		for (tag, v) in zip(services, self.subviews) {
@@ -82,9 +84,8 @@ class ServiceTagsView: UIView {
 			label.text = tag.name
 			label.frame.size.width = label.intrinsicContentSize.width + Metrics.tagPadding
 			label.frame.size.height = Metrics.tagHeight
-
-			label.isUserInteractionEnabled = true
 		}
+
 	}
 
 	func displayTagLabels() {
