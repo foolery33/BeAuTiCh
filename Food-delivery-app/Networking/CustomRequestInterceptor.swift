@@ -55,9 +55,9 @@ class CustomRequestInterceptor: RequestInterceptor {
     }
     
     private func refreshToken(completion: @escaping (() -> Void)) {
-        let body = [
-            "accessToken": tokenManagerRepository.fetchAccessToken(),
-            "refreshToken": tokenManagerRepository.fetchRefreshToken()
+        let body: [String: String] = [
+            "accessToken": tokenManagerRepository.fetchAccessToken() ?? "",
+            "refreshToken": tokenManagerRepository.fetchRefreshToken() ?? ""
         ]
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"

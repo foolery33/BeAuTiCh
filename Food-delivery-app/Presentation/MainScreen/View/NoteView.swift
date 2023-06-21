@@ -10,25 +10,28 @@ import SnapKit
 
 class NoteView: UIView {
 
+    private let appointment: AppointmentModel
     private let customerName: String
     private let serviceName: [String]
     private let time: String
     private let cost: Int
     
-    init(customerName: String, serviceName: [String], time: String, cost: Int) {
+    init(appointment: AppointmentModel, customerName: String, serviceName: [String], time: String, cost: Int) {
+        self.appointment = appointment
         self.customerName = customerName
         self.serviceName = serviceName
         self.time = time
         self.cost = cost
         super.init(frame: .zero)
         setupNoteView()
+        configureActions()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-	var viewPressedHandler: (() -> Void)?
+	var viewPressedHandler: ((AppointmentModel) -> Void)?
 
 	private enum Metrics {
 		static let a = 12
@@ -141,6 +144,6 @@ class NoteView: UIView {
 
 	@objc
 	private func viewTapped() {
-		viewPressedHandler?()
+		viewPressedHandler?(appointment)
 	}
 }

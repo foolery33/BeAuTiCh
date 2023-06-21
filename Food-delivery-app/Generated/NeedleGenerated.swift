@@ -18,6 +18,9 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
 private class MainScreenComponentDependencyf7fb8b48e001394384acProvider: MainScreenComponentDependency {
+    var appointmentRepository: AppointmentRepository {
+        return mainComponent.appointmentRepository
+    }
     var getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase {
         return mainComponent.getDaysOfWeekForDateUseCase
     }
@@ -35,6 +38,12 @@ private class MainScreenComponentDependencyf7fb8b48e001394384acProvider: MainScr
     }
     var isTodayUseCase: IsTodayUseCase {
         return mainComponent.isTodayUseCase
+    }
+    var getSortedWeekAppointmentsUseCase: GetSortedWeekAppointmentsUseCase {
+        return mainComponent.getSortedWeekAppointmentsUseCase
+    }
+    var changeDateTimeStringToHhMmUseCase: ChangeDateTimeStringToHhMmUseCase {
+        return mainComponent.changeDateTimeStringToHhMmUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -247,12 +256,15 @@ extension MainComponent: Registration {
 }
 extension MainScreenComponent: Registration {
     public func registerItems() {
+        keyPathToName[\MainScreenComponentDependency.appointmentRepository] = "appointmentRepository-AppointmentRepository"
         keyPathToName[\MainScreenComponentDependency.getDaysOfWeekForDateUseCase] = "getDaysOfWeekForDateUseCase-GetDaysOfWeekForDateUseCase"
         keyPathToName[\MainScreenComponentDependency.getWeekdayIndexForDateUseCase] = "getWeekdayIndexForDateUseCase-GetWeekdayIndexForDateUseCase"
         keyPathToName[\MainScreenComponentDependency.getDayOfWeekByDateUseCase] = "getDayOfWeekByDateUseCase-GetDayOfWeekByDateUseCase"
         keyPathToName[\MainScreenComponentDependency.getDayOfMonthByDateUseCase] = "getDayOfMonthByDateUseCase-GetDayOfMonthByDateUseCase"
         keyPathToName[\MainScreenComponentDependency.getDateWithOffsetUseCase] = "getDateWithOffsetUseCase-GetDateWithOffsetUseCase"
         keyPathToName[\MainScreenComponentDependency.isTodayUseCase] = "isTodayUseCase-IsTodayUseCase"
+        keyPathToName[\MainScreenComponentDependency.getSortedWeekAppointmentsUseCase] = "getSortedWeekAppointmentsUseCase-GetSortedWeekAppointmentsUseCase"
+        keyPathToName[\MainScreenComponentDependency.changeDateTimeStringToHhMmUseCase] = "changeDateTimeStringToHhMmUseCase-ChangeDateTimeStringToHhMmUseCase"
     }
 }
 extension StartComponent: Registration {

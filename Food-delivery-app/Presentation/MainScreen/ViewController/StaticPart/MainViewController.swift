@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
+        getTimezoneAppointments()
     }
     
     required init?(coder: NSCoder) {
@@ -23,13 +24,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubviews()
-        setupPageViewController()
     }
     
     private func setupSubviews() {
         setupContentView()
-        setupPageViewController()
     }
     
     // MARK: - ContentView setup
@@ -177,6 +175,19 @@ extension MainViewController {
     func setSwipeAction() {
         pageViewController.onSwipeAction = { [weak self] in
             self?.dateLineStackView.updateDates()
+        }
+    }
+}
+
+private extension MainViewController {
+    func getTimezoneAppointments() {
+        Task {
+            if await viewModel.getTimezoneAppointments() {
+                setupPageViewController()
+            }
+            else {
+                showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)
+            }
         }
     }
 }

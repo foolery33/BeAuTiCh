@@ -62,7 +62,6 @@ extension SearchViewController {
     func getAppointmentList() {
         Task {
             if await viewModel.getAppointmentList() {
-                print(viewModel.appointmentList)
                 ui.appointmentList = viewModel.appointmentList
                 ui.updateAppointmentsStackView(currentAppointments: viewModel.appointmentList)
             }

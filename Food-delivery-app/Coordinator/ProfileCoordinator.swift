@@ -26,6 +26,7 @@ class ProfileCoordinator: CoordinatorProtocol {
 		var appc = parentCoordinator as? AppCoordinator
 
 		// TODO: очистить необходимые данные
+        TokenManagerRepositoryImplementation().clearData()
 
 		appc?.goToAuth()
 		appc?.childDidFinish(self)

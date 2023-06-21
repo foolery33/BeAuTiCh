@@ -39,7 +39,6 @@ final class SearchViewModel {
             endDate: endDate,
             servicesId: servicesId.map { $0.uuidString }
         )
-        print(parameters)
         do {
             self.appointmentList = try await appointmentRepository.getFilteredAppointments(parameters: parameters)
             return true

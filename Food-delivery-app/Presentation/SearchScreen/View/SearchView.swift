@@ -153,12 +153,13 @@ class SearchView: UIView {
 extension SearchView {
     
     func setupNotes() {
-        for serviceNote in appointmentList ?? [] {
+        for appointment in appointmentList ?? [] {
             createNote(
-                customerName: serviceNote.clientName,
-                serviceName: serviceNote.services.map { $0.name },
-                time: (convertTime ?? { _ in return "" })(serviceNote.startDateTime),
-                cost: Int(serviceNote.price)
+                appointment: appointment,
+                customerName: appointment.clientName,
+                serviceName: appointment.services.map { $0.name },
+                time: (convertTime ?? { _ in return "" })(appointment.startDateTime),
+                cost: appointment.price
             )
         }
   
@@ -166,8 +167,8 @@ extension SearchView {
         rightStackView.addArrangedSubview(createEmptyView())
     }
     
-    private func createNote(customerName: String, serviceName: [String], time: String, cost: Int) {
-        let newNote = NoteView(customerName: customerName, serviceName: serviceName, time: time, cost: cost)
+    private func createNote(appointment: AppointmentModel, customerName: String, serviceName: [String], time: String, cost: Double) {
+        let newNote = NoteView(appointment: appointment, customerName: customerName, serviceName: serviceName, time: time, cost: Int(cost))
         notes.append(newNote)
         if notes.count % 2 == 1 {
             leftStackView.addArrangedSubview(newNote)
@@ -186,12 +187,7 @@ extension SearchView {
     }
     
     func updateAppointmentsStackView(currentAppointments: [AppointmentModel]) {
-        print(currentAppointments.count)
-        print(leftStackView)
-//        print(leftStackView.arrangedSubviews.count)
-//        print(rightStackView.arrangedSubviews.count)
-//        print(notes)
-//
+
         for subview in leftStackView.arrangedSubviews  {
             subview.removeFromSuperview()
         }
@@ -203,17 +199,16 @@ extension SearchView {
         // Добавление в список отфильтрованных записей
         for appointment in currentAppointments {
             createNote(
+                appointment: appointment,
                 customerName: appointment.clientName,
                 serviceName: appointment.services.map { $0.name },
                 time: (convertTime ?? { _ in return "" })(appointment.startDateTime),
-                cost: Int(appointment.price)
+                cost: appointment.price
             )
         }
         leftStackView.addArrangedSubview(createEmptyView())
         rightStackView.addArrangedSubview(createEmptyView())
-        
-//        print(leftStackView.arrangedSubviews.count)
-//        print(rightStackView.arrangedSubviews.count)
+
     }
     
 }
