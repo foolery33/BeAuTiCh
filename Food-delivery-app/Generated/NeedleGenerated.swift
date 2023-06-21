@@ -106,6 +106,9 @@ private class YourServicesComponentDependencyd4e3d4cc6d212e056730Provider: YourS
     var servicesRepository: ServicesRepository {
         return mainComponent.servicesRepository
     }
+    var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase {
+        return mainComponent.convertToTimeHhMmSsUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -278,6 +281,7 @@ extension YourServicesComponent: Registration {
     public func registerItems() {
         keyPathToName[\YourServicesComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
         keyPathToName[\YourServicesComponentDependency.servicesRepository] = "servicesRepository-ServicesRepository"
+        keyPathToName[\YourServicesComponentDependency.convertToTimeHhMmSsUseCase] = "convertToTimeHhMmSsUseCase-ConvertToTimeHhMmSsUseCase"
     }
 }
 extension SettingsComponent: Registration {

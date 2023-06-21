@@ -164,7 +164,13 @@ final class MainComponent: BootstrapComponent {
 			ConvertStringToDateDdMmYyyyUseCase()
 		}
 	}
-    
+
+	var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase {
+		shared {
+			ConvertToTimeHhMmSsUseCase()
+		}
+	}
+
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {

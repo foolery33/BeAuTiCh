@@ -18,9 +18,8 @@ class YourServicesViewController: UIViewController {
 
 	private lazy var dateTimeAppointmentPicker: UIDatePicker = {
 		let view = UIDatePicker()
-		view.datePickerMode = .dateAndTime
+		view.datePickerMode = .countDownTimer
 		view.preferredDatePickerStyle = .wheels
-		view.minimumDate = Date()
 		return view
 	}()
     
@@ -254,14 +253,14 @@ private extension YourServicesViewController {
 	}
 
 	@objc func onFromDateDoneButtonPressed() {
-//		alertController.textFields?[2].text = (convertDateToDdMmYyyy ?? { _ in return "" })(dateTimeAppointmentPicker.date)
-//		({ _ in })("\(dateTimeAppointmentPicker.date)")
+		alertController.textFields?[2].text = viewModel.convertTimeToHhMmSs(dateTimeAppointmentPicker.date)
+		({ _ in })("\(dateTimeAppointmentPicker.date)")
 
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateStyle = .medium
-		dateFormatter.timeStyle = .none
-
-		alertController.textFields?[2].text = dateFormatter.string(from: dateTimeAppointmentPicker.date)
+//		let dateFormatter = DateFormatter()
+//		dateFormatter.dateStyle = .medium
+//		dateFormatter.timeStyle = .none
+//
+//		alertController.textFields?[2].text = dateFormatter.string(from: dateTimeAppointmentPicker.date)
 		view.endEditing(true)
 	}
 }

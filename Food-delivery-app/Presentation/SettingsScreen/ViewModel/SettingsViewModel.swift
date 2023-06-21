@@ -16,12 +16,15 @@ final class SettingsViewModel {
 
 	private var subscribeRepository: SubscribeRepository?
 	private let servicesRepository: ServicesRepository?
+
+	private let convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase?
 	private let convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?
 
-	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?, servicesRepository: ServicesRepository?) {
+	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?, servicesRepository: ServicesRepository?, convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase?) {
 		self.subscribeRepository = subscribeRepository
 		self.convertStringToDateDdMmYyyyUseCase = convertStringToDateDdMmYyyyUseCase
 		self.servicesRepository = servicesRepository
+		self.convertToTimeHhMmSsUseCase = convertToTimeHhMmSsUseCase
 	}
 
 	func goToInformationSubcribeScreen(delegate: SheetViewControllerDelegate) {
@@ -106,6 +109,10 @@ final class SettingsViewModel {
 
 	func convertDateToDdMmYyyy(_ date: String) -> String {
 		return convertStringToDateDdMmYyyyUseCase?.convert(date) ?? date
+	}
+
+	func convertTimeToHhMmSs(_ time: Date) -> String {
+		return convertToTimeHhMmSsUseCase?.convert(time) ?? "\(time)"
 	}
 
 	func fetchCustomServices() async {

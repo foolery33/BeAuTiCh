@@ -11,12 +11,13 @@ import UIKit
 protocol YourServicesComponentDependency: Dependency {
 	var subscribeRepository: SubscribeRepository { get }
 	var servicesRepository: ServicesRepository { get }
+	var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase { get }
 }
 
 final class YourServicesComponent: Component<YourServicesComponentDependency> {
     var settingViewModel: SettingsViewModel {
         shared {
-			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: nil, servicesRepository: dependency.servicesRepository)
+			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: nil, servicesRepository: dependency.servicesRepository, convertToTimeHhMmSsUseCase: dependency.convertToTimeHhMmSsUseCase)
         }
     }
     
