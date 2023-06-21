@@ -1100,7 +1100,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 32 images.
+  /// This `_R.image` struct is generated, and contains static references to 34 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -1143,6 +1143,9 @@ struct _R {
     /// Image `LaunchScreen`.
     var launchScreen: RswiftResources.ImageResource { .init(name: "LaunchScreen", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `LeftCircleElement`.
+    var leftCircleElement: RswiftResources.ImageResource { .init(name: "LeftCircleElement", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `LeftLines`.
     var leftLines: RswiftResources.ImageResource { .init(name: "LeftLines", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -1160,6 +1163,9 @@ struct _R {
 
     /// Image `PlusService`.
     var plusService: RswiftResources.ImageResource { .init(name: "PlusService", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `RightCircleElement`.
+    var rightCircleElement: RswiftResources.ImageResource { .init(name: "RightCircleElement", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `RightLines`.
     var rightLines: RswiftResources.ImageResource { .init(name: "RightLines", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
