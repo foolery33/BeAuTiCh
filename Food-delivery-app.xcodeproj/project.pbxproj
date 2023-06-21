@@ -99,7 +99,7 @@
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F327133B2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327133A2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift */; };
-		F32713412A41E4ED005B8AC9 /* ServiceTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713402A41E4ED005B8AC9 /* ServiceTagsView.swift */; };
+		F32713412A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */; };
 		F32713492A41FBED005B8AC9 /* AddAppointmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713482A41FBED005B8AC9 /* AddAppointmentComponent.swift */; };
 		F327134B2A41FBF2005B8AC9 /* AddAppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327134A2A41FBF2005B8AC9 /* AddAppointmentViewModel.swift */; };
 		F327134D2A41FBF8005B8AC9 /* AddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327134C2A41FBF8005B8AC9 /* AddAppointmentViewController.swift */; };
@@ -276,7 +276,7 @@
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F327133A2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentModel.swift; sourceTree = "<group>"; };
-		F32713402A41E4ED005B8AC9 /* ServiceTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagsView.swift; sourceTree = "<group>"; };
+		F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagsAppointmentView.swift; sourceTree = "<group>"; };
 		F32713482A41FBED005B8AC9 /* AddAppointmentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentComponent.swift; sourceTree = "<group>"; };
 		F327134A2A41FBF2005B8AC9 /* AddAppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentViewModel.swift; sourceTree = "<group>"; };
 		F327134C2A41FBF8005B8AC9 /* AddAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentViewController.swift; sourceTree = "<group>"; };
@@ -1195,7 +1195,7 @@
 			isa = PBXGroup;
 			children = (
 				F35DBFAB2A41CA2A00B350F0 /* DetailsAppointmentView.swift */,
-				F32713402A41E4ED005B8AC9 /* ServiceTagsView.swift */,
+				F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1789,7 +1789,7 @@
 				F327134B2A41FBF2005B8AC9 /* AddAppointmentViewModel.swift in Sources */,
 				F32713672A421979005B8AC9 /* EditAppointmentViewController.swift in Sources */,
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
-				F32713412A41E4ED005B8AC9 /* ServiceTagsView.swift in Sources */,
+				F32713412A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
 				F327137B2A42B4EC005B8AC9 /* SubscribeModel.swift in Sources */,
 				84B76A672A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift in Sources */,

@@ -47,7 +47,7 @@ class DetailsAppointmentView: UIView {
 		return view
 	}()
 
-	private lazy var serviceTags = ServiceTagsView()
+	private lazy var serviceTags = ServiceTagsAppointmentView()
 
 	private lazy var informationTitleStack: UIStackView = {
 		let view = UIStackView()
@@ -193,12 +193,11 @@ class DetailsAppointmentView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
+а
 	// MARK: - Configure
 	func configure(with model: AppointmentModel) {
 		clientName.text = model.clientName
-		//TODO: проверить, что строка ниже функционирует нормально после подключения запроса, сейчас не работает видимо из-за UUID
-		//serviceTags.services = model.services
+		serviceTags.services = model.services
 		startTimeAppointmentLabel.text = model.startDateTime
 		endTimeAppointmentLabel.text = model.endDateTime
 
