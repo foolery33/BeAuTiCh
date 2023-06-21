@@ -11,31 +11,81 @@ class EditAppointmentViewModel {
 	weak var coordinator: MainCoordinator?
 
 	private let convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase
+    private let convertDdMmYyyyHhMmSsToISOUseCase: ConvertDdMmYyyyHhMmSsToISOUseCase
+    private let appointmentRepository: AppointmentRepository
 
 	var selectedServiceIds: [UUID] = []
+    var selectedServiceShortModels: [ServiceShortModel] = []
 	var appointment = Observable<AppointmentModel>()
+    
+    var clientName: String = ""
+    var appointmentDate: String?
+    var phoneNumber: String?
+    
+    var error: String = ""
 
-	init(convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase) {
+    init(convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase, convertDdMmYyyyHhMmSsToISOUseCase: ConvertDdMmYyyyHhMmSsToISOUseCase, appointmentRepository: AppointmentRepository) {
 		self.convertDateToDdMmYyyyHhMmSsUseCase = convertDateToDdMmYyyyHhMmSsUseCase
-
-		let appointment = AppointmentModel(id: UUID(), clientName: "Blabla", services: [], price: 0, clientPhone: "1234678911", startDateTime: "2023-06-20T17:44:14.681Z", endDateTime: "2023-07-20T17:44:14.681Z", status: .new)
-
-		self.appointment.updateModel(with: appointment)
+        self.convertDdMmYyyyHhMmSsToISOUseCase = convertDdMmYyyyHhMmSsToISOUseCase
+        self.appointmentRepository = appointmentRepository
 	}
+    
+    func setAppointmentModel(appointmentModel: AppointmentModel) {
+        self.appointment.updateModel(with: appointmentModel)
+        self.clientName = appointment.data?.clientName ?? ""
+        self.appointmentDate = appointment.data?.startDateTime
+        self.phoneNumber = appointment.data?.clientPhone
+        self.selectedServiceIds = appointmentModel.services.map { $0.id }
+    }
 
 	func convertDateToDdMmYyyy(_ date: Date) -> String {
 		return convertDateToDdMmYyyyHhMmSsUseCase.convert(date)
 	}
 
-	func goBack() {
-		coordinator?.goBack()
+	func goBackToDetailsAppointmentScreen() {
+        coordinator?.goBackToDetailsAppointmentScreen(appointment: appointment.data
+                                                      ?? AppointmentModel(id: UUID(), clientName: String(), services: [], price: Double(), clientPhone: nil, startDateTime: String(), endDateTime: String(), status: .completed))
 	}
 
 	func goToServiceSelectionScreen() {
-		coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds)
+        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, from: .editAppointmentScreen)
 	}
 
-	func saveEditData() {
-		//TODO: реализовать
-	}
+    func changeAppointmentInfo() async -> Bool {
+        do {
+            if clientName.count == 0 {
+                error = R.string.errors.empty_client_name()
+                return false
+            }
+            let newInfo = EditAppointmentModel(
+                clientName: clientName,
+                clientPhone: phoneNumber,
+                startDateTime: "\(convertToDate(appointmentDate ?? "") ?? Date())",
+                servicesId: selectedServiceIds
+            )
+            print(newInfo)
+            _ = try await appointmentRepository.changeAppointmentInformation(appointmentId: appointment.data?.id ?? UUID(), newInfo: newInfo)
+            appointment.data?.clientName = newInfo.clientName
+            appointment.data?.clientPhone = newInfo.clientPhone
+            appointment.data?.startDateTime = newInfo.startDateTime ?? ""
+            appointment.data?.services = selectedServiceShortModels
+            return true
+        } catch(let error) {
+            if let appError = error as? AppError {
+                self.error = appError.errorDescription
+            }
+            else {
+                self.error = error.localizedDescription
+            }
+            return false
+        }
+    }
+    
+    func convertToDate(_ dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        return dateFormatter.date(from: dateString)
+    }
 }

@@ -190,6 +190,12 @@ final class MainComponent: BootstrapComponent {
 		}
 	}
     
+    var convertDdMmYyyyHhMmSsToISOUseCase: ConvertDdMmYyyyHhMmSsToISOUseCase {
+        shared {
+            ConvertDdMmYyyyHhMmSsToISOUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {

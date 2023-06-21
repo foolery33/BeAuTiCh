@@ -14,6 +14,7 @@ class DetailsAppointmentView: UIView {
     var onBackArrowButtonTapped: (() -> ())?
     var onClientAcceptedButtonTapped: (() -> ())?
     var onCancelAppointmentButtonTapped: (() -> ())?
+    var onChangeDataButtonTapped: (() -> ())?
     
 	// MARK: - Private properties
 	private lazy var backgroundImage: UIImageView = {
@@ -201,7 +202,8 @@ class DetailsAppointmentView: UIView {
 		view.layer.cornerRadius = 30
 		view.layer.masksToBounds = true
 		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
-
+        view.addTarget(self, action: #selector(changeDataButtonTapped), for: .touchUpInside)
+        
 		return view
 	}()
 
@@ -225,7 +227,7 @@ class DetailsAppointmentView: UIView {
 		startTimeAppointmentLabel.text = model.startDateTime
 		endTimeAppointmentLabel.text = model.endDateTime
 
-		if let phone = model.clientPhone{
+		if let phone = model.clientPhone {
 			addPhoneView(phone: phone)
 		}
 
@@ -304,6 +306,10 @@ class DetailsAppointmentView: UIView {
         onCancelAppointmentButtonTapped?()
     }
     
+    @objc private func changeDataButtonTapped() {
+        onChangeDataButtonTapped?()
+    }
+    
 }
 
 // MARK: - Setup extension
@@ -337,7 +343,7 @@ private extension DetailsAppointmentView {
 
 	func configureConstraints() {
 		backgroundImage.snp.makeConstraints { make in
-			make.verticalEdges.equalTo(self.safeAreaLayoutGuide.snp.verticalEdges)
+            make.edges.equalToSuperview()
 			make.horizontalEdges.equalToSuperview()
 		}
 

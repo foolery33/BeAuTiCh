@@ -51,8 +51,8 @@ private extension ServiceSelectionViewController {
         ui.arrowBackButtonHandler = { [weak self] in
             self?.dismiss(animated: true)
         }
-        ui.onServiceTapped = { [weak self] id in
-            self?.viewModel.onServiceTagTapped(id: id)
+        ui.onServiceTapped = { [weak self] shortModel in
+            self?.viewModel.onServiceTagTapped(shortModel: shortModel)
         }
     }
     

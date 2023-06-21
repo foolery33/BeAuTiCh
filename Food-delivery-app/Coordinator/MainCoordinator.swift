@@ -14,9 +14,14 @@ final class MainCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
 
     private let componentFactory = ComponentFactory()
+    private let editAppointmentComponent: EditAppointmentComponent
+    private let detailsAppointmentComponent: DetailsAppointmentComponent
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        
+        self.editAppointmentComponent = componentFactory.getEditAppointmentComponent()
+        self.detailsAppointmentComponent = componentFactory.getDetailsAppointmentComponent()
     }
     
     func start() {
@@ -30,7 +35,6 @@ final class MainCoordinator: CoordinatorProtocol {
     }
 
 	func goToDetailsAppointmentScreen(model: AppointmentModel) {
-		let detailsAppointmentComponent = componentFactory.getDetailsAppointment()
 		detailsAppointmentComponent.detailsAppointmentViewModel.coordinator = self
 		detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: model)
 
@@ -44,10 +48,10 @@ final class MainCoordinator: CoordinatorProtocol {
 		navigationController.pushViewController(addAppointmentComponent.addAppointmentViewController, animated: true)
 	}
 
-	func goToEditAppointmentScreen() {
+    func goToEditAppointmentScreen(appointmentModel: AppointmentModel) {
 		let editAppointmentComponent = componentFactory.getEditAppointmentComponent()
 		editAppointmentComponent.editAppointmentViewModel.coordinator = self
-
+        editAppointmentComponent.editAppointmentViewModel.setAppointmentModel(appointmentModel: appointmentModel)
 		navigationController.pushViewController(editAppointmentComponent.editAppointmentViewController, animated: true)
 	}
 
@@ -55,11 +59,24 @@ final class MainCoordinator: CoordinatorProtocol {
 		navigationController.popViewController(animated: true)
 	}
 
-	func goToServiceSelectionScreen(selectedServiceIds: [UUID]) {
+    func goToServiceSelectionScreen(selectedServiceIds: [UUID], from opener: ServiceSelectionOpener) {
 		let serviceSelectionComponent = componentFactory.getServiceSelectionComponent()
 		serviceSelectionComponent.serviceSelectionViewModel.mainCoordinator = self
 		serviceSelectionComponent.serviceSelectionViewModel.selectedServiceIds = selectedServiceIds
+        serviceSelectionComponent.serviceSelectionViewModel.opener = opener
 
 		navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
 	}
+    
+    func setSelectedServices(_ serviceIdList: [UUID], _ selectedServiceShortModels: [ServiceShortModel]) {
+        editAppointmentComponent.editAppointmentViewModel.selectedServiceIds = serviceIdList
+        editAppointmentComponent.editAppointmentViewModel.selectedServiceShortModels = selectedServiceShortModels
+    }
+    
+    func goBackToDetailsAppointmentScreen(appointment: AppointmentModel) {
+        detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: appointment)
+        detailsAppointmentComponent.detailsAppointmentViewController.configureUI(with: appointment)
+        navigationController.popViewController(animated: true)
+    }
+    
 }

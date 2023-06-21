@@ -176,10 +176,10 @@ private extension YourServicesViewController {
 			self.showAlertService(service: nil)
         }
 
-		ui.onServiceTagTapped = { [ weak self ] serviceId in
+		ui.onServiceTagTapped = { [ weak self ] shortModel in
 			guard let self = self else { return }
 
-			self.showAlertChooseAction(serviceId: serviceId)
+            self.showAlertChooseAction(serviceId: shortModel.id)
 		}
     }
 

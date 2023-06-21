@@ -42,6 +42,14 @@ class MainPageViewController: UIPageViewController {
         ]
     }()
     
+    func updatePages() {
+        for (index, page) in pages.enumerated() {
+            if let scheduleVC = page as? ScheduleViewController {
+                scheduleVC.setupNotes(dayAppointments: viewModel.weekAppointments[index])
+            }
+        }
+    }
+    
     private func getScheduleViewController(weekdayIndex: Int) -> ScheduleViewController {
         let myScheduleViewController = ScheduleViewController(dayAppointments: viewModel.weekAppointments[weekdayIndex], viewModel: viewModel)
         myScheduleViewController.changeDateTimeStringToHhMm = changeDateTimeStringToHhMm

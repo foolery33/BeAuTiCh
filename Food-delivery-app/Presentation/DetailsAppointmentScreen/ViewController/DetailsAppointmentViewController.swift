@@ -40,7 +40,7 @@ private extension DetailsAppointmentViewController {
 		viewModel.appointment.subscribe { [ weak self ] appointment in
 			guard let self = self else { return }
 
-			self.ui.configure(with: appointment)
+            self.configureUI(with: appointment)
 		}
 	}
     func setActionHandlers() {
@@ -67,5 +67,14 @@ private extension DetailsAppointmentViewController {
                 }
             }
         }
+        ui.onChangeDataButtonTapped = { [weak self] in
+            self?.viewModel.goToEditAppointmentScreen()
+        }
+    }
+}
+
+extension DetailsAppointmentViewController {
+    func configureUI(with appointment: AppointmentModel) {
+        ui.configure(with: appointment)
     }
 }

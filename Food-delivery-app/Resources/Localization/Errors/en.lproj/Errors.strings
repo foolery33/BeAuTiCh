@@ -17,6 +17,7 @@
 "register_error" = "Register error";
 "login_error" = "Login error";
 "invalid_email" = "Your email does not conform to default email pattern";
+"empty_client_name" = "Client name must not be empty";
 "empty_email" = "Please enter e-mail to continue";
 "empty_password" = "Please enter password to continue";
 "empty_confirm_password" = "Please confirm password to continue";
@@ -34,3 +35,4 @@
 "appointments_loading_error" = "Appointments loading error";
 "not_fount_subscribe" = "Unfortunately, an error occurred on the server. Your subscription was not found, please try again";
 "appointment_status_change_error" = "Appointment status change error";
+"appointment_change_error" = "Appointment change error";
