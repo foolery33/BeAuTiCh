@@ -105,6 +105,9 @@
 		F32713532A41FEE8005B8AC9 /* AddAppointmentScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32713552A41FEE8005B8AC9 /* AddAppointmentScreen.strings */; };
 		F32713592A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713582A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift */; };
 		F32713732A42AB8C005B8AC9 /* YourServicesViewScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32713752A42AB8C005B8AC9 /* YourServicesViewScreen.strings */; };
+		F327137B2A42B4EC005B8AC9 /* SubscribeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137A2A42B4EC005B8AC9 /* SubscribeModel.swift */; };
+		F327137D2A42B514005B8AC9 /* SubscribeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137C2A42B514005B8AC9 /* SubscribeRepository.swift */; };
+		F327137F2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137E2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift */; };
 		F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */; };
 		F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35014282A3DED4C0095D091 /* RegisterScreen.strings */; };
 		F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F350142C2A3DED550095D091 /* LoginScreen.strings */; };
@@ -270,6 +273,9 @@
 		F32713582A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDateToDdMmYyyyHhMmSsUseCase.swift; sourceTree = "<group>"; };
 		F32713742A42AB8C005B8AC9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/YourServicesViewScreen.strings; sourceTree = "<group>"; };
 		F32713762A42AB8E005B8AC9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/YourServicesViewScreen.strings; sourceTree = "<group>"; };
+		F327137A2A42B4EC005B8AC9 /* SubscribeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeModel.swift; sourceTree = "<group>"; };
+		F327137C2A42B514005B8AC9 /* SubscribeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeRepository.swift; sourceTree = "<group>"; };
+		F327137E2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeRepositoryImplementation.swift; sourceTree = "<group>"; };
 		F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Bold.ttf"; path = "../../../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F35014272A3DED4C0095D091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
@@ -472,6 +478,7 @@
 		844AF4E22A37440100B2C9C7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F32713772A42B4BD005B8AC9 /* Subscribe */,
 				84590D212A40B082006BB403 /* Services */,
 				84CCE0AF2A3F0BBF00A1F715 /* Auth */,
 				F3DAB92A2A3EF1EA00E31487 /* Profile */,
@@ -1031,6 +1038,32 @@
 			isa = PBXGroup;
 			children = (
 				F32713582A420F65005B8AC9 /* ConvertDateToDdMmYyyyHhMmSsUseCase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F32713772A42B4BD005B8AC9 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				F32713792A42B4CE005B8AC9 /* Model */,
+				F327137C2A42B514005B8AC9 /* SubscribeRepository.swift */,
+				F327137E2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		F32713782A42B4C5005B8AC9 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F327137A2A42B4EC005B8AC9 /* SubscribeModel.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F32713792A42B4CE005B8AC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F32713782A42B4C5005B8AC9 /* DTO */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1657,6 +1690,7 @@
 				841077772A373DE1002905D2 /* SearchView.swift in Sources */,
 				F32713412A41E4ED005B8AC9 /* ServiceTagsView.swift in Sources */,
 				841077702A373D8E002905D2 /* SearchCoordinator.swift in Sources */,
+				F327137B2A42B4EC005B8AC9 /* SubscribeModel.swift in Sources */,
 				84B76A672A41D07A00ED7415 /* GetRegisterValidationErrorUseCase.swift in Sources */,
 				84B76A6D2A41F87B00ED7415 /* ActivityIndicator.swift in Sources */,
 				84C975D62A333F3500BF489B /* MainViewController.swift in Sources */,
@@ -1673,6 +1707,7 @@
 				84B76A5D2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift in Sources */,
 				F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */,
 				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
+				F327137D2A42B514005B8AC9 /* SubscribeRepository.swift in Sources */,
 				F37686F72A38304E0006E566 /* SettingsComponent.swift in Sources */,
 				84B76A632A41B05D00ED7415 /* PasswordEqualityValidationUseCase.swift in Sources */,
 				844AF4F42A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift in Sources */,
@@ -1750,6 +1785,7 @@
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
 				84B76A5F2A41AD9700ED7415 /* SaveTokensUseCase.swift in Sources */,
+				F327137F2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift in Sources */,
 				845D16602A3E086200C6CC93 /* R.generated.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,

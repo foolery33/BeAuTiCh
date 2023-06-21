@@ -122,15 +122,17 @@ private func factory86a73304bebb2197a1eee3b0c44298fc1c149afb(_ component: Needle
     return SettingsComponentDependency7fa547a58a11332b68f1Provider()
 }
 private class InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider: InformationSubscribeComponentDependency {
-
-
-    init() {
-
+    var subscribeRepository: SubscribeRepository {
+        return mainComponent.subscribeRepository
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->InformationSubscribeComponent
-private func factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider()
+private func factorycc7c0eb6a29b4b47dd540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class FilterComponentDependencye4de2e473c135cffe41bProvider: FilterComponentDependency {
     var updatePriceUseCase: UpdatePriceUseCase {
@@ -276,7 +278,7 @@ extension SettingsComponent: Registration {
 }
 extension InformationSubscribeComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\InformationSubscribeComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
     }
 }
 extension FilterComponent: Registration {
@@ -337,7 +339,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->ServiceSelectionComponent", factory7199151049f30c7d4fa40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb10e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
-    registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d790ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->ProfileComponent", factory85f38151f9d92062292c0ae93e637f014511a119)

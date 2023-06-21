@@ -192,6 +192,13 @@ final class MainComponent: BootstrapComponent {
             AuthRepositoryImplementation()
         }
     }
+
+	var subscribeRepository: SubscribeRepository {
+		shared {
+			SubscribeRepositoryImplementation(tokenManagerRepository: TokenManagerRepositoryImplementation()
+			)
+		}
+	}
     
     // MARK: - Components
     

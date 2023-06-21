@@ -9,13 +9,13 @@ import UIKit
 import NeedleFoundation
 
 protocol InformationSubscribeComponentDependency: Dependency {
-    
+	var subscribeRepository: SubscribeRepository { get }
 }
 
 final class InformationSubscribeComponent: Component<InformationSubscribeComponentDependency> {
     var settingsViewModel: SettingsViewModel {
         shared {
-            SettingsViewModel()
+			SettingsViewModel(subscribeRepository: dependency.subscribeRepository)
         }
     }
     
