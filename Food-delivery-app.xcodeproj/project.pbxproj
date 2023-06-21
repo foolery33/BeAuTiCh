@@ -130,7 +130,6 @@
 		F35DBFAE2A41CA3300B350F0 /* DetailsAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DBFAD2A41CA3300B350F0 /* DetailsAppointmentViewController.swift */; };
 		F35DBFB02A41CA3900B350F0 /* DetailsAppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DBFAF2A41CA3900B350F0 /* DetailsAppointmentViewModel.swift */; };
 		F35DBFB22A41CA4100B350F0 /* DetailsAppointmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DBFB12A41CA4100B350F0 /* DetailsAppointmentComponent.swift */; };
-		F35DBFB42A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35DBFB32A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift */; };
 		F35DBFB82A41CE5300B350F0 /* DetailsAppointmentScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35DBFBA2A41CE5300B350F0 /* DetailsAppointmentScreen.strings */; };
 		F37434922A3CB86500D009BA /* ServiceTagLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */; };
 		F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37434962A3CD21900D009BA /* YourServicesComponent.swift */; };
@@ -317,7 +316,6 @@
 		F35DBFAD2A41CA3300B350F0 /* DetailsAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentViewController.swift; sourceTree = "<group>"; };
 		F35DBFAF2A41CA3900B350F0 /* DetailsAppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentViewModel.swift; sourceTree = "<group>"; };
 		F35DBFB12A41CA4100B350F0 /* DetailsAppointmentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentComponent.swift; sourceTree = "<group>"; };
-		F35DBFB32A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentCoordinator.swift; sourceTree = "<group>"; };
 		F35DBFB92A41CE5300B350F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DetailsAppointmentScreen.strings; sourceTree = "<group>"; };
 		F35DBFBB2A41CE5600B350F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/DetailsAppointmentScreen.strings; sourceTree = "<group>"; };
 		F37434912A3CB86500D009BA /* ServiceTagLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagLabelsView.swift; sourceTree = "<group>"; };
@@ -602,7 +600,6 @@
 				F37686FE2A3830F30006E566 /* SettingsCoordinator.swift */,
 				8410776F2A373D8E002905D2 /* SearchCoordinator.swift */,
 				F3DAB9192A3E0FA600E31487 /* ProfileCoordinator.swift */,
-				F35DBFB32A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1844,7 +1841,6 @@
 				F3DAB91E2A3E102D00E31487 /* ProfileViewController.swift in Sources */,
 				84848D002A2E427E00F36586 /* GetDayOfWeekByDateUseCase.swift in Sources */,
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
-				F35DBFB42A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift in Sources */,
 				84590D232A40B090006BB403 /* ServicesRepository.swift in Sources */,
 				F311C88E2A4338D700499B64 /* PriceValidationUseCase.swift in Sources */,
 				F32713822A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift in Sources */,
