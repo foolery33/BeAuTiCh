@@ -359,20 +359,25 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 28 localization keys.
-    /// This `_R.string.errors` struct is generated, and contains static references to 27 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 29 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
       /// en translation: Appointment change error
-      /// en translation: An error occurred while deleting an entry
       ///
       /// Key: appointment_change_error
+      ///
+      /// Locales: en, ru
+      var appointment_change_error: RswiftResources.StringResource { .init(key: "appointment_change_error", tableName: "Errors", source: source, developmentValue: "Appointment change error", comment: nil) }
+
+      /// en translation: An error occurred while deleting an entry
+      ///
       /// Key: appointment_not_found
+      ///
       /// Locales: en, ru
       var appointment_not_found: RswiftResources.StringResource { .init(key: "appointment_not_found", tableName: "Errors", source: source, developmentValue: "An error occurred while deleting an entry", comment: nil) }
-      var appointment_not_found: RswiftResources.StringResource { .init(key: "appointment_not_found", tableName: "Errors", source: source, developmentValue: "An error occurred while deleting an entry", comment: nil) }
-      var appointment_change_error: RswiftResources.StringResource { .init(key: "appointment_change_error", tableName: "Errors", source: source, developmentValue: "Appointment change error", comment: nil) }
+
+      /// en translation: Appointment status change error
       ///
       /// Key: appointment_status_change_error
       ///

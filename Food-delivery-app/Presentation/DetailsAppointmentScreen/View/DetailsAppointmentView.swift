@@ -430,19 +430,4 @@ private extension DetailsAppointmentView {
 		onDeleteButtonTapped?()
 	}
 
-	@objc private func backArrowButtonTapped() {
-		onBackArrowButtonTapped?()
-	}
-
-	@objc private func clientAcceptedButtonTapped() {
-		onClientAcceptedButtonTapped?()
-	}
-
-	@objc private func cancelAppointmentButtonTapped() {
-		onCancelAppointmentButtonTapped?()
-	}
-
-	@objc private func changeDataButtonTapped() {
-		onChangeDataButtonTapped?()
-	}
 }

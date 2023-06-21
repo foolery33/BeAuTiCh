@@ -32,11 +32,6 @@ class MainViewController: UIViewController {
 		getTimezoneAppointments()
 	}
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getTimezoneAppointments()
-    }
-    
     private func setupSubviews() {
         setupContentView()
         setupPageViewController()

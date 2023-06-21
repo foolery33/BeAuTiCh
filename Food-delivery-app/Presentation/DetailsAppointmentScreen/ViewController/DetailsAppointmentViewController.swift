@@ -112,3 +112,11 @@ private extension DetailsAppointmentViewController {
 		}
 	}
 }
+
+extension DetailsAppointmentViewController {
+    
+    func configureUI(with appointment: AppointmentModel) {
+        self.ui.configure(with: appointment)
+    }
+    
+}

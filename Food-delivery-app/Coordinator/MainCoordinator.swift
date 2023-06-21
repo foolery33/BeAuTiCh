@@ -35,7 +35,7 @@ final class MainCoordinator: CoordinatorProtocol {
     }
 
 	func goToDetailsAppointmentScreen(model: AppointmentModel) {
-		detailsAppointmentComponent.detailsAppointmentViewModel.coordinator = self
+		detailsAppointmentComponent.detailsAppointmentViewModel.mainCoordinator = self
 		detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: model)
 
 		navigationController.pushViewController(detailsAppointmentComponent.detailsAppointmentViewController, animated: true)

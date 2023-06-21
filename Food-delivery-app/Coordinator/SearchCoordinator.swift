@@ -43,7 +43,7 @@ final class SearchCoordinator: CoordinatorProtocol {
     }
 
 	func goToDetailsAppointmentScreen(model: AppointmentModel) {
-		let detailsAppointmentComponent = componentFactory.getDetailsAppointment()
+		let detailsAppointmentComponent = componentFactory.getDetailsAppointmentComponent()
 		detailsAppointmentComponent.detailsAppointmentViewModel.searchCoordinator = self
 		detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: model)
 
