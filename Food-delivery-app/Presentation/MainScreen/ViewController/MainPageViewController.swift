@@ -55,12 +55,7 @@ class MainPageViewController: UIPageViewController {
         self.delegate = self
         
         setViewControllers([pages[viewModel.currentDayIndex]], direction: .forward, animated: true, completion: nil)
-		setHandlers()
     }
-
-	private func setHandlers() {
-		
-	}
     
 }
 

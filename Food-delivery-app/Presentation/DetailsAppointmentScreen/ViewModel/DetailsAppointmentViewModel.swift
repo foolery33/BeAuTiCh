@@ -49,6 +49,26 @@ class DetailsAppointmentViewModel {
             return false
         }
     }
+
+	func deleteAppointment() async -> Bool {
+		do {
+			if let appointmentId = self.appointment.data?.id {
+				_ = try await appointmentRepository.deleteAppointment(appointmentId: appointmentId)
+				return true
+			}
+
+			return false
+
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.error = appError.errorDescription
+			}
+			else {
+				self.error = error.localizedDescription
+			}
+			return false
+		}
+	}
     
     func goBackScreen() {
 		if let mainCoordinator = mainCoordinator {
