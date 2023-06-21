@@ -107,12 +107,15 @@ class YourServicesView: UIView {
     var plusServiceButtonHandler: (() -> Void)?
     var arrowBackButtonHandler: (() -> Void)?
 	var subscribeButtonHandler: (() -> Void)?
+	var onServiceTagTapped: ((UUID) -> ())?
     
     
     //MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+		setHandlers()
     }
     
     required init?(coder: NSCoder) {
@@ -139,6 +142,7 @@ extension YourServicesView {
 	func setupPlugEmptyServices() {
 		configureUIPlugEmptyServices()
 		configureConstraintsPlugEmptyServices()
+		configureActionsPlugEmptySubscribe()
 	}
 
 	func setupScreen() {
@@ -152,6 +156,10 @@ extension YourServicesView {
 private extension YourServicesView {
     
     func configureUI() {
+		for view in self.subviews {
+			view.removeFromSuperview()
+		}
+
         self.addSubview(backgroundImage)
         self.addSubview(arrowBackButton)
         self.addSubview(titleSheetScreen)
@@ -160,6 +168,10 @@ private extension YourServicesView {
     }
 
 	func configureUIPlugSubscribe() {
+		for view in self.subviews {
+			view.removeFromSuperview()
+		}
+
 		self.addSubview(backgroundImage)
 		self.addSubview(arrowBackButton)
 		self.addSubview(titleSheetScreen)
@@ -169,6 +181,10 @@ private extension YourServicesView {
 	}
 
 	func configureUIPlugEmptyServices() {
+		for view in self.subviews {
+			view.removeFromSuperview()
+		}
+
 		self.addSubview(backgroundImage)
 		self.addSubview(arrowBackButton)
 		self.addSubview(titleSheetScreen)
@@ -275,6 +291,10 @@ private extension YourServicesView {
 	func configureActionsPlugSubscribe() {
 		subscribeButton.addTarget(self, action: #selector(subscribeButtonPressed), for: .touchUpInside)
 	}
+
+	func configureActionsPlugEmptySubscribe() {
+		plusButton.addTarget(self, action: #selector(plusServiceButtonPressed), for: .touchUpInside)
+	}
     
     //MARK: - Actions
     
@@ -291,5 +311,15 @@ private extension YourServicesView {
 	@objc
 	func subscribeButtonPressed() {
 		subscribeButtonHandler?()
+	}
+}
+
+private extension YourServicesView {
+	func setHandlers() {
+		serviceTags.onServiceTagTapped = { [ weak self ] serviceId in
+			guard let self = self else { return }
+
+			self.onServiceTagTapped?(serviceId)
+		}
 	}
 }

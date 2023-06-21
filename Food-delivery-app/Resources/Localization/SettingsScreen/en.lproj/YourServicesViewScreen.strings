@@ -16,7 +16,8 @@
 "edit" = "Edit";
 "delete" = "Delete";
 "cancel" = "Cancel";
-"edit_service" = "Editing services";
+"edit_service" = "Editing service";
+"create_service" = "Create service";
 "save" = "Save";
 "input_name_service" = "Enter the name of the service*";
 "input_price_service" = "Enter the price of the service*";

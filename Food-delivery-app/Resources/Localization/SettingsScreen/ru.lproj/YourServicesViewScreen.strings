@@ -17,6 +17,7 @@
 "delete" = "Удалить";
 "cancel" = "Отмена";
 "edit_service" = "Редактирование услуги";
+"create_service" = "Добавить услугу";
 "save" = "Сохранить";
 "input_name_service" = "Введите название услуги*";
 "input_price_service" = "Введите цену услуги*";

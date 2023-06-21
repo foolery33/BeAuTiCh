@@ -12,12 +12,22 @@ class YourServicesViewController: UIViewController {
     //MARK: - Private properties
     
     private let ui: YourServicesView
-    
+	private var viewModel: SettingsViewModel
+
+	private var alertController = UIAlertController()
+
+	private lazy var dateTimeAppointmentPicker: UIDatePicker = {
+		let view = UIDatePicker()
+		view.datePickerMode = .dateAndTime
+		view.preferredDatePickerStyle = .wheels
+		view.minimumDate = Date()
+		return view
+	}()
     
     //MARK: - Internal properties
     
     weak var delegate: SheetViewControllerDelegate?
-    var viewModel: SettingsViewModel
+	var convertDateToDdMmYyyy: ((Date) -> (String))?
     
     
     //MARK: - Init
@@ -45,15 +55,6 @@ class YourServicesViewController: UIViewController {
         super.viewDidLoad()
 		
         setHandlers()
-//        ui.setServices([
-//            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "jsdfsdfsdf", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "Blablabla", price: 12, duration: ""),
-//            ServiceModel(id: UUID(), name: "bla", price: 12, duration: ""),
-//        ])
 		bindListener()
     }
 
@@ -68,6 +69,77 @@ class YourServicesViewController: UIViewController {
 		alert.view.tintColor = R.color.vinous()
 
 		present(alert, animated: true)
+	}
+
+	func showAlertService(serviceId: UUID?) {
+		if serviceId != nil {
+			alertController = UIAlertController(title: R.string.yourServicesViewScreen.edit_service(), message: nil, preferredStyle: .alert)
+		} else {
+			alertController = UIAlertController(title: R.string.yourServicesViewScreen.create_service(), message: nil, preferredStyle: .alert)
+		}
+
+		alertController.addTextField { nameTextField in
+			nameTextField.placeholder = R.string.yourServicesViewScreen.input_name_service()
+		}
+
+		alertController.addTextField { priceTextField in
+			priceTextField.placeholder = R.string.yourServicesViewScreen.input_price_service()
+		}
+
+		alertController.addTextField { durationTextField in
+			durationTextField.placeholder = R.string.yourServicesViewScreen.choose_duration_service()
+
+			let toolbar = UIToolbar()
+			toolbar.sizeToFit()
+
+			let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.onFromDateDoneButtonPressed))
+ 			toolbar.setItems([doneButton], animated: true)
+
+			durationTextField.inputAccessoryView = toolbar
+			durationTextField.inputView = self.dateTimeAppointmentPicker
+		}
+
+		
+		let actionCancel = UIAlertAction(title: R.string.yourServicesViewScreen.cancel(), style: .cancel)
+		let actionSave = UIAlertAction(title: R.string.yourServicesViewScreen.save(), style: .default) { [ weak self ] _ in
+
+			if let priceText = self?.alertController.textFields?[1].text, let price = Double(priceText) {
+				self?.createService(model: CreateService(
+					name: self?.alertController.textFields?[0].text ?? String(),
+					price: price,
+					duration: self?.alertController.textFields?[2].text ?? String())
+				)
+			}
+		}
+
+		alertController.addAction(actionSave)
+		alertController.addAction(actionCancel)
+
+		alertController.view.tintColor = R.color.vinous()
+
+		self.present(alertController, animated: true)
+	}
+
+	func showAlertChooseAction(serviceId: UUID) {
+		let alertController = UIAlertController(title: R.string.yourServicesViewScreen.choose_action(), message: nil, preferredStyle: .alert)
+
+		let actionCancel = UIAlertAction(title: R.string.yourServicesViewScreen.cancel(), style: .cancel)
+		let actionEdit = UIAlertAction(title: R.string.yourServicesViewScreen.edit(), style: .default) { [ weak self ] _ in
+
+			self?.editService(serviceId: serviceId)
+		}
+		let actionDelete = UIAlertAction(title: R.string.yourServicesViewScreen.delete(), style: .default) { [ weak self ] _ in
+
+			self?.deleteService(serviceId: serviceId)
+		}
+
+		alertController.addAction(actionEdit)
+		alertController.addAction(actionDelete)
+		alertController.addAction(actionCancel)
+
+		alertController.view.tintColor = R.color.vinous()
+
+		self.present(alertController, animated: true)
 	}
     
     //MARK: - Private methods
@@ -87,8 +159,15 @@ private extension YourServicesViewController {
         
         ui.plusServiceButtonHandler = { [ weak self ] in
             guard let self = self else { return }
-            
+
+			self.showAlertService(serviceId: nil)
         }
+
+		ui.onServiceTagTapped = { [ weak self ] serviceId in
+			guard let self = self else { return }
+
+			self.showAlertChooseAction(serviceId: serviceId)
+		}
     }
 
 	func bindListener() {
@@ -128,5 +207,38 @@ private extension YourServicesViewController {
 				}
 			}
 		}
+	}
+
+	func createService(model: CreateService) {
+		Task {
+			if await viewModel.createNewService(model: model) {
+				checkingForSubscriptionAvailability()
+			}
+		}
+	}
+
+	func deleteService(serviceId: UUID) {
+		Task {
+			if await viewModel.deleteDervice(serviceId: serviceId) {
+				checkingForSubscriptionAvailability()
+			}
+		}
+	}
+
+	func editService(serviceId: UUID) {
+		//TODO: загрузить модель услуги
+		self.showAlertService(serviceId: serviceId)
+	}
+
+	@objc func onFromDateDoneButtonPressed() {
+//		alertController.textFields?[2].text = (convertDateToDdMmYyyy ?? { _ in return "" })(dateTimeAppointmentPicker.date)
+//		({ _ in })("\(dateTimeAppointmentPicker.date)")
+
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateStyle = .medium
+		dateFormatter.timeStyle = .none
+
+		alertController.textFields?[2].text = dateFormatter.string(from: dateTimeAppointmentPicker.date)
+		view.endEditing(true)
 	}
 }

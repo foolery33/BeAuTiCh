@@ -862,7 +862,7 @@ struct _R {
       var greeting_phrase: RswiftResources.StringResource { .init(key: "greeting_phrase", tableName: "StartScreen", source: source, developmentValue: "Plan your workday with comfort", comment: nil) }
     }
 
-    /// This `_R.string.yourServicesViewScreen` struct is generated, and contains static references to 13 localization keys.
+    /// This `_R.string.yourServicesViewScreen` struct is generated, and contains static references to 14 localization keys.
     struct yourServicesViewScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -887,6 +887,13 @@ struct _R {
       /// Locales: en, ru
       var choose_duration_service: RswiftResources.StringResource { .init(key: "choose_duration_service", tableName: "YourServicesViewScreen", source: source, developmentValue: "Choose the duration of the service*", comment: nil) }
 
+      /// en translation: Create service
+      ///
+      /// Key: create_service
+      ///
+      /// Locales: en, ru
+      var create_service: RswiftResources.StringResource { .init(key: "create_service", tableName: "YourServicesViewScreen", source: source, developmentValue: "Create service", comment: nil) }
+
       /// en translation: Delete
       ///
       /// Key: delete
@@ -901,12 +908,12 @@ struct _R {
       /// Locales: en, ru
       var edit: RswiftResources.StringResource { .init(key: "edit", tableName: "YourServicesViewScreen", source: source, developmentValue: "Edit", comment: nil) }
 
-      /// en translation: Editing services
+      /// en translation: Editing service
       ///
       /// Key: edit_service
       ///
       /// Locales: en, ru
-      var edit_service: RswiftResources.StringResource { .init(key: "edit_service", tableName: "YourServicesViewScreen", source: source, developmentValue: "Editing services", comment: nil) }
+      var edit_service: RswiftResources.StringResource { .init(key: "edit_service", tableName: "YourServicesViewScreen", source: source, developmentValue: "Editing service", comment: nil) }
 
       /// en translation: You can edit or delete a service with the name
       ///

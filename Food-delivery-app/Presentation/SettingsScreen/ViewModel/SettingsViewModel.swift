@@ -5,6 +5,8 @@
 //  Created by Елена on 13.06.2023.
 //
 
+import Foundation
+
 final class SettingsViewModel {
     weak var coordinator: SettingsCoordinator?
 
@@ -118,6 +120,44 @@ final class SettingsViewModel {
 			else {
 				self.errorMessage.updateModel(with: error.localizedDescription)
 			}
+		}
+	}
+
+	func createNewService(model: CreateService) async -> Bool {
+		do {
+			_ = try await servicesRepository?.createCustomService(parameters: model)
+			return true
+
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+			}
+			else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+			return false
+		}
+	}
+
+	func editService(serviceId: UUID, model: EditService) async {
+
+	}
+
+	func deleteDervice(serviceId: UUID) async -> Bool {
+		do {
+			_ = try await servicesRepository?.deleteCustomService(serviceId: serviceId)
+			return true
+
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+			}
+			else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+			return false
 		}
 	}
 }
