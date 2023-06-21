@@ -124,7 +124,30 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
 		}
 	}
     
-    enum AppointmentError: LocalizedError, Identifiable {
+    func changeAppointmentInformation(appointmentId: UUID, newInfo: EditAppointmentModel) async throws -> Bool {
+        let url = baseURL + "api/appointments/\(appointmentId)"
+        let dataResponse = await AF.request(
+            url,
+            method: .put,
+            parameters: newInfo,
+            encoder: JSONParameterEncoder.default,
+            interceptor: interceptor
+        ).serializingDecodable(Empty.self).response
+        switch dataResponse.response?.statusCode {
+        case 200:
+            return true
+        case 401:
+            throw AppError.appointmentError(.unauthorized)
+        case 403:
+            throw AppError.appointmentError(.forbiddenAccess)
+        case 500:
+            throw AppError.appointmentError(.serverError)
+        default:
+            throw AppError.appointmentError(.unexpectedError)
+        }
+    }
+    
+    enum AppointmentError:  LocalizedError, Identifiable {
         case unauthorized
         case serverError
         case modelError

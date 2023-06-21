@@ -65,7 +65,7 @@ final class FilterViewModel {
     }
     
     func showServiceSelectionScreenSheet() {
-        coordinator?.showServiceSelectionScreenSheet(selectedServiceIds: selectedServiceIds)
+        coordinator?.showServiceSelectionScreenSheet(selectedServiceIds: selectedServiceIds, from: .searchScreen)
     }
     
     func convertDateToDdMmYyyy(_ date: Date) -> String {

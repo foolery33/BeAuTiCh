@@ -33,8 +33,15 @@ final class GetSortedWeekAppointmentsUseCase {
     // и возвращающая строку-дату в формате "yyyy/MM/dd"
     func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        guard let date = dateFormatter.date(from: dateString) else { return nil }
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        guard let date = dateFormatter.date(from: dateString) else {
+            let newDateFormatter = DateFormatter()
+            newDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            guard let newDate = newDateFormatter.date(from: dateString) else { return nil }
+            newDateFormatter.dateFormat = "yyyy/MM/dd"
+            return newDateFormatter.string(from: newDate)
+        }
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
     }
@@ -42,10 +49,15 @@ final class GetSortedWeekAppointmentsUseCase {
     // Функция, сортирующая уроки в конкретный день в заданном порядке
     func sortAppointments(appointments: [AppointmentModel]) -> [AppointmentModel] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
         return appointments.sorted { appointment1, appointment2 in
-            let date1 = dateFormatter.date(from: appointment1.startDateTime)!
-            let date2 = dateFormatter.date(from: appointment2.startDateTime)!
+            let date1 = dateFormatter.date(from: appointment1.startDateTime) ?? newDateFormatter.date(from: appointment1.startDateTime)!
+            let date2 = dateFormatter.date(from: appointment2.startDateTime) ?? newDateFormatter.date(from: appointment2.startDateTime)!
             return date1 < date2
         }
     }

@@ -29,7 +29,7 @@ class AddAppointmentViewModel {
 	}
 
 	func goToServiceSelectionScreen() {
-		coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds)
+        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, from: .addAppointmentScreen)
 	}
 
 	func saveNewAppointment() {

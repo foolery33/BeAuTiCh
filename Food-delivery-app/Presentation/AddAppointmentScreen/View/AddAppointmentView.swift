@@ -73,7 +73,6 @@ class AddAppointmentView: UIView {
 		let view = UIDatePicker()
 		view.datePickerMode = .dateAndTime
 		view.preferredDatePickerStyle = .wheels
-		view.minimumDate = Date()
 		return view
 	}()
 
@@ -93,7 +92,7 @@ class AddAppointmentView: UIView {
 		return view
 	}()
 
-	private lazy var goToShooseServicesButton: UIButton = {
+	private lazy var goToChooseServicesButton: UIButton = {
 		let view = UIButton()
 		view.backgroundColor = .white
 		view.setTitle(R.string.addAppointmentScreen.shoose_services(), for: .normal)
@@ -124,7 +123,7 @@ class AddAppointmentView: UIView {
 	// MARK: - Internal properties
 	var convertDateToDdMmYyyy: ((Date) -> (String))?
 	var arrowBackButtonHandler: (() -> Void)?
-	var goToShooseServicesButtonHandler: (() -> Void)?
+	var goToChooseServicesButtonHandler: (() -> Void)?
 	var saveButtonHandler: (() -> Void)?
 
 	// MARK: - Init
@@ -172,7 +171,7 @@ private extension AddAppointmentView {
 		addSubview(dateTimeAppointmentTextField)
 		addSubview(inputClientPhoneLabel)
 		addSubview(inputClientPhoneTextField)
-		addSubview(goToShooseServicesButton)
+		addSubview(goToChooseServicesButton)
 		addSubview(saveButton)
 	}
 
@@ -223,7 +222,7 @@ private extension AddAppointmentView {
 			make.horizontalEdges.equalTo(inputClientPhoneLabel.snp.horizontalEdges)
 		}
 
-		goToShooseServicesButton.snp.makeConstraints { make in
+        goToChooseServicesButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(28)
 			make.width.equalTo(163)
 			make.top.equalTo(inputClientPhoneTextField.snp.bottom).offset(20)
@@ -236,7 +235,7 @@ private extension AddAppointmentView {
 	}
 
 	func configureActions() {
-		goToShooseServicesButton.addTarget(self, action: #selector(goToShooseServicesButtonPressed), for: .touchUpInside)
+		goToChooseServicesButton.addTarget(self, action: #selector(goToChooseServicesButtonPressed), for: .touchUpInside)
 		saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
 		arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
 	}
@@ -254,8 +253,8 @@ private extension AddAppointmentView {
 		arrowBackButtonHandler?()
 	}
 
-	@objc func goToShooseServicesButtonPressed() {
-		goToShooseServicesButtonHandler?()
+	@objc func goToChooseServicesButtonPressed() {
+        goToChooseServicesButtonHandler?()
 	}
 
 	@objc func saveButtonPressed() {

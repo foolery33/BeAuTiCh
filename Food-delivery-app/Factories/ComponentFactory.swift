@@ -55,7 +55,7 @@ final class ComponentFactory {
 		return mainComponent.profileComponent
 	}
 
-	func getDetailsAppointment() -> DetailsAppointmentComponent {
+	func getDetailsAppointmentComponent() -> DetailsAppointmentComponent {
 		return mainComponent.detailsAppointment
 	}
 

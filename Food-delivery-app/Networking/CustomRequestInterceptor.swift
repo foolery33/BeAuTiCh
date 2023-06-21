@@ -59,6 +59,7 @@ class CustomRequestInterceptor: RequestInterceptor {
             "accessToken": tokenManagerRepository.fetchAccessToken() ?? "",
             "refreshToken": tokenManagerRepository.fetchRefreshToken() ?? ""
         ]
+        print(body)
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]

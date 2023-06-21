@@ -28,7 +28,7 @@ class ServiceTagLabelsView: UIView {
     var intrinsicHeight: CGFloat = 0
     
     var selectedServiceTagIds: [UUID]?
-    var onServiceTagTapped: ((UUID) -> ())?
+    var onServiceTagTapped: ((ServiceShortModel) -> ())?
     
     
     //- MARK: Inits
@@ -99,7 +99,8 @@ class ServiceTagLabelsView: UIView {
             
             label.isUserInteractionEnabled = true
             let gestureRecognizer = ServiceTapGesture(target: self, action: #selector(serviceTagPressed(_:)))
-            gestureRecognizer.serviceId = tag.id
+            gestureRecognizer.serviceShortModel.id = tag.id
+            gestureRecognizer.serviceShortModel.name = tag.name
             label.addGestureRecognizer(gestureRecognizer)
             if selectedServiceTagIds?.contains(tag.id) ?? false {
                 label.backgroundColor = R.color.transparentWhite()
@@ -109,7 +110,14 @@ class ServiceTagLabelsView: UIView {
     }
     
     @objc private func serviceTagPressed(_ serviceTag: ServiceTapGesture) {
-        onServiceTagTapped?(serviceTag.serviceId)
+        onServiceTagTapped?(serviceTag.serviceShortModel)
+        // Меняем цвет бэкграунда
+        if serviceTag.view?.backgroundColor == R.color.white()! {
+            serviceTag.view?.backgroundColor = R.color.transparentWhite()
+        }
+        else {
+            serviceTag.view?.backgroundColor = R.color.white()
+        }
     }
     
     func displayTagLabels() {
@@ -140,5 +148,5 @@ class ServiceTagLabelsView: UIView {
 }
 
 final class ServiceTapGesture: UITapGestureRecognizer {
-    var serviceId = UUID()
+    var serviceShortModel = ServiceShortModel(id: UUID(), name: String())
 }

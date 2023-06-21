@@ -107,7 +107,7 @@ class YourServicesView: UIView {
     var plusServiceButtonHandler: (() -> Void)?
     var arrowBackButtonHandler: (() -> Void)?
 	var subscribeButtonHandler: (() -> Void)?
-	var onServiceTagTapped: ((UUID) -> ())?
+	var onServiceTagTapped: ((ServiceShortModel) -> ())?
     
     
     //MARK: - Init
@@ -316,10 +316,10 @@ private extension YourServicesView {
 
 private extension YourServicesView {
 	func setHandlers() {
-		serviceTags.onServiceTagTapped = { [ weak self ] serviceId in
+		serviceTags.onServiceTagTapped = { [ weak self ] shortModel in
 			guard let self = self else { return }
 
-			self.onServiceTagTapped?(serviceId)
+			self.onServiceTagTapped?(shortModel)
 		}
 	}
 }
