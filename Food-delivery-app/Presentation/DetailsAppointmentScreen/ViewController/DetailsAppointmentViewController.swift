@@ -57,7 +57,7 @@ private extension DetailsAppointmentViewController {
         }
 
 		ui.onDeleteButtonTapped = { [weak self] in
-
+			self?.deleteAppointment()
 		}
 
 		ui.onChangeDataButtonTapped = { [weak self] in
@@ -91,6 +91,16 @@ private extension DetailsAppointmentViewController {
 				showAlert(title: R.string.errors.appointment_status_change_error(), message: viewModel.error)
 			}
 
+			self.ui.stopActivityIndicator()
+		}
+	}
+
+	func deleteAppointment() {
+		self.ui.setupActivityIndicator()
+		Task {
+			if await viewModel.deleteAppointment() {
+				self.viewModel.goBackScreen()
+			}
 			self.ui.stopActivityIndicator()
 		}
 	}

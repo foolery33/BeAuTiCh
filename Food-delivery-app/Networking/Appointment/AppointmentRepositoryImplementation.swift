@@ -96,6 +96,33 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
             }
         }
     }
+
+	func deleteAppointment(appointmentId: UUID) async throws -> String {
+		let url = baseURL + "api/appointments/\(appointmentId)"
+
+		let dataTask = AF.request(
+			url,
+			method: .delete,
+			interceptor: interceptor
+		).serializingString()
+		do {
+			return try await dataTask.value
+		} catch {
+			let requestStatusCode = await dataTask.response.response?.statusCode
+			switch requestStatusCode {
+			case 401:
+				throw AppError.appointmentError(.unauthorized)
+			case 403:
+				throw AppError.appointmentError(.forbiddenAccess)
+			case 404:
+				throw AppError.appointmentError(.notFound)
+			case 500:
+				throw AppError.appointmentError(.serverError)
+			default:
+				throw AppError.appointmentError(.unexpectedError)
+			}
+		}
+	}
     
     enum AppointmentError: LocalizedError, Identifiable {
         case unauthorized
@@ -103,9 +130,12 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         case modelError
         case forbiddenAccess
         case unexpectedError
+		case notFound
+
         var id: String {
             self.errorDescription
         }
+
         var errorDescription: String {
             switch self {
             case .unauthorized:
@@ -118,6 +148,8 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
                 return R.string.errors.forbidden_access()
             case .unexpectedError:
                 return R.string.errors.unexpected_error()
+			case .notFound:
+				return R.string.errors.appointment_not_found()
             }
         }
     }

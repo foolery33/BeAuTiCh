@@ -34,3 +34,4 @@
 "appointments_loading_error" = "Appointments loading error";
 "not_fount_subscribe" = "Unfortunately, an error occurred on the server. Your subscription was not found, please try again";
 "appointment_status_change_error" = "Appointment status change error";
+"appointment_not_found" = "An error occurred while deleting an entry";
