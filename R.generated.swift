@@ -188,7 +188,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "AddAppointmentScreen", source: source, developmentValue: "Add appointment", comment: nil) }
     }
 
-    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 11 localization keys.
     struct detailsAppointmentScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -254,6 +254,20 @@ struct _R {
       ///
       /// Locales: en, ru
       var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
+
+      /// en translation: Success
+      ///
+      /// Key: status_change_success
+      ///
+      /// Locales: en, ru
+      var status_change_success: RswiftResources.StringResource { .init(key: "status_change_success", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Success", comment: nil) }
+
+      /// en translation: Appointment status changed successfully
+      ///
+      /// Key: status_change_success_message
+      ///
+      /// Locales: en, ru
+      var status_change_success_message: RswiftResources.StringResource { .init(key: "status_change_success_message", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment status changed successfully", comment: nil) }
     }
 
     /// This `_R.string.editAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
@@ -324,9 +338,16 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 25 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 26 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Appointment status change error
+      ///
+      /// Key: appointment_status_change_error
+      ///
+      /// Locales: en, ru
+      var appointment_status_change_error: RswiftResources.StringResource { .init(key: "appointment_status_change_error", tableName: "Errors", source: source, developmentValue: "Appointment status change error", comment: nil) }
 
       /// en translation: Appointments loading error
       ///

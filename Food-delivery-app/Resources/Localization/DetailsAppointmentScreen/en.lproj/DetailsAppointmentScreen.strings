@@ -15,3 +15,5 @@
 "change_data" = "Change data";
 "cancelled_status" = "Appointment cancelled";
 "completed_status" = "Appointment completed";
+"status_change_success" = "Success";
+"status_change_success_message" = "Appointment status changed successfully";

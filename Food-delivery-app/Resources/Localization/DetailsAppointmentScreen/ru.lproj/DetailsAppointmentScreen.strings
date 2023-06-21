@@ -15,3 +15,5 @@
 "change_data" = "Изменить данные";
 "completed_status" = "Запись завершена";
 "cancelled_status" = "Запись отменена";
+"status_change_success" = "Успех";
+"status_change_success_message" = "Статус записи успешно изменён";

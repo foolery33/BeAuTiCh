@@ -8,13 +8,18 @@
 import NeedleFoundation
 
 protocol DetailsAppointmentComponentDependency: Dependency {
+    var appointmentRepository: AppointmentRepository { get }
 	var convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase { get }
 }
 
 class DetailsAppointmentComponent: Component<DetailsAppointmentComponentDependency> {
 	var detailsAppointmentViewModel: DetailsAppointmentViewModel {
 		shared {
-			DetailsAppointmentViewModel(convertStringToDateDdMmYyyyHhMmSsUseCase: dependency.convertStringToDateDdMmYyyyHhMmSsUseCase)
+			DetailsAppointmentViewModel(
+                appointmentRepository: dependency.appointmentRepository,
+                appointment: nil,
+                convertStringToDateDdMmYyyyHhMmSsUseCase: dependency.convertStringToDateDdMmYyyyHhMmSsUseCase
+            )
 		}
 	}
 
