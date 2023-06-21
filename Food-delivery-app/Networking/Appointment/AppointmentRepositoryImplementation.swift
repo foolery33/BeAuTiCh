@@ -68,6 +68,35 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         }
     }
     
+    func changeAppointmentStatus(appointmentId: UUID, newStatus: StatusAppointmentModel) async throws -> String {
+        let url = baseURL + "api/appointments/\(appointmentId)/status"
+        let parameters = [
+            "status": newStatus
+        ]
+        let dataTask = AF.request(
+            url,
+            method: .put,
+            parameters: parameters,
+            encoding: URLEncoding.queryString,
+            interceptor: interceptor
+        ).serializingString()
+        do {
+            return try await dataTask.value
+        } catch {
+            let requestStatusCode = await dataTask.response.response?.statusCode
+            switch requestStatusCode {
+            case 401:
+                throw AppError.appointmentError(.unauthorized)
+            case 403:
+                throw AppError.appointmentError(.forbiddenAccess)
+            case 500:
+                throw AppError.appointmentError(.serverError)
+            default:
+                throw AppError.appointmentError(.unexpectedError)
+            }
+        }
+    }
+    
     enum AppointmentError: LocalizedError, Identifiable {
         case unauthorized
         case serverError

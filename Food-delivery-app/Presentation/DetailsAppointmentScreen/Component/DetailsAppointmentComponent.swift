@@ -8,13 +8,16 @@
 import NeedleFoundation
 
 protocol DetailsAppointmentComponentDependency: Dependency {
-
+    var appointmentRepository: AppointmentRepository { get }
 }
 
 class DetailsAppointmentComponent: Component<DetailsAppointmentComponentDependency> {
 	var detailsAppointmentViewModel: DetailsAppointmentViewModel {
 		shared {
-			DetailsAppointmentViewModel(appointment: nil)
+			DetailsAppointmentViewModel(
+                appointmentRepository: dependency.appointmentRepository,
+                appointment: nil
+            )
 		}
 	}
 

@@ -31,6 +31,7 @@ class DetailsAppointmentViewController: UIViewController {
 		super.viewDidLoad()
 
 		bindListener()
+        setActionHandlers()
 	}
 }
 
@@ -42,4 +43,29 @@ private extension DetailsAppointmentViewController {
 			self.ui.configure(with: appointment)
 		}
 	}
+    func setActionHandlers() {
+        ui.onBackArrowButtonTapped = { [weak self] in
+            self?.viewModel.goBackToMainScreen()
+        }
+        ui.onClientAcceptedButtonTapped = { [weak self] in
+            Task {
+                if await self?.viewModel.changeAppointmentStatus(newStatus: .completed) ?? false {
+                    self?.showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.appointment_status_change_error(), message: self?.viewModel.error ?? "")
+                }
+            }
+        }
+        ui.onCancelAppointmentButtonTapped = { [weak self] in
+            Task {
+                if await self?.viewModel.changeAppointmentStatus(newStatus: .cancelled) ?? false {
+                    self?.showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.appointment_status_change_error(), message: self?.viewModel.error ?? "")
+                }
+            }
+        }
+    }
 }

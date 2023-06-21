@@ -85,15 +85,17 @@ private func factory2746832551408832f06d0ae93e637f014511a119(_ component: Needle
     return SearchComponentDependency1207f6d8cbd8351560b4Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider: DetailsAppointmentComponentDependency {
-
-
-    init() {
-
+    var appointmentRepository: AppointmentRepository {
+        return mainComponent.appointmentRepository
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->DetailsAppointmentComponent
-private func factoryfbaf57f0de8177160dcee3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider()
+private func factoryfbaf57f0de8177160dce0ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class ServiceSelectionComponentDependency5628e884730da5d9efb6Provider: ServiceSelectionComponentDependency {
     var servicesRepository: ServicesRepository {
@@ -294,7 +296,7 @@ extension SearchComponent: Registration {
 }
 extension DetailsAppointmentComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\DetailsAppointmentComponentDependency.appointmentRepository] = "appointmentRepository-AppointmentRepository"
     }
 }
 extension ServiceSelectionComponent: Registration {
@@ -379,7 +381,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->MainScreenComponent", factoryd2e546a960c33ef2225f0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->StartComponent", factorydf30084d4812375c9b62e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->SearchComponent", factory2746832551408832f06d0ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->DetailsAppointmentComponent", factoryfbaf57f0de8177160dcee3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->DetailsAppointmentComponent", factoryfbaf57f0de8177160dce0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->ServiceSelectionComponent", factory7199151049f30c7d4fa40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb100ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
