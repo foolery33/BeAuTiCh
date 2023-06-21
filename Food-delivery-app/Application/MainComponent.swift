@@ -153,6 +153,18 @@ final class MainComponent: BootstrapComponent {
         }
     }
     
+    var getSortedWeekAppointmentsUseCase: GetSortedWeekAppointmentsUseCase {
+        shared {
+            GetSortedWeekAppointmentsUseCase()
+        }
+    }
+    
+    var changeDateTimeStringToHhMmUseCase: ChangeDateTimeStringToHhMmUseCase {
+        shared {
+            ChangeDateTimeStringToHhMmUseCase()
+        }
+    }
+    
     // MARK: - Repositories
     
     var tokenManagerRepository: TokenManagerRepository {

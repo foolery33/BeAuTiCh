@@ -11,73 +11,43 @@ final class MainViewModel {
     
     weak var coordinator: MainCoordinator?
     
+    private let appointmentRepository: AppointmentRepository
+    
     private let getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase
     private let getWeekdayIndexForDateUseCase: GetWeekdayIndexForDateUseCase
     private let getDayOfWeekByDateUseCase: GetDayOfWeekByDateUseCase
     private let getDayOfMonthByDateUseCase: GetDayOfMonthByDateUseCase
     private let getDateWithOffsetUseCase: GetDateWithOffsetUseCase
     private let isTodayUseCase: IsTodayUseCase
+    private let getSortedWeekAppointmentsUseCase: GetSortedWeekAppointmentsUseCase
+    private let changeDateTimeStringToHhMmUseCase: ChangeDateTimeStringToHhMmUseCase
     
-    private(set) var weekServiceNotes: [[NoteModel]] = [
-        [
-            NoteModel(customerName: "Мария Сафронова", serviceName: ["Маникюр", "Педикюр", "Наращивание"], time: "8:45", cost: 3500),
-            NoteModel(customerName: "Ксения Павлова", serviceName: ["Стрижка"], time: "10:00", cost: 1500),
-            NoteModel(customerName: "Альбина М.", serviceName: ["Коррекция бровей", "Окрашивание бровей", "Лазерная эпиляция"], time: "12:10", cost: 4500),
-            NoteModel(customerName: "Не представилась", serviceName: ["Чистка лица"], time: "14:00", cost: 1000),
-            NoteModel(customerName: "Инна Рапп", serviceName: ["Мезотерапия", "Массаж"], time: "15:40", cost: 3750),
-            NoteModel(customerName: "Сергей Арсеньев", serviceName: ["Маникюр"], time: "17:20", cost: 650),
-            NoteModel(customerName: "Никита", serviceName: ["Стрижка"], time: "18:00", cost: 700)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока","пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ],
-        [
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100),
-            NoteModel(customerName: "Привет привет", serviceName: ["пока", "пока", "пока"], time: "13:37", cost: 100)
-        ]
+    private(set) var weekAppointments: [[AppointmentModel]] = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
     ]
     
-    init(getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase, getWeekdayIndexForDateUseCase: GetWeekdayIndexForDateUseCase, getDayOfWeekByDateUseCase: GetDayOfWeekByDateUseCase, getDayOfMonthByDateUseCase: GetDayOfMonthByDateUseCase, getDateWithOffsetUseCase: GetDateWithOffsetUseCase, isTodayUseCase: IsTodayUseCase) {
+    var weekDates: [Date] = []
+    var currentDayIndex: Int = 0
+    var selectedDayIndex: Int = 0
+
+    var error: String = ""
+    
+    init(appointmentRepository: AppointmentRepository, getDaysOfWeekForDateUseCase: GetDaysOfWeekForDateUseCase, getWeekdayIndexForDateUseCase: GetWeekdayIndexForDateUseCase, getDayOfWeekByDateUseCase: GetDayOfWeekByDateUseCase, getDayOfMonthByDateUseCase: GetDayOfMonthByDateUseCase, getDateWithOffsetUseCase: GetDateWithOffsetUseCase, isTodayUseCase: IsTodayUseCase, getSortedWeekAppointmentsUseCase: GetSortedWeekAppointmentsUseCase, changeDateTimeStringToHhMmUseCase: ChangeDateTimeStringToHhMmUseCase) {
+        self.appointmentRepository = appointmentRepository
         self.getDaysOfWeekForDateUseCase = getDaysOfWeekForDateUseCase
         self.getWeekdayIndexForDateUseCase = getWeekdayIndexForDateUseCase
         self.getDayOfWeekByDateUseCase = getDayOfWeekByDateUseCase
         self.getDayOfMonthByDateUseCase = getDayOfMonthByDateUseCase
         self.getDateWithOffsetUseCase = getDateWithOffsetUseCase
         self.isTodayUseCase = isTodayUseCase
+        self.getSortedWeekAppointmentsUseCase = getSortedWeekAppointmentsUseCase
+        self.changeDateTimeStringToHhMmUseCase = changeDateTimeStringToHhMmUseCase
         
         self.weekDates = getDaysOfWeekForDate(Date())
         self.currentDayIndex = getWeekdayIndexForDate(Date())
@@ -120,11 +90,29 @@ final class MainViewModel {
         isTodayUseCase.isToday(date)
     }
     
-    var weekDates: [Date] = []
-    var currentDayIndex: Int = 0
-    var selectedDayIndex: Int = 0
-
-	func goToDetailsMainScreen() {
-		coordinator?.goToDetailsAppointmentScreen(model: AppointmentModel(id: UUID(), clientName: "Burava", services: [ServiceShortModel(id: UUID(), name: "Bubu"), ServiceShortModel(id: UUID(), name: "Babababababababa"), ServiceShortModel(id: UUID(), name: "Asdasdasd")], price: 340, clientPhone: "1242131", startDateTime: "23.02.2023 15:00", endDateTime: "23.02.2023 20:00", status: .new))
+    func getHhMmFormattedDateString(from dateString: String) -> String? {
+        return changeDateTimeStringToHhMmUseCase.formatDate(dateString)
+    }
+    
+    func goToDetailsMainScreen(appointment: AppointmentModel) {
+		coordinator?.goToDetailsAppointmentScreen(model: appointment)
 	}
+    
+    func getTimezoneAppointments() async -> Bool {
+        do {
+            // TODO: - Convert into double array
+            let currentWeekAppointments = try await appointmentRepository.getTimezoneAppointments(startDate: "\(weekDates[0])", endDate: "\(weekDates[6])")
+            weekAppointments = getSortedWeekAppointmentsUseCase.getWeekAppointments(from: currentWeekAppointments, dates: weekDates)
+            return true
+        } catch(let error) {
+            if let appError = error as? AppError {
+                self.error = appError.errorDescription
+            }
+            else {
+                self.error = error.localizedDescription
+            }
+            return false
+        }
+    }
+    
 }

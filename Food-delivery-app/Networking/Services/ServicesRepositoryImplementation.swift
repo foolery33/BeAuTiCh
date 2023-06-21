@@ -29,8 +29,10 @@ final class ServicesRepositoryImplementation: ServicesRepository {
                 throw AppError.servicesError(.unauthorized)
             case 403:
                 throw AppError.servicesError(.forbiddenAccess)
-            default:
+            case 500:
                 throw AppError.servicesError(.serverError)
+            default:
+                throw AppError.servicesError(.unexpectedError)
             }
         }
     }
@@ -40,6 +42,7 @@ final class ServicesRepositoryImplementation: ServicesRepository {
         case serverError
         case modelError
         case forbiddenAccess
+        case unexpectedError
         var id: String {
             self.errorDescription
         }
@@ -53,6 +56,8 @@ final class ServicesRepositoryImplementation: ServicesRepository {
                 return R.string.errors.model_error()
             case .forbiddenAccess:
                 return R.string.errors.forbidden_access()
+            case .unexpectedError:
+                return R.string.errors.unexpected_error()
             }
         }
     }

@@ -11,13 +11,14 @@ class MainPageViewController: UIPageViewController {
     
     private let viewModel: MainViewModel
     var onSwipeAction: (() -> ())?
+    var onNewSwipeAction: ((Int) -> ())?
     
-    private var currentIndex: Int = 0 {
-        didSet {
-            print(currentIndex)
-        }
-    }
+    private var currentIndex: Int = 0
     private var nextIndex: Int = 0
+    
+    lazy var changeDateTimeStringToHhMm: ((String) -> (String)) = { [weak self] dateTime in
+        return self?.viewModel.getHhMmFormattedDateString(from: dateTime) ?? ""
+    }
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -42,7 +43,9 @@ class MainPageViewController: UIPageViewController {
     }()
     
     private func getScheduleViewController(weekdayIndex: Int) -> ScheduleViewController {
-        return ScheduleViewController(serviceNotes: viewModel.weekServiceNotes[weekdayIndex], viewModel: viewModel)
+        let myScheduleViewController = ScheduleViewController(dayAppointments: viewModel.weekAppointments[weekdayIndex], viewModel: viewModel)
+        myScheduleViewController.changeDateTimeStringToHhMm = changeDateTimeStringToHhMm
+        return myScheduleViewController
     }
     
     override func viewDidLoad()
@@ -61,15 +64,8 @@ class MainPageViewController: UIPageViewController {
     
 }
 
+// MARK: - UIPageViewControllerDataSource
 extension MainPageViewController: UIPageViewControllerDataSource {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        (onSwipeAction ?? {})()
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        (onSwipeAction ?? {})()
-    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = pages.firstIndex(of: viewController) else { return nil }
@@ -89,14 +85,26 @@ extension MainPageViewController: UIPageViewControllerDataSource {
         return pages[nextIndex]
     }
     
-}
-
-extension MainPageViewController: UIPageViewControllerDelegate {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return self.pages.count
+        return pages.count
+    }
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return currentIndex
     }
     
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return self.currentIndex
+}
+
+// MARK: - UIPageViewControllerDelegate
+extension MainPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard completed, finished else {
+            return
+        }
+        viewModel.selectedDayIndex = currentIndex
+        onSwipeAction?()
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        currentIndex = pages.firstIndex(of: pendingViewControllers.first!)!
     }
 }
