@@ -9,7 +9,6 @@ import UIKit
 import NeedleFoundation
 
 protocol SettingsComponentDependency: Dependency {
-    
 }
 
 final class SettingsComponent: Component<SettingsComponentDependency> {

@@ -20,7 +20,10 @@ final class SettingsViewModel {
 	private let convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase?
 	private let convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?
 
-	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?, servicesRepository: ServicesRepository?, convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase?) {
+	init(subscribeRepository: SubscribeRepository?,
+		 convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?,
+		 servicesRepository: ServicesRepository?,
+		 convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase?) {
 		self.subscribeRepository = subscribeRepository
 		self.convertStringToDateDdMmYyyyUseCase = convertStringToDateDdMmYyyyUseCase
 		self.servicesRepository = servicesRepository

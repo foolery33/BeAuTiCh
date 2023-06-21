@@ -84,7 +84,9 @@ class YourServicesViewController: UIViewController {
 
 		alertController.addTextField { priceTextField in
 			priceTextField.placeholder = R.string.yourServicesViewScreen.input_price_service()
-			priceTextField.text = "\(service?.price ?? 0)"
+			if let price = service?.price {
+				priceTextField.text = "\(price)"
+			}
 		}
 
 		alertController.addTextField { durationTextField in
@@ -256,11 +258,6 @@ private extension YourServicesViewController {
 		alertController.textFields?[2].text = viewModel.convertTimeToHhMmSs(dateTimeAppointmentPicker.date)
 		({ _ in })("\(dateTimeAppointmentPicker.date)")
 
-//		let dateFormatter = DateFormatter()
-//		dateFormatter.dateStyle = .medium
-//		dateFormatter.timeStyle = .none
-//
-//		alertController.textFields?[2].text = dateFormatter.string(from: dateTimeAppointmentPicker.date)
 		view.endEditing(true)
 	}
 }
