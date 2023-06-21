@@ -141,31 +141,6 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 			}
 		}
 	}
-	
-	func changeAvatar(imageData: Data) async throws -> String {
-		let url = baseURL + "api/profile/avatar"
-		
-		let dataTask = session.upload(multipartFormData: { multipartFormData in
-			multipartFormData.append(imageData, withName: "file", fileName: "file.jpeg", mimeType: "image/jpeg")
-			
-		}, to: url, method: .post, interceptor: interceptor).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 400:
-				throw AppError.profileError(.modelError)
-			case 401:
-				throw AppError.profileError(.unauthorized)
-			case 404:
-				throw AppError.profileError(.photoNotFound)
-			default:
-				throw AppError.profileError(.serverError)
-				
-			}
-		}
-	}
 
 	func uploadPhoto(imageData: Data, completion: @escaping (Result<Bool, AppError>) -> Void) {
 		let url = baseURL + "api/profile/avatar"
