@@ -189,6 +189,18 @@ final class MainComponent: BootstrapComponent {
 			ConvertStringToDateDdMmYyyyHhMmSsUseCase()
 		}
 	}
+
+	var priceValidationUseCase: PriceValidationUseCase {
+		shared {
+			PriceValidationUseCase()
+		}
+	}
+
+	var getSettingsValidationErrorUseCase: GetSettingsValidationErrorUseCase {
+		shared {
+			GetSettingsValidationErrorUseCase(emptyValidationUseCase: emptyValidationUseCase, priceValidationUseCase: priceValidationUseCase)
+		}
+	}
     
     // MARK: - Repositories
     

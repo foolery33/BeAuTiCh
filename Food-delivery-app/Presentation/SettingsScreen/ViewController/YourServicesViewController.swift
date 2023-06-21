@@ -115,6 +115,7 @@ class YourServicesViewController: UIViewController {
 						price: price,
 						duration: self?.alertController.textFields?[2].text ?? String())
 					)
+
 				} else {
 					self?.editService(serviceId: service!.id, model: EditService(
 						name: self?.alertController.textFields?[0].text ?? String(),
@@ -122,6 +123,8 @@ class YourServicesViewController: UIViewController {
 					duration: self?.alertController.textFields?[2].text ?? String())
 					)
 				}
+			} else {
+				self?.showAlert(title: "Поле с ценником не заполнено или неправильного формата", message: nil)
 			}
 		}
 
@@ -153,6 +156,22 @@ class YourServicesViewController: UIViewController {
 		alertController.view.tintColor = R.color.vinous()
 
 		self.present(alertController, animated: true)
+	}
+
+	func showErrorMessages(errorMessages: [String]) {
+		var errors = String()
+
+		errorMessages.forEach { message in
+			errors.append("\n" + message + "\n")
+		}
+
+		let alertController = UIAlertController(title: "Внимание!", message: errors, preferredStyle: .alert)
+		let action = UIAlertAction(title: "Закрыть", style: .cancel)
+
+		alertController.addAction(action)
+		alertController.view.tintColor = R.color.vinous()
+
+		self.present(alertController, animated: true, completion: nil)
 	}
     
     //MARK: - Private methods
@@ -203,6 +222,14 @@ private extension YourServicesViewController {
 					self.ui.setupScreen()
 					self.ui.setServices(services)
 				}
+			}
+		}
+
+		viewModel.errorMessages.subscribe { [ weak self ] errorMessages in
+			guard let self = self else { return }
+
+			DispatchQueue.main.async {
+				self.showErrorMessages(errorMessages: errorMessages)
 			}
 		}
 	}

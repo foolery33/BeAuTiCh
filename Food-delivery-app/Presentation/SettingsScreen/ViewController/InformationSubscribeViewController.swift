@@ -98,7 +98,6 @@ private extension InformationSubscribeViewController {
 		viewModel.subscribe.subscribe { [ weak self ] subscribe in
 			guard let self = self else { return }
 
-			print(subscribe)
 			DispatchQueue.main.async {
 				self.ui.setStartDateSubscribe(self.viewModel.convertDateToDdMmYyyy(subscribe.createDate))
 			}
