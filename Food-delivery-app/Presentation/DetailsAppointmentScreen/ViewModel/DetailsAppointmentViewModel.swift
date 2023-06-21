@@ -12,7 +12,8 @@ class DetailsAppointmentViewModel {
     private let appointmentRepository: AppointmentRepository
     private let convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase
     
-	weak var coordinator: MainCoordinator?
+	weak var mainCoordinator: MainCoordinator?
+	weak var searchCoordinator: SearchCoordinator?
     
 	var appointment = Observable<AppointmentModel>()
     var error: String = ""
@@ -49,10 +50,14 @@ class DetailsAppointmentViewModel {
         }
     }
     
-    func goBackToMainScreen() {
-        coordinator?.navigationController.popViewController(animated: true)
+    func goBackScreen() {
+		if let mainCoordinator = mainCoordinator {
+			mainCoordinator.navigationController.popViewController(animated: true)
+
+		} else if let searchCoordinator = searchCoordinator {
+			searchCoordinator.navigationController.popViewController(animated: true)
+		}
     }
-    
 
 	func conventStringDateToDdMmYyyy(_ date: String) -> String {
 		return convertStringToDateDdMmYyyyHhMmSsUseCase.convert(date)

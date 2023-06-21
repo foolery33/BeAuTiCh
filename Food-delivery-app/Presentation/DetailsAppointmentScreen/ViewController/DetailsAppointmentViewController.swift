@@ -45,7 +45,7 @@ private extension DetailsAppointmentViewController {
 	}
     func setActionHandlers() {
         ui.onBackArrowButtonTapped = { [weak self] in
-            self?.viewModel.goBackToMainScreen()
+            self?.viewModel.goBackScreen()
         }
         ui.onClientAcceptedButtonTapped = { [weak self] in
             Task {

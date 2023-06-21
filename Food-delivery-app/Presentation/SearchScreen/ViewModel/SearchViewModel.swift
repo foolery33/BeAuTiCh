@@ -64,5 +64,8 @@ final class SearchViewModel {
     func goToFilterScreen() {
         coordinator?.goToFilterScreen(priceFrom: startPrice, priceTo: endPrice, dateFrom: startDate, dateTo: endDate, selectedServiceIds: servicesId)
     }
-    
+	
+	func goToDetailsMainScreen(appointment: AppointmentModel) {
+		coordinator?.goToDetailsAppointmentScreen(model: appointment)
+	}
 }

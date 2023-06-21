@@ -30,11 +30,4 @@ class DetailsAppointmentCoordinator: CoordinatorProtocol {
 		appc?.goToAuth()
 		appc?.childDidFinish(self)
 	}
-
-//	private func goToDetailsAppointmentScreen() {
-//		let detailsAppointmentComponent = componentFactory.getDetailsAppointment()
-//		detailsAppointmentComponent.detailsAppointmentViewModel.coordinator = self
-//
-//		navigationController.pushViewController(detailsAppointmentComponent.detailsAppointmentViewController, animated: true)
-//	}
 }

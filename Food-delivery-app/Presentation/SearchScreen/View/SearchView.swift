@@ -16,6 +16,8 @@ class SearchView: UIView {
     var appointmentList: [AppointmentModel]?
     
     var notes: [NoteView] = []
+
+	var notePressedHandler: ((AppointmentModel) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -179,6 +181,12 @@ extension SearchView {
         newNote.snp.makeConstraints { make in
             make.width.equalTo(UIScreen.main.bounds.width / 2 - 27 - 14)
         }
+
+		newNote.viewPressedHandler = { [ weak self ] appointment in
+			guard let self = self else { return }
+
+			self.notePressedHandler?(appointment)
+		}
     }
     
     private func createEmptyView() -> UIView {

@@ -41,6 +41,14 @@ final class SearchCoordinator: CoordinatorProtocol {
         filterComponent.filterViewModel.selectedServiceIds = selectedServiceIds
         navigationController.pushViewController(filterComponent.filterViewController, animated: true)
     }
+
+	func goToDetailsAppointmentScreen(model: AppointmentModel) {
+		let detailsAppointmentComponent = componentFactory.getDetailsAppointment()
+		detailsAppointmentComponent.detailsAppointmentViewModel.searchCoordinator = self
+		detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: model)
+
+		navigationController.pushViewController(detailsAppointmentComponent.detailsAppointmentViewController, animated: true)
+	}
     
     func goBackToSearchScreen(priceFrom: Int?, priceTo: Int?, dateFrom: String?, dateTo: String?, selectedServiceIds: [UUID]) {
         searchComponent.searchViewModel.startPrice = priceFrom
@@ -62,5 +70,8 @@ final class SearchCoordinator: CoordinatorProtocol {
     func setSelectedServices(_ serviceIdList: [UUID]) {
         filterComponent.filterViewModel.selectedServiceIds = serviceIdList
     }
-    
+
+	func goBackSearchScreen() {
+		navigationController.popViewController(animated: true)
+	}
 }

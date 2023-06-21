@@ -56,6 +56,12 @@ extension SearchViewController {
         ui.onFilterButtonTapped = { [weak self] in
             self?.viewModel.goToFilterScreen()
         }
+
+		ui.notePressedHandler = { [ weak self ] appointment in
+			guard let self = self else { return }
+
+			self.viewModel.goToDetailsMainScreen(appointment: appointment)
+		}
         
     }
     
