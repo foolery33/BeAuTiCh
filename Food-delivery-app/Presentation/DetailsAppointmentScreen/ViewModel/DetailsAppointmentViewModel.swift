@@ -10,13 +10,21 @@ class DetailsAppointmentViewModel {
 
 	var appointment = Observable<AppointmentModel>()
 
-	init(appointment: AppointmentModel?) {
-		if let appointment = appointment {
-			self.appointment.updateModel(with: appointment)
-		}
+	private let convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase
+
+	init(convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase) {
+		self.convertStringToDateDdMmYyyyHhMmSsUseCase = convertStringToDateDdMmYyyyHhMmSsUseCase
 	}
 
 	func setAppointment(appointment: AppointmentModel) {
-		self.appointment.updateModel(with: appointment)
+		let startDateTime = conventStringDateToDdMmYyyy(appointment.startDateTime)
+		let endDateTime = conventStringDateToDdMmYyyy(appointment.endDateTime)
+
+		let correctAppointment = AppointmentModel(id: appointment.id, clientName: appointment.clientName, services: appointment.services, price: appointment.price, clientPhone: appointment.clientPhone, startDateTime: startDateTime, endDateTime: endDateTime, status: appointment.status)
+		self.appointment.updateModel(with: correctAppointment)
+	}
+
+	func conventStringDateToDdMmYyyy(_ date: String) -> String {
+		return convertStringToDateDdMmYyyyHhMmSsUseCase.convert(date)
 	}
 }

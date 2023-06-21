@@ -19,6 +19,20 @@ class DetailsAppointmentView: UIView {
 		return view
 	}()
 
+	private lazy var scrollView: UIScrollView = {
+		let view = UIScrollView()
+		view.showsVerticalScrollIndicator = false
+		view.alwaysBounceVertical = true
+		view.frame = self.bounds
+		view.contentInsetAdjustmentBehavior = .never
+		return view
+	}()
+
+	private lazy var contentView: UIView = {
+		let view = UIView()
+		return view
+	}()
+
 	private lazy var arrowBackButton: UIButton = {
 		let view = UIButton()
 		view.setImage(R.image.arrowBackSheet(), for: .normal)
@@ -183,6 +197,8 @@ class DetailsAppointmentView: UIView {
 		return view
 	}()
 
+	// MARK: Internal properties
+
 	// MARK: Init
 	init() {
 		super.init(frame: .zero)
@@ -227,8 +243,8 @@ class DetailsAppointmentView: UIView {
 	}
 
 	private func addButtonsForStatusAppointment() {
-		addSubview(clientAcceptedButton)
-		addSubview(cancelAppointmentButton)
+		contentView.addSubview(clientAcceptedButton)
+		contentView.addSubview(cancelAppointmentButton)
 
 		clientAcceptedButton.snp.makeConstraints { make in
 			make.leading.equalToSuperview().inset(21)
@@ -241,10 +257,16 @@ class DetailsAppointmentView: UIView {
 			make.trailing.equalToSuperview().inset(20)
 			make.width.equalTo(89)
 		}
+
+		changeDataButton.snp.remakeConstraints { make in
+			make.horizontalEdges.equalToSuperview().inset(55)
+			make.top.greaterThanOrEqualTo(clientAcceptedButton.snp.bottom).offset(35)
+			make.bottom.equalToSuperview().inset(10)
+		}
 	}
 
 	private func addViewStatusAppointment(statusText: String, backgroundColor: UIColor?, textColor: UIColor?) {
-		addSubview(statusAppointment)
+		contentView.addSubview(statusAppointment)
 
 		statusAppointment.setTitle(statusText, for: .normal)
 		statusAppointment.backgroundColor = backgroundColor
@@ -253,6 +275,12 @@ class DetailsAppointmentView: UIView {
 		statusAppointment.snp.makeConstraints { make in
 			make.top.equalTo(informationTitleStack.snp.bottom).offset(20)
 			make.horizontalEdges.equalToSuperview().inset(110)
+		}
+
+		changeDataButton.snp.remakeConstraints { make in
+			make.horizontalEdges.equalToSuperview().inset(55)
+			make.top.greaterThanOrEqualTo(statusAppointment.snp.bottom).offset(16)
+			make.bottom.equalToSuperview().inset(10)
 		}
 	}
 }
@@ -267,13 +295,17 @@ private extension DetailsAppointmentView {
 
 	func configureUI() {
 		addSubview(backgroundImage)
+		addSubview(scrollView)
 		addSubview(arrowBackButton)
 		addSubview(clientName)
-		addSubview(servicesTitleLabel)
-		addSubview(serviceTags)
-		addSubview(informationTitleStack)
-		addSubview(informationAppointmentStack)
-		addSubview(changeDataButton)
+
+		scrollView.addSubview(contentView)
+
+		contentView.addSubview(servicesTitleLabel)
+		contentView.addSubview(serviceTags)
+		contentView.addSubview(informationTitleStack)
+		contentView.addSubview(informationAppointmentStack)
+		contentView.addSubview(changeDataButton)
 
 		informationTitleStack.addArrangedSubview(startTimeAppointmentTitleLabel)
 		informationTitleStack.addArrangedSubview(endTimeAppointmentTitleLabel)
@@ -284,7 +316,20 @@ private extension DetailsAppointmentView {
 
 	func configureConstraints() {
 		backgroundImage.snp.makeConstraints { make in
-			make.edges.equalToSuperview()
+			make.verticalEdges.equalTo(self.safeAreaLayoutGuide.snp.verticalEdges)
+			make.horizontalEdges.equalToSuperview()
+		}
+
+		scrollView.snp.makeConstraints { make in
+			make.top.equalTo(clientName.snp.bottom).offset(20)
+			make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(20)
+			make.horizontalEdges.equalToSuperview()
+		}
+
+		contentView.snp.makeConstraints { make in
+			make.horizontalEdges.equalTo(scrollView.frameLayoutGuide)
+			make.top.equalToSuperview()
+			make.bottom.equalTo(scrollView.contentLayoutGuide.snp.bottom)
 		}
 
 		arrowBackButton.snp.makeConstraints { make in
@@ -301,7 +346,7 @@ private extension DetailsAppointmentView {
 
 		servicesTitleLabel.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(21)
-			make.top.equalTo(clientName.snp.bottom).offset(20)
+			make.top.equalToSuperview()
 		}
 
 		serviceTags.snp.makeConstraints { make in
@@ -316,13 +361,14 @@ private extension DetailsAppointmentView {
 
 		informationAppointmentStack.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(21)
-			make.leading.equalTo(informationTitleStack.snp.trailing).offset(10)
+			make.leading.equalTo(informationTitleStack.snp.trailing).offset(15)
 			make.top.equalTo(informationTitleStack.snp.top)
 		}
 
 		changeDataButton.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(55)
-			make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(37)
+			make.top.greaterThanOrEqualTo(informationAppointmentStack.snp.bottom).offset(16)
+			make.bottom.equalToSuperview().inset(10)
 		}
 	}
 
