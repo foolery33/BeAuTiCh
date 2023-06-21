@@ -12,5 +12,4 @@ final class UpdatePriceUseCase {
     func updatePrice(_ price: String) -> Int? {
         return Int(price)
     }
-    
 }

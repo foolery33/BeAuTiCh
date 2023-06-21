@@ -109,15 +109,23 @@ private func factory7199151049f30c7d4fa40ae93e637f014511a119(_ component: Needle
     return ServiceSelectionComponentDependency5628e884730da5d9efb6Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class YourServicesComponentDependencyd4e3d4cc6d212e056730Provider: YourServicesComponentDependency {
-
-
-    init() {
-
+    var subscribeRepository: SubscribeRepository {
+        return mainComponent.subscribeRepository
+    }
+    var servicesRepository: ServicesRepository {
+        return mainComponent.servicesRepository
+    }
+    var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase {
+        return mainComponent.convertToTimeHhMmSsUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->YourServicesComponent
-private func factory1cd1709ea24af3b2cb10e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return YourServicesComponentDependencyd4e3d4cc6d212e056730Provider()
+private func factory1cd1709ea24af3b2cb100ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return YourServicesComponentDependencyd4e3d4cc6d212e056730Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class SettingsComponentDependency7fa547a58a11332b68f1Provider: SettingsComponentDependency {
 
@@ -131,15 +139,20 @@ private func factory86a73304bebb2197a1eee3b0c44298fc1c149afb(_ component: Needle
     return SettingsComponentDependency7fa547a58a11332b68f1Provider()
 }
 private class InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider: InformationSubscribeComponentDependency {
-
-
-    init() {
-
+    var subscribeRepository: SubscribeRepository {
+        return mainComponent.subscribeRepository
+    }
+    var convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase {
+        return mainComponent.convertStringToDateDdMmYyyyUseCase
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->InformationSubscribeComponent
-private func factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider()
+private func factorycc7c0eb6a29b4b47dd540ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return InformationSubscribeComponentDependencyc4c58976cf5886a11075Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class FilterComponentDependencye4de2e473c135cffe41bProvider: FilterComponentDependency {
     var updatePriceUseCase: UpdatePriceUseCase {
@@ -291,7 +304,9 @@ extension ServiceSelectionComponent: Registration {
 }
 extension YourServicesComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\YourServicesComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
+        keyPathToName[\YourServicesComponentDependency.servicesRepository] = "servicesRepository-ServicesRepository"
+        keyPathToName[\YourServicesComponentDependency.convertToTimeHhMmSsUseCase] = "convertToTimeHhMmSsUseCase-ConvertToTimeHhMmSsUseCase"
     }
 }
 extension SettingsComponent: Registration {
@@ -301,7 +316,8 @@ extension SettingsComponent: Registration {
 }
 extension InformationSubscribeComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\InformationSubscribeComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
+        keyPathToName[\InformationSubscribeComponentDependency.convertStringToDateDdMmYyyyUseCase] = "convertStringToDateDdMmYyyyUseCase-ConvertStringToDateDdMmYyyyUseCase"
     }
 }
 extension FilterComponent: Registration {
@@ -365,9 +381,9 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->SearchComponent", factory2746832551408832f06d0ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->DetailsAppointmentComponent", factoryfbaf57f0de8177160dcee3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->ServiceSelectionComponent", factory7199151049f30c7d4fa40ae93e637f014511a119)
-    registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb10e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->YourServicesComponent", factory1cd1709ea24af3b2cb100ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->SettingsComponent", factory86a73304bebb2197a1eee3b0c44298fc1c149afb)
-    registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd54e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->InformationSubscribeComponent", factorycc7c0eb6a29b4b47dd540ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->FilterComponent", factory6347d5e031963ee794f40ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->EditAppointmentComponent", factory47f0d97746204a98bae80ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegisterComponent", factory49735e63dbc2c5fc6d790ae93e637f014511a119)

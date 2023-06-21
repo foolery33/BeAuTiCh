@@ -109,13 +109,7 @@ class ServiceTagLabelsView: UIView {
     }
     
     @objc private func serviceTagPressed(_ serviceTag: ServiceTapGesture) {
-        (onServiceTagTapped ?? { _ in })(serviceTag.serviceId)
-        if serviceTag.view?.backgroundColor == R.color.white()! {
-            serviceTag.view?.backgroundColor = R.color.transparentWhite()
-        }
-        else {
-            serviceTag.view?.backgroundColor = R.color.white()
-        }
+        onServiceTagTapped?(serviceTag.serviceId)
     }
     
     func displayTagLabels() {
