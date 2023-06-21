@@ -49,7 +49,6 @@ class InformationSubscribeViewController: UIViewController {
 		bindListener()
     }
     
-    
     //MARK: - Private methods
     
     private func dismiss() {

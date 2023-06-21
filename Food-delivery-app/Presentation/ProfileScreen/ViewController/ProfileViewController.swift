@@ -48,10 +48,14 @@ class ProfileViewController: UIViewController {
 
 		setHandlers()
 		setBindListener()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
 		fetchDataProfile()
 		getAvatar()
 	}
-
 
 	// MARK: - Private methods
 

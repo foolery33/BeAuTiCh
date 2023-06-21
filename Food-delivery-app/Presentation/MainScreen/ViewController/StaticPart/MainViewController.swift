@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
-        getTimezoneAppointments()
     }
     
     required init?(coder: NSCoder) {
@@ -25,6 +24,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		getTimezoneAppointments()
+	}
     
     private func setupSubviews() {
         setupContentView()
