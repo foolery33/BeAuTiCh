@@ -232,14 +232,14 @@ private extension InformationSubscribeView {
 			make.centerX.equalToSuperview()
 		}
 
-		informationLabel.snp.makeConstraints { make in
+		plugInformationLabel.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(15)
 			make.top.equalTo(plugImageView.snp.bottom).offset(26)
 		}
 
 		subscribeButton.snp.makeConstraints { make in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(informationLabel.snp.bottom).offset(33)
+			make.top.equalTo(plugInformationLabel.snp.bottom).offset(33)
 		}
 	}
     
