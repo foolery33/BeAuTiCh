@@ -97,7 +97,7 @@ class InformationSubscribeView: UIView {
 		return view
 	}()
 
-	private lazy var informationLabel: UILabel = {
+	private lazy var plugInformationLabel: UILabel = {
 		let view = UILabel()
 		view.text = R.string.informationSubcscribeSheetScreen.there_is_not_subscribe()
 		view.textColor = R.color.white()
