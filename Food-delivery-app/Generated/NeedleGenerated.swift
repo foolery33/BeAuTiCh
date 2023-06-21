@@ -125,6 +125,9 @@ private class InformationSubscribeComponentDependencyc4c58976cf5886a11075Provide
     var subscribeRepository: SubscribeRepository {
         return mainComponent.subscribeRepository
     }
+    var convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase {
+        return mainComponent.convertStringToDateDdMmYyyyUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -279,6 +282,7 @@ extension SettingsComponent: Registration {
 extension InformationSubscribeComponent: Registration {
     public func registerItems() {
         keyPathToName[\InformationSubscribeComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
+        keyPathToName[\InformationSubscribeComponentDependency.convertStringToDateDdMmYyyyUseCase] = "convertStringToDateDdMmYyyyUseCase-ConvertStringToDateDdMmYyyyUseCase"
     }
 }
 extension FilterComponent: Registration {

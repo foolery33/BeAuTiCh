@@ -24,6 +24,7 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 		case unauthorized
 		case serverError
 		case modelError
+		case notFound
 
 		var id: String {
 			self.errorDescription
@@ -37,6 +38,8 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 				return R.string.errors.server_error()
 			case .modelError:
 				return R.string.errors.model_error()
+			case .notFound:
+				return R.string.errors.not_fount_subscribe()
 			}
 		}
 	}
@@ -53,19 +56,17 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 			let requestStatusCode = await dataTask.response.response?.statusCode
 			switch requestStatusCode {
 			case 200:
-				throw AppError.servicesError(.modelError)
+				throw AppError.subscribeError(.modelError)
 			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
+				throw AppError.subscribeError(.unauthorized)
 			default:
-				throw AppError.servicesError(.serverError)
+				throw AppError.subscribeError(.serverError)
 			}
 		}
 	}
 
 	func fetchInformationSubscribe() async throws -> SubscribeModel {
-		let url = baseURL + "details"
+		let url = baseURL + "/details"
 		let dataTask = session.request(
 			url,
 			interceptor: interceptor
@@ -76,40 +77,43 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 			let requestStatusCode = await dataTask.response.response?.statusCode
 			switch requestStatusCode {
 			case 200:
-				throw AppError.servicesError(.modelError)
+				throw AppError.subscribeError(.modelError)
 			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
+				throw AppError.subscribeError(.unauthorized)
+			case 404:
+				throw AppError.subscribeError(.notFound)
 			default:
-				throw AppError.servicesError(.serverError)
+				throw AppError.subscribeError(.serverError)
 			}
 		}
 	}
 
 	func changeStatusSubscribe(status: Bool) async throws -> String {
 		let url = baseURL
+		let parameters: Parameters = [
+			"isSubscribing" : "\(status)"
+		]
+
 		let dataTask = session.request(
 			url,
 			method: .put,
-			parameters: status,
-			encoder: JSONParameterEncoder.default,
+			parameters: parameters,
+			encoding: URLEncoding.queryString,
 			interceptor: interceptor
 		).serializingString()
-		await print(dataTask.response.request)
 		do {
 			return try await dataTask.value
 		} catch {
 			let requestStatusCode = await dataTask.response.response?.statusCode
 			switch requestStatusCode {
 			case 200:
-				throw AppError.servicesError(.modelError)
+				throw AppError.subscribeError(.modelError)
 			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
+				throw AppError.subscribeError(.unauthorized)
+			case 404:
+				throw AppError.subscribeError(.modelError)
 			default:
-				throw AppError.servicesError(.serverError)
+				throw AppError.subscribeError(.serverError)
 			}
 		}
 	}

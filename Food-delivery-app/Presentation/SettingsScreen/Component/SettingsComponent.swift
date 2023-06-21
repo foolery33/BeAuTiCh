@@ -15,7 +15,7 @@ protocol SettingsComponentDependency: Dependency {
 final class SettingsComponent: Component<SettingsComponentDependency> {
     var settingsViewModel: SettingsViewModel {
         shared {
-			SettingsViewModel(subscribeRepository: nil)
+			SettingsViewModel(subscribeRepository: nil, convertStringToDateDdMmYyyyUseCase: nil)
         }
     }
     

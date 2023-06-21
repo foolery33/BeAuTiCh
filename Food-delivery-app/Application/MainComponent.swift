@@ -158,6 +158,12 @@ final class MainComponent: BootstrapComponent {
             PasswordValidationUseCase()
         }
     }
+
+	var convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase {
+		shared {
+			ConvertStringToDateDdMmYyyyUseCase()
+		}
+	}
     
     // MARK: - Repositories
     

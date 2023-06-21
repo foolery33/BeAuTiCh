@@ -252,7 +252,7 @@ struct _R {
       var start_time_appointment: RswiftResources.StringResource { .init(key: "start_time_appointment", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment time: ", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 24 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 25 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -367,6 +367,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var not_correct_old_password: RswiftResources.StringResource { .init(key: "not_correct_old_password", tableName: "Errors", source: source, developmentValue: "The old password entered is incorrect", comment: nil) }
+
+      /// en translation: Unfortunately, an error occurred on the server. Your subscription was not found, please try again
+      ///
+      /// Key: not_fount_subscribe
+      ///
+      /// Locales: en, ru
+      var not_fount_subscribe: RswiftResources.StringResource { .init(key: "not_fount_subscribe", tableName: "Errors", source: source, developmentValue: "Unfortunately, an error occurred on the server. Your subscription was not found, please try again", comment: nil) }
 
       /// en translation: Ok
       ///

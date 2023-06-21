@@ -108,6 +108,7 @@
 		F327137B2A42B4EC005B8AC9 /* SubscribeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137A2A42B4EC005B8AC9 /* SubscribeModel.swift */; };
 		F327137D2A42B514005B8AC9 /* SubscribeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137C2A42B514005B8AC9 /* SubscribeRepository.swift */; };
 		F327137F2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327137E2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift */; };
+		F32713822A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713812A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift */; };
 		F35014002A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */; };
 		F35014262A3DED4C0095D091 /* RegisterScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F35014282A3DED4C0095D091 /* RegisterScreen.strings */; };
 		F350142A2A3DED550095D091 /* LoginScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = F350142C2A3DED550095D091 /* LoginScreen.strings */; };
@@ -276,6 +277,7 @@
 		F327137A2A42B4EC005B8AC9 /* SubscribeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeModel.swift; sourceTree = "<group>"; };
 		F327137C2A42B514005B8AC9 /* SubscribeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeRepository.swift; sourceTree = "<group>"; };
 		F327137E2A42B523005B8AC9 /* SubscribeRepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeRepositoryImplementation.swift; sourceTree = "<group>"; };
+		F32713812A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertStringToDateDdMmYyyyUseCase.swift; sourceTree = "<group>"; };
 		F35013FF2A3DBB8F0095D091 /* RedHatDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RedHatDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		F35014012A3DBB980095D091 /* RedHatDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "RedHatDisplay-Bold.ttf"; path = "../../../../../../../../Downloads/Red_Hat_Display/RedHatDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		F35014272A3DED4C0095D091 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegisterScreen.strings; sourceTree = "<group>"; };
@@ -1068,6 +1070,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F32713802A42D01C005B8AC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F32713812A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F35014202A3DED230095D091 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1147,6 +1157,7 @@
 		F37686F12A382FAB0006E566 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F32713802A42D01C005B8AC9 /* Model */,
 				F376871F2A3856A00006E566 /* Delegate */,
 				F37686F52A3830420006E566 /* Component */,
 				F37686F42A3830380006E566 /* ViewModel */,
@@ -1720,6 +1731,7 @@
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				F35DBFB42A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift in Sources */,
 				84590D232A40B090006BB403 /* ServicesRepository.swift in Sources */,
+				F32713822A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
 				F37E03222A4096B300F029C8 /* FilterView.swift in Sources */,
 				F37E031E2A40969B00F029C8 /* FilterComponent.swift in Sources */,

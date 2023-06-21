@@ -10,12 +10,13 @@ import NeedleFoundation
 
 protocol InformationSubscribeComponentDependency: Dependency {
 	var subscribeRepository: SubscribeRepository { get }
+	var convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase { get }
 }
 
 final class InformationSubscribeComponent: Component<InformationSubscribeComponentDependency> {
     var settingsViewModel: SettingsViewModel {
         shared {
-			SettingsViewModel(subscribeRepository: dependency.subscribeRepository)
+			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: dependency.convertStringToDateDdMmYyyyUseCase)
         }
     }
     

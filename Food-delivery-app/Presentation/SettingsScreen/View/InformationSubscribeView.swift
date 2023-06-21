@@ -54,6 +54,7 @@ class InformationSubscribeView: UIView {
         view.text = R.string.informationSubcscribeSheetScreen.start_date_subscribe()
         view.textColor = R.color.white()
         view.textAlignment = .left
+		view.numberOfLines = .max
         view.font = R.font.redHatDisplayMedium(size: 18)
         
         return view

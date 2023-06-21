@@ -12,9 +12,11 @@ final class SettingsViewModel {
 	var errorMessage = Observable<String>()
 
 	private var subscribeRepository: SubscribeRepository?
+	private let convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?
 
-	init(subscribeRepository: SubscribeRepository?) {
+	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?) {
 		self.subscribeRepository = subscribeRepository
+		self.convertStringToDateDdMmYyyyUseCase = convertStringToDateDdMmYyyyUseCase
 	}
 
 	func goToInformationSubcribeScreen(delegate: SheetViewControllerDelegate) {
@@ -95,5 +97,9 @@ final class SettingsViewModel {
 
 			return false
 		}
+	}
+
+	func convertDateToDdMmYyyy(_ date: String) -> String {
+		return convertStringToDateDdMmYyyyUseCase?.convert(date) ?? date
 	}
 }
