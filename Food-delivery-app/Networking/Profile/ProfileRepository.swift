@@ -10,7 +10,7 @@ import UIKit
 protocol ProfileRepository {
 	func getDataProfile() async throws -> ProfileModel
 	func changeDataProfile(parameters: ChangeDataProfileModel) async throws -> String
-	func changePassword(parameters: ChangePassword) async throws -> String
+	func changePassword(parameters: ChangePassword) async throws -> Bool
 	func getAvatar() async throws -> Data
 	func changeAvatar(imageData: Data) async throws -> String
 	func deleteAvatar() async throws -> String

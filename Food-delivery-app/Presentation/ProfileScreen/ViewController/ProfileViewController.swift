@@ -283,6 +283,14 @@ private extension ProfileViewController {
 			self.ui.stopActivityIndicator()
 		}
 	}
+
+	func setAvatar(imageData: Data, image: UIImage) {
+		viewModel.setAvatar(imageData: imageData) { success in
+			if success {
+				self.ui.setAvatar(avatar: image)
+			}
+		}
+	}
 }
 
 //- MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
@@ -323,13 +331,5 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		picker.dismiss(animated: true, completion: nil)
-	}
-
-	func setAvatar(imageData: Data, image: UIImage) {
-		viewModel.setAvatar(imageData: imageData) { success in
-			if success {
-				self.ui.setAvatar(avatar: image)
-			}
-		}
 	}
 }
