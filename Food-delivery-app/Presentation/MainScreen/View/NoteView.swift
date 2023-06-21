@@ -57,11 +57,38 @@ class NoteView: UIView {
         setupCustomerNameLabel()
         setupServiceNameStackView()
         setupTimeAndCostStackView()
+		setupCircleElementsImageViews()
         noteInfoStackView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(13)
             make.bottom.equalToSuperview().offset(-6)
         }
     }
+
+	// MARK: - CircleElements setup
+	private lazy var leftCircleElementImageView: UIImageView = {
+		let view = UIImageView()
+		view.image = R.image.rightCircleElement()
+
+		return view
+	}()
+	private lazy var rightCircleElementImageView: UIImageView = {
+		let view = UIImageView()
+		view.image = R.image.leftCircleElement()
+
+		return view
+	}()
+	private func setupCircleElementsImageViews() {
+		addSubview(leftCircleElementImageView)
+		addSubview(rightCircleElementImageView)
+
+		leftCircleElementImageView.snp.makeConstraints { make in
+			make.trailing.top.equalToSuperview()
+		}
+
+		rightCircleElementImageView.snp.makeConstraints { make in
+			make.bottom.leading.equalToSuperview()
+		}
+	}
     
     // MARK: - CustomerNameLabel setup
     private lazy var customerNameLabel: UILabel = {
