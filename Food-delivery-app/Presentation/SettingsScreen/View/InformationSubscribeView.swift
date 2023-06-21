@@ -182,7 +182,7 @@ private extension InformationSubscribeView {
 		self.addSubview(plugImageView)
 		self.addSubview(informationPlugStack)
 
-		self.addSubview(informationLabel)
+		self.addSubview(plugInformationLabel)
 		self.addSubview(subscribeButton)
 	}
     
