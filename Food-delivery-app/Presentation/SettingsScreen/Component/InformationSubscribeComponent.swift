@@ -16,7 +16,7 @@ protocol InformationSubscribeComponentDependency: Dependency {
 final class InformationSubscribeComponent: Component<InformationSubscribeComponentDependency> {
     var settingsViewModel: SettingsViewModel {
         shared {
-			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: dependency.convertStringToDateDdMmYyyyUseCase)
+			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: dependency.convertStringToDateDdMmYyyyUseCase, servicesRepository: nil)
         }
     }
     

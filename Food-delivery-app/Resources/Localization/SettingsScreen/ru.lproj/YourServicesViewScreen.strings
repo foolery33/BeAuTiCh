@@ -8,7 +8,7 @@
 
 "title_screen" = "Ваши услуги";
 "there_is_not_services" = "У вас пока нет ни одной услуги";
-"there_is_not_subscribe" = "Вы можете создавать свои услуги! Но необходима подписка";
+"there_is_not_subscribe" = "Вы можете создавать свои услуги! Необходима подписка";
 
 // MARK: For alert
 "choose_action" = "Выберите действие";

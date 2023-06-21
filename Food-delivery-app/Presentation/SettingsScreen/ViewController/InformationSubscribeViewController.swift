@@ -60,10 +60,6 @@ class InformationSubscribeViewController: UIViewController {
     
     //MARK: - Internal methods
     
-    func setStartDateSubscribe(_ date: String) {
-        ui.setStartDateSubscribe(date)
-    }
-
 	func showAlertErrorMessage(title: String, message: String?) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default){ [ weak self ] _ in

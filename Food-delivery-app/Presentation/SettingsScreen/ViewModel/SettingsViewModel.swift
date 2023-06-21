@@ -9,14 +9,17 @@ final class SettingsViewModel {
     weak var coordinator: SettingsCoordinator?
 
 	var subscribe = Observable<SubscribeModel>()
+	var customServices = Observable<[ServiceModel]>()
 	var errorMessage = Observable<String>()
 
 	private var subscribeRepository: SubscribeRepository?
+	private let servicesRepository: ServicesRepository?
 	private let convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?
 
-	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?) {
+	init(subscribeRepository: SubscribeRepository?, convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase?, servicesRepository: ServicesRepository?) {
 		self.subscribeRepository = subscribeRepository
 		self.convertStringToDateDdMmYyyyUseCase = convertStringToDateDdMmYyyyUseCase
+		self.servicesRepository = servicesRepository
 	}
 
 	func goToInformationSubcribeScreen(delegate: SheetViewControllerDelegate) {
@@ -101,5 +104,20 @@ final class SettingsViewModel {
 
 	func convertDateToDdMmYyyy(_ date: String) -> String {
 		return convertStringToDateDdMmYyyyUseCase?.convert(date) ?? date
+	}
+
+	func fetchCustomServices() async {
+		do {
+			let services = try await servicesRepository?.getCustomServices() ?? []
+			customServices.updateModel(with: services)
+
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+			}
+			else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+		}
 	}
 }

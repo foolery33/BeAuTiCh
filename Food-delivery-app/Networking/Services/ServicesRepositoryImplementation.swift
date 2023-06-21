@@ -34,6 +34,29 @@ final class ServicesRepositoryImplementation: ServicesRepository {
             }
         }
     }
+
+	func getCustomServices() async throws -> [ServiceModel] {
+		let url = baseURL + "api/services/custom"
+		let dataTask = AF.request(
+			url,
+			interceptor: interceptor
+		).serializingDecodable([ServiceModel].self)
+		do {
+			return try await dataTask.value
+		} catch {
+			let requestStatusCode = await dataTask.response.response?.statusCode
+			switch requestStatusCode {
+			case 200:
+				throw AppError.servicesError(.modelError)
+			case 401:
+				throw AppError.servicesError(.unauthorized)
+			case 403:
+				throw AppError.servicesError(.forbiddenAccess)
+			default:
+				throw AppError.servicesError(.serverError)
+			}
+		}
+	}
     
     enum ServicesError: LocalizedError, Identifiable {
         case unauthorized

@@ -10,5 +10,6 @@ import Foundation
 protocol ServicesRepository {
     
     func getAllServices() async throws -> [ServiceModel]
+	func getCustomServices() async throws -> [ServiceModel]
     
 }

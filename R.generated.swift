@@ -943,12 +943,12 @@ struct _R {
       /// Locales: en, ru
       var there_is_not_services: RswiftResources.StringResource { .init(key: "there_is_not_services", tableName: "YourServicesViewScreen", source: source, developmentValue: "You don't have any services yet", comment: nil) }
 
-      /// en translation: You can create your own services! But a subscription is required
+      /// en translation: You can create your own services! Subscription is required
       ///
       /// Key: there_is_not_subscribe
       ///
       /// Locales: en, ru
-      var there_is_not_subscribe: RswiftResources.StringResource { .init(key: "there_is_not_subscribe", tableName: "YourServicesViewScreen", source: source, developmentValue: "You can create your own services! But a subscription is required", comment: nil) }
+      var there_is_not_subscribe: RswiftResources.StringResource { .init(key: "there_is_not_subscribe", tableName: "YourServicesViewScreen", source: source, developmentValue: "You can create your own services! Subscription is required", comment: nil) }
 
       /// en translation: Your services
       ///

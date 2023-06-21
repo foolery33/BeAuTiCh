@@ -9,13 +9,14 @@ import NeedleFoundation
 import UIKit
 
 protocol YourServicesComponentDependency: Dependency {
-    
+	var subscribeRepository: SubscribeRepository { get }
+	var servicesRepository: ServicesRepository { get }
 }
 
 final class YourServicesComponent: Component<YourServicesComponentDependency> {
     var settingViewModel: SettingsViewModel {
         shared {
-			SettingsViewModel(subscribeRepository: nil, convertStringToDateDdMmYyyyUseCase: nil)
+			SettingsViewModel(subscribeRepository: dependency.subscribeRepository, convertStringToDateDdMmYyyyUseCase: nil, servicesRepository: dependency.servicesRepository)
         }
     }
     

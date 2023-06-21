@@ -103,7 +103,7 @@ class InformationSubscribeView: UIView {
 		view.textColor = R.color.white()
 		view.textAlignment = .center
 		view.numberOfLines = .max
-		view.font = R.font.redHatDisplaySemiBold(size: 25)
+		view.font = R.font.redHatDisplaySemiBold(size: 20)
 
 		return view
 	}()
