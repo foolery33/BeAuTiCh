@@ -13,7 +13,8 @@ class ProfileView: UIView {
 	// MARK: - Private properties
 
 	private enum Metrics {
-
+		static let gradientStartPoint = CGPoint(x: 0, y: 0.65)
+		static let gradientEndPoint = CGPoint(x: 0, y: 1)
 	}
 
 	private lazy var backgroundImage: UIImageView = {
@@ -53,7 +54,7 @@ class ProfileView: UIView {
 		return view
 	}()
 
-	private lazy var avatarImageView: UIImageView = {
+	lazy var avatarImageView: UIImageView = {
 		let view = UIImageView()
 		view.image = R.image.defaultAvatar()
 		view.contentMode = .scaleToFill
@@ -132,6 +133,14 @@ class ProfileView: UIView {
 		return view
 	}()
 
+	lazy var gradient: CAGradientLayer = {
+		let myGradient = CAGradientLayer()
+		myGradient.colors = [UIColor.clear.cgColor, R.color.softBrown()?.cgColor ?? UIColor.black.cgColor]
+		myGradient.startPoint = Metrics.gradientStartPoint
+		myGradient.endPoint = Metrics.gradientEndPoint
+		return myGradient
+	}()
+
 
 	// MARK: - Internal properties
 
@@ -152,6 +161,11 @@ class ProfileView: UIView {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	override func layoutSubviews() {
+		gradient.frame = avatarImageView.bounds
+		avatarImageView.layer.addSublayer(gradient)
 	}
 
 
