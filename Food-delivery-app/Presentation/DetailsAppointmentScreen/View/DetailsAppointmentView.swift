@@ -10,12 +10,17 @@ import SnapKit
 
 class DetailsAppointmentView: UIView {
 
+    // MARK: - Internal properties
+    var onBackArrowButtonTapped: (() -> ())?
+    var onClientAcceptedButtonTapped: (() -> ())?
+    var onCancelAppointmentButtonTapped: (() -> ())?
+    
 	// MARK: - Private properties
 	private lazy var backgroundImage: UIImageView = {
 		let view = UIImageView()
 		view.image = R.image.background2()
 		view.contentMode = .scaleAspectFill
-
+        
 		return view
 	}()
 
@@ -36,7 +41,8 @@ class DetailsAppointmentView: UIView {
 	private lazy var arrowBackButton: UIButton = {
 		let view = UIButton()
 		view.setImage(R.image.arrowBackSheet(), for: .normal)
-
+        view.addTarget(self, action: #selector(backArrowButtonTapped), for: .touchUpInside)
+        
 		return view
 	}()
 
@@ -164,6 +170,7 @@ class DetailsAppointmentView: UIView {
 		view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
 		view.layer.masksToBounds = true
 		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
+        view.addTarget(self, action: #selector(clientAcceptedButtonTapped), for: .touchUpInside)
 
 		return view
 	}()
@@ -180,6 +187,7 @@ class DetailsAppointmentView: UIView {
 		view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
 		view.layer.masksToBounds = true
 		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
+        view.addTarget(self, action: #selector(cancelAppointmentButtonTapped), for: .touchUpInside)
 
 		return view
 	}()
@@ -283,6 +291,19 @@ class DetailsAppointmentView: UIView {
 			make.bottom.equalToSuperview().inset(10)
 		}
 	}
+    
+    @objc private func backArrowButtonTapped() {
+        onBackArrowButtonTapped?()
+    }
+    
+    @objc private func clientAcceptedButtonTapped() {
+        onClientAcceptedButtonTapped?()
+    }
+    
+    @objc private func cancelAppointmentButtonTapped() {
+        onCancelAppointmentButtonTapped?()
+    }
+    
 }
 
 // MARK: - Setup extension

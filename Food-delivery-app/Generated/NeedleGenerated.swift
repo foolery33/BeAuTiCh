@@ -88,6 +88,9 @@ private class DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider:
     var convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase {
         return mainComponent.convertStringToDateDdMmYyyyHhMmSsUseCase
     }
+    var appointmentRepository: AppointmentRepository {
+        return mainComponent.appointmentRepository
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -297,6 +300,7 @@ extension SearchComponent: Registration {
 extension DetailsAppointmentComponent: Registration {
     public func registerItems() {
         keyPathToName[\DetailsAppointmentComponentDependency.convertStringToDateDdMmYyyyHhMmSsUseCase] = "convertStringToDateDdMmYyyyHhMmSsUseCase-ConvertStringToDateDdMmYyyyHhMmSsUseCase"
+        keyPathToName[\DetailsAppointmentComponentDependency.appointmentRepository] = "appointmentRepository-AppointmentRepository"
     }
 }
 extension ServiceSelectionComponent: Registration {
