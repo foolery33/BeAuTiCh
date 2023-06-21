@@ -56,7 +56,7 @@ struct _R {
     let developmentRegion = "en"
   }
 
-  /// This `_R.string` struct is generated, and contains static references to 13 localization tables.
+  /// This `_R.string` struct is generated, and contains static references to 14 localization tables.
   struct string {
     let bundle: Foundation.Bundle
     let preferredLanguages: [String]?
@@ -324,7 +324,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 24 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 25 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
