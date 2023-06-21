@@ -158,6 +158,19 @@ final class MainComponent: BootstrapComponent {
             PasswordValidationUseCase()
         }
     }
+
+	var convertStringToDateDdMmYyyyUseCase: ConvertStringToDateDdMmYyyyUseCase {
+		shared {
+			ConvertStringToDateDdMmYyyyUseCase()
+		}
+	}
+
+	var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase {
+		shared {
+			ConvertToTimeHhMmSsUseCase()
+		}
+	}
+
     
     var getSortedWeekAppointmentsUseCase: GetSortedWeekAppointmentsUseCase {
         shared {
@@ -204,6 +217,13 @@ final class MainComponent: BootstrapComponent {
             AuthRepositoryImplementation()
         }
     }
+
+	var subscribeRepository: SubscribeRepository {
+		shared {
+			SubscribeRepositoryImplementation(tokenManagerRepository: TokenManagerRepositoryImplementation()
+			)
+		}
+	}
     
     // MARK: - Components
     

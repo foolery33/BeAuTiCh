@@ -36,14 +36,17 @@ class InformationSubscribeViewController: UIViewController {
     
     //MARK: - Life cycle
     
-    override func loadView() {
+	override func loadView() {
+		checkingForSubscriptionAvailability()
+
         self.view = ui
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setHandlers()
+		bindListener()
     }
     
     
@@ -57,9 +60,17 @@ class InformationSubscribeViewController: UIViewController {
     
     //MARK: - Internal methods
     
-    func setStartDateSubscribe(_ date: String) {
-        ui.setStartDateSubscribe(date)
-    }
+	func showAlertErrorMessage(title: String, message: String?) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: R.string.errors.ok(), style: .default){ [ weak self ] _ in
+
+			self?.dismiss()
+		})
+
+		alert.view.tintColor = R.color.vinous()
+
+		present(alert, animated: true)
+	}
 }
 
 private extension InformationSubscribeViewController {
@@ -72,7 +83,58 @@ private extension InformationSubscribeViewController {
         
         ui.cancelSubscriptionButtonHandler = { [ weak self ] in
             guard let self = self else { return }
-            
+
+			self.cancelSubscribe()
         }
+
+		ui.subscribeButtonHandler = { [ weak self ] in
+			guard let self = self else { return }
+
+			self.subscribe()
+		}
     }
+
+	func bindListener() {
+		viewModel.subscribe.subscribe { [ weak self ] subscribe in
+			guard let self = self else { return }
+
+			print(subscribe)
+			DispatchQueue.main.async {
+				self.ui.setStartDateSubscribe(self.viewModel.convertDateToDdMmYyyy(subscribe.createDate))
+			}
+		}
+	}
+}
+
+private extension InformationSubscribeViewController {
+	func checkingForSubscriptionAvailability() {
+		Task {
+			if let check = await viewModel.isThereSubscription() {
+				check ? ui.setupScreen() : ui.setupPlug()
+			} else {
+				DispatchQueue.main.async {
+					if let errorMessage = self.viewModel.errorMessage.data {
+						self.showAlertErrorMessage(title: "\(errorMessage)", message: nil)
+					}
+				}
+			}
+		}
+	}
+
+	func subscribe() {
+		Task {
+			if await viewModel.subscribe() {
+				self.dismiss()
+			}
+
+		}
+	}
+
+	func cancelSubscribe() {
+		Task {
+			if await viewModel.cancelSubscribe() {
+				self.dismiss()
+			}
+		}
+	}
 }

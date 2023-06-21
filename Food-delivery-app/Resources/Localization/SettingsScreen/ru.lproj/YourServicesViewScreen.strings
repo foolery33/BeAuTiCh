@@ -1,0 +1,24 @@
+/* 
+  YourServicesViewScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 21.06.2023.
+  
+*/
+
+"title_screen" = "Ваши услуги";
+"there_is_not_services" = "У вас пока нет ни одной услуги";
+"there_is_not_subscribe" = "Вы можете создавать свои услуги! Необходима подписка";
+
+// MARK: For alert
+"choose_action" = "Выберите действие";
+"information_actions" = "Вы можете отредактировать или удалить услугу с названием ";
+"edit" = "Изменить";
+"delete" = "Удалить";
+"cancel" = "Отмена";
+"edit_service" = "Редактирование услуги";
+"create_service" = "Добавить услугу";
+"save" = "Сохранить";
+"input_name_service" = "Введите название услуги*";
+"input_price_service" = "Введите цену услуги*";
+"choose_duration_service" = "Выберите продолжительность услуги*";
