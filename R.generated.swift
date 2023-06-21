@@ -188,7 +188,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "AddAppointmentScreen", source: source, developmentValue: "Add appointment", comment: nil) }
     }
 
-    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 11 localization keys.
+    /// This `_R.string.detailsAppointmentScreen` struct is generated, and contains static references to 12 localization keys.
     struct detailsAppointmentScreen {
       let source: RswiftResources.StringResource.Source
 
@@ -226,6 +226,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var completed_status: RswiftResources.StringResource { .init(key: "completed_status", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Appointment completed", comment: nil) }
+
+      /// en translation: Delete appointment
+      ///
+      /// Key: delete
+      ///
+      /// Locales: en, ru
+      var delete: RswiftResources.StringResource { .init(key: "delete", tableName: "DetailsAppointmentScreen", source: source, developmentValue: "Delete appointment", comment: nil) }
 
       /// en translation: End of appointment:
       ///

@@ -14,6 +14,8 @@ class DetailsAppointmentView: UIView {
     var onBackArrowButtonTapped: (() -> ())?
     var onClientAcceptedButtonTapped: (() -> ())?
     var onCancelAppointmentButtonTapped: (() -> ())?
+	var onDeleteButtonTapped: (() -> Void)?
+	var onChangeDataButtonTapped: (() -> Void)?
     
 	// MARK: - Private properties
 	private lazy var backgroundImage: UIImageView = {
@@ -38,7 +40,6 @@ class DetailsAppointmentView: UIView {
 	private lazy var arrowBackButton: UIButton = {
 		let view = UIButton()
 		view.setImage(R.image.arrowBackSheet(), for: .normal)
-        view.addTarget(self, action: #selector(backArrowButtonTapped), for: .touchUpInside)
         
 		return view
 	}()
@@ -167,7 +168,6 @@ class DetailsAppointmentView: UIView {
 		view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
 		view.layer.masksToBounds = true
 		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
-        view.addTarget(self, action: #selector(clientAcceptedButtonTapped), for: .touchUpInside)
 
 		return view
 	}()
@@ -184,7 +184,14 @@ class DetailsAppointmentView: UIView {
 		view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
 		view.layer.masksToBounds = true
 		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
-        view.addTarget(self, action: #selector(cancelAppointmentButtonTapped), for: .touchUpInside)
+
+		return view
+	}()
+
+	private lazy var buttonsStack: UIStackView = {
+		let view = UIStackView()
+		view.axis = .vertical
+		view.spacing = 7
 
 		return view
 	}()
@@ -202,7 +209,17 @@ class DetailsAppointmentView: UIView {
 		return view
 	}()
 
-	// MARK: Internal properties
+	private lazy var deleteButton: UIButton = {
+		let view = UIButton()
+		view.setTitle(R.string.detailsAppointmentScreen.delete(), for: .normal)
+		view.setTitleColor(R.color.white(), for: .normal)
+		view.titleLabel?.font = R.font.ralewayBold(size: 20)
+		view.layer.cornerRadius = 30
+		view.layer.masksToBounds = true
+		view.contentEdgeInsets = UIEdgeInsets(top: 19, left: 10, bottom: 19, right: 10)
+
+		return view
+	}()
 
 	// MARK: Init
 	init() {
@@ -263,7 +280,7 @@ class DetailsAppointmentView: UIView {
 			make.width.equalTo(89)
 		}
 
-		changeDataButton.snp.remakeConstraints { make in
+		buttonsStack.snp.remakeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(55)
 			make.top.greaterThanOrEqualTo(clientAcceptedButton.snp.bottom).offset(35)
 			make.bottom.equalToSuperview().inset(10)
@@ -282,24 +299,12 @@ class DetailsAppointmentView: UIView {
 			make.horizontalEdges.equalToSuperview().inset(110)
 		}
 
-		changeDataButton.snp.remakeConstraints { make in
+		buttonsStack.snp.remakeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(55)
 			make.top.greaterThanOrEqualTo(statusAppointment.snp.bottom).offset(16)
 			make.bottom.equalToSuperview().inset(10)
 		}
 	}
-    
-    @objc private func backArrowButtonTapped() {
-        onBackArrowButtonTapped?()
-    }
-    
-    @objc private func clientAcceptedButtonTapped() {
-        onClientAcceptedButtonTapped?()
-    }
-    
-    @objc private func cancelAppointmentButtonTapped() {
-        onCancelAppointmentButtonTapped?()
-    }
     
 }
 
@@ -323,7 +328,10 @@ private extension DetailsAppointmentView {
 		contentView.addSubview(serviceTags)
 		contentView.addSubview(informationTitleStack)
 		contentView.addSubview(informationAppointmentStack)
-		contentView.addSubview(changeDataButton)
+		contentView.addSubview(buttonsStack)
+
+		buttonsStack.addArrangedSubview(changeDataButton)
+		buttonsStack.addArrangedSubview(deleteButton)
 
 		informationTitleStack.addArrangedSubview(startTimeAppointmentTitleLabel)
 		informationTitleStack.addArrangedSubview(endTimeAppointmentTitleLabel)
@@ -385,7 +393,7 @@ private extension DetailsAppointmentView {
 			make.top.equalTo(informationTitleStack.snp.top)
 		}
 
-		changeDataButton.snp.makeConstraints { make in
+		buttonsStack.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(55)
 			make.top.greaterThanOrEqualTo(informationAppointmentStack.snp.bottom).offset(16)
 			make.bottom.equalToSuperview().inset(10)
@@ -393,6 +401,31 @@ private extension DetailsAppointmentView {
 	}
 
 	func configureActions() {
+		arrowBackButton.addTarget(self, action: #selector(backArrowButtonTapped), for: .touchUpInside)
+		deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+		changeDataButton.addTarget(self, action: #selector(changeDataButtonTapped), for: .touchUpInside)
+		clientAcceptedButton.addTarget(self, action: #selector(clientAcceptedButtonTapped), for: .touchUpInside)
+		cancelAppointmentButton.addTarget(self, action: #selector(cancelAppointmentButtonTapped), for: .touchUpInside)
+	}
 
+	// MARK: - Actions
+	@objc func deleteButtonTapped() {
+		onDeleteButtonTapped?()
+	}
+
+	@objc private func backArrowButtonTapped() {
+		onBackArrowButtonTapped?()
+	}
+
+	@objc private func clientAcceptedButtonTapped() {
+		onClientAcceptedButtonTapped?()
+	}
+
+	@objc private func cancelAppointmentButtonTapped() {
+		onCancelAppointmentButtonTapped?()
+	}
+
+	@objc private func changeDataButtonTapped() {
+		onChangeDataButtonTapped?()
 	}
 }

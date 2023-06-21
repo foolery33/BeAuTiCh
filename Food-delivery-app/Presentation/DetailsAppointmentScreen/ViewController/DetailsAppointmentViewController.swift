@@ -47,25 +47,51 @@ private extension DetailsAppointmentViewController {
         ui.onBackArrowButtonTapped = { [weak self] in
             self?.viewModel.goBackScreen()
         }
+
         ui.onClientAcceptedButtonTapped = { [weak self] in
-            Task {
-                if await self?.viewModel.changeAppointmentStatus(newStatus: .completed) ?? false {
-                    self?.showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
-                }
-                else {
-                    self?.showAlert(title: R.string.errors.appointment_status_change_error(), message: self?.viewModel.error ?? "")
-                }
-            }
+			self?.setAcceptedStatusAppointment()
         }
+
         ui.onCancelAppointmentButtonTapped = { [weak self] in
-            Task {
-                if await self?.viewModel.changeAppointmentStatus(newStatus: .cancelled) ?? false {
-                    self?.showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
-                }
-                else {
-                    self?.showAlert(title: R.string.errors.appointment_status_change_error(), message: self?.viewModel.error ?? "")
-                }
-            }
+            self?.setCancelStatusAppointment()
         }
+
+		ui.onDeleteButtonTapped = { [weak self] in
+
+		}
+
+		ui.onChangeDataButtonTapped = { [weak self] in
+
+		}
     }
+}
+
+private extension DetailsAppointmentViewController {
+	func setCancelStatusAppointment() {
+		self.ui.setupActivityIndicator()
+		Task {
+			if await viewModel.changeAppointmentStatus(newStatus: .cancelled){
+				showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
+			}
+			else {
+				showAlert(title: R.string.errors.appointment_status_change_error(), message: viewModel.error)
+			}
+
+			self.ui.stopActivityIndicator()
+		}
+	}
+
+	func setAcceptedStatusAppointment() {
+		self.ui.setupActivityIndicator()
+		Task {
+			if await viewModel.changeAppointmentStatus(newStatus: .completed) {
+				showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
+			}
+			else {
+				showAlert(title: R.string.errors.appointment_status_change_error(), message: viewModel.error)
+			}
+
+			self.ui.stopActivityIndicator()
+		}
+	}
 }

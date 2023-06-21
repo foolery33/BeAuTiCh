@@ -17,3 +17,4 @@
 "cancelled_status" = "Запись отменена";
 "status_change_success" = "Успех";
 "status_change_success_message" = "Статус записи успешно изменён";
+"delete" = "Удалить запись";

@@ -17,3 +17,4 @@
 "completed_status" = "Appointment completed";
 "status_change_success" = "Success";
 "status_change_success_message" = "Appointment status changed successfully";
+"delete" = "Delete appointment";
