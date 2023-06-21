@@ -15,7 +15,7 @@ final class ScheduleViewController: UIViewController {
     
     var changeDateTimeStringToHhMm: ((String) -> (String))? {
         didSet {
-            setupNotes()
+//            setupNotes(dayAppointments: dayAppointments)
         }
     }
     
@@ -99,9 +99,18 @@ final class ScheduleViewController: UIViewController {
 
 }
 
-private extension ScheduleViewController {
+extension ScheduleViewController {
     
-    func setupNotes() {
+    func setupNotes(dayAppointments: [AppointmentModel]) {
+        // Удаление всех View из Left и Right StackView:
+        notes = []
+        for subview in leftStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        for subview in rightStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
+        
         for appointment in dayAppointments {
             createNote(appointment: appointment, customerName: appointment.clientName, serviceName: appointment.services.map { $0.name }, time: appointment.startDateTime, cost: appointment.price)
         }
@@ -109,6 +118,10 @@ private extension ScheduleViewController {
         leftStackView.addArrangedSubview(createEmptyView())
         rightStackView.addArrangedSubview(createEmptyView())
     }
+    
+}
+
+private extension ScheduleViewController {
     
     func createNote(appointment: AppointmentModel, customerName: String, serviceName: [String], time: String, cost: Double) {
         let newNote = NoteView(

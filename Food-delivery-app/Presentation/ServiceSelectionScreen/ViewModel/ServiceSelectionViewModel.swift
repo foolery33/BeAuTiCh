@@ -16,7 +16,9 @@ final class ServiceSelectionViewModel {
     
     var servicesList: [ServiceModel] = []
     var selectedServiceIds: [UUID] = []
+    var selectedServiceShortModels: [ServiceShortModel] = []
     var error: String = ""
+    var opener: ServiceSelectionOpener?
     
     init(servicesRepository: ServicesRepository) {
         self.servicesRepository = servicesRepository
@@ -37,17 +39,33 @@ final class ServiceSelectionViewModel {
         }
     }
     
-    func onServiceTagTapped(id: UUID) {
-        if selectedServiceIds.contains(id) {
-            selectedServiceIds.removeAll(where: { $0 == id })
+    func onServiceTagTapped(shortModel: ServiceShortModel) {
+        if selectedServiceIds.contains(shortModel.id) {
+            selectedServiceIds.removeAll(where: { $0 == shortModel.id })
+            selectedServiceShortModels.removeAll(where: { $0 == shortModel })
         }
         else {
-            selectedServiceIds.append(id)
+            selectedServiceIds.append(shortModel.id)
+            selectedServiceShortModels.append(shortModel)
         }
     }
     
     func onServiceSelectionSheetDismissed() {
-        searchCoordinator?.setSelectedServices(selectedServiceIds)
+        print(selectedServiceIds)
+        switch opener {
+        case .searchScreen:
+            searchCoordinator?.setSelectedServices(selectedServiceIds)
+        case .editAppointmentScreen:
+            mainCoordinator?.setSelectedServices(selectedServiceIds, selectedServiceShortModels)
+        default:
+            break
+        }
     }
     
+}
+
+enum ServiceSelectionOpener {
+    case searchScreen
+    case editAppointmentScreen
+    case addAppointmentScreen
 }

@@ -46,7 +46,7 @@ class ServiceSelectionView: UIView {
     //MARK: - Internal properties
     
     var arrowBackButtonHandler: (() -> Void)?
-    var onServiceTapped: ((UUID) -> ())?
+    var onServiceTapped: ((ServiceShortModel) -> ())?
     
     
     //MARK: - Init
@@ -116,8 +116,8 @@ private extension ServiceSelectionView {
     
     func configureActions() {
         arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
-        serviceTags.onServiceTagTapped = { [weak self] id in
-            (self?.onServiceTapped ?? { _ in })(id)
+        serviceTags.onServiceTagTapped = { [weak self] shortModel in
+            (self?.onServiceTapped ?? { _ in })(shortModel)
         }
     }
     

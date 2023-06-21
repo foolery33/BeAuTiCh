@@ -72,7 +72,6 @@ class EditAppointmentView: UIView {
 		let view = UIDatePicker()
 		view.datePickerMode = .dateAndTime
 		view.preferredDatePickerStyle = .wheels
-		view.minimumDate = Date()
 		return view
 	}()
 
@@ -92,7 +91,7 @@ class EditAppointmentView: UIView {
 		return view
 	}()
 
-	private lazy var goToShooseServicesButton: UIButton = {
+	private lazy var goToChooseServicesButton: UIButton = {
 		let view = UIButton()
 		view.backgroundColor = .white
 		view.setTitle(R.string.editAppointmentScreen.shoose_services(), for: .normal)
@@ -123,12 +122,17 @@ class EditAppointmentView: UIView {
 	// MARK: - Internal properties
 	var convertDateToDdMmYyyyHhMm: ((Date) -> (String))?
 	var arrowBackButtonHandler: (() -> Void)?
-	var goToShooseServicesButtonHandler: (() -> Void)?
+	var goToChooseServicesButtonHandler: (() -> Void)?
 	var saveButtonHandler: (() -> Void)?
+    
+    var onNameTextFieldValueChanged: ((String) -> ())?
+    var onDateTextFieldValueChanged: ((String?) -> ())?
+    var onPhoneNumberTextFieldValueChanged: ((String?) -> ())?
 
 	// MARK: - Init
 	init() {
 		super.init(frame: .zero)
+        addKeyboardDidmiss()
 
 		setup()
 	}
@@ -141,6 +145,7 @@ class EditAppointmentView: UIView {
 	func setTextField(model: AppointmentModel){
 		inputClientNameTextField.text = model.clientName
 		inputClientPhoneTextField.text = model.clientPhone
+        dateTimeAppointmentTextField.text = model.startDateTime
 
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -184,7 +189,7 @@ private extension EditAppointmentView {
 		addSubview(dateTimeAppointmentTextField)
 		addSubview(inputClientPhoneLabel)
 		addSubview(inputClientPhoneTextField)
-		addSubview(goToShooseServicesButton)
+		addSubview(goToChooseServicesButton)
 		addSubview(saveButton)
 	}
 
@@ -235,7 +240,7 @@ private extension EditAppointmentView {
 			make.horizontalEdges.equalTo(inputClientPhoneLabel.snp.horizontalEdges)
 		}
 
-		goToShooseServicesButton.snp.makeConstraints { make in
+        goToChooseServicesButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(28)
 			make.width.equalTo(163)
 			make.top.equalTo(inputClientPhoneTextField.snp.bottom).offset(20)
@@ -248,18 +253,21 @@ private extension EditAppointmentView {
 	}
 
 	func configureActions() {
-		goToShooseServicesButton.addTarget(self, action: #selector(goToShooseServicesButtonPressed), for: .touchUpInside)
+		goToChooseServicesButton.addTarget(self, action: #selector(goToChooseServicesButtonPressed), for: .touchUpInside)
 		saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
 		arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
+        
+        inputClientNameTextField.addTarget(self, action: #selector(clientNameTextFieldDidChange(_:)), for: .editingChanged)
+        dateTimeAppointmentTextField.addTarget(self, action: #selector(dateTimeTextFieldDidChange(_:)), for: .editingChanged)
+        inputClientPhoneTextField.addTarget(self, action: #selector(clientPhoneNumberTextFieldDidChange(_:)), for: .editingChanged)
 	}
 }
 
 // MARK: - Actions
 private extension EditAppointmentView {
 	@objc func onFromDateDoneButtonPressed() {
-		//TODO: решить проблему. Почему-то не отлавливается кложура convertDateToDdMmYyyyHhMm
 		dateTimeAppointmentTextField.text = (convertDateToDdMmYyyyHhMm ?? { _ in return "" })(dateTimeAppointmentPicker.date)
-		({ _ in })("\(dateTimeAppointmentPicker.date)")
+        onDateTextFieldValueChanged?((convertDateToDdMmYyyyHhMm ?? { _ in return "" })(dateTimeAppointmentPicker.date))
 		endEditing(true)
 	}
 
@@ -267,11 +275,24 @@ private extension EditAppointmentView {
 		arrowBackButtonHandler?()
 	}
 
-	@objc func goToShooseServicesButtonPressed() {
-		goToShooseServicesButtonHandler?()
+	@objc func goToChooseServicesButtonPressed() {
+        goToChooseServicesButtonHandler?()
 	}
 
 	@objc func saveButtonPressed() {
 		saveButtonHandler?()
 	}
+    
+    @objc func clientNameTextFieldDidChange(_ textField: UITextField) {
+        onNameTextFieldValueChanged?(textField.text ?? "")
+    }
+    
+    @objc func dateTimeTextFieldDidChange(_ textField: UITextField) {
+        onDateTextFieldValueChanged?(textField.text)
+    }
+    
+    @objc func clientPhoneNumberTextFieldDidChange(_ textField: UITextField) {
+        onPhoneNumberTextFieldValueChanged?(textField.text)
+    }
+    
 }

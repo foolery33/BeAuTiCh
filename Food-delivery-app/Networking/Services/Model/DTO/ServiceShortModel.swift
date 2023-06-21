@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ServiceShortModel: Decodable {
+struct ServiceShortModel: Decodable, Equatable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

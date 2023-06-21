@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
+//        getTimezoneAppointments()
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +32,14 @@ class MainViewController: UIViewController {
 		getTimezoneAppointments()
 	}
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getTimezoneAppointments()
+    }
+    
     private func setupSubviews() {
         setupContentView()
+        setupPageViewController()
     }
     
     // MARK: - ContentView setup
@@ -190,7 +197,8 @@ private extension MainViewController {
 
         Task {
             if await viewModel.getTimezoneAppointments() {
-                setupPageViewController()
+//                setupPageViewController()
+                pageViewController.updatePages()
             }
             else {
                 showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)

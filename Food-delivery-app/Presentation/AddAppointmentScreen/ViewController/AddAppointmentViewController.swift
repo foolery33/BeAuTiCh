@@ -46,7 +46,7 @@ private extension AddAppointmentViewController {
 			self.viewModel.goBack()
 		}
 
-		ui.goToShooseServicesButtonHandler = { [weak self] in
+		ui.goToChooseServicesButtonHandler = { [weak self] in
 			guard let self = self else { return }
 
 			self.viewModel.goToServiceSelectionScreen()

@@ -57,13 +57,13 @@ final class SearchCoordinator: CoordinatorProtocol {
         searchComponent.searchViewModel.endDate = dateTo
         searchComponent.searchViewModel.servicesId = selectedServiceIds
         navigationController.popViewController(animated: true)
-//        searchComponent.searchViewController.getAppointmentList()
     }
     
-    func showServiceSelectionScreenSheet(selectedServiceIds: [UUID]) {
+    func showServiceSelectionScreenSheet(selectedServiceIds: [UUID], from opener: ServiceSelectionOpener) {
         let serviceSelectionComponent = componentFactory.getServiceSelectionComponent()
         serviceSelectionComponent.serviceSelectionViewModel.searchCoordinator = self
         serviceSelectionComponent.serviceSelectionViewModel.selectedServiceIds = selectedServiceIds
+        serviceSelectionComponent.serviceSelectionViewModel.opener = opener
         navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
     }
     

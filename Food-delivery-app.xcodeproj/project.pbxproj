@@ -58,6 +58,7 @@
 		845D16652A3E461F00C6CC93 /* UpdatePriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */; };
 		8471E5082A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471E5072A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift */; };
 		8471E50A2A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471E5092A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift */; };
+		8471E50C2A435D6C00311375 /* EditAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471E50B2A435D6C00311375 /* EditAppointmentModel.swift */; };
 		848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */; };
 		84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */; };
 		84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */; };
@@ -100,6 +101,7 @@
 		F311C88C2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88B2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift */; };
 		F311C88E2A4338D700499B64 /* PriceValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88D2A4338D700499B64 /* PriceValidationUseCase.swift */; };
 		F311C8902A433AF000499B64 /* SettingsValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88F2A433AF000499B64 /* SettingsValidationError.swift */; };
+		84F35A3D2A438A6A005F4A05 /* ConvertDdMmYyyyHhMmSsToISOUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F35A3C2A438A6A005F4A05 /* ConvertDdMmYyyyHhMmSsToISOUseCase.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F327133B2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327133A2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift */; };
 		F32713412A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */; };
@@ -236,6 +238,7 @@
 		845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePriceUseCase.swift; sourceTree = "<group>"; };
 		8471E5072A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSortedWeekAppointmentsUseCase.swift; sourceTree = "<group>"; };
 		8471E5092A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateTimeStringToHhMmUseCase.swift; sourceTree = "<group>"; };
+		8471E50B2A435D6C00311375 /* EditAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAppointmentModel.swift; sourceTree = "<group>"; };
 		848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertISODateStringToDdMmYyyyUseCase.swift; sourceTree = "<group>"; };
 		84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDaysOfWeekForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeekdayIndexForDateUseCase.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 		84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTodayUseCase.swift; sourceTree = "<group>"; };
+		84F35A3C2A438A6A005F4A05 /* ConvertDdMmYyyyHhMmSsToISOUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDdMmYyyyHhMmSsToISOUseCase.swift; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
 		F311C88B2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettingsValidationErrorUseCase.swift; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				844AF4F32A374A5F00B2C9C7 /* FilteredAppointmentsParametersModel.swift */,
+				8471E50B2A435D6C00311375 /* EditAppointmentModel.swift */,
 			);
 			path = Parameters;
 			sourceTree = "<group>";
@@ -989,6 +994,14 @@
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
+		84F35A3B2A438A61005F4A05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84F35A3C2A438A6A005F4A05 /* ConvertDdMmYyyyHhMmSsToISOUseCase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EB24E7CE34D37F7C2243D940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1077,6 +1090,7 @@
 		F327135A2A421894005B8AC9 /* EditAppointmentScreen */ = {
 			isa = PBXGroup;
 			children = (
+				84F35A3B2A438A61005F4A05 /* Model */,
 				F327135E2A42191B005B8AC9 /* Component */,
 				F327135D2A421916005B8AC9 /* ViewModel */,
 				F32713682A421EE3005B8AC9 /* ViewController */,
@@ -1887,6 +1901,7 @@
 				F37686F92A3830570006E566 /* SettingsView.swift in Sources */,
 				F37687232A3857CC0006E566 /* InformationSubscribeViewController.swift in Sources */,
 				844AF4E72A37443300B2C9C7 /* AppointmentRepositoryImplementation.swift in Sources */,
+				84F35A3D2A438A6A005F4A05 /* ConvertDdMmYyyyHhMmSsToISOUseCase.swift in Sources */,
 				84848D022A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift in Sources */,
 				F37687252A3857E80006E566 /* InformationSubscribeView.swift in Sources */,
 				84D5FEE42A36D905008BF057 /* StartView.swift in Sources */,
@@ -1909,6 +1924,7 @@
 				8410777B2A373E19002905D2 /* SearchViewModel.swift in Sources */,
 				84B76A512A41A30200ED7415 /* LoginCredentialsModel.swift in Sources */,
 				84B76A4E2A41A29F00ED7415 /* AuthRepository.swift in Sources */,
+				8471E50C2A435D6C00311375 /* EditAppointmentModel.swift in Sources */,
 				8452AEEF2A266B9900BCC43B /* ComponentFactory.swift in Sources */,
 				84C975D82A3362D900BF489B /* NoteModel.swift in Sources */,
 				84B76A5F2A41AD9700ED7415 /* SaveTokensUseCase.swift in Sources */,

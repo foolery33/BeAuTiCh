@@ -40,7 +40,7 @@ private extension DetailsAppointmentViewController {
 		viewModel.appointment.subscribe { [ weak self ] appointment in
 			guard let self = self else { return }
 
-			self.ui.configure(with: appointment)
+            self.configureUI(with: appointment)
 		}
 	}
     func setActionHandlers() {
@@ -53,16 +53,23 @@ private extension DetailsAppointmentViewController {
         }
 
         ui.onCancelAppointmentButtonTapped = { [weak self] in
-            self?.setCancelStatusAppointment()
+            Task {
+                if await self?.viewModel.changeAppointmentStatus(newStatus: .cancelled) ?? false {
+                    self?.showAlert(title: R.string.detailsAppointmentScreen.status_change_success(), message: R.string.detailsAppointmentScreen.status_change_success_message())
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.appointment_status_change_error(), message: self?.viewModel.error ?? "")
+                }
+            }
         }
 
 		ui.onDeleteButtonTapped = { [weak self] in
 			self?.deleteAppointment()
 		}
 
-		ui.onChangeDataButtonTapped = { [weak self] in
-
-		}
+        ui.onChangeDataButtonTapped = { [weak self] in
+            self?.viewModel.goToEditAppointmentScreen()
+        }
     }
 }
 

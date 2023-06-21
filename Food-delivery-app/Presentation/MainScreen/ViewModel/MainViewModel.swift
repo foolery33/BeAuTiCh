@@ -100,9 +100,11 @@ final class MainViewModel {
     
     func getTimezoneAppointments() async -> Bool {
         do {
-            // TODO: - Convert into double array
             let currentWeekAppointments = try await appointmentRepository.getTimezoneAppointments(startDate: "\(weekDates[0])", endDate: "\(weekDates[6])")
             weekAppointments = getSortedWeekAppointmentsUseCase.getWeekAppointments(from: currentWeekAppointments, dates: weekDates)
+            print(currentWeekAppointments.count)
+            print(currentWeekAppointments)
+            print(weekAppointments)
             return true
         } catch(let error) {
             if let appError = error as? AppError {

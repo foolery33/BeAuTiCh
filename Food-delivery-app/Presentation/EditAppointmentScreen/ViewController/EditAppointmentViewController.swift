@@ -52,19 +52,36 @@ private extension EditAppointmentViewController {
 		ui.arrowBackButtonHandler = { [weak self] in
 			guard let self = self else { return }
 
-			self.viewModel.goBack()
+			self.viewModel.goBackToDetailsAppointmentScreen()
 		}
 
-		ui.goToShooseServicesButtonHandler = { [weak self] in
+		ui.goToChooseServicesButtonHandler = { [weak self] in
 			guard let self = self else { return }
 
 			self.viewModel.goToServiceSelectionScreen()
 		}
 
 		ui.saveButtonHandler = { [weak self] in
-			guard let self = self else { return }
-
-			self.viewModel.saveEditData()
+            Task {
+                if await self?.viewModel.changeAppointmentInfo() ?? false {
+                    self?.showAlert(title: R.string.editAppointmentScreen.success(), message: R.string.editAppointmentScreen.change_appointment_success())
+                }
+                else {
+                    self?.showAlert(title: R.string.errors.appointment_change_error(), message: self?.viewModel.error ?? "")
+                }
+            }
 		}
+        
+        ui.onNameTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.clientName = text
+        }
+        
+        ui.onDateTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.appointmentDate = text
+        }
+        
+        ui.onPhoneNumberTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.phoneNumber = text
+        }
 	}
 }
