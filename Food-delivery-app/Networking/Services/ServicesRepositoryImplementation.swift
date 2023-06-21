@@ -138,7 +138,7 @@ final class ServicesRepositoryImplementation: ServicesRepository {
 	}
 
 
-	func editCustomService(serviceId: UUID, parameters: CreateService) async throws -> String {
+	func editCustomService(serviceId: UUID, parameters: EditService) async throws -> String {
 		let url = baseURL + "api/services/\(serviceId)"
 
 		let dataTask = AF.request(

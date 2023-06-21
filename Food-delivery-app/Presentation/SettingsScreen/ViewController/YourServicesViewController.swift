@@ -107,11 +107,19 @@ class YourServicesViewController: UIViewController {
 		let actionSave = UIAlertAction(title: R.string.yourServicesViewScreen.save(), style: .default) { [ weak self ] _ in
 
 			if let priceText = self?.alertController.textFields?[1].text, let price = Double(priceText) {
-				self?.createService(model: CreateService(
-					name: self?.alertController.textFields?[0].text ?? String(),
-					price: price,
+				if service == nil {
+					self?.createService(model: CreateService(
+						name: self?.alertController.textFields?[0].text ?? String(),
+						price: price,
+						duration: self?.alertController.textFields?[2].text ?? String())
+					)
+				} else {
+					self?.editService(serviceId: service!.id, model: EditService(
+						name: self?.alertController.textFields?[0].text ?? String(),
+						price: price,
 					duration: self?.alertController.textFields?[2].text ?? String())
-				)
+					)
+				}
 			}
 		}
 
@@ -129,7 +137,7 @@ class YourServicesViewController: UIViewController {
 		let actionCancel = UIAlertAction(title: R.string.yourServicesViewScreen.cancel(), style: .cancel)
 		let actionEdit = UIAlertAction(title: R.string.yourServicesViewScreen.edit(), style: .default) { [ weak self ] _ in
 
-			self?.editService(serviceId: serviceId)
+			self?.getService(serviceId: serviceId)
 		}
 		let actionDelete = UIAlertAction(title: R.string.yourServicesViewScreen.delete(), style: .default) { [ weak self ] _ in
 
@@ -228,11 +236,19 @@ private extension YourServicesViewController {
 		}
 	}
 
-	func editService(serviceId: UUID) {
+	func getService(serviceId: UUID) {
 		Task {
 			let service = await viewModel.getService(serviceId: serviceId)
 			DispatchQueue.main.async {
 				self.showAlertService(service: service)
+			}
+		}
+	}
+
+	func editService(serviceId: UUID, model: EditService) {
+		Task {
+			if await viewModel.editService(serviceId: serviceId, model: model) {
+				checkingForSubscriptionAvailability()
 			}
 		}
 	}

@@ -140,8 +140,21 @@ final class SettingsViewModel {
 		}
 	}
 
-	func editService(serviceId: UUID, model: EditService) async {
+	func editService(serviceId: UUID, model: EditService) async -> Bool {
+		do {
+			_ = try await servicesRepository?.editCustomService(serviceId: serviceId, parameters: model)
+			return true
 
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+			}
+			else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+			return false
+		}
 	}
 
 	func deleteDervice(serviceId: UUID) async -> Bool {

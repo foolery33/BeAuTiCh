@@ -14,4 +14,5 @@ protocol ServicesRepository {
 	func getService(serviceId: UUID) async throws -> ServiceModel
 	func createCustomService(parameters: CreateService) async throws -> String
 	func deleteCustomService(serviceId: UUID) async throws -> String
+	func editCustomService(serviceId: UUID, parameters: EditService) async throws -> String
 }
