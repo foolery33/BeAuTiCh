@@ -20,7 +20,8 @@ final class MainCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToMainScreen()
+        //goToMainScreen()
+		goToDetailsAppointmentScreen(model: AppointmentModel(id: UUID(), clientName: "Babaras", services: [ServiceShortModel(id: UUID(), name: "Asdasd"), ServiceShortModel(id: UUID(), name: "Asdasd"), ServiceShortModel(id: UUID(), name: "Asdasd"), ServiceShortModel(id: UUID(), name: "Asdasd"), ServiceShortModel(id: UUID(), name: "Asdasd")], price: 2340, clientPhone: "123123123", startDateTime: "2023-06-21T15:19:08.215Z", endDateTime: "2023-06-21T20:19:08.215Z", status: .new))
     }
     
     private func goToMainScreen() {

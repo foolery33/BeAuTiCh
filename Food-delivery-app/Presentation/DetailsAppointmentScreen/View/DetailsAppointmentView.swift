@@ -27,9 +27,6 @@ class DetailsAppointmentView: UIView {
 	private lazy var scrollView: UIScrollView = {
 		let view = UIScrollView()
 		view.showsVerticalScrollIndicator = false
-		view.alwaysBounceVertical = true
-		view.frame = self.bounds
-		view.contentInsetAdjustmentBehavior = .never
 		return view
 	}()
 
@@ -351,6 +348,8 @@ private extension DetailsAppointmentView {
 			make.horizontalEdges.equalTo(scrollView.frameLayoutGuide)
 			make.top.equalToSuperview()
 			make.bottom.equalTo(scrollView.contentLayoutGuide.snp.bottom)
+			make.width.equalTo(self.safeAreaLayoutGuide.snp.width)
+			make.height.equalToSuperview().priority(.low)
 		}
 
 		arrowBackButton.snp.makeConstraints { make in
