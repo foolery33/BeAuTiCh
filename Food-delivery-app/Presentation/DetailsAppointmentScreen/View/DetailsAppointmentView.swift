@@ -193,7 +193,7 @@ class DetailsAppointmentView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-а
+
 	// MARK: - Configure
 	func configure(with model: AppointmentModel) {
 		clientName.text = model.clientName
