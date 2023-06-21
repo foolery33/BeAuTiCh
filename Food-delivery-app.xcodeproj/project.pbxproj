@@ -97,6 +97,9 @@
 		84D9D40C2A35DB7D00A8D333 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40B2A35DB7D00A8D333 /* MainTabBarCoordinator.swift */; };
 		84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9D40E2A35DC1200A8D333 /* MainTabBarController.swift */; };
 		84DC7FA92A2F2827000F6169 /* IsTodayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */; };
+		F311C88C2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88B2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift */; };
+		F311C88E2A4338D700499B64 /* PriceValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88D2A4338D700499B64 /* PriceValidationUseCase.swift */; };
+		F311C8902A433AF000499B64 /* SettingsValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311C88F2A433AF000499B64 /* SettingsValidationError.swift */; };
 		F311EF292A2DD70E00637151 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EF282A2DD70E00637151 /* LoginView.swift */; };
 		F327133B2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327133A2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift */; };
 		F32713412A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */; };
@@ -275,6 +278,9 @@
 		84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTodayUseCase.swift; sourceTree = "<group>"; };
 		90547262CA91D58CC5C7B2DC /* Pods_Food_delivery_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_delivery_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20131A7CFB6268DD0D74159 /* Pods-Food-delivery-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-delivery-app.debug.xcconfig"; path = "Target Support Files/Pods-Food-delivery-app/Pods-Food-delivery-app.debug.xcconfig"; sourceTree = "<group>"; };
+		F311C88B2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSettingsValidationErrorUseCase.swift; sourceTree = "<group>"; };
+		F311C88D2A4338D700499B64 /* PriceValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceValidationUseCase.swift; sourceTree = "<group>"; };
+		F311C88F2A433AF000499B64 /* SettingsValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValidationError.swift; sourceTree = "<group>"; };
 		F311EF282A2DD70E00637151 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F327133A2A41DCF1005B8AC9 /* DetailsAppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAppointmentModel.swift; sourceTree = "<group>"; };
 		F32713402A41E4ED005B8AC9 /* ServiceTagsAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTagsAppointmentView.swift; sourceTree = "<group>"; };
@@ -1153,6 +1159,9 @@
 			children = (
 				F32713812A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift */,
 				F32713882A42FED7005B8AC9 /* ConvertToTimeHhMmSsUseCase.swift */,
+				F311C88B2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift */,
+				F311C88D2A4338D700499B64 /* PriceValidationUseCase.swift */,
+				F311C88F2A433AF000499B64 /* SettingsValidationError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1818,6 +1827,7 @@
 				84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */,
 				F37687032A383A670006E566 /* SettingsBlockView.swift in Sources */,
 				84B76A692A41EC4200ED7415 /* PhoneNumberValidationUseCase.swift in Sources */,
+				F311C88C2A43381100499B64 /* GetSettingsValidationErrorUseCase.swift in Sources */,
 				84B76A5D2A41AA9B00ED7415 /* GetLoginValidationErrorUseCase.swift in Sources */,
 				F37434972A3CD21900D009BA /* YourServicesComponent.swift in Sources */,
 				84283B6E2A2C7E3900CA911D /* MainViewModel.swift in Sources */,
@@ -1836,6 +1846,7 @@
 				84283B8B2A2CB43500CA911D /* DateView.swift in Sources */,
 				F35DBFB42A41CA7B00B350F0 /* DetailsAppointmentCoordinator.swift in Sources */,
 				84590D232A40B090006BB403 /* ServicesRepository.swift in Sources */,
+				F311C88E2A4338D700499B64 /* PriceValidationUseCase.swift in Sources */,
 				F32713822A42D031005B8AC9 /* ConvertStringToDateDdMmYyyyUseCase.swift in Sources */,
 				84283B702A2C7E6F00CA911D /* ScheduleViewController.swift in Sources */,
 				F37E03222A4096B300F029C8 /* FilterView.swift in Sources */,
@@ -1922,6 +1933,7 @@
 				F3DAB9362A3F0B9200E31487 /* Observable.swift in Sources */,
 				84D9D40F2A35DC1200A8D333 /* MainTabBarController.swift in Sources */,
 				F3DAB91C2A3E102300E31487 /* ProfileView.swift in Sources */,
+				F311C8902A433AF000499B64 /* SettingsValidationError.swift in Sources */,
 				84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */,
 				8450B0EA2A261D3800273956 /* SceneDelegate.swift in Sources */,
 				84B76A532A41A3AE00ED7415 /* RegisterCredentialsModel.swift in Sources */,

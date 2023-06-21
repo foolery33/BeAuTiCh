@@ -123,6 +123,9 @@ private class YourServicesComponentDependencyd4e3d4cc6d212e056730Provider: YourS
     var convertToTimeHhMmSsUseCase: ConvertToTimeHhMmSsUseCase {
         return mainComponent.convertToTimeHhMmSsUseCase
     }
+    var getSettingsValidationErrorUseCase: GetSettingsValidationErrorUseCase {
+        return mainComponent.getSettingsValidationErrorUseCase
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -313,6 +316,7 @@ extension YourServicesComponent: Registration {
         keyPathToName[\YourServicesComponentDependency.subscribeRepository] = "subscribeRepository-SubscribeRepository"
         keyPathToName[\YourServicesComponentDependency.servicesRepository] = "servicesRepository-ServicesRepository"
         keyPathToName[\YourServicesComponentDependency.convertToTimeHhMmSsUseCase] = "convertToTimeHhMmSsUseCase-ConvertToTimeHhMmSsUseCase"
+        keyPathToName[\YourServicesComponentDependency.getSettingsValidationErrorUseCase] = "getSettingsValidationErrorUseCase-GetSettingsValidationErrorUseCase"
     }
 }
 extension SettingsComponent: Registration {

@@ -1008,12 +1008,12 @@ struct _R {
       /// Locales: en, ru
       var edit_service: RswiftResources.StringResource { .init(key: "edit_service", tableName: "YourServicesViewScreen", source: source, developmentValue: "Editing service", comment: nil) }
 
-      /// en translation: You can edit or delete a service with the name
+      /// en translation: You can edit or delete a service
       ///
       /// Key: information_actions
       ///
       /// Locales: en, ru
-      var information_actions: RswiftResources.StringResource { .init(key: "information_actions", tableName: "YourServicesViewScreen", source: source, developmentValue: "You can edit or delete a service with the name", comment: nil) }
+      var information_actions: RswiftResources.StringResource { .init(key: "information_actions", tableName: "YourServicesViewScreen", source: source, developmentValue: "You can edit or delete a service", comment: nil) }
 
       /// en translation: Enter the name of the service*
       ///
@@ -1043,12 +1043,12 @@ struct _R {
       /// Locales: en, ru
       var there_is_not_services: RswiftResources.StringResource { .init(key: "there_is_not_services", tableName: "YourServicesViewScreen", source: source, developmentValue: "You don't have any services yet", comment: nil) }
 
-      /// en translation: You can create your own services! Subscription is required
+      /// en translation: You cannot create your own services! Subscription is required
       ///
       /// Key: there_is_not_subscribe
       ///
       /// Locales: en, ru
-      var there_is_not_subscribe: RswiftResources.StringResource { .init(key: "there_is_not_subscribe", tableName: "YourServicesViewScreen", source: source, developmentValue: "You can create your own services! Subscription is required", comment: nil) }
+      var there_is_not_subscribe: RswiftResources.StringResource { .init(key: "there_is_not_subscribe", tableName: "YourServicesViewScreen", source: source, developmentValue: "You cannot create your own services! Subscription is required", comment: nil) }
 
       /// en translation: Your services
       ///

@@ -115,6 +115,7 @@ class YourServicesViewController: UIViewController {
 						price: price,
 						duration: self?.alertController.textFields?[2].text ?? String())
 					)
+
 				} else {
 					self?.editService(serviceId: service!.id, model: EditService(
 						name: self?.alertController.textFields?[0].text ?? String(),
@@ -122,6 +123,8 @@ class YourServicesViewController: UIViewController {
 					duration: self?.alertController.textFields?[2].text ?? String())
 					)
 				}
+			} else {
+				self?.showAlert(title: "Поле с ценником не заполнено или неправильного формата", message: nil)
 			}
 		}
 
@@ -154,6 +157,22 @@ class YourServicesViewController: UIViewController {
 
 		self.present(alertController, animated: true)
 	}
+
+	func showErrorMessages(errorMessages: [String]) {
+		var errors = String()
+
+		errorMessages.forEach { message in
+			errors.append("\n" + message + "\n")
+		}
+
+		let alertController = UIAlertController(title: "Внимание!", message: errors, preferredStyle: .alert)
+		let action = UIAlertAction(title: "Закрыть", style: .cancel)
+
+		alertController.addAction(action)
+		alertController.view.tintColor = R.color.vinous()
+
+		self.present(alertController, animated: true, completion: nil)
+	}
     
     //MARK: - Private methods
     private func dismiss() {
@@ -181,6 +200,12 @@ private extension YourServicesViewController {
 
 			self.showAlertChooseAction(serviceId: serviceId)
 		}
+
+		ui.subscribeButtonHandler = { [ weak self ] in
+			guard let self = self else { return }
+
+			self.subscribe()
+		}
     }
 
 	func bindListener() {
@@ -199,11 +224,20 @@ private extension YourServicesViewController {
 				}
 			}
 		}
+
+		viewModel.errorMessages.subscribe { [ weak self ] errorMessages in
+			guard let self = self else { return }
+
+			DispatchQueue.main.async {
+				self.showErrorMessages(errorMessages: errorMessages)
+			}
+		}
 	}
 }
 
 private extension YourServicesViewController {
 	func checkingForSubscriptionAvailability() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if let check = await viewModel.isThereSubscription() {
 				if check {
@@ -219,39 +253,64 @@ private extension YourServicesViewController {
 					}
 				}
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func createService(model: CreateService) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.createNewService(model: model) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func deleteService(serviceId: UUID) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.deleteDervice(serviceId: serviceId) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
+		}
+	}
+
+	func subscribe() {
+		self.ui.setupActivityIndicator()
+		Task {
+			if await viewModel.subscribe() {
+				self.dismiss()
+			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func getService(serviceId: UUID) {
+		self.ui.setupActivityIndicator()
 		Task {
 			let service = await viewModel.getService(serviceId: serviceId)
 			DispatchQueue.main.async {
 				self.showAlertService(service: service)
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func editService(serviceId: UUID, model: EditService) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.editService(serviceId: serviceId, model: model) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
