@@ -46,7 +46,6 @@ final class AuthRepositoryImplementation: AuthRepository {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        print(credentials)
         let dataTask = AF.request(
             url,
             method: .post,

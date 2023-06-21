@@ -56,6 +56,8 @@
 		845D16602A3E086200C6CC93 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D165F2A3E086200C6CC93 /* R.generated.swift */; };
 		845D16622A3E38EC00C6CC93 /* SortingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16612A3E38EC00C6CC93 /* SortingView.swift */; };
 		845D16652A3E461F00C6CC93 /* UpdatePriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */; };
+		8471E5082A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471E5072A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift */; };
+		8471E50A2A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471E5092A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift */; };
 		848151632A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */; };
 		84848CFB2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */; };
 		84848CFE2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */; };
@@ -221,6 +223,8 @@
 		845D165F2A3E086200C6CC93 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		845D16612A3E38EC00C6CC93 /* SortingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingView.swift; sourceTree = "<group>"; };
 		845D16642A3E461F00C6CC93 /* UpdatePriceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePriceUseCase.swift; sourceTree = "<group>"; };
+		8471E5072A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSortedWeekAppointmentsUseCase.swift; sourceTree = "<group>"; };
+		8471E5092A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateTimeStringToHhMmUseCase.swift; sourceTree = "<group>"; };
 		848151622A4197D40083C812 /* ConvertISODateStringToDdMmYyyyUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertISODateStringToDdMmYyyyUseCase.swift; sourceTree = "<group>"; };
 		84848CFA2A2E41A000F36586 /* GetDaysOfWeekForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDaysOfWeekForDateUseCase.swift; sourceTree = "<group>"; };
 		84848CFD2A2E421300F36586 /* GetWeekdayIndexForDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeekdayIndexForDateUseCase.swift; sourceTree = "<group>"; };
@@ -759,6 +763,8 @@
 				84848D012A2E430B00F36586 /* GetDayOfMonthByDateUseCase.swift */,
 				84848D032A2E492F00F36586 /* GetDateWithOffsetUseCase.swift */,
 				84DC7FA82A2F2827000F6169 /* IsTodayUseCase.swift */,
+				8471E5072A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift */,
+				8471E5092A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1706,6 +1712,7 @@
 				844AF4F02A37488500B2C9C7 /* CustomRequestInterceptor.swift in Sources */,
 				F3AF7F302A2C555E00DBAD36 /* CustomUITextField.swift in Sources */,
 				8430538C2A3CD058004B25FE /* TokenManager.swift in Sources */,
+				8471E5082A42C3B600311375 /* GetSortedWeekAppointmentsUseCase.swift in Sources */,
 				F37E032E2A40B02300F029C8 /* ChangePassword.swift in Sources */,
 				84CCE0B32A3F0BDD00A1F715 /* TokenPairModel.swift in Sources */,
 				8450B10C2A2620B000273956 /* LoginViewModel.swift in Sources */,
@@ -1816,6 +1823,7 @@
 				84B76A5F2A41AD9700ED7415 /* SaveTokensUseCase.swift in Sources */,
 				845D16602A3E086200C6CC93 /* R.generated.swift in Sources */,
 				8452AEF12A266BB400BCC43B /* MainComponent.swift in Sources */,
+				8471E50A2A42D1A100311375 /* ChangeDateTimeStringToHhMmUseCase.swift in Sources */,
 				F3AF7F1D2A2B191500DBAD36 /* RegisterView.swift in Sources */,
 				8410777D2A373E30002905D2 /* SearchComponent.swift in Sources */,
 				F3AF7F322A2C6D8100DBAD36 /* UIViewControllerExtension.swift in Sources */,

@@ -20,11 +20,11 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        if UserDefaults.standard.bool(forKey: "wasLaunched") == true {
-            goToAuth()
+        if TokenManagerRepositoryImplementation().fetchAccessToken() != nil {
+            goToMain()
         }
         else {
-            goToMain()
+            goToAuth()
         }
     }
     

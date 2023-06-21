@@ -12,9 +12,12 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
     private let baseURL = "http://94.250.248.129:10000/"
     private let interceptor = CustomRequestInterceptor()
     
-    func getFilteredAppointments(parameters: FilteredAppointmentsParametersModel) async throws -> [AppointmentModel] {
-        let url = baseURL + "api/appointments/filters"
-        //print(parameters)
+    func getTimezoneAppointments(startDate: String, endDate: String) async throws -> [AppointmentModel] {
+        let url = baseURL + "api/appointments/timezone"
+        let parameters: [String: String] = [
+            "startDate": startDate,
+            "endDate": endDate
+        ]
         let dataTask = AF.request(
             url,
             parameters: parameters,
@@ -30,8 +33,37 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
                 throw AppError.appointmentError(.modelError)
             case 401:
                 throw AppError.appointmentError(.unauthorized)
-            default:
+            case 403:
+                throw AppError.appointmentError(.forbiddenAccess)
+            case 500:
                 throw AppError.appointmentError(.serverError)
+            default:
+                throw AppError.appointmentError(.unexpectedError)
+            }
+        }
+    }
+    
+    func getFilteredAppointments(parameters: FilteredAppointmentsParametersModel) async throws -> [AppointmentModel] {
+        let url = baseURL + "api/appointments/filters"
+        let dataTask = AF.request(
+            url,
+            parameters: parameters,
+            encoder: URLEncodedFormParameterEncoder(encoder: URLEncodedFormEncoder(arrayEncoding: .noBrackets)),
+            interceptor: interceptor
+        ).serializingDecodable([AppointmentModel].self)
+        do {
+            return try await dataTask.value
+        } catch {
+            let requestStatusCode = await dataTask.response.response?.statusCode
+            switch requestStatusCode {
+            case 200:
+                throw AppError.appointmentError(.modelError)
+            case 401:
+                throw AppError.appointmentError(.unauthorized)
+            case 500:
+                throw AppError.appointmentError(.serverError)
+            default:
+                throw AppError.appointmentError(.unexpectedError)
             }
         }
     }
@@ -40,6 +72,8 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         case unauthorized
         case serverError
         case modelError
+        case forbiddenAccess
+        case unexpectedError
         var id: String {
             self.errorDescription
         }
@@ -51,6 +85,10 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
                 return R.string.errors.server_error()
             case .modelError:
                 return R.string.errors.model_error()
+            case .forbiddenAccess:
+                return R.string.errors.forbidden_access()
+            case .unexpectedError:
+                return R.string.errors.unexpected_error()
             }
         }
     }

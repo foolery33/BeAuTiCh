@@ -10,12 +10,18 @@ import UIKit
 final class ScheduleViewController: UIViewController {
 
 	private let viewModel: MainViewModel
-    private let serviceNotes: [NoteModel]
+    private let dayAppointments: [AppointmentModel]
     private var notes: [NoteView] = []
     
-    init(serviceNotes: [NoteModel], viewModel: MainViewModel) {
+    var changeDateTimeStringToHhMm: ((String) -> (String))? {
+        didSet {
+            setupNotes()
+        }
+    }
+    
+    init(dayAppointments: [AppointmentModel], viewModel: MainViewModel) {
 		self.viewModel = viewModel
-        self.serviceNotes = serviceNotes
+        self.dayAppointments = dayAppointments
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
     }
@@ -26,7 +32,7 @@ final class ScheduleViewController: UIViewController {
     
     private func setupSubviews() {
         setupScrollView()
-        setupNotes()
+//        setupNotes()
     }
     
     // MARK: - ScrollView setup
@@ -96,16 +102,22 @@ final class ScheduleViewController: UIViewController {
 private extension ScheduleViewController {
     
     func setupNotes() {
-        for serviceNote in serviceNotes {
-            createNote(customerName: serviceNote.customerName, serviceName: serviceNote.serviceName, time: serviceNote.time, cost: serviceNote.cost)
+        for appointment in dayAppointments {
+            createNote(appointment: appointment, customerName: appointment.clientName, serviceName: appointment.services.map { $0.name }, time: appointment.startDateTime, cost: appointment.price)
         }
   
         leftStackView.addArrangedSubview(createEmptyView())
         rightStackView.addArrangedSubview(createEmptyView())
     }
     
-    func createNote(customerName: String, serviceName: [String], time: String, cost: Int) {
-        let newNote = NoteView(customerName: customerName, serviceName: serviceName, time: time, cost: cost)
+    func createNote(appointment: AppointmentModel, customerName: String, serviceName: [String], time: String, cost: Double) {
+        let newNote = NoteView(
+            appointment: appointment,
+            customerName: customerName,
+            serviceName: serviceName,
+            time: changeDateTimeStringToHhMm?(time) ?? time,
+            cost: Int(cost)
+        )
         notes.append(newNote)
         if notes.count % 2 == 1 {
             leftStackView.addArrangedSubview(newNote)
@@ -117,10 +129,10 @@ private extension ScheduleViewController {
             make.width.equalTo(UIScreen.main.bounds.width / 2 - 27 - 14)
         }
 
-		newNote.viewPressedHandler = { [ weak self ] in
+		newNote.viewPressedHandler = { [ weak self ] appointment in
 			guard let self = self else { return }
 
-			self.viewModel.goToDetailsMainScreen()
+            self.viewModel.goToDetailsMainScreen(appointment: appointment)
 		}
     }
     

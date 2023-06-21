@@ -8,5 +8,6 @@
 import Foundation
 
 protocol AppointmentRepository {
+    func getTimezoneAppointments(startDate: String, endDate: String) async throws -> [AppointmentModel]
     func getFilteredAppointments(parameters: FilteredAppointmentsParametersModel) async throws -> [AppointmentModel]
 }
