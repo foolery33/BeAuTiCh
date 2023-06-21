@@ -181,6 +181,8 @@ extension MainViewController {
 
 private extension MainViewController {
     func getTimezoneAppointments() {
+		self.view.setupActivityIndicator(withBackground: false)
+
         Task {
             if await viewModel.getTimezoneAppointments() {
                 setupPageViewController()
@@ -188,6 +190,8 @@ private extension MainViewController {
             else {
                 showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)
             }
+
+			self.view.stopActivityIndicator()
         }
     }
 }

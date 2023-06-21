@@ -66,6 +66,7 @@ extension SearchViewController {
     }
     
     func getAppointmentList() {
+		self.ui.setupActivityIndicator(withBackground: false)
         Task {
             if await viewModel.getAppointmentList() {
                 ui.appointmentList = viewModel.appointmentList
@@ -74,6 +75,7 @@ extension SearchViewController {
             else {
                 showAlert(title: R.string.errors.appointments_loading_error(), message: viewModel.error)
             }
+			self.ui.stopActivityIndicator()
         }
     }
     

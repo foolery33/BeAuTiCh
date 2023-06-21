@@ -57,6 +57,7 @@ private extension ServiceSelectionViewController {
     }
     
     func getAllServices() {
+		self.ui.setupActivityIndicator(withBackground: false)
         Task {
             if await viewModel.getAllServices() {
                 ui.setSelectedServiceIds(viewModel.selectedServiceIds)
@@ -65,6 +66,7 @@ private extension ServiceSelectionViewController {
             else {
                 showAlert(title: R.string.errors.services_loading_error(), message: viewModel.error)
             }
+			self.ui.stopActivityIndicator()
         }
     }
 }

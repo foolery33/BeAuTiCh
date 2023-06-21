@@ -259,7 +259,7 @@ private extension YourServicesViewController {
 	}
 
 	func createService(model: CreateService) {
-		self.ui.setupActivityIndicator()
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			if await viewModel.createNewService(model: model) {
 				checkingForSubscriptionAvailability()
@@ -270,7 +270,7 @@ private extension YourServicesViewController {
 	}
 
 	func deleteService(serviceId: UUID) {
-		self.ui.setupActivityIndicator()
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			if await viewModel.deleteDervice(serviceId: serviceId) {
 				checkingForSubscriptionAvailability()
@@ -292,7 +292,7 @@ private extension YourServicesViewController {
 	}
 
 	func getService(serviceId: UUID) {
-		self.ui.setupActivityIndicator()
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			let service = await viewModel.getService(serviceId: serviceId)
 			DispatchQueue.main.async {
@@ -304,7 +304,7 @@ private extension YourServicesViewController {
 	}
 
 	func editService(serviceId: UUID, model: EditService) {
-		self.ui.setupActivityIndicator()
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			if await viewModel.editService(serviceId: serviceId, model: model) {
 				checkingForSubscriptionAvailability()

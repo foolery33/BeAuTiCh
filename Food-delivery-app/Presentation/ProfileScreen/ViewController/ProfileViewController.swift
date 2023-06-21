@@ -213,40 +213,51 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
 	func fetchDataProfile() {
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			await viewModel.fetchDataProfile()
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func changeDataProfile(with parameters: ChangeDataProfileModel) {
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			if await viewModel.changeDataProfile(with: parameters) {
 				fetchDataProfile()
 			}
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func changePassword(parameters: ChangePassword) {
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			if await viewModel.changePassword(parameters: parameters) {
 				self.showAlert(title: R.string.profileScreen.susscess_change_password(), message: nil)
 			}
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func getAvatar() {
+		self.ui.setupActivityIndicator(withBackground: false)
 		Task {
 			ui.setAvatar(avatar: await viewModel.getAvatar())
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func changeAvatar(imageUrl: URL) {
+		self.ui.setupActivityIndicator()
 		Task {
 			await viewModel.changeAvatar(imageUrl: imageUrl)
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func deleteAvatar() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.deleteAvatar() {
 				showAlert(title: R.string.profileScreen.success_deleted_avatar(), message: nil)
@@ -255,14 +266,17 @@ private extension ProfileViewController {
 					self.ui.setAvatar(avatar: R.image.defaultAvatar() ?? UIImage())
 				}
 			}
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func logout() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.logout() {
 				viewModel.goToAuthScreen()
 			}
+			self.ui.stopActivityIndicator()
 		}
 	}
 }
