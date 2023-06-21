@@ -13,7 +13,8 @@ class ProfileView: UIView {
 	// MARK: - Private properties
 
 	private enum Metrics {
-
+		static let gradientStartPoint = CGPoint(x: 0, y: 0.65)
+		static let gradientEndPoint = CGPoint(x: 0, y: 1)
 	}
 
 	private lazy var backgroundImage: UIImageView = {
@@ -53,10 +54,10 @@ class ProfileView: UIView {
 		return view
 	}()
 
-	private lazy var avatarImageView: UIImageView = {
+	lazy var avatarImageView: UIImageView = {
 		let view = UIImageView()
 		view.image = R.image.defaultAvatar()
-		view.contentMode = .scaleAspectFit
+		view.contentMode = .scaleToFill
 
 		return view
 	}()
@@ -132,6 +133,14 @@ class ProfileView: UIView {
 		return view
 	}()
 
+	lazy var gradient: CAGradientLayer = {
+		let myGradient = CAGradientLayer()
+		myGradient.colors = [UIColor.clear.cgColor, R.color.softBrown()?.cgColor ?? UIColor.black.cgColor]
+		myGradient.startPoint = Metrics.gradientStartPoint
+		myGradient.endPoint = Metrics.gradientEndPoint
+		return myGradient
+	}()
+
 
 	// MARK: - Internal properties
 
@@ -152,6 +161,11 @@ class ProfileView: UIView {
 
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	override func layoutSubviews() {
+		gradient.frame = avatarImageView.bounds
+		avatarImageView.layer.addSublayer(gradient)
 	}
 
 
@@ -181,6 +195,7 @@ class ProfileView: UIView {
 
 	func setAvatar(avatar: UIImage) {
 		avatarImageView.image = avatar
+
 	}
 }
 
@@ -199,8 +214,8 @@ private extension ProfileView {
 
 	func configureUI() {
 		self.addSubview(backgroundImage)
-		self.addSubview(signOutButton)
 		self.addSubview(avatarImageView)
+		self.addSubview(signOutButton)
 		self.addSubview(nameLabel)
 		self.addSubview(informationStack)
 		self.addSubview(buttonsStack)
@@ -231,16 +246,16 @@ private extension ProfileView {
 
 		changeAvatarButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(10)
-			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).inset(10)
 		}
 
 		deleteAvatarButton.snp.makeConstraints { make in
 			make.leading.equalToSuperview().inset(10)
-			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).inset(10)
 		}
 
 		nameLabel.snp.makeConstraints { make in
-			make.top.equalTo(avatarImageView.snp.bottom).offset(30)
+			make.top.equalTo(avatarImageView.snp.bottom).offset(20)
 			make.horizontalEdges.equalToSuperview().inset(28)
 		}
 
