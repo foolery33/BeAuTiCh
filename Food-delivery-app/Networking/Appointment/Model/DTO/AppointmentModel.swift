@@ -20,7 +20,7 @@ struct AppointmentModel: Decodable {
         case status = "status"
     }
     
-	init(id: UUID, clientName: String, services: [ServiceShortModel], price: Double, clientPhone: String, startDateTime: String, endDateTime: String, status: StatusAppointmentModel) {
+	init(id: UUID, clientName: String, services: [ServiceShortModel], price: Double, clientPhone: String?, startDateTime: String, endDateTime: String, status: StatusAppointmentModel) {
         self.id = id
         self.clientName = clientName
         self.services = services

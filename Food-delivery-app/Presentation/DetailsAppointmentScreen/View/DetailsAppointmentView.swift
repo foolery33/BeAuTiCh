@@ -19,6 +19,17 @@ class DetailsAppointmentView: UIView {
 		return view
 	}()
 
+	private lazy var scrollView: UIScrollView = {
+		let myScrollView = UIScrollView()
+		myScrollView.showsVerticalScrollIndicator = false
+		return myScrollView
+	}()
+
+	private lazy var contentView: UIView = {
+		let myView = UIView()
+		return myView
+	}()
+
 	private lazy var arrowBackButton: UIButton = {
 		let view = UIButton()
 		view.setImage(R.image.arrowBackSheet(), for: .normal)
@@ -193,7 +204,7 @@ class DetailsAppointmentView: UIView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-а
+
 	// MARK: - Configure
 	func configure(with model: AppointmentModel) {
 		clientName.text = model.clientName
@@ -267,13 +278,17 @@ private extension DetailsAppointmentView {
 
 	func configureUI() {
 		addSubview(backgroundImage)
+		addSubview(scrollView)
 		addSubview(arrowBackButton)
 		addSubview(clientName)
-		addSubview(servicesTitleLabel)
-		addSubview(serviceTags)
-		addSubview(informationTitleStack)
-		addSubview(informationAppointmentStack)
-		addSubview(changeDataButton)
+
+		scrollView.addSubview(contentView)
+
+		contentView.addSubview(servicesTitleLabel)
+		contentView.addSubview(serviceTags)
+		contentView.addSubview(informationTitleStack)
+		contentView.addSubview(informationAppointmentStack)
+		contentView.addSubview(changeDataButton)
 
 		informationTitleStack.addArrangedSubview(startTimeAppointmentTitleLabel)
 		informationTitleStack.addArrangedSubview(endTimeAppointmentTitleLabel)
@@ -284,6 +299,15 @@ private extension DetailsAppointmentView {
 
 	func configureConstraints() {
 		backgroundImage.snp.makeConstraints { make in
+			make.verticalEdges.equalTo(self.safeAreaLayoutGuide.snp.verticalEdges)
+			make.horizontalEdges.equalToSuperview()
+		}
+
+		scrollView.snp.makeConstraints { make in
+			make.edges.equalToSuperview()
+		}
+
+		contentView.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
 		}
 
@@ -322,7 +346,8 @@ private extension DetailsAppointmentView {
 
 		changeDataButton.snp.makeConstraints { make in
 			make.horizontalEdges.equalToSuperview().inset(55)
-			make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(37)
+			make.top.greaterThanOrEqualTo(informationAppointmentStack.snp.bottom).offset(16)
+			make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).inset(10)
 		}
 	}
 

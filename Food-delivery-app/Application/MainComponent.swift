@@ -183,6 +183,12 @@ final class MainComponent: BootstrapComponent {
             ChangeDateTimeStringToHhMmUseCase()
         }
     }
+
+	var convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase {
+		shared {
+			ConvertStringToDateDdMmYyyyHhMmSsUseCase()
+		}
+	}
     
     // MARK: - Repositories
     
