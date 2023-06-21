@@ -160,4 +160,21 @@ final class SettingsViewModel {
 			return false
 		}
 	}
+
+	func getService(serviceId: UUID) async -> ServiceModel{
+		do {
+			return try await servicesRepository?.getService(serviceId: serviceId) ?? ServiceModel(id: UUID(), name: "", price: 0, duration: "")
+
+		} catch(let error) {
+			if let appError = error as? AppError {
+				self.errorMessage.updateModel(with: appError.errorDescription)
+			}
+			else {
+				self.errorMessage.updateModel(with: error.localizedDescription)
+			}
+
+		}
+
+		return ServiceModel(id: UUID(), name: "", price: 0, duration: "")
+	}
 }

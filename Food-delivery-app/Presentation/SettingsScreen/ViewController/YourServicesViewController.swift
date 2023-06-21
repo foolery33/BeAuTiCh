@@ -71,8 +71,8 @@ class YourServicesViewController: UIViewController {
 		present(alert, animated: true)
 	}
 
-	func showAlertService(serviceId: UUID?) {
-		if serviceId != nil {
+	func showAlertService(service: ServiceModel?) {
+		if service != nil {
 			alertController = UIAlertController(title: R.string.yourServicesViewScreen.edit_service(), message: nil, preferredStyle: .alert)
 		} else {
 			alertController = UIAlertController(title: R.string.yourServicesViewScreen.create_service(), message: nil, preferredStyle: .alert)
@@ -80,10 +80,12 @@ class YourServicesViewController: UIViewController {
 
 		alertController.addTextField { nameTextField in
 			nameTextField.placeholder = R.string.yourServicesViewScreen.input_name_service()
+			nameTextField.text = service?.name
 		}
 
 		alertController.addTextField { priceTextField in
 			priceTextField.placeholder = R.string.yourServicesViewScreen.input_price_service()
+			priceTextField.text = "\(service?.price ?? 0)"
 		}
 
 		alertController.addTextField { durationTextField in
@@ -97,6 +99,7 @@ class YourServicesViewController: UIViewController {
 
 			durationTextField.inputAccessoryView = toolbar
 			durationTextField.inputView = self.dateTimeAppointmentPicker
+			durationTextField.text = service?.duration
 		}
 
 		
@@ -160,7 +163,7 @@ private extension YourServicesViewController {
         ui.plusServiceButtonHandler = { [ weak self ] in
             guard let self = self else { return }
 
-			self.showAlertService(serviceId: nil)
+			self.showAlertService(service: nil)
         }
 
 		ui.onServiceTagTapped = { [ weak self ] serviceId in
@@ -226,8 +229,12 @@ private extension YourServicesViewController {
 	}
 
 	func editService(serviceId: UUID) {
-		//TODO: загрузить модель услуги
-		self.showAlertService(serviceId: serviceId)
+		Task {
+			let service = await viewModel.getService(serviceId: serviceId)
+			DispatchQueue.main.async {
+				self.showAlertService(service: service)
+			}
+		}
 	}
 
 	@objc func onFromDateDoneButtonPressed() {
