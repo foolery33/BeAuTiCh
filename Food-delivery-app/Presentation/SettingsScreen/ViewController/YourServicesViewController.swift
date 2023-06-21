@@ -181,6 +181,12 @@ private extension YourServicesViewController {
 
 			self.showAlertChooseAction(serviceId: serviceId)
 		}
+
+		ui.subscribeButtonHandler = { [ weak self ] in
+			guard let self = self else { return }
+
+			self.subscribe()
+		}
     }
 
 	func bindListener() {
@@ -204,6 +210,7 @@ private extension YourServicesViewController {
 
 private extension YourServicesViewController {
 	func checkingForSubscriptionAvailability() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if let check = await viewModel.isThereSubscription() {
 				if check {
@@ -219,39 +226,64 @@ private extension YourServicesViewController {
 					}
 				}
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func createService(model: CreateService) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.createNewService(model: model) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func deleteService(serviceId: UUID) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.deleteDervice(serviceId: serviceId) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
+		}
+	}
+
+	func subscribe() {
+		self.ui.setupActivityIndicator()
+		Task {
+			if await viewModel.subscribe() {
+				self.dismiss()
+			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func getService(serviceId: UUID) {
+		self.ui.setupActivityIndicator()
 		Task {
 			let service = await viewModel.getService(serviceId: serviceId)
 			DispatchQueue.main.async {
 				self.showAlertService(service: service)
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func editService(serviceId: UUID, model: EditService) {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.editService(serviceId: serviceId, model: model) {
 				checkingForSubscriptionAvailability()
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 

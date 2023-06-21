@@ -108,6 +108,7 @@ private extension InformationSubscribeViewController {
 
 private extension InformationSubscribeViewController {
 	func checkingForSubscriptionAvailability() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if let check = await viewModel.isThereSubscription() {
 				check ? ui.setupScreen() : ui.setupPlug()
@@ -118,15 +119,19 @@ private extension InformationSubscribeViewController {
 					}
 				}
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 
 	func subscribe() {
+		self.ui.setupActivityIndicator()
 		Task {
 			if await viewModel.subscribe() {
 				self.dismiss()
 			}
 
+			self.ui.stopActivityIndicator()
 		}
 	}
 
@@ -135,6 +140,8 @@ private extension InformationSubscribeViewController {
 			if await viewModel.cancelSubscribe() {
 				self.dismiss()
 			}
+
+			self.ui.stopActivityIndicator()
 		}
 	}
 }
