@@ -279,7 +279,7 @@ private extension ProfileViewController {
 	func setAvatar(imageData: Data, image: UIImage) {
 		viewModel.setAvatar(imageData: imageData) { success in
 			if success {
-				self.ui.setAvatar(avatar: image)
+				self.getAvatar()
 			}
 		}
 	}

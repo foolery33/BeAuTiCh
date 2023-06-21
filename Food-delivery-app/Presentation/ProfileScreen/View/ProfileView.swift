@@ -56,7 +56,7 @@ class ProfileView: UIView {
 	private lazy var avatarImageView: UIImageView = {
 		let view = UIImageView()
 		view.image = R.image.defaultAvatar()
-		view.contentMode = .scaleAspectFit
+		view.contentMode = .scaleToFill
 
 		return view
 	}()
@@ -181,6 +181,7 @@ class ProfileView: UIView {
 
 	func setAvatar(avatar: UIImage) {
 		avatarImageView.image = avatar
+
 	}
 }
 
@@ -199,8 +200,8 @@ private extension ProfileView {
 
 	func configureUI() {
 		self.addSubview(backgroundImage)
-		self.addSubview(signOutButton)
 		self.addSubview(avatarImageView)
+		self.addSubview(signOutButton)
 		self.addSubview(nameLabel)
 		self.addSubview(informationStack)
 		self.addSubview(buttonsStack)
@@ -231,16 +232,16 @@ private extension ProfileView {
 
 		changeAvatarButton.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().inset(10)
-			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).inset(10)
 		}
 
 		deleteAvatarButton.snp.makeConstraints { make in
 			make.leading.equalToSuperview().inset(10)
-			make.bottom.equalTo(avatarImageView.snp.bottom).offset(16)
+			make.bottom.equalTo(avatarImageView.snp.bottom).inset(10)
 		}
 
 		nameLabel.snp.makeConstraints { make in
-			make.top.equalTo(avatarImageView.snp.bottom).offset(30)
+			make.top.equalTo(avatarImageView.snp.bottom).offset(20)
 			make.horizontalEdges.equalToSuperview().inset(28)
 		}
 
