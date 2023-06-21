@@ -10,6 +10,7 @@ import Foundation
 class DetailsAppointmentViewModel {
     
     private let appointmentRepository: AppointmentRepository
+    private let convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase
     
 	weak var coordinator: MainCoordinator?
     

@@ -85,11 +85,11 @@ private func factory2746832551408832f06d0ae93e637f014511a119(_ component: Needle
     return SearchComponentDependency1207f6d8cbd8351560b4Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class DetailsAppointmentComponentDependencycc9f4102fc9362a9f386Provider: DetailsAppointmentComponentDependency {
-    var convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase {
-        return mainComponent.convertStringToDateDdMmYyyyHhMmSsUseCase
-    }
     var appointmentRepository: AppointmentRepository {
         return mainComponent.appointmentRepository
+    }
+    var convertStringToDateDdMmYyyyHhMmSsUseCase: ConvertStringToDateDdMmYyyyHhMmSsUseCase {
+        return mainComponent.convertStringToDateDdMmYyyyHhMmSsUseCase
     }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
@@ -299,8 +299,8 @@ extension SearchComponent: Registration {
 }
 extension DetailsAppointmentComponent: Registration {
     public func registerItems() {
-        keyPathToName[\DetailsAppointmentComponentDependency.convertStringToDateDdMmYyyyHhMmSsUseCase] = "convertStringToDateDdMmYyyyHhMmSsUseCase-ConvertStringToDateDdMmYyyyHhMmSsUseCase"
         keyPathToName[\DetailsAppointmentComponentDependency.appointmentRepository] = "appointmentRepository-AppointmentRepository"
+        keyPathToName[\DetailsAppointmentComponentDependency.convertStringToDateDdMmYyyyHhMmSsUseCase] = "convertStringToDateDdMmYyyyHhMmSsUseCase-ConvertStringToDateDdMmYyyyHhMmSsUseCase"
     }
 }
 extension ServiceSelectionComponent: Registration {
