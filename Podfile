@@ -12,4 +12,5 @@ target 'Food-delivery-app' do
   pod 'R.swift'
   pod 'Alamofire'
   pod 'KeychainSwift', '~> 20.0'
+  pod 'SkeletonView'
 end

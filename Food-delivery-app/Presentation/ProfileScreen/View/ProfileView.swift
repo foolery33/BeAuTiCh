@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 class ProfileView: UIView {
 
@@ -58,6 +59,7 @@ class ProfileView: UIView {
 		let view = UIImageView()
 		view.image = R.image.defaultAvatar()
 		view.contentMode = .scaleToFill
+		view.isSkeletonable = true
 
 		return view
 	}()
@@ -67,6 +69,8 @@ class ProfileView: UIView {
 		view.textColor = R.color.white()
 		view.textAlignment = .left
 		view.font = R.font.redHatDisplayBlack(size: 30)
+		view.isSkeletonable = true
+		view.skeletonTextNumberOfLines = 3
 
 		return view
 	}()
@@ -84,6 +88,7 @@ class ProfileView: UIView {
 		view.text = R.string.profileScreen.phone()
 		view.textColor = R.color.white()
 		view.textAlignment = .left
+		view.isSkeletonable = true
 		view.font = R.font.redHatDisplayMedium(size: 18)
 
 		return view
@@ -94,6 +99,7 @@ class ProfileView: UIView {
 		view.text = R.string.profileScreen.email()
 		view.textColor = R.color.white()
 		view.textAlignment = .left
+		view.isSkeletonable = true
 		view.font = R.font.redHatDisplayMedium(size: 18)
 
 		return view
@@ -172,11 +178,16 @@ class ProfileView: UIView {
 	// MARK: - Internal methods
 
 	func setDataProfile(profile: ProfileModel) {
-		nameLabel.text = profile.fullName
-		if let phone = profile.phoneNumber {
-			phoneLabel.text = "\(R.string.profileScreen.phone()) \(phone)"
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.stopSkeleton()
+
+			self.nameLabel.hideSkeleton()
+			self.nameLabel.text = profile.fullName
+			if let phone = profile.phoneNumber {
+				self.phoneLabel.text = "\(R.string.profileScreen.phone()) \(phone)"
+			}
+			self.emailLabel.text = "\(R.string.profileScreen.email()) \(profile.email)"
 		}
-		emailLabel.text = "\(R.string.profileScreen.email()) \(profile.email)"
 	}
 
 	func getFullname() -> String {
@@ -196,6 +207,18 @@ class ProfileView: UIView {
 	func setAvatar(avatar: UIImage) {
 		avatarImageView.image = avatar
 
+	}
+
+	func startSkeleton() {
+		nameLabel.showAnimatedSkeleton(usingColor: UIColor.gray)
+		phoneLabel.showAnimatedSkeleton(usingColor: UIColor.gray)
+		emailLabel.showAnimatedSkeleton(usingColor: UIColor.gray)
+	}
+
+	private func stopSkeleton() {
+		nameLabel.hideSkeleton()
+		phoneLabel.hideSkeleton()
+		emailLabel.hideSkeleton()
 	}
 }
 

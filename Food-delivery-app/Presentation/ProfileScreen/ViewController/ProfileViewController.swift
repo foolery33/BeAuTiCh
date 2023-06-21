@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		fetchDataProfile()
+		ui.startSkeleton()
 		getAvatar()
 	}
 
