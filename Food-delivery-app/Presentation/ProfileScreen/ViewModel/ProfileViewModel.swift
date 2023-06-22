@@ -38,7 +38,7 @@ class ProfileViewModel {
 
 	func changeDataProfile(with parameters: ChangeDataProfileModel) async -> Bool {
 		do {
-			_ = try await profileRepository.changeDataProfile(parameters: parameters)
+			try await profileRepository.changeDataProfile(parameters: parameters)
 			return true
 
 		} catch (let error) {
@@ -55,7 +55,7 @@ class ProfileViewModel {
 
 	func logout() async -> Bool {
 		do {
-			_ = try await profileRepository.logout()
+			try await profileRepository.logout()
 			return true
 
 		} catch (let error) {
@@ -72,7 +72,7 @@ class ProfileViewModel {
 
 	func changePassword(parameters: ChangePassword) async -> Bool {
 		do {
-			_ = try await profileRepository.changePassword(parameters: parameters)
+			try await profileRepository.changePassword(parameters: parameters)
 			return true
 
 		} catch (let error) {
@@ -123,7 +123,7 @@ class ProfileViewModel {
 
 	func deleteAvatar() async -> Bool {
 		do {
-			_ = try await profileRepository.deleteAvatar()
+			try await profileRepository.deleteAvatar()
 			return true
 
 		} catch (let error) {

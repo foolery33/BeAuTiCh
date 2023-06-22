@@ -46,14 +46,14 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 
 	func isThereSubscription() async throws -> Bool {
 		let url = baseURL
-		let dataTask = AF.request(
+		let dataResponse = AF.request(
 			url,
 			interceptor: interceptor
 		).serializingDecodable(Bool.self)
 		do {
-			return try await dataTask.value
+			return try await dataResponse.value
 		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+			let requestStatusCode = await dataResponse.response.response?.statusCode
 			switch requestStatusCode {
 			case 200:
 				throw AppError.subscribeError(.modelError)
@@ -67,14 +67,14 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 
 	func fetchInformationSubscribe() async throws -> SubscribeModel {
 		let url = baseURL + "/details"
-		let dataTask = session.request(
+		let dataResponse = session.request(
 			url,
 			interceptor: interceptor
 		).serializingDecodable(SubscribeModel.self)
 		do {
-			return try await dataTask.value
+			return try await dataResponse.value
 		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+			let requestStatusCode = await dataResponse.response.response?.statusCode
 			switch requestStatusCode {
 			case 200:
 				throw AppError.subscribeError(.modelError)
@@ -88,33 +88,30 @@ class SubscribeRepositoryImplementation: SubscribeRepository {
 		}
 	}
 
-	func changeStatusSubscribe(status: Bool) async throws -> String {
+	func changeStatusSubscribe(status: Bool) async throws {
 		let url = baseURL
 		let parameters: Parameters = [
 			"isSubscribing" : "\(status)"
 		]
 
-		let dataTask = session.request(
+		let dataResponse = await session.request(
 			url,
 			method: .put,
 			parameters: parameters,
 			encoding: URLEncoding.queryString,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 200:
-				throw AppError.subscribeError(.modelError)
-			case 401:
-				throw AppError.subscribeError(.unauthorized)
-			case 404:
-				throw AppError.subscribeError(.modelError)
-			default:
-				throw AppError.subscribeError(.serverError)
-			}
+		).serializingDecodable(Empty.self).response
+		switch dataResponse.response?.statusCode {
+		case 200:
+			return
+		case 401:
+			throw AppError.subscribeError(.unauthorized)
+		case 404:
+			throw AppError.subscribeError(.modelError)
+		case 500:
+			throw AppError.appointmentError(.serverError)
+		default:
+			throw AppError.appointmentError(.unexpectedError)
 		}
 	}
 }

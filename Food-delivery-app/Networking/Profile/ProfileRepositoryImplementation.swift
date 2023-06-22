@@ -50,14 +50,14 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 	
 	func getDataProfile() async throws -> ProfileModel {
 		let url = baseURL + "api/profile"
-		let dataTask = session.request(
+		let dataResponse = session.request(
 			url,
 			interceptor: interceptor
 		).serializingDecodable(ProfileModel.self)
 		do {
-			return try await dataTask.value
+			return try await dataResponse.value
 		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+			let requestStatusCode = await dataResponse.response.response?.statusCode
 			
 			switch requestStatusCode {
 			case 200:
@@ -70,35 +70,33 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		}
 	}
 	
-	func changeDataProfile(parameters: ChangeDataProfileModel) async throws -> String {
+	func changeDataProfile(parameters: ChangeDataProfileModel) async throws {
 		let url = baseURL + "api/profile"
-		let dataTask = session.request(
+		let dataResponse = await session.request(
 			url,
 			method: .patch,
 			parameters: parameters,
 			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			
-			switch requestStatusCode {
-			case 400:
-				throw AppError.profileError(.modelError)
-			case 401:
-				throw AppError.profileError(.unauthorized)
-			default:
-				throw AppError.profileError(.serverError)
-			}
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = dataResponse.response?.statusCode
+
+		switch requestStatusCode {
+		case 200:
+			return
+		case 400:
+			throw AppError.profileError(.modelError)
+		case 401:
+			throw AppError.profileError(.unauthorized)
+		default:
+			throw AppError.profileError(.serverError)
 		}
 	}
 	
-	func changePassword(parameters: ChangePassword) async throws -> Bool {
+	func changePassword(parameters: ChangePassword) async throws {
 		let url = baseURL + "api/profile/password"
 		
-		let dataTask = await session.request(
+		let dataResponse = await session.request(
 			url,
 			method: .put,
 			parameters: parameters,
@@ -106,9 +104,9 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 			interceptor: interceptor
 		).serializingDecodable(Empty.self).response
 
-		switch  dataTask.response?.statusCode {
+		switch  dataResponse.response?.statusCode {
 		case 200:
-			return true
+			return
 		case 400:
 			throw AppError.profileError(.notCorrectOldPassword)
 		case 401:
@@ -120,13 +118,13 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 	
 	func getAvatar() async throws -> Data {
 		let url = baseURL + "api/profile/avatar"
-		let dataTask = AF.request(
+		let dataResponse = AF.request(
 			url,
 			interceptor: interceptor).serializingData()
 		do {
-			return try await dataTask.value
+			return try await dataResponse.value
 		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+			let requestStatusCode = await dataResponse.response.response?.statusCode
 			switch requestStatusCode {
 			case 400:
 				throw AppError.profileError(.modelError)
@@ -180,51 +178,43 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 		}
 	}
 
-	func deleteAvatar() async throws -> String {
+	func deleteAvatar() async throws {
 		let url = baseURL + "api/profile/avatar"
 
-		let dataTask = session.request(
+		let dataResponse = await session.request(
 			url,
 			method: .delete,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = await dataResponse.response?.statusCode
 
-			switch requestStatusCode {
-			case 200:
-				throw AppError.profileError(.modelError)
-			case 401:
-				throw AppError.profileError(.unauthorized)
-			case 404:
-				throw AppError.profileError(.photoNotFound)
-			default:
-				throw AppError.profileError(.serverError)
-			}
+		switch requestStatusCode {
+		case 200:
+			return
+		case 401:
+			throw AppError.profileError(.unauthorized)
+		case 404:
+			throw AppError.profileError(.photoNotFound)
+		default:
+			throw AppError.profileError(.serverError)
 		}
 	}
 
-	func logout() async throws -> String {
+	func logout() async throws {
 		let url = baseURL + "api/auth/logout"
 
-		let dataTask = session.request(
+		let dataResponse = await session.request(
 			url,
 			method: .post,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = dataResponse.response?.statusCode
 
-			switch requestStatusCode {
-			case 401:
-				throw AppError.profileError(.unauthorized)
-			default:
-				throw AppError.profileError(.serverError)
-			}
+		switch requestStatusCode {
+		case 401:
+			throw AppError.profileError(.unauthorized)
+		default:
+			throw AppError.profileError(.serverError)
 		}
 	}
 }

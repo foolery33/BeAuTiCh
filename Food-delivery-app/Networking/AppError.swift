@@ -13,7 +13,8 @@ enum AppError: LocalizedError, Identifiable {
     case authError(AuthRepositoryImplementation.AuthError)
 	case profileError(ProfileRepositoryImplementation.ProfileError)
 	case subscribeError(SubscribeRepositoryImplementation.SubscribeError)
-    
+	case settingsValisationError(SettingsValidationError)
+
     var id: String {
         self.errorDescription
     }
@@ -28,6 +29,8 @@ enum AppError: LocalizedError, Identifiable {
         case .authError(let error):
             return error.errorDescription
 		case .subscribeError(let error):
+			return error.errorDescription
+		case .settingsValisationError(let error):
 			return error.errorDescription
         }
     }

@@ -5,10 +5,28 @@
 //  Created by Елена on 21.06.2023.
 //
 
-enum SettingsValidationError: String, Error {
-	case emptyFieldNameService = "Поле с именем сервиса обязательно для заполнения"
-	case emptyFieldPrice = "Поле с ценой обязательно для заполнения"
-	case emptyFieldDuration = "Поле с продолжительностью услуги обязательно для заполнения"
+import Foundation
 
-	case notValidFieldPrice = "Неверный формат цены. Цена должна быть положительным целым или десятичным числом"
+enum SettingsValidationError: LocalizedError, Identifiable {
+	case emptyFieldNameService
+	case emptyFieldPrice
+	case emptyFieldDuration
+	case notValidFieldPrice
+
+	var id: String {
+		self.errorDescription
+	}
+
+	var errorDescription: String {
+		switch self {
+		case .emptyFieldNameService:
+			return R.string.errors.empty_service_name()
+		case .emptyFieldPrice:
+			return R.string.errors.empty_service_price()
+		case .emptyFieldDuration:
+			return R.string.errors.empty_service_duration()
+		case .notValidFieldPrice:
+			return R.string.errors.not_valid_price()
+		}
+	}
 }

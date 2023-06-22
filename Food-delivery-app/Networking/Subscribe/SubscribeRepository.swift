@@ -8,5 +8,5 @@
 protocol SubscribeRepository {
 	func isThereSubscription() async throws -> Bool
 	func fetchInformationSubscribe() async throws -> SubscribeModel
-	func changeStatusSubscribe(status: Bool) async throws -> String
+	func changeStatusSubscribe(status: Bool) async throws
 }

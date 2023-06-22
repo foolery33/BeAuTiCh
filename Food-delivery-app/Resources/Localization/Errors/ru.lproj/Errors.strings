@@ -40,3 +40,9 @@
 "appointment_not_found" = "Произошла ошибка при удалении записи";
 "appointment_change_error" = "Ошибка изменения записи";
 "appointment_creation_error" = "Ошибка создания записи";
+
+// MARK: - settings validation
+"empty_service_name" = "Поле с именем сервиса обязательно для заполнения";
+"empty_service_price" = "Поле с ценой обязательно для заполнения";
+"empty_service_duration" = "Поле с продолжительностью услуги обязательно для заполнения";
+"not_valid_price" = "Неверный формат цены. Цена должна быть положительным целым или десятичным числом";

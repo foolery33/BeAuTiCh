@@ -373,7 +373,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 30 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 34 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -468,6 +468,27 @@ struct _R {
       /// Locales: en, ru
       var empty_password: RswiftResources.StringResource { .init(key: "empty_password", tableName: "Errors", source: source, developmentValue: "Please enter password to continue", comment: nil) }
 
+      /// en translation: The field with the duration of the service is required to fill in
+      ///
+      /// Key: empty_service_duration
+      ///
+      /// Locales: en, ru
+      var empty_service_duration: RswiftResources.StringResource { .init(key: "empty_service_duration", tableName: "Errors", source: source, developmentValue: "The field with the duration of the service is required to fill in", comment: nil) }
+
+      /// en translation: The field with the name of the service must be filled in
+      ///
+      /// Key: empty_service_name
+      ///
+      /// Locales: en, ru
+      var empty_service_name: RswiftResources.StringResource { .init(key: "empty_service_name", tableName: "Errors", source: source, developmentValue: "The field with the name of the service must be filled in", comment: nil) }
+
+      /// en translation: The price field must be filled in
+      ///
+      /// Key: empty_service_price
+      ///
+      /// Locales: en, ru
+      var empty_service_price: RswiftResources.StringResource { .init(key: "empty_service_price", tableName: "Errors", source: source, developmentValue: "The price field must be filled in", comment: nil) }
+
       /// en translation: You've got no rights to perform this operation
       ///
       /// Key: forbidden_access
@@ -530,6 +551,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var not_fount_subscribe: RswiftResources.StringResource { .init(key: "not_fount_subscribe", tableName: "Errors", source: source, developmentValue: "Unfortunately, an error occurred on the server. Your subscription was not found, please try again", comment: nil) }
+
+      /// en translation: Incorrect price format. The price must be a positive integer or decimal number
+      ///
+      /// Key: not_valid_price
+      ///
+      /// Locales: en, ru
+      var not_valid_price: RswiftResources.StringResource { .init(key: "not_valid_price", tableName: "Errors", source: source, developmentValue: "Incorrect price format. The price must be a positive integer or decimal number", comment: nil) }
 
       /// en translation: Ok
       ///
