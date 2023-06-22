@@ -17,7 +17,7 @@ class ConvertDateToDdMmYyyyHhMmSsUseCase {
 	func convertToString(_ date: String) -> String {
 
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
 		if let date = dateFormatter.date(from: date) {
 			dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
