@@ -69,6 +69,8 @@ class AddAppointmentViewModel {
     func convertToDate(_ dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+		dateFormatter.locale = .current
+		dateFormatter.timeZone = .current
 
 		if let date = dateFormatter.date(from: dateString) {
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
