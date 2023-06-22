@@ -67,7 +67,7 @@ class EditAppointmentViewModel {
             _ = try await appointmentRepository.changeAppointmentInformation(appointmentId: appointment.data?.id ?? UUID(), newInfo: newInfo)
             appointment.data?.clientName = newInfo.clientName
             appointment.data?.clientPhone = newInfo.clientPhone
-            appointment.data?.startDateTime = newInfo.startDateTime ?? ""
+			appointment.data?.startDateTime = self.convertDateToDdMmYyyyHhMmSsUseCase.convertToString(newInfo.startDateTime ?? "")
             appointment.data?.services = selectedServiceShortModels
             return true
         } catch(let error) {
