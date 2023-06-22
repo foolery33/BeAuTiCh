@@ -136,6 +136,8 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         switch dataResponse.response?.statusCode {
         case 200:
             return true
+		case 400:
+			throw AppError.appointmentError(.modelError)
         case 401:
             throw AppError.appointmentError(.unauthorized)
         case 403:
@@ -148,7 +150,7 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
     }
     
     func createAppointment(newAppointmentModel: AddAppointmentModel) async throws {
-        let url = baseURL + "api/appointments/"
+        let url = baseURL + "api/appointments"
         let dataResponse = await AF.request(
             url,
             method: .post,
@@ -159,6 +161,8 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         switch dataResponse.response?.statusCode {
         case 200:
             return
+		case 400:
+			throw AppError.appointmentError(.modelError)
         case 401:
             throw AppError.appointmentError(.unauthorized)
         case 403:

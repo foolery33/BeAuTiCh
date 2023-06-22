@@ -244,7 +244,7 @@ private extension AddAppointmentView {
 		arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
         
         inputClientNameTextField.addTarget(self, action: #selector(clientNameTextFieldDidChange(_:)), for: .editingChanged)
-        dateTimeAppointmentTextField.addTarget(self, action: #selector(dateTimeTextFieldDidChange(_:)), for: .editingChanged)
+		dateTimeAppointmentTextField.addTarget(self, action: #selector(dateTimeTextFieldDidChange(_:)), for: .editingDidEnd)
         inputClientPhoneTextField.addTarget(self, action: #selector(clientPhoneNumberTextFieldDidChange(_:)), for: .editingChanged)
 	}
 }

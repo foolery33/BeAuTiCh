@@ -13,19 +13,19 @@ struct AddAppointmentModel: Codable {
         case clientName = "clientName"
         case clientPhone = "clientPhone"
         case startDateTime = "startDateTime"
-        case servicesId = "servicesId"
+        case idServices = "idServices"
     }
     
-    init(clientName: String, clientPhone: String? = nil, startDateTime: String? = nil, servicesId: [UUID]? = nil) {
+    init(clientName: String, clientPhone: String? = nil, startDateTime: String, idServices: [UUID]) {
         self.clientName = clientName
         self.clientPhone = clientPhone
         self.startDateTime = startDateTime
-        self.servicesId = servicesId
+        self.idServices = idServices
     }
     
     var clientName: String
     var clientPhone: String?
-    var startDateTime: String?
-    var servicesId: [UUID]?
+    var startDateTime: String
+    var idServices: [UUID]
     
 }

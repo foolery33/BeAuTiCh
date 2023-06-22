@@ -71,7 +71,9 @@ private extension AddAppointmentViewController {
         }
         
         ui.onDateTextFieldValueChanged = { [weak self] text in
-            self?.viewModel.appointmentDate = text
+			if let date = text {
+				self?.viewModel.appointmentDate = date
+			}
         }
         
         ui.onPhoneNumberTextFieldValueChanged = { [weak self] text in

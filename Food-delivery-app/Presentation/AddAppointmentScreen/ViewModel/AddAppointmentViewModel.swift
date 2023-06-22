@@ -47,8 +47,8 @@ class AddAppointmentViewModel {
             let newAppointment = AddAppointmentModel(
                 clientName: clientName,
                 clientPhone: phoneNumber,
-                startDateTime: "\(convertToDate(appointmentDate ?? "") ?? Date())",
-                servicesId: selectedServiceIds
+                startDateTime: convertToDate(appointmentDate ?? ""),
+                idServices: selectedServiceIds
             )
             print(newAppointment)
             _ = try await appointmentRepository.createAppointment(
@@ -66,12 +66,16 @@ class AddAppointmentViewModel {
         }
     }
     
-    func convertToDate(_ dateString: String) -> Date? {
+    func convertToDate(_ dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        return dateFormatter.date(from: dateString)
+
+		if let date = dateFormatter.date(from: dateString) {
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+			return dateFormatter.string(from: date)
+		}
+
+        return dateString
     }
     
 }
