@@ -117,4 +117,8 @@ final class MainViewModel {
         }
     }
     
+    func goToAddAppointmentScreen() {
+        coordinator?.goToAddAppointmentScreen()
+    }
+    
 }

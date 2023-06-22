@@ -15,3 +15,5 @@
 "input_phone_placeholder" = "Input phone";
 "shoose_services" = "Select services";
 "save" = "Save";
+"success" = "Success";
+"create_appointment_success" = "You've successfully created new appointment";

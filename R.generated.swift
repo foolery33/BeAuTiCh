@@ -120,9 +120,16 @@ struct _R {
     }
 
 
-    /// This `_R.string.addAppointmentScreen` struct is generated, and contains static references to 9 localization keys.
+    /// This `_R.string.addAppointmentScreen` struct is generated, and contains static references to 11 localization keys.
     struct addAppointmentScreen {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: You've successfully created new appointment
+      ///
+      /// Key: create_appointment_success
+      ///
+      /// Locales: en, ru
+      var create_appointment_success: RswiftResources.StringResource { .init(key: "create_appointment_success", tableName: "AddAppointmentScreen", source: source, developmentValue: "You've successfully created new appointment", comment: nil) }
 
       /// en translation: Input client's name
       ///
@@ -179,6 +186,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var shoose_services: RswiftResources.StringResource { .init(key: "shoose_services", tableName: "AddAppointmentScreen", source: source, developmentValue: "Select services", comment: nil) }
+
+      /// en translation: Success
+      ///
+      /// Key: success
+      ///
+      /// Locales: en, ru
+      var success: RswiftResources.StringResource { .init(key: "success", tableName: "AddAppointmentScreen", source: source, developmentValue: "Success", comment: nil) }
 
       /// en translation: Add appointment
       ///
@@ -359,7 +373,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 29 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 30 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -369,6 +383,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var appointment_change_error: RswiftResources.StringResource { .init(key: "appointment_change_error", tableName: "Errors", source: source, developmentValue: "Appointment change error", comment: nil) }
+
+      /// en translation: Appointment creation error
+      ///
+      /// Key: appointment_creation_error
+      ///
+      /// Locales: en, ru
+      var appointment_creation_error: RswiftResources.StringResource { .init(key: "appointment_creation_error", tableName: "Errors", source: source, developmentValue: "Appointment creation error", comment: nil) }
 
       /// en translation: An error occurred while deleting an entry
       ///
@@ -1145,7 +1166,7 @@ struct _R {
     var white: RswiftResources.ColorResource { .init(name: "White", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 34 images.
+  /// This `_R.image` struct is generated, and contains static references to 35 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -1163,6 +1184,9 @@ struct _R {
 
     /// Image `Background2`.
     var background2: RswiftResources.ImageResource { .init(name: "Background2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ChillImage`.
+    var chillImage: RswiftResources.ImageResource { .init(name: "ChillImage", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `DateField`.
     var dateField: RswiftResources.ImageResource { .init(name: "DateField", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

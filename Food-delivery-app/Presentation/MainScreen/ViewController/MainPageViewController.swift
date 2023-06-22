@@ -88,12 +88,12 @@ extension MainPageViewController: UIPageViewControllerDataSource {
         return pages[nextIndex]
     }
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return pages.count
-    }
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return currentIndex
-    }
+//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+//        return pages.count
+//    }
+//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+//        return currentIndex
+//    }
     
 }
 

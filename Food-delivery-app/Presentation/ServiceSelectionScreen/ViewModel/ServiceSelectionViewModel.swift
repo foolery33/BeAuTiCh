@@ -56,9 +56,11 @@ final class ServiceSelectionViewModel {
         case .searchScreen:
             searchCoordinator?.setSelectedServices(selectedServiceIds)
         case .editAppointmentScreen:
-            mainCoordinator?.setSelectedServices(selectedServiceIds, selectedServiceShortModels)
-        default:
-            break
+            mainCoordinator?.setSelectedServices(opener: .editAppointmentScreen, selectedServiceIds, selectedServiceShortModels)
+        case .addAppointmentScreen:
+            mainCoordinator?.setSelectedServices(opener: .addAppointmentScreen, selectedServiceIds, selectedServiceShortModels)
+        case .none:
+            return
         }
     }
     

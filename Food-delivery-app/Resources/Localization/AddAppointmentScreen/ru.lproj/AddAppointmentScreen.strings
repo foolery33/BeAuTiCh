@@ -15,3 +15,5 @@
 "input_phone" = "Введите номер";
 "shoose_services" = "Выбрать услуги";
 "save" = "Сохранить";
+"success" = "Успех";
+"create_appointment_success" = "Вы успешно создали новую запись";
