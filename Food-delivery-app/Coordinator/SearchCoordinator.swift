@@ -16,11 +16,13 @@ final class SearchCoordinator: CoordinatorProtocol {
     private let componentFactory = ComponentFactory()
     private let searchComponent: SearchComponent
     private let filterComponent: FilterComponent
+    private let detailsAppointmentComponent: DetailsAppointmentComponent
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         searchComponent = componentFactory.getSearchComponent()
         filterComponent = componentFactory.getFilterComponent()
+        detailsAppointmentComponent = componentFactory.getDetailsAppointmentComponent()
     }
     
     func start() {
@@ -43,7 +45,6 @@ final class SearchCoordinator: CoordinatorProtocol {
     }
 
 	func goToDetailsAppointmentScreen(model: AppointmentModel) {
-		let detailsAppointmentComponent = componentFactory.getDetailsAppointmentComponent()
 		detailsAppointmentComponent.detailsAppointmentViewModel.searchCoordinator = self
 		detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: model)
 
@@ -74,4 +75,18 @@ final class SearchCoordinator: CoordinatorProtocol {
 	func goBackSearchScreen() {
 		navigationController.popViewController(animated: true)
 	}
+    
+    func goToEditAppointmentScreen(appointmentModel: AppointmentModel) {
+        let editAppointmentComponent = componentFactory.getEditAppointmentComponent()
+        editAppointmentComponent.editAppointmentViewModel.searchCoordinator = self
+        editAppointmentComponent.editAppointmentViewModel.setAppointmentModel(appointmentModel: appointmentModel)
+        navigationController.pushViewController(editAppointmentComponent.editAppointmentViewController, animated: true)
+    }
+    
+    func goBackToDetailsAppointmentScreen(appointment: AppointmentModel) {
+        detailsAppointmentComponent.detailsAppointmentViewModel.setAppointment(appointment: appointment)
+        detailsAppointmentComponent.detailsAppointmentViewController.configureUI(with: appointment)
+        navigationController.popViewController(animated: true)
+    }
+    
 }

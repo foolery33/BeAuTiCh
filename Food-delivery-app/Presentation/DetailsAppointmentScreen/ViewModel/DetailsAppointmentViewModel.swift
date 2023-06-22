@@ -85,6 +85,7 @@ class DetailsAppointmentViewModel {
     
     func goToEditAppointmentScreen() {
         mainCoordinator?.goToEditAppointmentScreen(appointmentModel: appointment.data ?? AppointmentModel(id: UUID(), clientName: String(), services: [], price: Double(), clientPhone: nil, startDateTime: String(), endDateTime: String(), status: .completed))
+        searchCoordinator?.goToEditAppointmentScreen(appointmentModel: appointment.data ?? AppointmentModel(id: UUID(), clientName: String(), services: [], price: Double(), clientPhone: nil, startDateTime: String(), endDateTime: String(), status: .completed))
     }
     
 }

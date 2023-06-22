@@ -8,7 +8,9 @@
 import Foundation
 
 class EditAppointmentViewModel {
-	weak var coordinator: MainCoordinator?
+    
+	weak var mainCoordinator: MainCoordinator?
+    weak var searchCoordinator: SearchCoordinator?
 
 	private let convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase
     private let convertDdMmYyyyHhMmSsToISOUseCase: ConvertDdMmYyyyHhMmSsToISOUseCase
@@ -44,12 +46,15 @@ class EditAppointmentViewModel {
 	}
 
 	func goBackToDetailsAppointmentScreen() {
-        coordinator?.goBackToDetailsAppointmentScreen(appointment: appointment.data
+        mainCoordinator?.goBackToDetailsAppointmentScreen(appointment: appointment.data
                                                       ?? AppointmentModel(id: UUID(), clientName: String(), services: [], price: Double(), clientPhone: nil, startDateTime: String(), endDateTime: String(), status: .completed))
+        searchCoordinator?.goBackToDetailsAppointmentScreen(appointment: appointment.data
+                                                            ?? AppointmentModel(id: UUID(), clientName: String(), services: [], price: Double(), clientPhone: nil, startDateTime: String(), endDateTime: String(), status: .completed))
 	}
 
 	func goToServiceSelectionScreen() {
-        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, selectedServiceShortModels: selectedServiceShortModels, from: .editAppointmentScreen)
+        mainCoordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, selectedServiceShortModels: selectedServiceShortModels, from: .editAppointmentScreen)
+        searchCoordinator?.showServiceSelectionScreenSheet(selectedServiceIds: selectedServiceIds, from: .searchScreen)
 	}
 
     func changeAppointmentInfo() async -> Bool {

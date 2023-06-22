@@ -51,7 +51,7 @@ final class MainCoordinator: CoordinatorProtocol {
 
     func goToEditAppointmentScreen(appointmentModel: AppointmentModel) {
 		let editAppointmentComponent = componentFactory.getEditAppointmentComponent()
-		editAppointmentComponent.editAppointmentViewModel.coordinator = self
+		editAppointmentComponent.editAppointmentViewModel.mainCoordinator = self
         editAppointmentComponent.editAppointmentViewModel.setAppointmentModel(appointmentModel: appointmentModel)
 		navigationController.pushViewController(editAppointmentComponent.editAppointmentViewController, animated: true)
 	}
