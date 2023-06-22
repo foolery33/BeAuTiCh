@@ -37,3 +37,4 @@
 "appointment_status_change_error" = "Appointment status change error";
 "appointment_not_found" = "An error occurred while deleting an entry";
 "appointment_change_error" = "Appointment change error";
+"appointment_creation_error" = "Appointment creation error";

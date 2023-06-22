@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupSubviews()
-//        getTimezoneAppointments()
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +90,7 @@ class MainViewController: UIViewController {
     private lazy var addNoteButton: UIButton = {
         let myButton = UIButton(type: .custom)
         myButton.setImage(R.image.plusNote(), for: .normal)
+        myButton.addTarget(self, action: #selector(onAddNoteButtonTapped), for: .touchUpInside)
         return myButton
     }()
     private func setupAddNoteButton() {
@@ -99,6 +99,9 @@ class MainViewController: UIViewController {
             make.trailing.equalToSuperview().inset(16)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
         }
+    }
+    @objc private func onAddNoteButtonTapped() {
+        viewModel.goToAddAppointmentScreen()
     }
     
     
@@ -148,11 +151,11 @@ extension MainViewController: DateLineDelegate {
     }
     
     var onLeftArrowButtonClicked: (() -> ()) {
-        viewModel.onLeftArrowButtonClicked
+        arrowLeftTapped
     }
     
     var onRightArrowButtonClicked: (() -> ()) {
-        viewModel.onRightArrowButtonClicked
+        arrowRightTapped
     }
     
     var onDateViewClicked: ((Int) -> ()) {
@@ -189,10 +192,9 @@ extension MainViewController {
 private extension MainViewController {
     func getTimezoneAppointments() {
 		self.view.setupActivityIndicator(withBackground: false)
-
+        
         Task {
             if await viewModel.getTimezoneAppointments() {
-//                setupPageViewController()
                 pageViewController.updatePages()
             }
             else {
@@ -201,5 +203,15 @@ private extension MainViewController {
 
 			self.view.stopActivityIndicator()
         }
+    }
+    
+    func arrowLeftTapped() {
+        viewModel.onLeftArrowButtonClicked()
+        getTimezoneAppointments()
+    }
+    
+    func arrowRightTapped() {
+        viewModel.onRightArrowButtonClicked()
+        getTimezoneAppointments()
     }
 }

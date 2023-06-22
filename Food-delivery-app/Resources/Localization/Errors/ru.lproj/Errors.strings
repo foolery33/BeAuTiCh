@@ -39,3 +39,4 @@
 "appointment_status_change_error" = "Ошибка изменения статуса записи";
 "appointment_not_found" = "Произошла ошибка при удалении записи";
 "appointment_change_error" = "Ошибка изменения записи";
+"appointment_creation_error" = "Ошибка создания записи";

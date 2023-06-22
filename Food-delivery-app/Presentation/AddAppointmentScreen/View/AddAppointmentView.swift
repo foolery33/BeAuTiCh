@@ -126,6 +126,10 @@ class AddAppointmentView: UIView {
 	var goToChooseServicesButtonHandler: (() -> Void)?
 	var saveButtonHandler: (() -> Void)?
 
+    var onNameTextFieldValueChanged: ((String) -> ())?
+    var onDateTextFieldValueChanged: ((String?) -> ())?
+    var onPhoneNumberTextFieldValueChanged: ((String?) -> ())?
+    
 	// MARK: - Init
 	init() {
 		super.init(frame: .zero)
@@ -238,6 +242,10 @@ private extension AddAppointmentView {
 		goToChooseServicesButton.addTarget(self, action: #selector(goToChooseServicesButtonPressed), for: .touchUpInside)
 		saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
 		arrowBackButton.addTarget(self, action: #selector(arrowBackButtonPressed), for: .touchUpInside)
+        
+        inputClientNameTextField.addTarget(self, action: #selector(clientNameTextFieldDidChange(_:)), for: .editingChanged)
+        dateTimeAppointmentTextField.addTarget(self, action: #selector(dateTimeTextFieldDidChange(_:)), for: .editingChanged)
+        inputClientPhoneTextField.addTarget(self, action: #selector(clientPhoneNumberTextFieldDidChange(_:)), for: .editingChanged)
 	}
 }
 
@@ -260,4 +268,16 @@ private extension AddAppointmentView {
 	@objc func saveButtonPressed() {
 		saveButtonHandler?()
 	}
+    
+    @objc func clientNameTextFieldDidChange(_ textField: UITextField) {
+        onNameTextFieldValueChanged?(textField.text ?? "")
+    }
+    
+    @objc func dateTimeTextFieldDidChange(_ textField: UITextField) {
+        onDateTextFieldValueChanged?(textField.text)
+    }
+    
+    @objc func clientPhoneNumberTextFieldDidChange(_ textField: UITextField) {
+        onPhoneNumberTextFieldValueChanged?(textField.text)
+    }
 }

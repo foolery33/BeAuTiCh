@@ -46,7 +46,7 @@ final class GetSettingsValidationErrorUseCase {
 			throw SettingsValidationError.emptyFieldPrice
 		}
 
-		if priceValidationUseCase.isValidPriceNumber(price) {
+		if priceValidationUseCase.isValidPriceNumber(price) == false {
 			throw SettingsValidationError.notValidFieldPrice
 		}
 	}

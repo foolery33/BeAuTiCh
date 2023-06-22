@@ -147,6 +147,29 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         }
     }
     
+    func createAppointment(newAppointmentModel: AddAppointmentModel) async throws {
+        let url = baseURL + "api/appointments/"
+        let dataResponse = await AF.request(
+            url,
+            method: .post,
+            parameters: newAppointmentModel,
+            encoder: JSONParameterEncoder.default,
+            interceptor: interceptor
+        ).serializingDecodable(Empty.self).response
+        switch dataResponse.response?.statusCode {
+        case 200:
+            return
+        case 401:
+            throw AppError.appointmentError(.unauthorized)
+        case 403:
+            throw AppError.appointmentError(.forbiddenAccess)
+        case 500:
+            throw AppError.appointmentError(.serverError)
+        default:
+            throw AppError.appointmentError(.unexpectedError)
+        }
+    }
+    
     enum AppointmentError:  LocalizedError, Identifiable {
         case unauthorized
         case serverError

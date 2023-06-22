@@ -16,12 +16,14 @@ final class MainCoordinator: CoordinatorProtocol {
     private let componentFactory = ComponentFactory()
     private let editAppointmentComponent: EditAppointmentComponent
     private let detailsAppointmentComponent: DetailsAppointmentComponent
+    private let addAppointmentComponent: AddAppointmentComponent
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         
         self.editAppointmentComponent = componentFactory.getEditAppointmentComponent()
         self.detailsAppointmentComponent = componentFactory.getDetailsAppointmentComponent()
+        self.addAppointmentComponent = componentFactory.getAddAppointmentComponent()
     }
     
     func start() {
@@ -42,7 +44,6 @@ final class MainCoordinator: CoordinatorProtocol {
 	}
 
 	func goToAddAppointmentScreen() {
-		let addAppointmentComponent = componentFactory.getAddAppointmentComponent()
 		addAppointmentComponent.addAppointmentViewModel.coordinator = self
 
 		navigationController.pushViewController(addAppointmentComponent.addAppointmentViewController, animated: true)
@@ -68,9 +69,16 @@ final class MainCoordinator: CoordinatorProtocol {
 		navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
 	}
     
-    func setSelectedServices(_ serviceIdList: [UUID], _ selectedServiceShortModels: [ServiceShortModel]) {
-        editAppointmentComponent.editAppointmentViewModel.selectedServiceIds = serviceIdList
-        editAppointmentComponent.editAppointmentViewModel.selectedServiceShortModels = selectedServiceShortModels
+    func setSelectedServices(opener: ServiceSelectionOpener, _ serviceIdList: [UUID], _ selectedServiceShortModels: [ServiceShortModel]) {
+        switch opener {
+        case .addAppointmentScreen:
+            addAppointmentComponent.addAppointmentViewModel.selectedServiceIds = serviceIdList
+        case .editAppointmentScreen:
+            editAppointmentComponent.editAppointmentViewModel.selectedServiceIds = serviceIdList
+            editAppointmentComponent.editAppointmentViewModel.selectedServiceShortModels = selectedServiceShortModels
+        default:
+            return
+        }
     }
     
     func goBackToDetailsAppointmentScreen(appointment: AppointmentModel) {

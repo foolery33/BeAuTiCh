@@ -13,4 +13,5 @@ protocol AppointmentRepository {
     func changeAppointmentStatus(appointmentId: UUID, newStatus: StatusAppointmentModel) async throws -> String
     func changeAppointmentInformation(appointmentId: UUID, newInfo: EditAppointmentModel) async throws -> Bool
 	func deleteAppointment(appointmentId: UUID) async throws -> String
+    func createAppointment(newAppointmentModel: AddAppointmentModel) async throws
 }

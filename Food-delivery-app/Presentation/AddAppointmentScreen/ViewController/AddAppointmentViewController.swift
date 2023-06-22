@@ -54,8 +54,28 @@ private extension AddAppointmentViewController {
 
 		ui.saveButtonHandler = { [weak self] in
 			guard let self = self else { return }
-
-			self.viewModel.saveNewAppointment()
+            self.ui.setupActivityIndicator()
+            Task {
+                if await self.viewModel.createAppointment() {
+                    self.showAlert(title: R.string.addAppointmentScreen.success(), message: R.string.addAppointmentScreen.create_appointment_success())
+                }
+                else {
+                    self.showAlert(title: R.string.errors.appointment_creation_error(), message: self.viewModel.error)
+                }
+                self.ui.stopActivityIndicator()
+            }
 		}
+        
+        ui.onNameTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.clientName = text
+        }
+        
+        ui.onDateTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.appointmentDate = text
+        }
+        
+        ui.onPhoneNumberTextFieldValueChanged = { [weak self] text in
+            self?.viewModel.phoneNumber = text
+        }
 	}
 }

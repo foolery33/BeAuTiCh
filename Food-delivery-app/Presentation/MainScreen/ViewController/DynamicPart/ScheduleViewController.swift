@@ -13,11 +13,7 @@ final class ScheduleViewController: UIViewController {
     private let dayAppointments: [AppointmentModel]
     private var notes: [NoteView] = []
     
-    var changeDateTimeStringToHhMm: ((String) -> (String))? {
-        didSet {
-//            setupNotes(dayAppointments: dayAppointments)
-        }
-    }
+    var changeDateTimeStringToHhMm: ((String) -> (String))?
     
     init(dayAppointments: [AppointmentModel], viewModel: MainViewModel) {
 		self.viewModel = viewModel
@@ -32,7 +28,6 @@ final class ScheduleViewController: UIViewController {
     
     private func setupSubviews() {
         setupScrollView()
-//        setupNotes()
     }
     
     // MARK: - ScrollView setup
@@ -67,6 +62,19 @@ final class ScheduleViewController: UIViewController {
         contentStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
+        }
+    }
+    
+    // MARK: - ChillImageView setup
+    private lazy var chillImageView: UIImageView = {
+        let myImageView = UIImageView()
+        myImageView.image = R.image.chillImage()
+        return myImageView
+    }()
+    private func setupChillImageView() {
+        scrollView.addSubview(chillImageView)
+        chillImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     
@@ -110,13 +118,21 @@ extension ScheduleViewController {
         for subview in rightStackView.arrangedSubviews {
             subview.removeFromSuperview()
         }
+        // Удаление картинки-заглушки
+        chillImageView.removeFromSuperview()
         
-        for appointment in dayAppointments {
-            createNote(appointment: appointment, customerName: appointment.clientName, serviceName: appointment.services.map { $0.name }, time: appointment.startDateTime, cost: appointment.price)
+        if dayAppointments.count != 0 {
+            for appointment in dayAppointments {
+                createNote(appointment: appointment, customerName: appointment.clientName, serviceName: appointment.services.map { $0.name }, time: appointment.startDateTime, cost: appointment.price)
+            }
+      
+            leftStackView.addArrangedSubview(createEmptyView())
+            rightStackView.addArrangedSubview(createEmptyView())
         }
-  
-        leftStackView.addArrangedSubview(createEmptyView())
-        rightStackView.addArrangedSubview(createEmptyView())
+        else {
+            setupChillImageView()
+        }
+        
     }
     
 }

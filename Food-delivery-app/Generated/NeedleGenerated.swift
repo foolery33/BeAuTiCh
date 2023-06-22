@@ -245,6 +245,9 @@ private class AddAppointmentComponentDependencyae4377318630ce797794Provider: Add
     var convertDateToDdMmYyyyHhMmSsUseCase: ConvertDateToDdMmYyyyHhMmSsUseCase {
         return mainComponent.convertDateToDdMmYyyyHhMmSsUseCase
     }
+    var appointmentRepository: AppointmentRepository {
+        return mainComponent.appointmentRepository
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -368,6 +371,7 @@ extension ProfileComponent: Registration {
 extension AddAppointmentComponent: Registration {
     public func registerItems() {
         keyPathToName[\AddAppointmentComponentDependency.convertDateToDdMmYyyyHhMmSsUseCase] = "convertDateToDdMmYyyyHhMmSsUseCase-ConvertDateToDdMmYyyyHhMmSsUseCase"
+        keyPathToName[\AddAppointmentComponentDependency.appointmentRepository] = "appointmentRepository-AppointmentRepository"
     }
 }
 extension LoginComponent: Registration {
