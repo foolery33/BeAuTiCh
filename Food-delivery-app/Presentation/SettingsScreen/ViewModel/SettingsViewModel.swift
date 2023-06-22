@@ -81,7 +81,7 @@ final class SettingsViewModel {
 
 	func cancelSubscribe() async -> Bool {
 		do {
-			_ = try await subscribeRepository?.changeStatusSubscribe(status: false)
+			try await subscribeRepository?.changeStatusSubscribe(status: false)
 
 			return true
 
@@ -98,7 +98,7 @@ final class SettingsViewModel {
 
 	func subscribe() async -> Bool {
 		do {
-			_ = try await subscribeRepository?.changeStatusSubscribe(status: true)
+			try await subscribeRepository?.changeStatusSubscribe(status: true)
 
 			return true
 
@@ -146,7 +146,7 @@ final class SettingsViewModel {
 				return false
 			}
 			
-			_ = try await servicesRepository?.createCustomService(parameters: model)
+			try await servicesRepository?.createCustomService(parameters: model)
 			return true
 
 		} catch(let error) {
@@ -170,7 +170,7 @@ final class SettingsViewModel {
 				return false
 			}
 			
-			_ = try await servicesRepository?.editCustomService(serviceId: serviceId, parameters: model)
+			try await servicesRepository?.editCustomService(serviceId: serviceId, parameters: model)
 			return true
 
 		} catch(let error) {
@@ -187,7 +187,7 @@ final class SettingsViewModel {
 
 	func deleteDervice(serviceId: UUID) async -> Bool {
 		do {
-			_ = try await servicesRepository?.deleteCustomService(serviceId: serviceId)
+			try await servicesRepository?.deleteCustomService(serviceId: serviceId)
 			return true
 
 		} catch(let error) {

@@ -87,83 +87,71 @@ final class ServicesRepositoryImplementation: ServicesRepository {
 		}
 	}
 
-	func createCustomService(parameters: CreateService) async throws -> String {
+	func createCustomService(parameters: CreateService) async throws {
 		let url = baseURL + "api/services"
-		let dataTask = AF.request(
+		let dataResponse = await AF.request(
 			url,
 			method: .post,
 			parameters: parameters,
 			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 200:
-				throw AppError.servicesError(.modelError)
-			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
-			default:
-				throw AppError.servicesError(.serverError)
-			}
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = dataResponse.response?.statusCode
+		switch requestStatusCode {
+		case 200:
+			return
+		case 401:
+			throw AppError.servicesError(.unauthorized)
+		case 403:
+			throw AppError.servicesError(.forbiddenAccess)
+		default:
+			throw AppError.servicesError(.serverError)
 		}
 	}
 
-	func deleteCustomService(serviceId: UUID) async throws -> String {
+	func deleteCustomService(serviceId: UUID) async throws {
 		let url = baseURL + "api/services/\(serviceId)"
-		let dataTask = AF.request(
+		let dataResponse = await AF.request(
 			url,
 			method: .delete,
 			parameters: serviceId,
 			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 200:
-				throw AppError.servicesError(.modelError)
-			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
-			default:
-				throw AppError.servicesError(.serverError)
-			}
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = dataResponse.response?.statusCode
+		switch requestStatusCode {
+		case 200:
+			throw AppError.servicesError(.modelError)
+		case 401:
+			throw AppError.servicesError(.unauthorized)
+		case 403:
+			throw AppError.servicesError(.forbiddenAccess)
+		default:
+			throw AppError.servicesError(.serverError)
 		}
 	}
 
 
-	func editCustomService(serviceId: UUID, parameters: EditService) async throws -> String {
+	func editCustomService(serviceId: UUID, parameters: EditService) async throws {
 		let url = baseURL + "api/services/\(serviceId)"
 
-		let dataTask = AF.request(
+		let dataResponse = await AF.request(
 			url,
 			method: .put,
 			parameters: parameters,
 			encoder: JSONParameterEncoder.default,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 200:
-				throw AppError.servicesError(.modelError)
-			case 401:
-				throw AppError.servicesError(.unauthorized)
-			case 403:
-				throw AppError.servicesError(.forbiddenAccess)
-			default:
-				throw AppError.servicesError(.serverError)
-			}
+		).serializingDecodable(Empty.self).response
+		let requestStatusCode = dataResponse.response?.statusCode
+		switch requestStatusCode {
+		case 200:
+			return
+		case 401:
+			throw AppError.servicesError(.unauthorized)
+		case 403:
+			throw AppError.servicesError(.forbiddenAccess)
+		default:
+			throw AppError.servicesError(.serverError)
 		}
 	}
     

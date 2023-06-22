@@ -38,7 +38,7 @@ class ProfileViewModel {
 
 	func changeDataProfile(with parameters: ChangeDataProfileModel) async -> Bool {
 		do {
-			.serializingDecodable(Empty.self).responsetry await profileRepository.changeDataProfile(parameters: parameters)
+			try await profileRepository.changeDataProfile(parameters: parameters)
 			return true
 
 		} catch (let error) {

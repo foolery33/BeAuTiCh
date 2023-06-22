@@ -36,7 +36,7 @@ class DetailsAppointmentViewModel {
     
     func changeAppointmentStatus(newStatus: StatusAppointmentModel) async -> Bool {
         do {
-            _ = try await appointmentRepository.changeAppointmentStatus(appointmentId: appointment.data?.id ?? UUID(), newStatus: newStatus)
+            try await appointmentRepository.changeAppointmentStatus(appointmentId: appointment.data?.id ?? UUID(), newStatus: newStatus)
             appointment.data?.status = newStatus
             return true
         } catch(let error) {
@@ -53,7 +53,7 @@ class DetailsAppointmentViewModel {
 	func deleteAppointment() async -> Bool {
 		do {
 			if let appointmentId = self.appointment.data?.id {
-				_ = try await appointmentRepository.deleteAppointment(appointmentId: appointmentId)
+				try await appointmentRepository.deleteAppointment(appointmentId: appointmentId)
 				return true
 			}
 

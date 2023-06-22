@@ -12,7 +12,7 @@ protocol ServicesRepository {
     func getAllServices() async throws -> [ServiceModel]
 	func getCustomServices() async throws -> [ServiceModel]
 	func getService(serviceId: UUID) async throws -> ServiceModel
-	func createCustomService(parameters: CreateService) async throws -> String
-	func deleteCustomService(serviceId: UUID) async throws -> String
-	func editCustomService(serviceId: UUID, parameters: EditService) async throws -> String
+	func createCustomService(parameters: CreateService) async throws
+	func deleteCustomService(serviceId: UUID) async throws
+	func editCustomService(serviceId: UUID, parameters: EditService) async throws
 }

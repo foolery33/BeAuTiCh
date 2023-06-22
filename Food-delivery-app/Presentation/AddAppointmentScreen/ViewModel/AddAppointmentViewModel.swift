@@ -44,14 +44,15 @@ class AddAppointmentViewModel {
                 error = R.string.errors.empty_client_name()
                 return false
             }
+			
             let newAppointment = AddAppointmentModel(
                 clientName: clientName,
                 clientPhone: phoneNumber,
                 startDateTime: convertToDate(appointmentDate ?? ""),
                 idServices: selectedServiceIds
             )
-            print(newAppointment)
-            _ = try await appointmentRepository.createAppointment(
+
+            try await appointmentRepository.createAppointment(
                 newAppointmentModel: newAppointment
             )
             return true
