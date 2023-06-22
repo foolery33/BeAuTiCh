@@ -24,6 +24,7 @@ class ServiceTagLabelsView: UIView {
             addTagLabels()
         }
     }
+    var isFromSettings: Bool = false
     
     var intrinsicHeight: CGFloat = 0
     
@@ -111,6 +112,14 @@ class ServiceTagLabelsView: UIView {
     
     @objc private func serviceTagPressed(_ serviceTag: ServiceTapGesture) {
         onServiceTagTapped?(serviceTag.serviceShortModel)
+        if isFromSettings == false {
+            if serviceTag.view?.backgroundColor == R.color.white()! {
+                serviceTag.view?.backgroundColor = R.color.transparentWhite()
+            }
+            else {
+                serviceTag.view?.backgroundColor = R.color.white()
+            }
+        }
     }
     
     func displayTagLabels() {
