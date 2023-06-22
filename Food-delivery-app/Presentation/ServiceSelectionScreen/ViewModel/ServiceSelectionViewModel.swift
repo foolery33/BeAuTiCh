@@ -59,6 +59,8 @@ final class ServiceSelectionViewModel {
             mainCoordinator?.setSelectedServices(opener: .editAppointmentScreen, selectedServiceIds, selectedServiceShortModels)
         case .addAppointmentScreen:
             mainCoordinator?.setSelectedServices(opener: .addAppointmentScreen, selectedServiceIds, selectedServiceShortModels)
+        case .settings:
+            return
         case .none:
             return
         }
@@ -70,4 +72,5 @@ enum ServiceSelectionOpener {
     case searchScreen
     case editAppointmentScreen
     case addAppointmentScreen
+    case settings
 }
