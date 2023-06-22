@@ -156,7 +156,7 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         case 200:
             return
 		case 400:
-			throw AppError.appointmentError(.modelError)
+			throw AppError.appointmentError(.timeConflicts)
         case 401:
             throw AppError.appointmentError(.unauthorized)
         case 403:
@@ -175,6 +175,7 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         case forbiddenAccess
         case unexpectedError
 		case notFound
+        case timeConflicts
 
         var id: String {
             self.errorDescription
@@ -194,6 +195,8 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
                 return R.string.errors.unexpected_error()
 			case .notFound:
 				return R.string.errors.appointment_not_found()
+            case .timeConflicts:
+                return R.string.errors.time_confilcts()
             }
         }
     }

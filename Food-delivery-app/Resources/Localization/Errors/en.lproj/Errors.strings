@@ -38,6 +38,7 @@
 "appointment_not_found" = "An error occurred while deleting an entry";
 "appointment_change_error" = "Appointment change error";
 "appointment_creation_error" = "Appointment creation error";
+"time_confilcts" = "Some time conflicts occured. Make sure your services are not being overlapped";
 
 // MARK: - settings validation
 "empty_service_name" = "The field with the name of the service must be filled in";
