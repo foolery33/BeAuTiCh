@@ -124,7 +124,7 @@ class YourServicesViewController: UIViewController {
 					)
 				}
 			} else {
-				self?.showAlert(title: "Поле с ценником не заполнено или неправильного формата", message: nil)
+				self?.showAlert(title: R.string.errors.not_valid_price(), message: nil)
 			}
 		}
 

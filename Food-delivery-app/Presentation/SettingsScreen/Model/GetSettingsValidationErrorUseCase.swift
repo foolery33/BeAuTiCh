@@ -23,13 +23,16 @@ final class GetSettingsValidationErrorUseCase {
 			try checkValidDuration(duration: duration)
 
 		} catch SettingsValidationError.emptyFieldNameService {
-			errorMesssages.append(SettingsValidationError.emptyFieldNameService.rawValue)
+			errorMesssages.append(AppError.settingsValisationError(.emptyFieldNameService).errorDescription)
+
 		} catch SettingsValidationError.emptyFieldPrice {
-			errorMesssages.append(SettingsValidationError.emptyFieldPrice.rawValue)
+			errorMesssages.append(AppError.settingsValisationError(.emptyFieldPrice).errorDescription)
+
 		} catch SettingsValidationError.emptyFieldDuration {
-			errorMesssages.append(SettingsValidationError.emptyFieldDuration.rawValue)
+			errorMesssages.append(AppError.settingsValisationError(.emptyFieldDuration).errorDescription)
+
 		} catch SettingsValidationError.notValidFieldPrice {
-			errorMesssages.append(SettingsValidationError.notValidFieldPrice.rawValue)
+			errorMesssages.append(AppError.settingsValisationError(.notValidFieldPrice).errorDescription)
 		}
 
 		return errorMesssages
