@@ -17,7 +17,7 @@ final class AuthRepositoryImplementation: AuthRepository {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        let dataTask = AF.request(
+        let dataResponse = AF.request(
             url,
             method: .post,
             parameters: credentials,
@@ -25,9 +25,9 @@ final class AuthRepositoryImplementation: AuthRepository {
             headers: headers
         ).serializingDecodable(TokenPairModel.self)
         do {
-            return try await dataTask.value
+            return try await dataResponse.value
         } catch {
-            let requestStatusCode = await dataTask.response.response?.statusCode
+            let requestStatusCode = await dataResponse.response.response?.statusCode
             switch requestStatusCode {
             case 200:
                 throw AppError.authError(.modelError)
@@ -46,7 +46,7 @@ final class AuthRepositoryImplementation: AuthRepository {
         let headers: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
-        let dataTask = AF.request(
+        let dataResponse = AF.request(
             url,
             method: .post,
             parameters: credentials,
@@ -54,9 +54,9 @@ final class AuthRepositoryImplementation: AuthRepository {
             headers: headers
         ).serializingDecodable(TokenPairModel.self)
         do {
-            return try await dataTask.value
+            return try await dataResponse.value
         } catch {
-            let requestStatusCode = await dataTask.response.response?.statusCode
+            let requestStatusCode = await dataResponse.response.response?.statusCode
             switch requestStatusCode {
             case 200:
                 throw AppError.authError(.modelError)
