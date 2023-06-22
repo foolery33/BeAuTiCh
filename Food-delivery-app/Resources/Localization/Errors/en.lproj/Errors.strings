@@ -44,3 +44,5 @@
 "empty_service_price" = "The price field must be filled in";
 "empty_service_duration" = "The field with the duration of the service is required to fill in";
 "not_valid_price" = "Incorrect price format. The price must be a positive integer or decimal number";
+
+"empty_fields" = "You have not filled in all the fields. Fill it out and try again";
