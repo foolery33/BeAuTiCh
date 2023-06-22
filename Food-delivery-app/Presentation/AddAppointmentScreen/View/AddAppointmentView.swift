@@ -135,6 +135,7 @@ class AddAppointmentView: UIView {
 		super.init(frame: .zero)
 
 		setup()
+        addKeyboardDidmiss()
 	}
 	
 	required init?(coder: NSCoder) {

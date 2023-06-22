@@ -60,10 +60,11 @@ final class MainCoordinator: CoordinatorProtocol {
 		navigationController.popViewController(animated: true)
 	}
 
-    func goToServiceSelectionScreen(selectedServiceIds: [UUID], from opener: ServiceSelectionOpener) {
+    func goToServiceSelectionScreen(selectedServiceIds: [UUID], selectedServiceShortModels: [ServiceShortModel], from opener: ServiceSelectionOpener) {
 		let serviceSelectionComponent = componentFactory.getServiceSelectionComponent()
 		serviceSelectionComponent.serviceSelectionViewModel.mainCoordinator = self
 		serviceSelectionComponent.serviceSelectionViewModel.selectedServiceIds = selectedServiceIds
+        serviceSelectionComponent.serviceSelectionViewModel.selectedServiceShortModels = selectedServiceShortModels
         serviceSelectionComponent.serviceSelectionViewModel.opener = opener
 
 		navigationController.present(serviceSelectionComponent.serviceSelectionViewController, animated: true)
