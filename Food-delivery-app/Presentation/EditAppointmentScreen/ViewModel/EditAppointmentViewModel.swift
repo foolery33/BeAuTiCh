@@ -65,7 +65,7 @@ class EditAppointmentViewModel {
                 servicesId: selectedServiceIds
             )
             print(newInfo)
-            _ = try await appointmentRepository.changeAppointmentInformation(appointmentId: appointment.data?.id ?? UUID(), newInfo: newInfo)
+            try await appointmentRepository.changeAppointmentInformation(appointmentId: appointment.data?.id ?? UUID(), newInfo: newInfo)
             appointment.data?.clientName = newInfo.clientName
             appointment.data?.clientPhone = newInfo.clientPhone
 			appointment.data?.startDateTime = self.convertDateToDdMmYyyyHhMmSsUseCase.convertToString(newInfo.startDateTime ?? "")

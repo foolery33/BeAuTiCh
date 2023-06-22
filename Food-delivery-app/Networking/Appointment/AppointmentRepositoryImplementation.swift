@@ -68,63 +68,57 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         }
     }
     
-    func changeAppointmentStatus(appointmentId: UUID, newStatus: StatusAppointmentModel) async throws -> String {
+    func changeAppointmentStatus(appointmentId: UUID, newStatus: StatusAppointmentModel) async throws {
         let url = baseURL + "api/appointments/\(appointmentId)/status"
         let parameters = [
             "status": newStatus
         ]
-        let dataTask = AF.request(
+        let dataResponse = await AF.request(
             url,
             method: .put,
             parameters: parameters,
             encoding: URLEncoding.queryString,
             interceptor: interceptor
-        ).serializingString()
-        do {
-            return try await dataTask.value
-        } catch {
-            let requestStatusCode = await dataTask.response.response?.statusCode
-            switch requestStatusCode {
-            case 401:
-                throw AppError.appointmentError(.unauthorized)
-            case 403:
-                throw AppError.appointmentError(.forbiddenAccess)
-            case 500:
-                throw AppError.appointmentError(.serverError)
-            default:
-                throw AppError.appointmentError(.unexpectedError)
-            }
+        ).serializingDecodable(Empty.self).response
+        switch dataResponse.response?.statusCode {
+        case 200:
+            return
+        case 401:
+            throw AppError.appointmentError(.unauthorized)
+        case 403:
+            throw AppError.appointmentError(.forbiddenAccess)
+        case 500:
+            throw AppError.appointmentError(.serverError)
+        default:
+            throw AppError.appointmentError(.unexpectedError)
         }
     }
 
-	func deleteAppointment(appointmentId: UUID) async throws -> String {
+	func deleteAppointment(appointmentId: UUID) async throws {
 		let url = baseURL + "api/appointments/\(appointmentId)"
 
-		let dataTask = AF.request(
+		let dataResponse = await AF.request(
 			url,
 			method: .delete,
 			interceptor: interceptor
-		).serializingString()
-		do {
-			return try await dataTask.value
-		} catch {
-			let requestStatusCode = await dataTask.response.response?.statusCode
-			switch requestStatusCode {
-			case 401:
-				throw AppError.appointmentError(.unauthorized)
-			case 403:
-				throw AppError.appointmentError(.forbiddenAccess)
-			case 404:
-				throw AppError.appointmentError(.notFound)
-			case 500:
-				throw AppError.appointmentError(.serverError)
-			default:
-				throw AppError.appointmentError(.unexpectedError)
-			}
-		}
+        ).serializingDecodable(Empty.self).response
+        switch dataResponse.response?.statusCode {
+        case 200:
+            return
+        case 400:
+            throw AppError.appointmentError(.modelError)
+        case 401:
+            throw AppError.appointmentError(.unauthorized)
+        case 403:
+            throw AppError.appointmentError(.forbiddenAccess)
+        case 500:
+            throw AppError.appointmentError(.serverError)
+        default:
+            throw AppError.appointmentError(.unexpectedError)
+        }
 	}
     
-    func changeAppointmentInformation(appointmentId: UUID, newInfo: EditAppointmentModel) async throws -> Bool {
+    func changeAppointmentInformation(appointmentId: UUID, newInfo: EditAppointmentModel) async throws {
         let url = baseURL + "api/appointments/\(appointmentId)"
         let dataResponse = await AF.request(
             url,
@@ -135,7 +129,7 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         ).serializingDecodable(Empty.self).response
         switch dataResponse.response?.statusCode {
         case 200:
-            return true
+            return
 		case 400:
 			throw AppError.appointmentError(.modelError)
         case 401:
