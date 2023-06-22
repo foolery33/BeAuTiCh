@@ -131,7 +131,7 @@ final class AppointmentRepositoryImplementation: AppointmentRepository {
         case 200:
             return
 		case 400:
-			throw AppError.appointmentError(.modelError)
+			throw AppError.appointmentError(.timeConflicts)
         case 401:
             throw AppError.appointmentError(.unauthorized)
         case 403:
