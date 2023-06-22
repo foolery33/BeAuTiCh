@@ -186,7 +186,7 @@ final class ProfileRepositoryImplementation: ProfileRepository {
 			method: .delete,
 			interceptor: interceptor
 		).serializingDecodable(Empty.self).response
-		let requestStatusCode = await dataResponse.response?.statusCode
+		let requestStatusCode = dataResponse.response?.statusCode
 
 		switch requestStatusCode {
 		case 200:
