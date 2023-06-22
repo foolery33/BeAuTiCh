@@ -11,7 +11,7 @@ final class ChangeDateTimeStringToHhMmUseCase {
     
     func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         guard let date = dateFormatter.date(from: dateString) else { return nil }
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)

@@ -165,6 +165,7 @@ private extension YourServicesView {
         self.addSubview(titleSheetScreen)
         self.addSubview(plusButton)
         self.addSubview(serviceTags)
+        serviceTags.isFromSettings = true
     }
 
 	func configureUIPlugSubscribe() {

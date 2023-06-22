@@ -373,7 +373,7 @@ struct _R {
       var title_screen: RswiftResources.StringResource { .init(key: "title_screen", tableName: "EditAppointmentScreen", source: source, developmentValue: "Edit appointment", comment: nil) }
     }
 
-    /// This `_R.string.errors` struct is generated, and contains static references to 34 localization keys.
+    /// This `_R.string.errors` struct is generated, and contains static references to 35 localization keys.
     struct errors {
       let source: RswiftResources.StringResource.Source
 
@@ -446,6 +446,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var empty_email: RswiftResources.StringResource { .init(key: "empty_email", tableName: "Errors", source: source, developmentValue: "Please enter e-mail to continue", comment: nil) }
+
+      /// en translation: You have not filled in all the fields. Fill it out and try again
+      ///
+      /// Key: empty_fields
+      ///
+      /// Locales: en, ru
+      var empty_fields: RswiftResources.StringResource { .init(key: "empty_fields", tableName: "Errors", source: source, developmentValue: "You have not filled in all the fields. Fill it out and try again", comment: nil) }
 
       /// en translation: Please enter first name to continue
       ///
@@ -600,6 +607,13 @@ struct _R {
       ///
       /// Locales: en, ru
       var services_loading_error: RswiftResources.StringResource { .init(key: "services_loading_error", tableName: "Errors", source: source, developmentValue: "Error loading services", comment: nil) }
+
+      /// en translation: Some time conflicts occured. Make sure your services are not being overlapped
+      ///
+      /// Key: time_confilcts
+      ///
+      /// Locales: en, ru
+      var time_confilcts: RswiftResources.StringResource { .init(key: "time_confilcts", tableName: "Errors", source: source, developmentValue: "Some time conflicts occured. Make sure your services are not being overlapped", comment: nil) }
 
       /// en translation: Your authentication token is expired. Please login again
       ///

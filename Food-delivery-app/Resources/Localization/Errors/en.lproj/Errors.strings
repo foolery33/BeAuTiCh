@@ -38,9 +38,12 @@
 "appointment_not_found" = "An error occurred while deleting an entry";
 "appointment_change_error" = "Appointment change error";
 "appointment_creation_error" = "Appointment creation error";
+"time_confilcts" = "Some time conflicts occured. Make sure your services are not being overlapped";
 
 // MARK: - settings validation
 "empty_service_name" = "The field with the name of the service must be filled in";
 "empty_service_price" = "The price field must be filled in";
 "empty_service_duration" = "The field with the duration of the service is required to fill in";
 "not_valid_price" = "Incorrect price format. The price must be a positive integer or decimal number";
+
+"empty_fields" = "You have not filled in all the fields. Fill it out and try again";

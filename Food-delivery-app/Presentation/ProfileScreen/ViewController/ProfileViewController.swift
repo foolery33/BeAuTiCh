@@ -78,8 +78,17 @@ class ProfileViewController: UIViewController {
 		let actionCancel = UIAlertAction(title: R.string.profileScreen.cancel(), style: .cancel)
 		let actionSave = UIAlertAction(title: R.string.profileScreen.save(), style: .default) { [ weak self ] action in
 
-			self?.changeDataProfile(with: ChangeDataProfileModel(fullName: alertController.textFields?[0].text ?? String(),
-																 phoneNumber: alertController.textFields?[1].text))
+			if let fullname = alertController.textFields?[0].text, let phone = alertController.textFields?[1].text {
+
+				if fullname.isEmpty || phone.isEmpty {
+					self?.showAlert(title: R.string.errors.empty_fields(), message: nil)
+				} else {
+
+					self?.changeDataProfile(with: ChangeDataProfileModel(fullName: fullname, phoneNumber: phone))
+				}
+			} else {
+				self?.showAlert(title: R.string.errors.empty_fields(), message: nil)
+			}
 		}
 
 		alertController.addAction(actionSave)
@@ -108,9 +117,19 @@ class ProfileViewController: UIViewController {
 		let actionCancel = UIAlertAction(title: R.string.profileScreen.cancel(), style: .cancel)
 		let actionSave = UIAlertAction(title: R.string.profileScreen.save(), style: .default) { [ weak self ] action in
 
-			self?.changePassword(parameters: ChangePassword(
-				oldPassword: alertController.textFields?[0].text ?? String(),
-				newPassword: alertController.textFields?[1].text ?? String()))
+
+			if let oldPassword = alertController.textFields?[0].text, let newPassword = alertController.textFields?[1].text {
+
+				if oldPassword.isEmpty || newPassword.isEmpty {
+					self?.showAlert(title: R.string.errors.empty_fields(), message: nil)
+				} else {
+					self?.changePassword(parameters: ChangePassword(
+						oldPassword: oldPassword,
+						newPassword: newPassword))
+				}
+			} else {
+				self?.showAlert(title: R.string.errors.empty_fields(), message: nil)
+			}
 		}
 
 		alertController.addAction(actionSave)

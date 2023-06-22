@@ -16,11 +16,11 @@ final class GetSortedWeekAppointmentsUseCase {
         for date in 0..<dates.count {
             result.append([])
             for appointment in 0..<appointments.count {
-                if(formatDate(appointments[appointment].startDateTime) == convertDateToString(dates[date])) {
+                if formatDate(appointments[appointment].startDateTime) == convertDateToString(dates[date]) {
                     result[date].append(appointments[appointment])
                 }
             }
-            if(result[date].count > 1) {
+            if result[date].count > 1 {
                 result[date] = sortAppointments(appointments: result[date])
             }
         }
@@ -34,7 +34,7 @@ final class GetSortedWeekAppointmentsUseCase {
     func formatDate(_ dateString: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = .current
         guard let date = dateFormatter.date(from: dateString) else {
             let newDateFormatter = DateFormatter()
             newDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -50,7 +50,7 @@ final class GetSortedWeekAppointmentsUseCase {
     func sortAppointments(appointments: [AppointmentModel]) -> [AppointmentModel] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = .current
         
         let newDateFormatter = DateFormatter()
         newDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -65,6 +65,7 @@ final class GetSortedWeekAppointmentsUseCase {
     func convertDateToString(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.timeZone = .current
         return dateFormatter.string(from: date)
     }
     
