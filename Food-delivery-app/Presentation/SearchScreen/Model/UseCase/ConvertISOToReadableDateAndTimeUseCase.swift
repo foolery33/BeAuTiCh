@@ -18,6 +18,13 @@ final class ConvertISOToReadableDateAndTimeUseCase {
             return dateFormatter.string(from: date)
         }
 
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+		if let date = dateFormatter.date(from: dateString) {
+			dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+			return dateFormatter.string(from: date)
+		}
+
         return nil
     }
     
