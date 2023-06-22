@@ -60,7 +60,7 @@ class EditAppointmentViewModel {
             let newInfo = EditAppointmentModel(
                 clientName: clientName,
                 clientPhone: phoneNumber,
-                startDateTime: "\(convertToDate(appointmentDate ?? "") ?? Date())",
+                startDateTime: convertToDate(appointmentDate ?? ""),
                 servicesId: selectedServiceIds
             )
             print(newInfo)
@@ -81,11 +81,17 @@ class EditAppointmentViewModel {
         }
     }
     
-    func convertToDate(_ dateString: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        return dateFormatter.date(from: dateString)
+    func convertToDate(_ dateString: String) -> String {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+		dateFormatter.locale = .current
+		dateFormatter.timeZone = .current
+
+		if let date = dateFormatter.date(from: dateString) {
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+			return dateFormatter.string(from: date)
+		}
+
+		return dateString
     }
 }
