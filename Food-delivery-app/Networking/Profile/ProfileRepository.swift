@@ -9,10 +9,10 @@ import UIKit
 
 protocol ProfileRepository {
 	func getDataProfile() async throws -> ProfileModel
-	func changeDataProfile(parameters: ChangeDataProfileModel) async throws -> String
-	func changePassword(parameters: ChangePassword) async throws -> Bool
+	func changeDataProfile(parameters: ChangeDataProfileModel) async throws
+	func changePassword(parameters: ChangePassword) async throws
 	func getAvatar() async throws -> Data
-	func deleteAvatar() async throws -> String
-	func logout() async throws -> String
+	func deleteAvatar() async throws
+	func logout() async throws
 	func uploadPhoto(imageData: Data, completion: @escaping (Result<Bool, AppError>) -> Void)
 }
