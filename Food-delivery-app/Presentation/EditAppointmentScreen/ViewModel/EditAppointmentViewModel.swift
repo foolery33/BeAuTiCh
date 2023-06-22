@@ -36,6 +36,7 @@ class EditAppointmentViewModel {
         self.appointmentDate = appointment.data?.startDateTime
         self.phoneNumber = appointment.data?.clientPhone
         self.selectedServiceIds = appointmentModel.services.map { $0.id }
+        self.selectedServiceShortModels = appointmentModel.services
     }
 
 	func convertDateToDdMmYyyy(_ date: Date) -> String {
@@ -48,7 +49,7 @@ class EditAppointmentViewModel {
 	}
 
 	func goToServiceSelectionScreen() {
-        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, from: .editAppointmentScreen)
+        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, selectedServiceShortModels: selectedServiceShortModels, from: .editAppointmentScreen)
 	}
 
     func changeAppointmentInfo() async -> Bool {

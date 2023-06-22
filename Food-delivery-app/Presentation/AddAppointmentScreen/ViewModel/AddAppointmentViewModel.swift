@@ -35,7 +35,7 @@ class AddAppointmentViewModel {
 	}
 
 	func goToServiceSelectionScreen() {
-        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, from: .addAppointmentScreen)
+        coordinator?.goToServiceSelectionScreen(selectedServiceIds: selectedServiceIds, selectedServiceShortModels: [], from: .addAppointmentScreen)
 	}
 
     func createAppointment() async -> Bool {
