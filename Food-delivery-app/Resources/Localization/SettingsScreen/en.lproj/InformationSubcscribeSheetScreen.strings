@@ -1,0 +1,13 @@
+/*
+  InformationSubcscribeSheetScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 13.06.2023.
+
+*/
+
+"title_screen" = "Subscription Information";
+"start_date_subscribe" = "The subscription has been issued: ";
+"cancel_subscription" = "Cancel subscription";
+"there_is_not_subscribe" = "You don't have a subscription yet. Make out soon";
+"subscribe" = "subscribe";

@@ -1,0 +1,46 @@
+/*
+  Errors.strings
+  Food-delivery-app
+
+  Created by Nikita Usov on 13.06.2023.
+
+*/
+
+"server_error" = "Some server error occured. Please try again later";
+"model_error" = "Internal application error. Please contact developer";
+"unauthorized" = "Your authentication token is expired. Please login again";
+"forbidden_access" = "You've got no rights to perform this operation";
+"invalid_credentials" = "Either your e-mail or password are incorrect";
+"conflicting_credentials" = "User with such e-mail already exists";
+"unexpected_error" = "Some unexpected error occured. Please contact developer";
+
+"register_error" = "Register error";
+"login_error" = "Login error";
+"invalid_email" = "Your email does not conform to default email pattern";
+"empty_client_name" = "Client name must not be empty";
+"empty_email" = "Please enter e-mail to continue";
+"empty_password" = "Please enter password to continue";
+"empty_confirm_password" = "Please confirm password to continue";
+"empty_first_name" = "Please enter first name to continue";
+"empty_last_name" = "Please enter last name to continue";
+"invalid_password" = "Password should contain at least one uppercase, one lowercase letter and one digit. The password should be at least 6 characters long";
+"different_passwords" = "You've provided different passwords. Please make sure they are equal";
+"invalid_phone_number" = "Invalid phone number format";
+
+"ok" = "Ok";
+"services_loading_error" = "Error loading services";
+"password_changed_error" = "Password change error";
+"not_correct_old_password" = "The old password entered is incorrect";
+"photo_not_found" = "Profile picture not found";
+"appointments_loading_error" = "Appointments loading error";
+"not_fount_subscribe" = "Unfortunately, an error occurred on the server. Your subscription was not found, please try again";
+"appointment_status_change_error" = "Appointment status change error";
+"appointment_not_found" = "An error occurred while deleting an entry";
+"appointment_change_error" = "Appointment change error";
+"appointment_creation_error" = "Appointment creation error";
+
+// MARK: - settings validation
+"empty_service_name" = "The field with the name of the service must be filled in";
+"empty_service_price" = "The price field must be filled in";
+"empty_service_duration" = "The field with the duration of the service is required to fill in";
+"not_valid_price" = "Incorrect price format. The price must be a positive integer or decimal number";

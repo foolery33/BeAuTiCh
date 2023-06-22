@@ -1,0 +1,18 @@
+/* 
+  EditAppointmentScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 21.06.2023.
+  
+*/
+"title_screen" = "Edit appointment";
+"input_client_name" = "Input client's name";
+"input_client_name_placeholder" = "Input name*";
+"input_date" = "Select the date and time of recording";
+"input_date_placeholder" = "Select date";
+"input_phone" = "Input client's phone";
+"input_phone_placeholder" = "Input phone";
+"shoose_services" = "Select services";
+"save" = "Save";
+"success" = "Success";
+"change_appointment_success" = "You've successfully changed appointment information";

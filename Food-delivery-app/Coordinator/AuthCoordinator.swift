@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthCoordinator: CoordinatorProtocol {
+final class AuthCoordinator: CoordinatorProtocol {
     
     var parentCoordinator: CoordinatorProtocol?
     var children: [CoordinatorProtocol] = []
@@ -20,15 +20,47 @@ class AuthCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        goToLoginScreen()
+        if UserDefaults.standard.bool(forKey: "wasLaunched") == false {
+            goToStartScreen()
+            UserDefaults.standard.set(true, forKey: "wasLaunched")
+        }
+        else {
+            goToLoginScreen()
+        }
+    }
+    
+    func goToStartScreen() {
+        let startComponent = componentFactory.getStartComponent()
+        startComponent.startViewModel.coordinator = self
+        
+        navigationController.pushViewController(
+            startComponent.startViewController, animated: true
+        )
     }
     
     func goToLoginScreen() {
         let loginComponent = componentFactory.getLoginComponent()
         loginComponent.loginViewModel.coordinator = self
+        
         navigationController.pushViewController(
-            loginComponent.loginViewController, animated: true
+            loginComponent.loginViewController, animated: false
         )
+    }
+    
+    func goToRegisterScreen() {
+        let registerComponent = componentFactory.getRegisterComponent()
+        registerComponent.registerViewModel.coordinator = self
+        
+        navigationController.pushViewController(
+            registerComponent.registerViewController, animated: true
+        )
+    }
+    
+    func goToMainScreen() {
+        if let appCoordinator = parentCoordinator as? AppCoordinator {
+            appCoordinator.goToMain()
+            parentCoordinator?.childDidFinish(self)
+        }
     }
     
 }

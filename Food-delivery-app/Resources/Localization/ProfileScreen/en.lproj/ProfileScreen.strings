@@ -1,0 +1,26 @@
+/* 
+  ProfileScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 17.06.2023.
+  
+*/
+
+"sign_out" = "Log out";
+"delete_photo" = "delete a photo";
+"change_photo" = "edit photo";
+"phone" = "Phone: ";
+"email" = "Email: ";
+"change_data" = "Change data";
+"change_password" = "Change password";
+"title_alert_input_data" = "Input data";
+"save" = "Save";
+"cancel" = "Cancel";
+"input_name" = "Input your name";
+"input_phone" = "Input your phone";
+"title_alert_change_password" = "Changing the password";
+"message_alert_change_password" = "To change the password, you must enter the old and new password";
+"input_old_password" = "Enter the old password";
+"input_new_password" = "Enter the new password";
+"susscess_change_password" = "Password change was successful";
+"success_deleted_avatar" = "Profile photo successfully deleted";

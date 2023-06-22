@@ -1,0 +1,20 @@
+/* 
+  DetailsAppointmentScreen.strings
+  Food-delivery-app
+
+  Created by Елена on 20.06.2023.
+  
+*/
+
+"services" = "Услуги";
+"start_time_appointment" = "Время записи:";
+"end_time_appointment" = "Окончание записи:";
+"phone" = "Телефон:";
+"client_accepted" = "клиент принят";
+"cancel_appointment" = "отменить запись";
+"change_data" = "Изменить данные";
+"completed_status" = "Запись завершена";
+"cancelled_status" = "Запись отменена";
+"status_change_success" = "Успех";
+"status_change_success_message" = "Статус записи успешно изменён";
+"delete" = "Удалить запись";

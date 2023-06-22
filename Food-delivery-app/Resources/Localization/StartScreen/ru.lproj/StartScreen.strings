@@ -1,0 +1,10 @@
+/* 
+  StartScreen.strings
+  Food-delivery-app
+
+  Created by Nikita Usov on 12.06.2023.
+  
+*/
+
+"greeting_phrase" = "Планируй свой рабочий день с удобством";
+"go" = "Вперёд";

@@ -13,19 +13,33 @@ final class AppCoordinator: CoordinatorProtocol {
     var children: [CoordinatorProtocol] = []
     var navigationController: UINavigationController
     
+    private let coordinatorFactory = CoordinatorFactory()
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        goToAuth()
+        if TokenManagerRepositoryImplementation().fetchAccessToken() != nil {
+            goToMain()
+        }
+        else {
+            goToAuth()
+        }
     }
     
     func goToAuth() {
-        let authCoordinator = CoordinatorFactory().createAuthCoordinator(navigationController: navigationController)
+        let authCoordinator = coordinatorFactory.createAuthCoordinator(navigationController: navigationController)
         authCoordinator.parentCoordinator = self
         children.append(authCoordinator)
         authCoordinator.start()
+    }
+    
+    func goToMain() {
+        let mainCoordinator = coordinatorFactory.createMainTabBarCoordinator(navigationController: navigationController)
+        mainCoordinator.parentCoordinator = self
+        children.append(mainCoordinator)
+        mainCoordinator.start()
     }
     
 }
